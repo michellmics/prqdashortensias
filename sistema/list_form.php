@@ -175,9 +175,9 @@ html, body {
                             <div class="col-3">
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." maxlength="10" />
                             </div>
-                            <!-- Botão ocupa 1 parte da largura -->
-                            <div class="col-1">
-                                <button type="button" class="btn btn-primary btn-block">Botão</button>
+                            <!-- Botão pequeno -->
+                            <div class="col-1 d-flex align-items-center">
+                                <button type="button" class="btn btn-primary btn-sm w-100">Botão</button>
                             </div>
                         </div>
                     </div>
@@ -195,6 +195,7 @@ html, body {
         </div><!-- /.box -->
     </div><!--/.col (right) -->
 </section><!-- /.content -->
+
 
 
 
