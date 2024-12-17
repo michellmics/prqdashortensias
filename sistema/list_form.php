@@ -168,6 +168,9 @@ html, body {
             <div class="box-body">
                 <form id="form-empresa" role="form" method="POST">
 
+                <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
+                <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary" onclick="openModal()">SALVAR CADASTRO</button>
+
                     <div class="form-group has-warning">
                         <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
                         <div class="form-row">
@@ -181,8 +184,7 @@ html, body {
                         </div>
                     </div>
 
-                    <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
-                    <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary" onclick="openModal()">SALVAR CADASTRO</button>
+
 
                 </form>
             </div><!-- /.box-body -->
