@@ -178,6 +178,7 @@ html, body {
                                 <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." required/>
                             </div>
                             <div class="col-4">
+                            <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Documento</label>
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="10" />
                             </div>
                         </div>
