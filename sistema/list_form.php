@@ -67,9 +67,15 @@
             bottom: 0; /* Colado no final da página */
             width: 100%; /* Largura total */
         }
-        /* Estilo para fontes menores */
         .small-font {
-            font-size: 12px; /* Ajuste o tamanho da fonte conforme necessário */
+        font-size: 14px; /* Tamanho padrão */
+        }
+    
+        /* Ajuste para telas pequenas */
+        @media (max-width: 768px) {
+            .small-font {
+                font-size: 12px; /* Tamanho menor em dispositivos móveis */
+            }
         }
     </style>
 		
