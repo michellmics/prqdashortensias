@@ -168,9 +168,13 @@ html, body {
                 </div><!-- /.box-header -->
                 <div class="box-body">
                 <form id="form-empresa" role="form" method="POST">
-                    
-                    <!-- select -->
-                    <div class="form-group">
+                    <!-- text input -->
+                    <div class="form-group has-warning">
+                      <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome do Cliente</label>
+                      <input id="nome" name="nome"  style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
+                    </div>
+                                        <!-- select -->
+                                        <div class="form-group">
                       <label>Select</label>
                       <select  id="status" name="status" class="form-control">
                         <option>Não recebeu visita.</option>
@@ -180,11 +184,6 @@ html, body {
                       </select>
                     </div>
                     
-                    <!-- text input -->
-                    <div class="form-group has-warning">
-                      <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome do Cliente</label>
-                      <input id="nome" name="nome"  style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
-                    </div>
                     <div class="form-group">
                       <label>Endereço:</label>
                       <input id="endereco" name="endereco" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
