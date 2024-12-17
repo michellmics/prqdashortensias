@@ -126,7 +126,7 @@ html, body {
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="#slider"><img src="https://serconeo.com.br/new/img/logo_serconeo.png" alt="#"></a>
+									<a href="#slider"><img src="https://prqdashortensias.com.br/sistema/img/logo_hor_hort.png" alt="#"></a>
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->
