@@ -43,7 +43,7 @@
   <body class="login-page">
     <div class="login-box">
       <div class="login-logo">
-        <img src="www.prqdashortensias.com.br/img/logo_site_small.png"></img>
+        <img src="https://www.prqdashortensias.com.br/img/logo_site_small.png"></img>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Acesso a área administrativa</p>
