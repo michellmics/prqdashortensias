@@ -45,30 +45,33 @@
         <!-- SWEETALERT -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <style>
-          /* Configuração geral do HTML e Body */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
+    <style>
+        /* Configuração geral do HTML e Body */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
 
-/* Footer fixo no final */
-.footerNew {
-    background-color: #f0f0f0; /* Cinza bem claro */
-    color: #ccc; /* Cinza clarinho para o texto */
-    font-size: 12px; /* Fonte pequena */
-    text-align: left; /* Centraliza o texto */
-    padding: 0; /* Remove espaçamento interno */
-    height: 30px; /* Altura do footer */
-    line-height: 30px; /* Centraliza verticalmente o texto */
-    position: fixed; /* Fixa o footer */
-    bottom: 0; /* Colado no final da página */
-    width: 100%; /* Largura total */
-}
-
-        </style>
+        /* Footer fixo no final */
+        .footerNew {
+            background-color: #f0f0f0; /* Cinza bem claro */
+            color: #ccc; /* Cinza clarinho para o texto */
+            font-size: 12px; /* Fonte pequena */
+            text-align: left; /* Centraliza o texto */
+            padding: 0; /* Remove espaçamento interno */
+            height: 30px; /* Altura do footer */
+            line-height: 30px; /* Centraliza verticalmente o texto */
+            position: fixed; /* Fixa o footer */
+            bottom: 0; /* Colado no final da página */
+            width: 100%; /* Largura total */
+        }
+        /* Estilo para fontes menores */
+        .small-font {
+            font-size: 12px; /* Ajuste o tamanho da fonte conforme necessário */
+        }
+    </style>
 		
     </head>
     <body>
@@ -170,20 +173,20 @@ html, body {
                 <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
                 <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary" onclick="openModal()">SALVAR CADASTRO</button>
 
-                    <div class="form-group has-warning">
-                        <label class="control-label" for="inputWarning"></label>
-                        <div class="form-row">
-                            <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
-                            <div class="col-8">
-                            <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
-                                <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." required/>
-                            </div>
-                            <div class="col-4">
-                            <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Documento</label>
-                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="10" />
-                            </div>
+                <div class="form-group has-warning">
+                    <label class="control-label small-font" for="inputWarning"></label>
+                    <div class="form-row">
+                        <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
+                        <div class="col-8">
+                            <label class="control-label small-font" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
+                            <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." required />
+                        </div>
+                        <div class="col-4">
+                            <label class="control-label small-font" for="inputWarning"><i class="fa fa-bell-o"></i> Documento</label>
+                            <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="10" />
                         </div>
                     </div>
+                </div>
 
 
             </div><!-- /.box-body -->
