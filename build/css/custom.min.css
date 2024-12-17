@@ -1034,7 +1034,7 @@
   }
   .nav-md .container.body .right_col {
 	padding: 10px 20px 0;
-	margin-left: 230px;
+	margin-left: 0px;
   }
   .nav_title {
 	width: 230px;
@@ -1180,7 +1180,7 @@
   }
   .main_container .top_nav {
 	display: block;
-	margin-left: 230px;
+	margin-left: 0px;
   }
   .no-padding {
 	padding: 0 !important;
@@ -2353,7 +2353,7 @@
 	display: block;
 	padding: 5px 0 0 0;
 	position: fixed;
-	width: 230px;
+	width: 0px;
 	background: #2a3f54;
   }
   .sidebar-footer a {
