@@ -171,7 +171,7 @@ html, body {
                 <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary" onclick="openModal()">SALVAR CADASTRO</button>
 
                     <div class="form-group has-warning">
-                        <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
+                        <label class="control-label" for="inputWarning"></label>
                         <div class="form-row">
                             <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
                             <div class="col-8">
