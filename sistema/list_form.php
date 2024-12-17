@@ -164,7 +164,7 @@ html, body {
               
               <div class="box box-warning">
                 <div class="box-header">
-                  <h3 class="box-title">Cadastro de Visitante - Salão de Festas</h3>
+                  <h3 class="box-title">Cadastro de Visitante</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                 <form id="form-empresa" role="form" method="POST">
