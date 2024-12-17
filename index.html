@@ -39,31 +39,47 @@
 
         <!-- top navigation -->
         <div class="top_nav">
-            <div class="nav_menu">
+          <div class="nav_menu">
               <nav class="megamenu navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="index.php"><img src="https://codemaze.com.br/site/images/logos/logocodemaze_preto.png" alt="image"></a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#slide" class="scroll-link">Home</a></li>
-                            <li><a href="#about" class="scroll-link">Sobre nós</a></li>
-                            <li><a href="#services" class="scroll-link">Soluções & Consultoria</a></li>
-                            <li><a href="#hosting" class="scroll-link">Hosting</a></li>
-                <li><a href="#contact" class="scroll-link">Contato</a></li>
-                        </ul>
-                    </div>
-                </div>
+                  <div class="container-fluid">
+                      <!-- Logo -->
+                      <div class="navbar-header navbar-right">
+                          <a href="index.php">
+                              <img src="https://codemaze.com.br/site/images/logos/logocodemaze_preto.png" alt="Codemaze Logo">
+                          </a>
+                      </div>
+                      <!-- Menu -->
+                      <div id="navbar" class="navbar-collapse collapse">
+                          <ul class="nav navbar-nav navbar-right">
+                              <li><a href="#slide" class="scroll-link">Home</a></li>
+                              <li><a href="#about" class="scroll-link">Sobre nós</a></li>
+                              <li><a href="#services" class="scroll-link">Soluções & Consultoria</a></li>
+                              <li><a href="#hosting" class="scroll-link">Hosting</a></li>
+                              <li><a href="#contact" class="scroll-link">Contato</a></li>
+                          </ul>
+                      </div>
+                  </div>
               </nav>
-            </div>
           </div>
+      </div>
+      
+      <!-- CSS para remover fundo e alinhar o logo -->
+      <style>
+          .navbar-header img {
+              background: transparent; /* Remove qualquer fundo azul */
+              display: block;
+              height: 50px; /* Ajuste o tamanho conforme necessário */
+          }
+          .navbar-header {
+              margin-left: auto; /* Move o logo para a direita */
+          }
+          .container-fluid {
+              display: flex;
+              justify-content: space-between; /* Espaço entre o logo e o menu */
+              align-items: center;
+          }
+      </style>
+      
         <!-- /top navigation -->
 
         <!-- page content -->
