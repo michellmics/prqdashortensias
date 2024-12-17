@@ -169,19 +169,14 @@ html, body {
                 <div class="box-body">
                 <form id="form-empresa" role="form" method="POST">
 
-                    <div class="form-group">
-                      <label>Lista de Convidados:</label>
-                      <input id="maps" name="maps" type="text" class="form-control" placeholder="Enter ..." />
-                    </div>
-
                     <div class="form-group has-warning">
                       <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
-                      <input id="nome" name="nome"  style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
+                      <input id="nome" name="nome"  style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/><input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
                     </div>
 
                     <div class="form-group">
                       <label>Documento (RG ou CPF):</label>
-                      <input id="endereco" name="endereco" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
+                      <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
                     </div>
 
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
