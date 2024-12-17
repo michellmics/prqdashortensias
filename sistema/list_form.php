@@ -154,9 +154,6 @@ html, body {
 		
 	
 
-
-
-
         <section class="content">      
     <!-- right column -->
     <div class="col-md-6">
@@ -171,18 +168,20 @@ html, body {
                     <div class="form-group has-warning">
                         <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
                         <div class="form-row">
-                            <div class="col-md-6">
+                            <!-- Nome Completo do Visitante ocupa 8 partes da largura -->
+                            <div class="col-md-8">
                                 <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
                             </div>
-                            <div class="col-md-6">
-                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
+                            <!-- Documento ocupa 4 partes da largura e tem maxlength 10 -->
+                            <div class="col-md-4">
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." maxlength="10" />
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Documento (RG ou CPF):</label>
-                        <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
+                        <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." maxlength="10" />
                     </div>
 
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
@@ -193,6 +192,7 @@ html, body {
         </div><!-- /.box -->
     </div><!--/.col (right) -->
 </section><!-- /.content -->
+
 
 
 
