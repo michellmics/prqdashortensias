@@ -171,8 +171,14 @@ html, body {
                             <div class="col-8">
                                 <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." maxlength="10" />
+                            </div>
+                            <!-- Ícone de salvar -->
+                            <div class="col-1 d-flex align-items-center justify-content-center">
+                                <button type="button" class="btn btn-success" onclick="salvarCadastro()">
+                                    <i class="fa fa-save"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -190,6 +196,15 @@ html, body {
         </div><!-- /.box -->
     </div><!--/.col (right) -->
 </section><!-- /.content -->
+
+<!-- Adicione o script para salvar o cadastro -->
+<script>
+    function salvarCadastro() {
+        // Função de exemplo para salvar o cadastro
+        alert('Cadastro salvo com sucesso!');
+    }
+</script>
+
 
 
 
