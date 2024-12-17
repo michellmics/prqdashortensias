@@ -42,6 +42,9 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/responsive.css">
 
+        <!-- SWEETALERT -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <style>
           /* Configuração geral do HTML e Body */
 html, body {
@@ -87,6 +90,7 @@ html, body {
 		</div>
 		<!-- End Preloader -->
      
+
 
 		<!-- Header Area -->
 		<header class="header" >
@@ -169,21 +173,16 @@ html, body {
                         <div class="form-row">
                             <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
                             <div class="col-8">
-                                <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
+                                <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." required/>
                             </div>
                             <div class="col-4">
-                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." maxlength="10" />
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="10" />
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>Documento (RG ou CPF):</label>
-                        <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." maxlength="10" />
-                    </div>
-
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
-                    <button type="submit" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
+                    <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary" onclick="openModal()">SALVAR CADASTRO</button>
 
                 </form>
             </div><!-- /.box-body -->
@@ -193,76 +192,68 @@ html, body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- Footer -->
 <footer class="footerNew">
   Codemaze - Soluções de MKT e Software
 </footer>
-		
 
-		
-		<!-- jquery Min JS -->
-        <script src="js/jquery.min.js"></script>
-		<!-- jquery Migrate JS -->
-		<script src="js/jquery-migrate-3.0.0.js"></script>
-		<!-- jquery Ui JS -->
-		<script src="js/jquery-ui.min.js"></script>
-		<!-- Easing JS -->
-        <script src="js/easing.js"></script>
-		<!-- Color JS -->
-		<script src="js/colors.js"></script>
-		<!-- Popper JS -->
-		<script src="js/popper.min.js"></script>
-		<!-- Bootstrap Datepicker JS -->
-		<script src="js/bootstrap-datepicker.js"></script>
-		<!-- Jquery Nav JS -->
-        <script src="js/jquery.nav.js"></script>
-		<!-- Slicknav JS -->
-		<script src="js/slicknav.min.js"></script>
-		<!-- ScrollUp JS -->
-        <script src="js/jquery.scrollUp.min.js"></script>
-		<!-- Niceselect JS -->
-		<script src="js/niceselect.js"></script>
-		<!-- Tilt Jquery JS -->
-		<script src="js/tilt.jquery.min.js"></script>
-		<!-- Owl Carousel JS -->
-        <script src="js/owl-carousel.js"></script>
-		<!-- counterup JS -->
-		<script src="js/jquery.counterup.min.js"></script>
-		<!-- Steller JS -->
-		<script src="js/steller.js"></script>
-		<!-- Wow JS -->
-		<script src="js/wow.min.js"></script>
-		<!-- Magnific Popup JS -->
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<!-- Counter Up CDN JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-		<!-- Bootstrap JS -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- Main JS -->
-		<script src="js/main.js"></script>
+<!-- Scripts -->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.0.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/colors.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/slicknav.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/niceselect.js"></script>
+<script src="js/tilt.jquery.min.js"></script>
+<script src="js/owl-carousel.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/steller.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
 
-		
-		
+<script>
+    // Função para abrir o modal com os campos de nome e documento
+    function openModal() {
+        Swal.fire({
+            title: "Cadastro de Visitante",
+            html: `
+                <input id="nome" class="swal2-input" placeholder="Nome Completo" style="text-transform: uppercase;">
+                <input id="documento" class="swal2-input" placeholder="Documento (RG ou CPF)" maxlength="10" style="text-transform: uppercase;">
+            `,
+            focusConfirm: false,
+            preConfirm: () => {
+                const nome = Swal.getPopup().querySelector('#nome').value;
+                const documento = Swal.getPopup().querySelector('#documento').value;
+
+                if (!nome || !documento) {
+                    Swal.showValidationMessage('Por favor, preencha todos os campos');
+                    return false;
+                }
+
+                // Aqui você pode adicionar a lógica para salvar os dados ou enviá-los para o backend
+                console.log('Nome:', nome);
+                console.log('Documento:', documento);
+
+                return { nome, documento };  // Retorna os dados inseridos
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Cadastro Salvo',
+                    text: `Nome: ${result.value.nome}, Documento: ${result.value.documento}`,
+                    icon: 'success'
+                });
+            }
+        });
+    }
+</script>
+
     </body>
 </html>
