@@ -1,59 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codemaze - Menu Sanduíche</title>
-    <!-- Bootstrap 4.6 -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome (para ícones, se necessário) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS (opcional) -->
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Codemaze - DEMO</title>
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- bootstrap-datetimepicker -->
+    <link href="vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Ion.RangeSlider -->
+    <link href="vendors/normalize-css/normalize.css" rel="stylesheet">
+    <link href="vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">      
+    <!-- ECharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="vendors/echarts/dist/echarts.min.js"></script>
+    <script src="vendors/echarts/map/js/world.js"></script>
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet">
   </head>
-  <body>
-    <!-- Menu de Navegação -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Codemaze</a>
-      <!-- Botão Hamburger -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuSanduiche" aria-controls="menuSanduiche" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
 
-      <!-- Itens do Menu -->
-      <div class="collapse navbar-collapse" id="menuSanduiche">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Item 1</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Item 2</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Item 3</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Item 4</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Item 5</a>
-          </li>
-        </ul>
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                    <div class="col-md-5">
+                      Timepeaker
+                      <form class="">
+                        <fieldset>
+                          <div class="control-group">
+                            <div class="controls">
+                              <div class="input-prepend input-group">
+                                <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                                <input type="text" name="reservation-time" id="reservation-time" class="form-control" value="01/01/2016 - 01/25/2016" />
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+
+            <!-- ------------------------------------------  CONTEÚDO AQUI ------------------------------------------ -->
+                  
+
+
+
+
+
+
+
+            <!-- ------------------------------------------  CONTEÚDO AQUI ------------------------------------------ -->
+
+            <!-- ------------------------------------------  CONTEÚDO JS AQUI --------------------------------------- -->
+            
+
+            
+            
+
+            <!-- ------------------------------------------  CONTEÚDO JS AQUI --------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Desenvolvido por <a href="https://codemaze.com.br">Codemaze</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
       </div>
-    </nav>
-
-    <!-- Conteúdo da Página -->
-    <div class="container mt-5">
-      <h1>Menu Sanduíche Funcional</h1>
-      <p>Este é um exemplo funcional do menu tipo "hamburger" para dispositivos móveis usando Bootstrap 4.6.</p>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap -->
+   <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <script src="vendors/morris.js/morris.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <!-- <script src="build/js/custom.min.js"></script> -->
+    <script src="codemaze_js\codemaze_js_custom.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="vendors/moment/min/moment.min.js"></script>
+    <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-datetimepicker -->    
+    <script src="vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- Datatables -->
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
   </body>
 </html>
