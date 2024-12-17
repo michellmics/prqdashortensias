@@ -9,24 +9,11 @@
 		<meta name='copyright' content=''>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
-		<!-- reCaptcha -->
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 		<!-- Title -->
         <title>asdsadsadsad</title>
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
-
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-GVDKTSYZJJ"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		
-		  gtag('config', 'G-GVDKTSYZJJ');
-		</script>
 		
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
@@ -58,36 +45,6 @@
     </head>
     <body>
 	
-	
-<!-- Cambio -->
-<script>
-	fetch('https://api.exchangerate-api.com/v4/latest/BRL') // Usa BRL como moeda base
-    .then(response => response.json())
-    .then(data => {
-        // Taxas de câmbio baseadas no Real (BRL)
-        const taxasDeCambio = {
-            "Dólar": (1 / data.rates.USD).toFixed(2), // 1 USD em BRL
-            "Euro": (1 / data.rates.EUR).toFixed(2), // 1 EUR em BRL
-            "Libra Esterlina": (1 / data.rates.GBP).toFixed(2) // 1 GBP em BRL
-            
-        };
-
-        console.log('Valores em Reais:');
-        console.log(taxasDeCambio);
-        
-        // Atualiza o DOM com as taxas de câmbio
-        document.getElementById('taxas-cambio').innerHTML = `
-            <p>Dólar: R$ ${taxasDeCambio["Dólar"]}</p>
-            <p>Euro: R$ ${taxasDeCambio["Euro"]}</p>
-            <p>Libra: R$ ${taxasDeCambio["Libra Esterlina"]}</p>
-            
-        `;
-    })
-    .catch(error => console.error('Erro ao buscar taxas de câmbio:', error));
-
-</script>
-
-
 		<!-- Preloader -->
 		<div class="preloader">
 		    <div class="loader">
