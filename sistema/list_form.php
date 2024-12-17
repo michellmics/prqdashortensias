@@ -166,7 +166,6 @@ html, body {
                 <h3 class="box-title">Cadastro de Visitante</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <form id="form-empresa" role="form" method="POST">
 
                 <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
                 <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary" onclick="openModal()">SALVAR CADASTRO</button>
@@ -185,8 +184,6 @@ html, body {
                     </div>
 
 
-
-                </form>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div><!--/.col (right) -->
