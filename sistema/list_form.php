@@ -158,35 +158,42 @@ html, body {
 
 
         <section class="content">      
-            <!-- right column -->
-            <div class="col-md-6">
-              <!-- general form elements disabled -->
-              
-              <div class="box box-warning">
-                <div class="box-header">
-                  <h3 class="box-title">Cadastro de Visitante</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
+    <!-- right column -->
+    <div class="col-md-6">
+        <!-- general form elements disabled -->
+        <div class="box box-warning">
+            <div class="box-header">
+                <h3 class="box-title">Cadastro de Visitante</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
                 <form id="form-empresa" role="form" method="POST">
 
                     <div class="form-group has-warning">
-                      <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
-                      <input id="nome" name="nome"  style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/><input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
+                        <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                      <label>Documento (RG ou CPF):</label>
-                      <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
+                        <label>Documento (RG ou CPF):</label>
+                        <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
                     </div>
 
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
                     <button type="submit" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
 
-                  </form>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!--/.col (right) -->
-        </section><!-- /.content -->
+                </form>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!--/.col (right) -->
+</section><!-- /.content -->
+
 
 
 
