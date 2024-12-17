@@ -173,17 +173,6 @@ html, body {
                       <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome do Cliente</label>
                       <input id="nome" name="nome"  style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
                     </div>
-                                        <!-- select -->
-                                        <div class="form-group">
-                      <label>Select</label>
-                      <select  id="status" name="status" class="form-control">
-                        <option>Não recebeu visita.</option>
-                        <option>Não atendeu.</option>
-                        <option>Pediu uma proposta. </option>
-                        <option>Recusou a oferta.</option>
-                      </select>
-                    </div>
-                    
                     <div class="form-group">
                       <label>Endereço:</label>
                       <input id="endereco" name="endereco" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
@@ -218,7 +207,7 @@ html, body {
                       <input id="data" name="data"  type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
-                       <!-- textarea -->
+                 <!-- textarea -->
                     <div class="form-group">
                       <label>Observações</label>
                       <textarea id="obs" name="obs"  class="form-control" rows="5" placeholder="Enter ..."></textarea>
