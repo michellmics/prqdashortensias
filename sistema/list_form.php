@@ -70,7 +70,7 @@
         .small-font {
         font-size: 14px; /* Tamanho padrão */
         }
-    
+
         /* Ajuste para telas pequenas */
         @media (max-width: 768px) {
             .small-font {
@@ -189,11 +189,17 @@
                         </div>
                         <div class="col-4">
                             <label class="control-label small-font" for="inputWarning"><i class="fa fa-bell-o"></i> Documento</label>
-                            <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="10" />
+                            <div class="input-group">
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="10" />
+                                <div class="input-group-append">
+                                    <button class="btn btn-danger" type="button" onclick="clearDocumentoField()">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
 
             </div><!-- /.box-body -->
         </div><!-- /.box -->
