@@ -168,50 +168,22 @@ html, body {
                 </div><!-- /.box-header -->
                 <div class="box-body">
                 <form id="form-empresa" role="form" method="POST">
-                    <!-- text input -->
-                    <div class="form-group has-warning">
-                      <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome do Cliente</label>
-                      <input id="nome" name="nome"  style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
-                    </div>
+
                     <div class="form-group">
-                      <label>Endereço:</label>
-                      <input id="endereco" name="endereco" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
-                    </div>
-                    <div class="form-group">
-                      <label>Link Maps:</label>
+                      <label>Lista de Convidados:</label>
                       <input id="maps" name="maps" type="text" class="form-control" placeholder="Enter ..." />
                     </div>
-                    <div class="form-group">
-                      <label>Nome do Contato:</label>
-                      <input id="contato" name="contato" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
+
+                    <div class="form-group has-warning">
+                      <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
+                      <input id="nome" name="nome"  style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
                     </div>
+
                     <div class="form-group">
-                    <label>Telefone:</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-phone"></i>
-                      </div>
-                      <input id="telefone" name="telefone" type="text" class="form-control" data-inputmask='"mask": "(99) 9999-9999"' data-mask/>
-                    </div><!-- /.input group -->
-                  </div><!-- /.form group -->
-                    <div class="form-group">
-                      <label>E-mail:</label>
-                      <input id="email" name="email" type="text" class="form-control" placeholder="Enter ..." />
+                      <label>Documento (RG ou CPF):</label>
+                      <input id="endereco" name="endereco" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." />
                     </div>
-                    <div class="form-group">
-                    <label>Data da visita:</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                      <input id="data" name="data"  type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
-                    </div><!-- /.input group -->
-                  </div><!-- /.form group -->
-                 <!-- textarea -->
-                    <div class="form-group">
-                      <label>Observações</label>
-                      <textarea id="obs" name="obs"  class="form-control" rows="5" placeholder="Enter ..."></textarea>
-                    </div>
+
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
                     <button type="submit" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
 
@@ -219,12 +191,7 @@ html, body {
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!--/.col (right) -->
-
-
-
-
-
-    </section><!-- /.content -->
+        </section><!-- /.content -->
 
 
 
