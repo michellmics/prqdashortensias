@@ -166,18 +166,18 @@ html, body {
 
                     <div class="form-group has-warning">
                         <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo do Visitante</label>
-                        <div class="form-row">
+                        <div class="d-flex">
                             <!-- Nome Completo do Visitante ocupa 8 partes da largura -->
-                            <div class="col-8">
+                            <div class="flex-grow-1 mr-2">
                                 <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="Enter ..." required/>
                             </div>
                             <!-- Documento ocupa 3 partes da largura -->
-                            <div class="col-3">
+                            <div class="mr-2">
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="Enter ..." maxlength="10" />
                             </div>
                             <!-- Botão pequeno -->
-                            <div class="col-1 d-flex align-items-center">
-                                <button type="button" class="btn btn-primary btn-sm w-100">Botão</button>
+                            <div>
+                                <button type="button" class="btn btn-primary btn-sm">Botão</button>
                             </div>
                         </div>
                     </div>
@@ -195,6 +195,7 @@ html, body {
         </div><!-- /.box -->
     </div><!--/.col (right) -->
 </section><!-- /.content -->
+
 
 
 
