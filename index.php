@@ -33,9 +33,9 @@
     <!-- iCheck -->
     <link href="plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
 
-    <link rel="icon" href="https://www.codemaze.com.br/site/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="https://www.codemaze.com.br/site/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://www.codemaze.com.br/site/logo_small_site.png">
+    <link rel="icon" href="https://www.prqdashortensias.com.br/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://www.prqdashortensias.com.br/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="www.prqdashortensias.com.br/img/logo_site_small.png">
     <meta name="apple-mobile-web-app-title" content="Codemaze">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -43,7 +43,7 @@
   <body class="login-page">
     <div class="login-box">
       <div class="login-logo">
-        <img src="../images/logos/logocodemaze_preto.png"></img>
+        <img src="www.prqdashortensias.com.br/img/logo_site_small.png"></img>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Acesso a área administrativa</p>
