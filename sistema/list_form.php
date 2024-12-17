@@ -164,10 +164,22 @@ html, body {
               
               <div class="box box-warning">
                 <div class="box-header">
-                  <h3 class="box-title">Codemaze - Prospecção</h3>
+                  <h3 class="box-title">Cadastro de Visitante - Salão de Festas</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                 <form id="form-empresa" role="form" method="POST">
+                    
+                    <!-- select -->
+                    <div class="form-group">
+                      <label>Select</label>
+                      <select  id="status" name="status" class="form-control">
+                        <option>Não recebeu visita.</option>
+                        <option>Não atendeu.</option>
+                        <option>Pediu uma proposta. </option>
+                        <option>Recusou a oferta.</option>
+                      </select>
+                    </div>
+                    
                     <!-- text input -->
                     <div class="form-group has-warning">
                       <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome do Cliente</label>
@@ -207,17 +219,6 @@ html, body {
                       <input id="data" name="data"  type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
-
-                    <!-- select -->
-                    <div class="form-group">
-                      <label>Select</label>
-                      <select  id="status" name="status" class="form-control">
-                        <option>Não recebeu visita.</option>
-                        <option>Não atendeu.</option>
-                        <option>Pediu uma proposta. </option>
-                        <option>Recusou a oferta.</option>
-                      </select>
-                    </div>
                        <!-- textarea -->
                     <div class="form-group">
                       <label>Observações</label>
