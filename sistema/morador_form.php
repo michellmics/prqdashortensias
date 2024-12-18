@@ -340,7 +340,7 @@ html, body {
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
-          confirmButtonColor: "#599dce",
+          confirmButtonColor: "#993399",
           denyButtonColor: "#de2f37",
           width: '600px', // Largura do alerta
           icon: 'warning',
@@ -368,7 +368,7 @@ html, body {
               text: `${response}`,
               icon: 'success',
               width: '600px', // Largura do alerta
-              confirmButtonColor: "#599dce",
+              confirmButtonColor: "#993399",
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
@@ -386,7 +386,7 @@ html, body {
               text: 'Erro ao cadastrar o usuário.',
               icon: 'error',
               width: '600px', // Largura do alerta
-              confirmButtonColor: "#4289a6",
+              confirmButtonColor: "#993399",
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
