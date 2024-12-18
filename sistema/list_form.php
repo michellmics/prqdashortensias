@@ -135,7 +135,7 @@ html, body {
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><b>Nome do Morador:</b> Michell Duarte de Oliveira</li> 
+								<li><b>Morador:</b> Michell Duarte de Oliveira</li> 
 								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
 							</ul>
 							<!-- End Top Contact -->
