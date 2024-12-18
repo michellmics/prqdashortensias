@@ -218,7 +218,7 @@ html, body {
                 <h3 class="box-title">Cadastro de Convidados</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <form id="form-empresa" role="form" action="lista_form_edit_proc.php" method="POST">
+                <form id="form-empresa" role="form" method="POST">
 
 					<!-- CAMPOS COMO VARIAVEIS -->
                   	<input type="hidden" name="userid" value="<? echo $userid; ?>"/>
@@ -271,7 +271,7 @@ html, body {
                     </div>
 
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
-                    <button type="submit" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
+                    <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
 
                 </form>
             </div><!-- /.box-body -->
@@ -282,41 +282,126 @@ html, body {
 
 
 
-<script>
-    // Função de validação
-    	function validarFormulario(event) {
-        event.preventDefault(); // Impede o envio do formulário
+<!-- ######################################################## --> 
+    <!-- SWEETALERT 2 -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
 
-        // Captura os valores dos campos
-        const nome = document.querySelector('input[name="nome"]').value.trim();
-        const documento = document.querySelector('input[name="documento"]').value.trim();
+                function validarFormulario() {
+                    const nome = document.querySelector('input[name="nome"]').value.trim();
+                    const documento = document.querySelector('input[name="documento"]').value.trim();
+					const status = document.querySelector('input[name="status"]:checked'); 
 
-        // Validações
-        if (!nome || !documento) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Campos Obrigatórios',
-                text: 'Todos os campos devem ser preenchidos.',
-            });
-            return false;
+                    if (!nome || !documento) {
+                        alert("Todos os campos devem ser preenchidos.");
+                        return false;
+                    }
+                    return true;
+                }
+
+
+      function confirmAndSubmit(event) {
+          // Chama a validação do formulário
+        const isValid = validarFormulario();
+
+        // Se a validação falhar, interrompe a execução
+        if (!isValid) {
+            return;
         }
 
-        // Se todas as validações passarem
+        event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
-            icon: 'success',
-            title: 'Validação Bem-Sucedida',
-            text: 'Formulário enviado com sucesso!',
-        }).then(() => {
-            // Envia o formulário após o SweetAlert
-            document.getElementById('form-empresa').submit();
+          title: 'Formulário de convidados',
+          text: "Têm certeza que deseja atualizar o convidado?",
+          showDenyButton: true,
+          confirmButtonText: 'SIM',
+          denyButtonText: `CANCELAR`,
+          confirmButtonColor: "#599dce",
+          denyButtonColor: "#de2f37",
+          width: '600px', // Largura do alerta
+          icon: 'warning',
+          customClass: {
+            title: 'swal-title', // Classe para o título
+            content: 'swal-content', // Classe para o conteúdo (texto)
+            confirmButton: 'swal-confirm-btn',
+            denyButton: 'swal-deny-btn',
+            htmlContainer: 'swal-text'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Capturar os dados do formulário
+            var formData = new FormData($("#form-empresa")[0]); // Usa o FormData para enviar arquivos
+            // Fazer a requisição AJAX
+            $.ajax({
+              url: "lista_form_edit_proc.php", // URL para processamento
+              type: "POST",
+              data: formData,
+              processData: false, // Impede o jQuery de processar os dados
+              contentType: false, // Impede o jQuery de definir o tipo de conteúdo
+              success: function (response) {
+                Swal.fire({
+              title: 'Salvo!',
+              text: `${response}`,
+              icon: 'success',
+              width: '600px', // Largura do alerta
+              confirmButtonColor: "#599dce",
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            }).then(() => {
+                  // Redirecionar ou atualizar a página, se necessário
+                  location.reload();
+                });
+              },
+              error: function (xhr, status, error) {
+                Swal.fire({
+              title: 'Erro!',
+              text: 'Erro ao atualizar o convidado.',
+              icon: 'error',
+              width: '600px', // Largura do alerta
+              confirmButtonColor: "#4289a6",
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            });
+              },
+            });
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
+          }
         });
+      }
+      // Associar a função ao botão de submit
+      $(document).ready(function () {
+        $("#salvar_empresa_1").on("click", confirmAndSubmit);
+      });
+</script> 
+<style>
+  /* Estilos para aumentar o tamanho da fonte */
+  .swal-title {
+    font-size: 36px !important; /* Tamanho maior para o título */
+  }
 
-        return true;
-    }
+  .swal-text {
+    font-size: 24px !important; /* Tamanho maior para o conteúdo */
+  }
 
-    // Adiciona o evento de validação ao formulário
-    document.getElementById('form-empresa').addEventListener('submit', validarFormulario);
-</script>
+  /* Aumentar o tamanho dos textos dos botões */
+  .swal-confirm-btn,
+  .swal-deny-btn,
+  .swal-cancel-btn {
+    font-size: 20px !important; /* Tamanho maior para os textos dos botões */
+    padding: 12px 12px !important; /* Aumenta o espaço ao redor do texto */
+  }
+</style>
+<!-- ######################################################## --> 
+<!-- SWEETALERT 2 -->   
 
 
 
