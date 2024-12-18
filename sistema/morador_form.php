@@ -245,27 +245,12 @@ html, body {
 </section><!-- /.content -->
 
 
-<script>
-		document.getElementById('apartamento').addEventListener('input', function (e) {
-	    const maxLength = 4;
-	    const value = e.target.value;
 
-	    // Limita o comprimento a 4 caracteres
-	    if (value.length > maxLength) {
-	        e.target.value = value.slice(0, maxLength);
-	    }
-		});
-	document.getElementById('bloco').addEventListener('input', function (e) {
-	    const maxLength = 1;
-	    const value = e.target.value;
-
-	    // Limita o comprimento a 4 caracteres
-	    if (value.length > maxLength) {
-	        e.target.value = value.slice(0, maxLength);
-	    }
-		});
-    // Função de validação
-    function validarFormulario(event) {
+<!-- ######################################################## --> 
+    <!-- SWEETALERT 2 -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+function validarFormulario(event) {
         event.preventDefault(); // Impede o envio do formulário
 
         // Captura os valores dos campos
@@ -306,57 +291,6 @@ html, body {
             });
             return false; 
         }
-
-        // Se todas as validações passarem
-        Swal.fire({
-            icon: 'success',
-            title: 'Validação Bem-Sucedida',
-            text: 'Formulário enviado com sucesso!',
-        }).then(() => {
-            // Envia o formulário após o SweetAlert
-            document.getElementById('form-empresa').submit();
-        });
-
-        return true;
-    }
-
-    // Adiciona o evento de validação ao formulário
-    document.getElementById('form-empresa').addEventListener('submit', validarFormulario);
-</script>
-
-
-
-<!-- ######################################################## --> 
-    <!-- SWEETALERT 2 -->   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-
-                function validarFormulario() {
-                    const nome = document.querySelector('input[name="nome"]').value.trim();
-                    const email = document.querySelector('input[name="email"]').value.trim();
-                    const sexo = document.querySelector('select[name="sexo"]').value;
-                    const senha = document.querySelector('input[name="senha"]').value.trim();
-
-                    if (!nome || !email || !sexo || !senha) {
-                        alert("Todos os campos devem ser preenchidos.");
-                        return false;
-                    }
-
-                    // Validação do e-mail
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular básica para e-mail
-                    if (!emailRegex.test(email)) {
-                        alert("Por favor, insira um endereço de e-mail válido.");
-                        return false;
-                    }
-
-                    // Expressão regular para validar a senha
-                    const senhaRegex = /^(?=.*[A-Z])(?=.*[\W_])(?=.{8,})/; // Pelo menos 8 caracteres, uma letra maiúscula, um caractere especial
-                    if (!senhaRegex.test(senha)) {
-                        alert("A senha deve ter pelo menos 8 caracteres, incluir pelo menos uma letra maiúscula e um caractere especial.");
-                        return false;
-                    }
-                    return true;
-                }
 
 
       function confirmAndSubmit(event) {
