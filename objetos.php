@@ -893,17 +893,17 @@
             }          
         }
 
-        public function getListaInfo($USA_IDUSERADMIN)
+        public function getListaInfo($USU_IDUSUARIO)
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM USA_USERADMIN WHERE USA_IDUSERADMIN = $USA_IDUSERADMIN";
+                $sql = "SELECT * FROM LIS_LISTACONVIDADOS WHERE USU_IDUSUARIO = 4";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
-                $this->ARRAY_LISTAINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+                $this->ARRAY_LISTAINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
