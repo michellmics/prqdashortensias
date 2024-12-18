@@ -288,8 +288,8 @@ html, body {
       function confirmDelete(listid){
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
-          title: 'Lista de Convidados',
-          text: "Têm certeza que deseja excluir o convidado?",
+          title: 'Lista de Usuários',
+          text: "Têm certeza que deseja excluir o usuário?",
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
@@ -337,7 +337,7 @@ html, body {
               error: function (xhr, status, error) {
                 Swal.fire({
               title: 'Erro!',
-              text: 'Erro ao deletar o convidado.',
+              text: 'Erro ao deletar o usuário.',
               icon: 'error',
               width: '200px', // Largura do alerta
               confirmButtonColor: "#993399",
