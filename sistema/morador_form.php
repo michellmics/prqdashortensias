@@ -210,11 +210,11 @@ html, body {
                             </div>
                             <div class="col-2">
 								<label class="control-label" for="inputWarning">Bloco</label>
-                                <input id="bloco" name="bloco" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="1" required />
+                                <input id="bloco" name="bloco"  type="number" class="form-control" placeholder="" maxlength="1" required />
                             </div>
 							<div class="col-2">
 								<label class="control-label" for="inputWarning">Apart.</label>
-                                <input id="apartamento" name="apartamento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="4" required />
+                                <input id="apartamento" name="apartamento" type="number" class="form-control" placeholder="" maxlength="4" required />
                             </div>
                         </div>
 						<div class="form-row">
