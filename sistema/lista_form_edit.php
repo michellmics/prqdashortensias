@@ -16,6 +16,13 @@
 	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
 	$userid = $_SESSION['user_id'];
 
+	$idvisitante = $_GET['id'];
+	$siteAdmin = new SITE_ADMIN();
+	$siteAdmin->getListaInfoByid($idvisitante); 
+
+	var_dump($siteAdmin->ARRAY_LISTAINFO);
+	die();
+
 ?>
 
 <!doctype html>

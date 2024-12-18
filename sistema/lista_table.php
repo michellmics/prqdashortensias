@@ -259,7 +259,7 @@ html, body {
 						?>
 
 
-                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.codemaze.com.br/site/admin/form_prospec_edit.php?id=<?= $usuario['LIS_IDLISTACONVIDADOS'] ?>';">
+                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.prqdashortensias.com.br/sistema/lista_form_edit.php?id=<?= $usuario['LIS_IDLISTACONVIDADOS'] ?>';">
                         <td style="text-transform: uppercase; font-size: 15px;">
                         </td> <? $lin++; ?>
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
