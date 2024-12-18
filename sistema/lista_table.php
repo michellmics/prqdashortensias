@@ -241,7 +241,8 @@ html, body {
                       <th></th> 
 					  <th></th> 
                       <th>NOME</th>
-                      <th>DOC</th>                  
+                      <th>DOC</th>   
+					  <th></th>                
                     </tr>
                     <tr>
 					<? $lin = 0 ?>
@@ -264,7 +265,8 @@ html, body {
                         </td> <? $lin++; ?>
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td>        
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td> 
+						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $client['PRC_IDPROSPEC_CLIENTES']; ?>)"><span class="label label-danger"><i class="fa fa-trash"></i></span></a></td>       
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
