@@ -247,7 +247,7 @@ html, body {
 								<label class="control-label" for="inputWarning">Nível</label>
 								<div>
 								    <label>
-								        <input type="radio" name="nivel" value="MORADOR" required>
+								        <input type="radio" name="nivel" value="MORADOR" checked required>
 								        MORADOR
 								    </label>
 								</div>
