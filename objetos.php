@@ -273,6 +273,7 @@
             try{           
                 $sql = "SELECT *
                                 FROM USU_USUARIO
+                                WHERE USU_DCNIVEL = 'SINDICO' OR USU_DCNIVEL = 'MORADOR'
                                 ORDER BY USU_DCAPARTAMENTO ASC";
 
                 $stmt = $this->pdo->prepare($sql);
