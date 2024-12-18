@@ -21,27 +21,29 @@
   	$userid = $_SESSION['user_id'];
 
 	$siteAdmin = new SITE_ADMIN();
-	$siteAdmin->getListaInfo($userid);
+	$siteAdmin->getListaMoradoresInfo();
 
-	if(count($siteAdmin->ARRAY_LISTAINFO) > 0)
+	if(count($siteAdmin->ARRAY_LISTAMORADORESINFO) > 0)
 	{
 	  // Configurações de Paginação
-	  $registrosPorPagina = 50;
+	  $registrosPorPagina = 100;
 	  $paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-	  $totalRegistros = count($siteAdmin->ARRAY_LISTAINFO);
+	  $totalRegistros = count($siteAdmin->ARRAY_LISTAMORADORESINFO);
 	  $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
 	  // Determina o índice de início para a página atual
 	  $inicio = ($paginaAtual - 1) * $registrosPorPagina;
 
 	  // Divide o array para exibir apenas os registros da página atual
-	  $dadosPagina = array_slice($siteAdmin->ARRAY_LISTAINFO, $inicio, $registrosPorPagina);
+	  $dadosPagina = array_slice($siteAdmin->ARRAY_LISTAMORADORESINFO, $inicio, $registrosPorPagina);
 	}
 	else
 	  	{
-	    	$dadosPagina = "Não há visitantes cadastrados para este morador.";
-		}
+	    	$dadosPagina = "Não há moradores cadastrados.";
+		  }
 
+      var_dump($siteAdmin->ARRAY_LISTAMORADORESINFO);
+      die();
 
 ?>
 
