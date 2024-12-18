@@ -74,6 +74,25 @@ html, body {
     bottom: 0; /* Colado no final da página */
     width: 100%; /* Largura total */
 }
+ /* Botão de Salvar em lilás */
+ .btn-primary {
+      background-color: #800080; /* Lilás */
+      border-color: #800080; /* Mesma cor da borda */
+      color: white; /* Texto branco */
+  }
+  .btn-primary:hover {
+      background-color: #993399; /* Lilás mais claro ao passar o mouse */
+  }
+
+  /* Botão de Voltar em lilás mais claro */
+  .btn-warning {
+      background-color: #D8BFD8; /* Lilás mais claro */
+      border-color: #D8BFD8; /* Mesma cor da borda */
+      color: #4B0082; /* Texto em roxo escuro */
+  }
+  .btn-warning:hover {
+      background-color: #E6E6FA; /* Lilás ainda mais claro ao passar o mouse */
+  }
 
         </style>
 		
