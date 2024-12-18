@@ -1,3 +1,18 @@
+<?php
+include_once '../objetos.php'; // Carrega a classe de conexão e objetos
+
+session_start(); 
+define('SESSION_TIMEOUT', 1800); // 30 minutos
+
+if (!isset($_SESSION['user_id'])) 
+{
+  header("Location: index.php");
+  exit();
+}
+
+$userid = $_SESSION['user_id'];
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -192,6 +207,10 @@ html, body {
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form id="form-empresa" role="form" action="lista_form_proc.php" method="POST">
+
+					<!-- CAMPOS COMO VARIAVEIS -->
+                  	<input type="hidden" name="userid" value="<? echo $userid; ?>"/>
+                  	<!-- CAMPOS COMO VARIAVEIS -->
 
                     <div class="form-group has-warning">
 						<label class="control-label" for="inputWarning"> </label>
