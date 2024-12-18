@@ -241,12 +241,9 @@ html, body {
                     <?php foreach ($dadosPagina as $client): ?>
                       <tr style="cursor: pointer;" onclick="window.location.href='https://www.codemaze.com.br/site/admin/form_prospec_edit.php?id=<?= $client['LIS_IDLISTACONVIDADOS'] ?>';">
                         <td style="text-transform: uppercase; font-size: 15px;">
-                            <span  <? echo $classLabel; ?>>
-                            <? echo $statusVisita; ?>
-                            </span>
                         </td> 
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle;"> <?= htmlspecialchars(strlen($client['PRC_NMNOME']) > 20 ? substr($client['LIS_DCNOME'], 0, 20) . '...' : $client['LIS_DCNOME']) ?></td>                        
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle;"><?= htmlspecialchars(strlen($client['PRC_DCENDERECO']) > 25 ? substr($client['LIS_DCDOCUMENTO'], 0, 25) . '...' : $client['LIS_DCDOCUMENTO']) ?></td>        
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle;"> <?= htmlspecialchars(strlen($client['LIS_DCNOME']) > 20 ? substr($client['LIS_DCNOME'], 0, 20) . '...' : $client['LIS_DCNOME']) ?></td>                        
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle;"><?= htmlspecialchars(strlen($client['LIS_DCDOCUMENTO']) > 25 ? substr($client['LIS_DCDOCUMENTO'], 0, 25) . '...' : $client['LIS_DCDOCUMENTO']) ?></td>        
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
