@@ -16,7 +16,7 @@
 
     if ($_SESSION['user_nivelacesso'] != "SINDICO" && $_SESSION['user_nivelacesso'] != "PORTARIA") 
     {
-      header("Location: noAuth.html");
+      header("Location: noAuth.php");
       exit();
     }
 
