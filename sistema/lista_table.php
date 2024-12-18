@@ -233,7 +233,7 @@ html, body {
 		<button class="btn btn-danger btn-sm" 
         	style="font-size: 10px; padding: 2px 5px; height: 25px; margin: 10px; margin-bottom: 10px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
         	onclick="window.location.href='lista_form.php';">
-    		Adicionar Convidados
+    		Adicionar Convidado
 		</button>  
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
