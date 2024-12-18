@@ -13,7 +13,7 @@
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
 	$nomeSession = $_SESSION['user_name'];
-	$usuariologado = $nomeSession." BL ".$blocoSession." AP ".$apartamentoSession;
+	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
 	$userid = $_SESSION['user_id'];
 ?>
 
