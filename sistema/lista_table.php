@@ -213,7 +213,7 @@ html, body {
 										<ul class="nav menu">
 											<li><a href="index.php">Inicio</a></li>
 											<li><a href="morador_form.php">Cadastro de Usuário </a></li>
-											<li><a href="lista_form.php">Lista de Visitas </a></li>
+											<li><a href="lista_form.php">Salão de Festas </a></li>
 											<li><a href="../logoff.php">Sair </a></li>
 										</ul>
 									</nav>
@@ -229,7 +229,8 @@ html, body {
 		<!-- End Header Area -->
 		
 	
-    <section class="content">      
+    <section class="content">
+	<button class="btn btn-danger btn-sm" onclick="window.location.href='lista_form.php';">Adicionar Convidados</button>      
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
