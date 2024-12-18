@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>asdsadsadsad</title>
+        <title>Condomínio Parque das Hortências</title>
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
@@ -109,8 +109,8 @@ html, body {
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>3123213213</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li>
+								<!--  <li><i class="fa fa-phone"></i>3123213213</li> -->
+								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
 							</ul>
 							<!-- End Top Contact -->
 						</div>
