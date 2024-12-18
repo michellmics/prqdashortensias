@@ -226,11 +226,24 @@ html, body {
 						<div class="form-row">
 							<div class="col-7">
 								<label class="control-label" for="inputWarning">Nível</label>
-								<select name="nivel" required>
-                        			<option value="MORADOR">MORADOR</option>
-                        			<option value="PORTARIA">PORTARIA</option>
-									<option value="SINDICO">SÍNDICO</option>
-                    			</select>
+								<div>
+    <label>
+        <input type="checkbox" name="nivel[]" value="MORADOR">
+        MORADOR
+    </label>
+</div>
+<div>
+    <label>
+        <input type="checkbox" name="nivel[]" value="PORTARIA">
+        PORTARIA
+    </label>
+</div>
+<div>
+    <label>
+        <input type="checkbox" name="nivel[]" value="SINDICO">
+        SÍNDICO
+    </label>
+</div>
                             </div>
 							<div class="col-5">
 								<label class="control-label" for="inputWarning">Senha</label>
