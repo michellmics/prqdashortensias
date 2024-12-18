@@ -208,7 +208,7 @@ html, body {
         <!-- general form elements disabled -->
         <div class="box box-warning">
             <div class="box-header">
-                <h3 class="box-title">Cadastro de Visitante</h3>
+                <h3 class="box-title">Cadastro de Convidados</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form id="form-empresa" role="form" action="lista_form_proc.php" method="POST">
