@@ -231,7 +231,7 @@ html, body {
 	
     <section class="content">
 		<button class="btn btn-danger btn-sm" 
-        	style="font-size: 10px; padding: 2px 5px; margin-bottom: 10px;" 
+        	style="font-size: 10px; padding: 2px 5px; margin-bottom: 10px; background-color:rgb(63, 173, 81); color: white; border-color:rgb(3, 3, 3);" 
         	onclick="window.location.href='lista_form.php';">
     		Adicionar Convidados
 		</button>  
