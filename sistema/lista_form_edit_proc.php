@@ -21,27 +21,11 @@ class registerVisitante extends SITE_ADMIN
                 $this->conexao();
             }
 
-            // Prepara a consulta SQL para verificar o usuário
-            $sql = "SELECT LIS_IDLISTACONVIDADOS, USU_IDUSUARIO, LIS_DCNOME, LIS_DCDOCUMENTO FROM LIS_LISTACONVIDADOS WHERE LIS_DCNOME = :nome AND USU_IDUSUARIO = :userid";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
-            $stmt->bindParam(':userid', $userid, PDO::PARAM_STR);
-            $stmt->execute();
-
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-            // Se o usuário for encontrado e a senha for válida
-            if (isset($user['USU_IDUSUARIO'])) {
-                echo "Usuário já cadastrado."; 
-                //exit();
-            } else 
-                {
-                    $result = $this->updateVisitante($nome, $userid, $documento, $status, $visitanteid);
-                    echo "Visitante cadastrado com sucesso."; 
-                    
-                }
+            $result = $this->updateVisitante($nome, $userid, $documento, $status, $visitanteid);
+            echo "Convidado atualizado com sucesso."; 
+        
         } catch (PDOException $e) {  
-            echo "Erro ao cadastrar Visitante."; 
+            echo "Erro ao atualizar convidado."; 
         } 
     }
 }
