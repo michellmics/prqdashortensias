@@ -20,6 +20,9 @@
 	$siteAdmin = new SITE_ADMIN();
 	$siteAdmin->getListaInfoByid($idvisitante); 
 
+	var_dump($siteAdmin->ARRAY_LISTAINFO);
+	die();
+
 ?>
 
 <!doctype html>
