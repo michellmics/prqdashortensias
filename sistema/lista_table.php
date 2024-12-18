@@ -40,6 +40,9 @@
 	    	$dadosPagina = "Não há visitantes cadastrados para este morador.";
 		}
 
+		var_dump($siteAdmin->ARRAY_LISTAINFO);
+		die();
+
 ?>
 
 <!doctype html>
