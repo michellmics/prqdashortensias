@@ -577,7 +577,7 @@
             }
         }
 
-        public function updateVisitante($LIS_DCNOME, $USU_IDUSUARIO, $LIS_DCDOCUMENTO, $LIS_STSTATUS, $LIS_IDLISTACONVIDADOS)
+        public function updateVisitanteInfo($LIS_DCNOME, $USU_IDUSUARIO, $LIS_DCDOCUMENTO, $LIS_STSTATUS, $LIS_IDLISTACONVIDADOS)
         {          
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {

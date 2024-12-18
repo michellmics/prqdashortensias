@@ -25,7 +25,7 @@ class registerVisitante extends SITE_ADMIN
                 $this->conexao(); 
             } 
 
-            $result = $this->updateVisitante($nome, $userid, $documento, $status, $visitanteid);
+            $result = $this->updateVisitanteInfo($nome, $userid, $documento, $status, $visitanteid);
             echo "Convidado atualizado com sucesso."; 
         
         } catch (PDOException $e) {  
