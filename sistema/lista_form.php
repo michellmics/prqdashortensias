@@ -258,6 +258,31 @@ html, body {
     </div><!--/.col (right) -->
 </section><!-- /.content -->
 
+
+<script>
+    // Função de validação
+    	function validarFormulario(event) {
+        event.preventDefault(); // Impede o envio do formulário
+
+        // Captura os valores dos campos
+        const nome = document.querySelector('input[name="nome"]').value.trim();
+        const documento = document.querySelector('input[name="documento"]').value.trim();
+
+        // Validações
+        if (!nome || !documento) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos Obrigatórios',
+                text: 'Todos os campos devem ser preenchidos.',
+            });
+            return false;
+        }
+
+		document.getElementById('formRegistro').submit();
+    }
+
+</script>
+
 <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -367,41 +392,6 @@ html, body {
 <!-- SWEETALERT 2 -->   
 
 
-<script>
-    // Função de validação
-    	function validarFormulario(event) {
-        event.preventDefault(); // Impede o envio do formulário
-
-        // Captura os valores dos campos
-        const nome = document.querySelector('input[name="nome"]').value.trim();
-        const documento = document.querySelector('input[name="documento"]').value.trim();
-
-        // Validações
-        if (!nome || !documento) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Campos Obrigatórios',
-                text: 'Todos os campos devem ser preenchidos.',
-            });
-            return false;
-        }
-
-        // Se todas as validações passarem
-        Swal.fire({
-            icon: 'success',
-            title: 'Validação Bem-Sucedida',
-            text: 'Formulário enviado com sucesso!',
-        }).then(() => {
-            // Envia o formulário após o SweetAlert
-            document.getElementById('form-empresa').submit();
-        });
-
-        return true;
-    }
-
-    // Adiciona o evento de validação ao formulário
-    document.getElementById('form-empresa').addEventListener('submit', validarFormulario);
-</script>
 
 
 

@@ -278,6 +278,14 @@ html, body {
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+                // Chama a validação do formulário
+                const isValid = validarFormulario();
+
+// Se a validação falhar, interrompe a execução
+if (!isValid) {
+    return;
+}
+
       function confirmDelete(listid){
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
