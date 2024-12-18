@@ -248,7 +248,7 @@ html, body {
 							}
 							if($usuario['LIS_STSTATUS'] == "INATIVO")
 							{
-								$lineColor = "color:rgb(158, 160, 161);";
+								$lineColor = "color:rgb(199, 202, 204);";
 							}
 
 						?>
