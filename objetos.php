@@ -1377,7 +1377,7 @@
             }
         }
 
-        public function insertVisitListaInfo($LIS_DCNOME, $USU_IDUSUARIO, $LIS_DCDOCUMENTO)
+        public function insertVisitListaInfo($LIS_DCNOME, $USU_IDUSUARIO, $LIS_DCDOCUMENTO, $LIS_STSTATUS)
         {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
@@ -1388,8 +1388,8 @@
 
             try {
                 $sql = "INSERT INTO LIS_LISTACONVIDADOS 
-                        (LIS_DCNOME, USU_IDUSUARIO, LIS_DCDOCUMENTO, LIS_DTCADASTRO) 
-                        VALUES (:LIS_DCNOME, :USU_IDUSUARIO, :LIS_DCDOCUMENTO, :LIS_DTCADASTRO)";
+                        (LIS_DCNOME, USU_IDUSUARIO, LIS_DCDOCUMENTO, LIS_DTCADASTRO, LIS_STSTATUS) 
+                        VALUES (:LIS_DCNOME, :USU_IDUSUARIO, :LIS_DCDOCUMENTO, :LIS_DTCADASTRO, :LIS_STSTATUS)";
 
                 $stmt = $this->pdo->prepare($sql);
             
@@ -1398,6 +1398,7 @@
                 $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
                 $stmt->bindParam(':LIS_DCDOCUMENTO', $LIS_DCDOCUMENTO, PDO::PARAM_STR);
                 $stmt->bindParam(':LIS_DTCADASTRO', $DATA, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_STSTATUS', $LIS_STSTATUS, PDO::PARAM_STR);
                 
             
                 $stmt->execute();

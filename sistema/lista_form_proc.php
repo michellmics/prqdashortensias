@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id']))
 
 class registerVisitante extends SITE_ADMIN
 {
-    public function insertVisitante($documento, $nome, $userid)
+    public function insertVisitante($documento, $nome, $userid, $status)
     {
         try {
             // Cria conexão com o banco de dados
@@ -36,7 +36,7 @@ class registerVisitante extends SITE_ADMIN
                 //exit();
             } else 
                 {
-                    $result = $this->insertVisitListaInfo($nome, $userid, $documento);
+                    $result = $this->insertVisitListaInfo($nome, $userid, $documento, $status);
                     echo "Visitante cadastrado com sucesso."; 
                     
                 }
@@ -51,10 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $documento = $_POST['documento'];
     $nome = $_POST['nome'];
     $userid = $_POST['userid'];
+    $status = $_POST['status'];
 
  
      // Cria o objeto de registro de usuário e chama o método insertUser
      $registerVisitante = new registerVisitante();
-     $registerVisitante->insertVisitante($documento, $nome, $userid);
+     $registerVisitante->insertVisitante($documento, $nome, $userid, $status);
  }
  ?>

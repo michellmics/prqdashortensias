@@ -230,36 +230,23 @@ html, body {
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
                             </div>
                         </div>
-
-
-
-
-
 						<div class="form-row">
 						<div class="col-7">
-								<label class="control-label" for="inputWarning">Nível</label>
+								<label class="control-label" for="inputWarning">STATUS</label>
 								<div>
 								    <label>
-								        <input type="radio" name="nivel" value="MORADOR" required>
-								        MORADOR
+								        <input type="radio" name="status" value="ATIVO" required>
+								        ATIVO
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input type="radio" name="nivel" value="PORTARIA" required>
-								        PORTARIA
-								    </label>
-								</div>
-								<div>
-								    <label>
-								        <input type="radio" name="nivel" value="SINDICO" required>
-								        SÍNDICO
+								        <input type="radio" name="status" value="INATIVO" required>
+								        INATIVO
 								    </label>
 								</div>
                             </div>
 							</div>
-
-
                     </div>
 
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
