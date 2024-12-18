@@ -225,7 +225,10 @@ html, body {
 						</div>
 						<div class="form-row">
 							<div class="col-6">
-								<br>
+								<label class="control-label" for="inputWarning">Senha</label>
+                                <input id="senha" name="senha" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
+                            </div>
+							<div class="col-6">
 								<label class="control-label" for="inputWarning">Nível</label>
 								<select name="nivel" required>
                         			<option value="MORADOR">MORADOR</option>
@@ -233,11 +236,7 @@ html, body {
 									<option value="SINDICO">SÍNDICO</option>
                     			</select>
                             </div>
-							<div class="col-6">
-								<br>
-								<label class="control-label" for="inputWarning">Senha</label>
-                                <input id="senha" name="senha" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
-                            </div>
+
 						</div>
                     </div>
 
