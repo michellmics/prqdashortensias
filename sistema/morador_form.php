@@ -228,19 +228,19 @@ html, body {
 								<label class="control-label" for="inputWarning">Nível</label>
 								<div>
     <label>
-        <input type="checkbox" name="nivel[]" value="MORADOR">
+        <input type="radio" name="nivel" value="MORADOR" required>
         MORADOR
     </label>
 </div>
 <div>
     <label>
-        <input type="checkbox" name="nivel[]" value="PORTARIA">
+        <input type="radio" name="nivel" value="PORTARIA" required>
         PORTARIA
     </label>
 </div>
 <div>
     <label>
-        <input type="checkbox" name="nivel[]" value="SINDICO">
+        <input type="radio" name="nivel" value="SINDICO" required>
         SÍNDICO
     </label>
 </div>
