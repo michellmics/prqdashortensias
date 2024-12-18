@@ -250,7 +250,7 @@ html, body {
                     </div>
 
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
-                    <button type="submit" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
+                    <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
 
                 </form>
             </div><!-- /.box-body -->
@@ -267,9 +267,9 @@ html, body {
                 function validarFormulario() {
                     const nome = document.querySelector('input[name="nome"]').value.trim();
                     const documento = document.querySelector('input[name="documento"]').value.trim();
-                    const status = document.querySelector('select[name="status"]').value;
+					const status = document.querySelector('input[name="status"]:checked'); 
 
-                    if (!nome || !documento || !status) {
+                    if (!nome || !documento) {
                         alert("Todos os campos devem ser preenchidos.");
                         return false;
                     }
