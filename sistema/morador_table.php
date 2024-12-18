@@ -1,27 +1,47 @@
 <?php
-	include_once '../objetos.php'; // Carrega a classe de conexão e objetos
 	//ini_set('display_errors', 1);
 	//ini_set('display_startup_errors', 1);
 	//error_reporting(E_ALL);
 
-	session_start(); 
-	define('SESSION_TIMEOUT', 1800); // 30 minutos
+  	include_once '../objetos.php'; 
 
-	if (!isset($_SESSION['user_id'])) 
-	{
-	  header("Location: index.php");
-	  exit();
-	}
+  	session_start(); 
+  	define('SESSION_TIMEOUT', 18000); 
+	
+  	if (!isset($_SESSION['user_id'])) 
+  	{
+  	  header("Location: index.php");
+  	  exit();
+  	}
 
-	$blocoSession = $_SESSION['user_bloco'];
-	$apartamentoSession = $_SESSION['user_apartamento'];
-	$nomeSession =  ucwords($_SESSION['user_name']);
-	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
-	$userid = $_SESSION['user_id'];
+  	$blocoSession = $_SESSION['user_bloco'];
+  	$apartamentoSession = $_SESSION['user_apartamento'];
+  	$nomeSession =  ucwords($_SESSION['user_name']);
+  	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
+  	$userid = $_SESSION['user_id'];
 
-	$idvisitante = $_GET['id'];
 	$siteAdmin = new SITE_ADMIN();
-	$siteAdmin->getListaInfoByid($idvisitante); 
+	$siteAdmin->getListaInfo($userid);
+
+	if(count($siteAdmin->ARRAY_LISTAINFO) > 0)
+	{
+	  // Configurações de Paginação
+	  $registrosPorPagina = 50;
+	  $paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+	  $totalRegistros = count($siteAdmin->ARRAY_LISTAINFO);
+	  $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
+
+	  // Determina o índice de início para a página atual
+	  $inicio = ($paginaAtual - 1) * $registrosPorPagina;
+
+	  // Divide o array para exibir apenas os registros da página atual
+	  $dadosPagina = array_slice($siteAdmin->ARRAY_LISTAINFO, $inicio, $registrosPorPagina);
+	}
+	else
+	  	{
+	    	$dadosPagina = "Não há visitantes cadastrados para este morador.";
+		}
+
 
 ?>
 
@@ -193,7 +213,7 @@ html, body {
 										<ul class="nav menu">
 											<li><a href="index.php">Inicio</a></li>
 											<li><a href="morador_table.php">Moradores </a></li>
-											<li><a href="lista_table.php">Minha Lista de Convidados </a></li>
+											<li><a href="#">Minha Lista de Convidados </a></li>
 											<li><a href="../logoff.php">Sair </a></li>
 										</ul>
 									</nav>
@@ -209,110 +229,60 @@ html, body {
 		<!-- End Header Area -->
 		
 	
-        <section class="content">      
-    <!-- right column -->
-    <div class="col-md-6">
-        <!-- general form elements disabled -->
-        <div class="box box-warning">
-            <div class="box-header">
-                <h3 class="box-title">Cadastro de Convidados</h3>
-            </div><!-- /.box-header -->
-            <div class="box-body">
-                <form id="form-empresa" role="form" method="POST">
-
-					<!-- CAMPOS COMO VARIAVEIS -->
-                  	<input type="hidden" name="userid" value="<? echo $userid; ?>"/>
-					<input type="hidden" name="visitanteid" value="<? echo $siteAdmin->ARRAY_LISTAINFO["LIS_IDLISTACONVIDADOS"]; ?>"/> 
-                  	<!-- CAMPOS COMO VARIAVEIS -->
-
-                    <div class="form-group has-warning">
-						<label class="control-label" for="inputWarning"> </label>
-                        <div class="form-row">
-                            <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
-                            <div class="col-8">
-								<label class="control-label" for="inputWarning">Nome Completo</label>
-                                <input id="nome" name="nome" value="<? echo $siteAdmin->ARRAY_LISTAINFO["LIS_DCNOME"]; ?>" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." maxlength="28" readonly required/>
-                            </div>
-                            <div class="col-4">
-								<label class="control-label" for="inputWarning">Documento</label>
-                                <input id="documento" name="documento" value="<? echo $siteAdmin->ARRAY_LISTAINFO["LIS_DCDOCUMENTO"]; ?>" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required />
-                            </div>
-                        </div>
-						<div class="form-row" style="margin-bottom: 10px;  margin: 10px;">
-  						<?php
-							$statusAtivo="";
-							$statusInativo="";
-
-							if($siteAdmin->ARRAY_LISTAINFO["LIS_STSTATUS"] == "ATIVO")
+    <section class="content">
+		<button class="btn btn-danger btn-sm" 
+        	style="font-size: 10px; padding: 2px 5px; height: 25px; margin: 10px; margin-bottom: 10px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
+        	onclick="window.location.href='morador_form.php';">
+    		Adicionar Morador
+		</button>  
+	<div class="box-body table-responsive no-padding">
+                  <table class="table table-hover">
+                    <tr>
+                      <th></th> 
+					  <th></th> 
+                      <th>NOME</th>
+                      <th>DOC</th>   
+					  <th></th>                
+                    </tr>
+                    <tr>
+					<? $lin = 0 ?>
+                    <?php foreach ($dadosPagina as $usuario): ?>
+						<?php
+							if($usuario['LIS_STSTATUS'] == "ATIVO")
 							{
-								$statusAtivo = "checked";
+								$lineColor = "color:#993399;";
 							}
-							if($siteAdmin->ARRAY_LISTAINFO["LIS_STSTATUS"] == "INATIVO")
+							if($usuario['LIS_STSTATUS'] == "INATIVO")
 							{
-								$statusInativo = "checked";
+								$lineColor = "color:rgb(199, 202, 204);";
 							}
+
 						?>
-						<div class="col-7">
-								<label class="control-label" for="inputWarning">Status do Convidado</label>
-								<div>
-								    <label>
-								        <input type="radio" name="status" value="ATIVO" required <? echo $statusAtivo; ?>>
-								        ATIVO
-								    </label>
-								</div>
-								<div>
-								    <label>
-								        <input type="radio" name="status" value="INATIVO" required <? echo $statusInativo; ?>>
-								        INATIVO
-								    </label>
-								</div>
-                            </div>
-							</div>
-                    </div>
 
-                    <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
-                    <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
 
-                </form>
-            </div><!-- /.box-body -->
-        </div><!-- /.box -->
-    </div><!--/.col (right) -->
+                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.prqdashortensias.com.br/sistema/lista_form_edit.php?id=<?= $usuario['LIS_IDLISTACONVIDADOS'] ?>';">
+                        <td style="text-transform: uppercase; font-size: 15px;">
+                        </td> <? $lin++; ?>
+						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td> 
+						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $usuario['LIS_IDLISTACONVIDADOS']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
+                      </tr>
+                    <?php endforeach; ?>   
+                    </tr>
+                  </table>
+                </div><!-- /.box-body -->
 </section><!-- /.content -->
-
-
-
 
 <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-
-                function validarFormulario() {
-                    const nome = document.querySelector('input[name="nome"]').value.trim();
-                    const documento = document.querySelector('input[name="documento"]').value.trim();
-					const status = document.querySelector('input[name="status"]:checked'); 
-
-                    if (!nome || !documento || !status) {
-                        alert("Todos os campos devem ser preenchidos.");
-                        return false;
-                    }
-                    return true;
-                }
-
-
-      function confirmAndSubmit(event) {
-          // Chama a validação do formulário
-        const isValid = validarFormulario();
-
-        // Se a validação falhar, interrompe a execução
-        if (!isValid) {
-            return;
-        }
-
+      function confirmDelete(listid){
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
-          title: 'Formulário de convidados',
-          text: "Têm certeza que deseja atualizar o convidado?",
+          title: 'Lista de Convidados',
+          text: "Têm certeza que deseja excluir o convidado?",
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
@@ -320,31 +290,32 @@ html, body {
           denyButtonColor: "#D8BFD8",
           width: '600px', // Largura do alerta
           icon: 'warning',
+          position: 'top', // Define a posição na parte superior da tela
           customClass: {
             title: 'swal-title', // Classe para o título
             content: 'swal-content', // Classe para o conteúdo (texto)
             confirmButton: 'swal-confirm-btn',
             denyButton: 'swal-deny-btn',
-            htmlContainer: 'swal-text'
+            htmlContainer: 'swal-text',
+            popup: 'swal-custom-popup', // Classe para customizar o popup
           }
         }).then((result) => {
           if (result.isConfirmed) {
             // Capturar os dados do formulário
-            var formData = new FormData($("#form-empresa")[0]); // Usa o FormData para enviar arquivos
+            var formData = $("#form-empresa").serialize();
             // Fazer a requisição AJAX
             $.ajax({
-              url: "lista_form_edit_proc.php", // URL para processamento
+              url: "lista_delete.php", // URL para processamento
               type: "POST",
-              data: formData,
-              processData: false, // Impede o jQuery de processar os dados
-              contentType: false, // Impede o jQuery de definir o tipo de conteúdo
+              data: { id: listid }, // Dados enviados
               success: function (response) {
                 Swal.fire({
               title: 'Salvo!',
               text: `${response}`,
               icon: 'success',
-              width: '600px', // Largura do alerta
+              width: '200px', // Largura do alerta
               confirmButtonColor: "#993399",
+              position: 'top', // Define a posição na parte superior da tela
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
@@ -359,10 +330,11 @@ html, body {
               error: function (xhr, status, error) {
                 Swal.fire({
               title: 'Erro!',
-              text: 'Erro ao atualizar o convidado.',
+              text: 'Erro ao deletar o convidado.',
               icon: 'error',
-              width: '600px', // Largura do alerta
+              width: '200px', // Largura do alerta
               confirmButtonColor: "#993399",
+              position: 'top', // Define a posição na parte superior da tela
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
@@ -385,23 +357,67 @@ html, body {
 <style>
   /* Estilos para aumentar o tamanho da fonte */
   .swal-title {
-    font-size: 36px !important; /* Tamanho maior para o título */
+    font-size: 22px !important; /* Tamanho maior para o título */
   }
 
   .swal-text {
-    font-size: 24px !important; /* Tamanho maior para o conteúdo */
+    font-size: 16px !important; /* Tamanho maior para o conteúdo */
   }
+
+  @media screen and (max-width: 768px) {
+  .swal-custom-popup {
+    top: 10% !important; /* Ajuste de posição vertical */
+    transform: translateY(0) !important; /* Centraliza no topo */
+  }
+}
 
   /* Aumentar o tamanho dos textos dos botões */
   .swal-confirm-btn,
   .swal-deny-btn,
   .swal-cancel-btn {
-    font-size: 20px !important; /* Tamanho maior para os textos dos botões */
-    padding: 12px 12px !important; /* Aumenta o espaço ao redor do texto */
+    font-size: 14px !important; /* Tamanho maior para os textos dos botões */
+    padding: 9px 9px !important; /* Aumenta o espaço ao redor do texto */
   }
 </style>
 <!-- ######################################################## --> 
 <!-- SWEETALERT 2 -->   
+
+
+<script>
+    // Função de validação
+    	function validarFormulario(event) {
+        event.preventDefault(); // Impede o envio do formulário
+
+        // Captura os valores dos campos
+        const nome = document.querySelector('input[name="nome"]').value.trim();
+        const documento = document.querySelector('input[name="documento"]').value.trim();
+
+        // Validações
+        if (!nome || !documento) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos Obrigatórios',
+                text: 'Todos os campos devem ser preenchidos.',
+            });
+            return false;
+        }
+
+        // Se todas as validações passarem
+        Swal.fire({
+            icon: 'success',
+            title: 'Validação Bem-Sucedida',
+            text: 'Formulário enviado com sucesso!',
+        }).then(() => {
+            // Envia o formulário após o SweetAlert
+            document.getElementById('form-empresa').submit();
+        });
+
+        return true;
+    }
+
+    // Adiciona o evento de validação ao formulário
+    document.getElementById('form-empresa').addEventListener('submit', validarFormulario);
+</script>
 
 
 

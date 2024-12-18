@@ -211,9 +211,9 @@ html, body {
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li><a href="index.php">Inicio</a></li>
-											<li><a href="morador_form.php">Cadastro de Usuário </a></li>
-											<li><a href="#">Salão de Festas </a></li>
+                      <li><a href="index.php">Inicio</a></li>
+											<li><a href="morador_table.php">Moradores </a></li>
+											<li><a href="#">Minha Lista de Convidados </a></li>
 											<li><a href="../logoff.php">Sair </a></li>
 										</ul>
 									</nav>

@@ -184,8 +184,8 @@ html, body {
 									<nav class="navigation">
 										<ul class="nav menu">
 											<li><a href="index.php">Inicio</a></li>
-											<li><a href="morador_form.php">Cadastro de Usuário </a></li>
-											<li><a href="lista_table.php">Salão de Festas </a></li>
+											<li><a href="morador_table.php">Moradores </a></li>
+											<li><a href="lista_table.php">Minha Lista de Convidados </a></li>
 											<li><a href="../logoff.php">Sair </a></li>
 										</ul>
 									</nav>
