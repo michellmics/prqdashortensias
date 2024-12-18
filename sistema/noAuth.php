@@ -205,6 +205,7 @@ html, body {
         <div class="error-page">
           <h2 class="headline text-yellow"> </h2>
           <div class="error-content">
+			<BR><BR><BR>
             <h3><i class="fa fa-warning text-yellow"></i> Permissões insuficientes.</h3>
             <p>
               Suas credenciais não autorizam o acesso a esta seção.
