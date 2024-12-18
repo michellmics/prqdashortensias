@@ -226,6 +226,7 @@ html, body {
 						<div class="form-row">
 							<div class="col-6">
 								<label class="control-label" for="inputWarning">Nível</label>
+								<br>
 								<select name="nivel" required>
                         			<option value="MORADOR">MORADOR</option>
                         			<option value="PORTARIA">PORTARIA</option>
