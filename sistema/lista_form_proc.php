@@ -21,6 +21,9 @@ class registerVisitante extends SITE_ADMIN
                 $this->conexao();
             }
 
+            $nome = strtoupper($nome);
+            $documento = strtoupper($documento);
+
             // Prepara a consulta SQL para verificar o usuário
             $sql = "SELECT LIS_IDLISTACONVIDADOS, USU_IDUSUARIO, LIS_DCNOME, LIS_DCDOCUMENTO FROM LIS_LISTACONVIDADOS WHERE LIS_DCNOME = :nome AND USU_IDUSUARIO = :userid";
             $stmt = $this->pdo->prepare($sql);

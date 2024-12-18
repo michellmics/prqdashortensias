@@ -18,6 +18,8 @@ class registerVisitante extends SITE_ADMIN
 {
     public function updateVisitante($documento, $nome, $userid, $status, $visitanteid)
     {
+        $nome = strtoupper($nome);
+        $documento = strtoupper($documento);
 
         try {
             // Cria conexão com o banco de dados

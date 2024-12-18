@@ -21,6 +21,9 @@ class registerUser extends SITE_ADMIN
                 $this->conexao();
             }
 
+            $nome = strtoupper($nome);
+            $email = strtoupper($email);
+
             // Prepara a consulta SQL para verificar o usuário
             $sql = "SELECT USU_IDUSUARIO, USU_DCSENHA, USU_DCEMAIL FROM USU_USUARIO WHERE USU_DCEMAIL = :email";
             $stmt = $this->pdo->prepare($sql);
