@@ -1342,37 +1342,34 @@
             }
         }
 
-        public function insertUserInfo($USA_DCEMAIL, $USA_DCNOME, $USA_DCSEXO, $USA_DCSENHA, $USA_DCFOTO, $USA_DCNIVELDEACESSO, $USA_STPROSPEC)
-        {          
+        public function insertUserInfo($USU_DCEMAIL, $USU_DCNOME, $USU_DCBLOCO, $USU_DCAPARTAMENTO, $USU_DCNIVEL, $USU_DCSENHA)
+        {       
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
                 $this->conexao();
             }
         
             try {
-                $sql = "INSERT INTO USA_USERADMIN 
-                        (USA_DCEMAIL, USA_DCNOME, USA_DCSEXO, USA_DCSENHA, USA_DCFOTO, USA_DCNIVELDEACESSO, USA_STPROSPEC) 
-                        VALUES (:USA_DCEMAIL, :USA_DCNOME, :USA_DCSEXO, :USA_DCSENHA, :USA_DCFOTO, :USA_DCNIVELDEACESSO, :USA_STPROSPEC)";
+                $sql = "INSERT INTO USU_USUARIO 
+                        (USU_DCEMAIL, USU_DCNOME, USU_DCBLOCO, USU_DCAPARTAMENTO, USU_DCNIVEL, USU_DCSENHA) 
+                        VALUES (:USU_DCEMAIL, :USU_DCNOME, :USU_DCBLOCO, :USU_DCAPARTAMENTO, :USU_DCNIVEL, :USU_DCSENHA)";
 
                 $stmt = $this->pdo->prepare($sql);
             
                 // Liga os parâmetros aos valores
-                $stmt->bindParam(':USA_DCEMAIL', $USA_DCEMAIL, PDO::PARAM_STR);
-                $stmt->bindParam(':USA_DCNOME', $USA_DCNOME, PDO::PARAM_STR);
-                $stmt->bindParam(':USA_DCSEXO', $USA_DCSEXO, PDO::PARAM_STR);
-                $stmt->bindParam(':USA_DCSENHA', $USA_DCSENHA, PDO::PARAM_STR);
-                $stmt->bindParam(':USA_DCFOTO', $USA_DCFOTO, PDO::PARAM_STR);
-                $stmt->bindParam(':USA_DCNIVELDEACESSO', $USA_DCNIVELDEACESSO, PDO::PARAM_STR);
-                $stmt->bindParam(':USA_STPROSPEC', $USA_STPROSPEC, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCEMAIL', $USU_DCEMAIL, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCNOME', $USU_DCNOME, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCBLOCO', $USU_DCBLOCO, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCNIVEL', $USU_DCNIVEL, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCSENHA', $USU_DCSENHA, PDO::PARAM_STR);
             
                 $stmt->execute();
             
                 // Retorna uma mensagem de sucesso (opcional)
-                $this->InsertAlarme("Inserido novo usuário. $USA_DCNOME","Warning");
-                return ["success" => "Usuário adm inserido com sucesso."];
+                return ["success" => "Morador cadastrado com sucesso."];
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                $this->InsertAlarme("Erro na função insertUserInfo. $USA_DCNOME","High");
                 return ["error" => $e->getMessage()];
             }
         }
