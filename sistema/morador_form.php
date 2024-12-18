@@ -286,7 +286,7 @@ html, body {
                 title: 'Senha Inválida',
                 text: 'A senha deve ter pelo menos 8 caracteres, incluir uma letra maiúscula e um caractere especial.',
             });
-            return false;
+            return false; 
         }
 
         // Se todas as validações passarem
