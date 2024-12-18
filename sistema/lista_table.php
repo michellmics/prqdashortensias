@@ -236,17 +236,30 @@ html, body {
                       <th></th> 
 					  <th></th> 
                       <th>NOME</th>
-                      <th>DOCUMENTO</th>                  
+                      <th>DOC</th>                  
                     </tr>
                     <tr>
 					<? $lin = 0 ?>
-                    <?php foreach ($dadosPagina as $client): ?>
-                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.codemaze.com.br/site/admin/form_prospec_edit.php?id=<?= $client['LIS_IDLISTACONVIDADOS'] ?>';">
+                    <?php foreach ($dadosPagina as $usuario): ?>
+						<?php
+							if($usuario['LIS_STSTATUS'] == "ATIVO")
+							{
+								$lineColor = "color:rgb(28, 145, 199);";
+							}
+							if($usuario['LIS_STSTATUS'] == "INATIVO")
+							{
+								$lineColor = "color:rgb(158, 160, 161);";
+							}
+
+						?>
+
+
+                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.codemaze.com.br/site/admin/form_prospec_edit.php?id=<?= $usuario['LIS_IDLISTACONVIDADOS'] ?>';">
                         <td style="text-transform: uppercase; font-size: 15px;">
                         </td> <? $lin++; ?>
-						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle;"> <? echo $lin; ?></td>
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle;"> <?= htmlspecialchars(strlen($client['LIS_DCNOME']) > 20 ? substr($client['LIS_DCNOME'], 0, 20) . '...' : $client['LIS_DCNOME']) ?></td>                        
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle;"><?= htmlspecialchars(strlen($client['LIS_DCDOCUMENTO']) > 25 ? substr($client['LIS_DCDOCUMENTO'], 0, 25) . '...' : $client['LIS_DCDOCUMENTO']) ?></td>        
+						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td>        
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
