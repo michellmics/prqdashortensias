@@ -140,8 +140,8 @@ html, body {
   .btn-warning:hover {
       background-color: #E6E6FA; /* Lilás ainda mais claro ao passar o mouse */
   }
-
-        </style>
+  
+  </style>
 		
     </head>
     <body>
