@@ -18,29 +18,30 @@
   	$apartamentoSession = $_SESSION['user_apartamento'];
   	$nomeSession =  ucwords($_SESSION['user_name']);
   	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
-  	$userid = $_SESSION['user_id'];
+  	$userid = $_GET['id'];
+
 
 	$siteAdmin = new SITE_ADMIN();
-	$siteAdmin->getListaMoradoresInfo();
+	$siteAdmin->getListaInfo($userid);
 
-	if(count($siteAdmin->ARRAY_LISTAMORADORESINFO) > 0)
+	if(count($siteAdmin->ARRAY_LISTAINFO) > 0)
 	{
 	  // Configurações de Paginação
-	  $registrosPorPagina = 100;
+	  $registrosPorPagina = 50;
 	  $paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-	  $totalRegistros = count($siteAdmin->ARRAY_LISTAMORADORESINFO);
+	  $totalRegistros = count($siteAdmin->ARRAY_LISTAINFO);
 	  $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
 
 	  // Determina o índice de início para a página atual
 	  $inicio = ($paginaAtual - 1) * $registrosPorPagina;
 
 	  // Divide o array para exibir apenas os registros da página atual
-	  $dadosPagina = array_slice($siteAdmin->ARRAY_LISTAMORADORESINFO, $inicio, $registrosPorPagina);
+	  $dadosPagina = array_slice($siteAdmin->ARRAY_LISTAINFO, $inicio, $registrosPorPagina);
 	}
 	else
 	  	{
-	    	$dadosPagina = "Não há moradores cadastrados.";
-		  }
+	    	$dadosPagina = "Não há visitantes cadastrados para este morador.";
+		}
 
 
 ?>
@@ -211,7 +212,7 @@ html, body {
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li><a href="index.php">Inicio</a></li>
+                      <li><a href="index.php">Inicio</a></li>
 											<li><a href="morador_table.php">Moradores </a></li>
 											<li><a href="#">Minha Lista de Convidados </a></li>
 											<li><a href="../logoff.php">Sair </a></li>
@@ -232,8 +233,8 @@ html, body {
     <section class="content">
 		<button class="btn btn-danger btn-sm" 
         	style="font-size: 10px; padding: 2px 5px; height: 25px; margin: 10px; margin-bottom: 10px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
-        	onclick="window.location.href='morador_form.php';">
-    		Adicionar Morador
+        	onclick="window.location.href='lista_form.php';">
+    		Adicionar Convidado
 		</button>  
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
@@ -241,14 +242,13 @@ html, body {
                       <th></th> 
 					  <th></th> 
                       <th>NOME</th>
-                      <th>APTO</th>   
+                      <th>DOC</th>   
 					  <th></th>                
                     </tr>
                     <tr>
 					<? $lin = 0 ?>
-                    <?php foreach ($dadosPagina as $morador): ?>
+                    <?php foreach ($dadosPagina as $usuario): ?>
 						<?php
-            /*
 							if($usuario['LIS_STSTATUS'] == "ATIVO")
 							{
 								$lineColor = "color:#993399;";
@@ -257,17 +257,17 @@ html, body {
 							{
 								$lineColor = "color:rgb(199, 202, 204);";
 							}
-               */
+
 						?>
 
 
-                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.prqdashortensias.com.br/sistema/lista_table_by_morador.php?id=<?= $morador['USU_IDUSUARIO'] ?>';">
+                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.prqdashortensias.com.br/sistema/lista_form_edit.php?id=<?= $usuario['LIS_IDLISTACONVIDADOS'] ?>';">
                         <td style="text-transform: uppercase; font-size: 15px;">
                         </td> <? $lin++; ?>
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399;"> <?= htmlspecialchars(strlen($morador['USU_DCNOME']) > 20 ? substr($morador['USU_DCNOME'], 0, 20) . '...' : $morador['USU_DCNOME']) ?></td>                        
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399;"><?= htmlspecialchars(strlen($morador['USU_DCAPARTAMENTO']) > 25 ? substr($morador['USU_DCAPARTAMENTO'], 0, 12) . '...' : $morador['USU_DCAPARTAMENTO']) ?></td> 
-						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $morador['USU_IDUSUARIO']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td> 
+						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $usuario['LIS_IDLISTACONVIDADOS']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
