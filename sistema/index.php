@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>asdsadsadsad</title>
+        <title>Condomínio Parque das Hortências</title>
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
@@ -42,6 +42,16 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/responsive.css">
 
+        <!-- SWEETALERT -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+		<link rel="icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
+    	<link rel="shortcut icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
+    	<link rel="apple-touch-icon" href="https://www.prqdashortensias.com.br/logo_icon.png">
+    	<meta name="apple-mobile-web-app-title" content="Hortensias">
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
         <style>
           /* Configuração geral do HTML e Body */
 html, body {
@@ -54,9 +64,9 @@ html, body {
 /* Footer fixo no final */
 .footerNew {
     background-color: #f0f0f0; /* Cinza bem claro */
-    color: #ccc; /* Cinza clarinho para o texto */
+    color: #000; /* Cinza clarinho para o texto */
     font-size: 12px; /* Fonte pequena */
-    text-align: left; /* Centraliza o texto */
+    text-align: center; /* Centraliza o texto */
     padding: 0; /* Remove espaçamento interno */
     height: 30px; /* Altura do footer */
     line-height: 30px; /* Centraliza verticalmente o texto */
@@ -64,6 +74,25 @@ html, body {
     bottom: 0; /* Colado no final da página */
     width: 100%; /* Largura total */
 }
+ /* Botão de Salvar em lilás */
+ .btn-primary {
+      background-color:#8a0653; /* Lilás */
+      border-color: #8a0653; /* Mesma cor da borda */
+      color: white; /* Texto branco */
+  }
+  .btn-primary:hover {
+      background-color: #993399; /* Lilás mais claro ao passar o mouse */
+  }
+
+  /* Botão de Voltar em lilás mais claro */
+  .btn-warning {
+      background-color: #D8BFD8; /* Lilás mais claro */
+      border-color: #D8BFD8; /* Mesma cor da borda */
+      color: #4B0082; /* Texto em roxo escuro */
+  }
+  .btn-warning:hover {
+      background-color: #E6E6FA; /* Lilás ainda mais claro ao passar o mouse */
+  }
 
         </style>
 		
@@ -106,8 +135,8 @@ html, body {
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>3123213213</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li>
+								<li><b>Morador:</b> Michell Duarte de Oliveira</li> 
+								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
 							</ul>
 							<!-- End Top Contact -->
 						</div>
@@ -123,7 +152,7 @@ html, body {
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="#slider"><img src="https://serconeo.com.br/new/img/logo_serconeo.png" alt="#"></a>
+									<a href="#slider"><img src="https://prqdashortensias.com.br/sistema/img/logo_hor_hort.png" alt="#"></a>
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->
@@ -152,18 +181,30 @@ html, body {
 		</header>
 		<!-- End Header Area -->
 		
-		dsadasdsadsadsadsad
-    dsa
-    das
-    d
-    sa
-    d
-    as
-    d
-		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Footer -->
 <footer class="footerNew">
-  Codemaze - Soluções de MKT e Software
+  <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> - Soluções de MKT e Software
 </footer>
 		
 
