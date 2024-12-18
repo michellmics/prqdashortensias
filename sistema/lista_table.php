@@ -330,7 +330,7 @@ html, body {
               error: function (xhr, status, error) {
                 Swal.fire({
               title: 'Erro!',
-              text: 'Erro ao atualizar o Cliente.',
+              text: 'Erro ao deletar o convidado.',
               icon: 'error',
               width: '200px', // Largura do alerta
               confirmButtonColor: "#4289a6",
