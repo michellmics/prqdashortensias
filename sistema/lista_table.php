@@ -272,6 +272,7 @@ html, body {
                     </tr>
                   </table>
                 </div><!-- /.box-body -->
+                <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
 </section><!-- /.content -->
 
 <!-- ######################################################## --> 
