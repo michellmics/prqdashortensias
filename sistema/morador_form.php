@@ -230,7 +230,7 @@ html, body {
                             </div>
 							<div class="col-6">
 								<label class="control-label" for="inputWarning">Senha</label>
-                                <input id="senha" name="senha" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="8" maxlength="10" required />
+                                <input id="senha" name="senha" type="password" class="form-control" placeholder="" maxlength="8" maxlength="10" required />
                             </div>
 						</div>
                     </div>
