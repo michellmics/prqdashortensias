@@ -66,7 +66,7 @@ class LoginSystem extends SITE_ADMIN
 if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 {
     // Sua chave secreta
-    $secretKey = "6LcZHF4qAAAAAB8x_VRiQoivWpb5kzz_SOy8EwIT"; 
+    $secretKey = "6Lf3654qAAAAADXFzRqJWg7dN-XLJN_JJFMD7Lgx"; 
 
     // O token enviado pelo reCAPTCHA v2
     $recaptchaResponse = $_POST['g-recaptcha-response'];
