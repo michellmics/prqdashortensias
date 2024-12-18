@@ -239,7 +239,7 @@ html, body {
 						<div class="form-row">
 							<div class="col-12">
 								<label class="control-label" for="inputWarning">E-mail</label>
-                                <input id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="50" required />
+                                <input id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
                             </div>
 						</div>
 						<div class="form-row">
