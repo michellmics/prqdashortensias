@@ -15,7 +15,7 @@
         //declaração de variaveis 
         public $pdo;
         public $ARRAY_SITEINFO;
-        public $ARRAY_USERINFO;
+        public $ARRAY_LISTAINFO;
         public $ARRAY_USERINFOLIST;
         public $ARRAY_USERINFOBYID;
         public $ARRAY_DESCEMPRESAINFO;
@@ -893,7 +893,7 @@
             }          
         }
 
-        public function getUserInfo($USA_IDUSERADMIN)
+        public function getListaInfo($USA_IDUSERADMIN)
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
@@ -903,7 +903,7 @@
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
-                $this->ARRAY_USERINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+                $this->ARRAY_LISTAINFO = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
