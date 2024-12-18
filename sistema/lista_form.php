@@ -402,7 +402,7 @@ html, body {
 
 <!-- Footer -->
 <footer class="footerNew">
-  <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> - Soluções de MKT e Software
+<a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> - Soluções de MKT e Software | <b><? echo $_SESSION['user_nivelacesso']; ?></b>
 </footer>
 		
 
