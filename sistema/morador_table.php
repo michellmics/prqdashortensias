@@ -312,7 +312,7 @@ html, body {
             var formData = $("#form-empresa").serialize();
             // Fazer a requisição AJAX
             $.ajax({
-              url: "lista_delete.php", // URL para processamento
+              url: "morador_delete.php", // URL para processamento
               type: "POST",
               data: { id: listid }, // Dados enviados
               success: function (response) {
