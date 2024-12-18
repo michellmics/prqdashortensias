@@ -201,11 +201,11 @@ html, body {
 								<label class="control-label" for="inputWarning">Nome Completo</label>
                                 <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." maxlength="28" required/>
                             </div>
-                            <div class="col-4">
+                            <div class="col-2">
 								<label class="control-label" for="inputWarning">Bloco</label>
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
                             </div>
-							<div class="col-4">
+							<div class="col-2">
 								<label class="control-label" for="inputWarning">Apart.</label>
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
                             </div>
