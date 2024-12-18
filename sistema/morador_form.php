@@ -198,7 +198,7 @@ html, body {
                 <h3 class="box-title">Cadastro de Morador</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <form id="form-empresa" role="form" method="POST">
+			<form id="form-empresa" role="form" method="POST" enctype="multipart/form-data">
 
                     <div class="form-group has-warning">
 						<label class="control-label" for="inputWarning"> </label>
