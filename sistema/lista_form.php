@@ -230,7 +230,7 @@ html, body {
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
                             </div>
                         </div>
-						<div class="form-row">
+						<div class="form-row" style="margin: 10px; margin-bottom: 10px;">
 						<div class="col-7">
 								<label class="control-label" for="inputWarning">STATUS</label>
 								<div>
