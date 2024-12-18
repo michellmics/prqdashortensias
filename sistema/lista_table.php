@@ -231,11 +231,10 @@ html, body {
 	
     <section class="content">
 		<button class="btn btn-danger btn-sm" 
-        	style="font-size: 10px; padding: 2px 5px;" 
+        	style="font-size: 10px; padding: 2px 5px; margin-bottom: 10px;" 
         	onclick="window.location.href='lista_form.php';">
     		Adicionar Convidados
-		</button>
-		<br>    
+		</button>  
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
