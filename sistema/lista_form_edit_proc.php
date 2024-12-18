@@ -13,8 +13,9 @@ if (!isset($_SESSION['user_id']))
 
 class registerVisitante extends SITE_ADMIN
 {
-    public function insertVisitante($documento, $nome, $userid, $status, $visitanteid)
+    public function updateVisitante($documento, $nome, $userid, $status, $visitanteid)
     {
+
         try {
             // Cria conexão com o banco de dados
             if (!$this->pdo) {

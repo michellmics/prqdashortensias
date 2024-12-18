@@ -583,9 +583,7 @@
             if (!$this->pdo) {
                 $this->conexao();
             }
-
-            return "hijhjisdhf";
-           
+          
             try {
                 $sql = "UPDATE LIS_LISTACONVIDADOS 
                         SET LIS_DCNOME = :LIS_DCNOME,
