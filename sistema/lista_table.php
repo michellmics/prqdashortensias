@@ -14,6 +14,12 @@
   	  exit();
   	}
 
+    if ($_SESSION['user_nivelacesso'] != "SINDICO" && $_SESSION['user_nivelacesso'] != "MORADOR") 
+    {
+      header("Location: noAuth.php");
+      exit();
+    }
+
   	$blocoSession = $_SESSION['user_bloco'];
   	$apartamentoSession = $_SESSION['user_apartamento'];
   	$nomeSession =  ucwords($_SESSION['user_name']);
