@@ -227,23 +227,23 @@ html, body {
 							<div class="col-7">
 								<label class="control-label" for="inputWarning">Nível</label>
 								<div>
-    <label>
-        <input type="radio" name="nivel" value="MORADOR" required>
-        MORADOR
-    </label>
-</div>
-<div>
-    <label>
-        <input type="radio" name="nivel" value="PORTARIA" required>
-        PORTARIA
-    </label>
-</div>
-<div>
-    <label>
-        <input type="radio" name="nivel" value="SINDICO" required>
-        SÍNDICO
-    </label>
-</div>
+								    <label>
+								        <input type="radio" name="nivel" value="MORADOR" required>
+								        MORADOR
+								    </label>
+								</div>
+								<div>
+								    <label>
+								        <input type="radio" name="nivel" value="PORTARIA" required>
+								        PORTARIA
+								    </label>
+								</div>
+								<div>
+								    <label>
+								        <input type="radio" name="nivel" value="SINDICO" required>
+								        SÍNDICO
+								    </label>
+								</div>
                             </div>
 							<div class="col-5">
 								<label class="control-label" for="inputWarning">Senha</label>
