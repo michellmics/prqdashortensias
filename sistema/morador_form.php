@@ -246,6 +246,24 @@ html, body {
 
 
 <script>
+		document.getElementById('apartamento').addEventListener('input', function (e) {
+	    const maxLength = 4;
+	    const value = e.target.value;
+
+	    // Limita o comprimento a 4 caracteres
+	    if (value.length > maxLength) {
+	        e.target.value = value.slice(0, maxLength);
+	    }
+		});
+	document.getElementById('bloco').addEventListener('input', function (e) {
+	    const maxLength = 1;
+	    const value = e.target.value;
+
+	    // Limita o comprimento a 4 caracteres
+	    if (value.length > maxLength) {
+	        e.target.value = value.slice(0, maxLength);
+	    }
+		});
     // Função de validação
     function validarFormulario(event) {
         event.preventDefault(); // Impede o envio do formulário
