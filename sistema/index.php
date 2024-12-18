@@ -182,24 +182,9 @@ html, body {
 		<!-- End Header Area -->
 		
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    		<img src="https://prqdashortensias.com.br/sistema/img/logo_hor_hort.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
+		</section>
 
 
 <!-- Footer -->
