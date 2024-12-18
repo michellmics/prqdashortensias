@@ -36,12 +36,6 @@ class registerVisitante extends SITE_ADMIN
             $stmt->execute();
             $total = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            if($maxConvidados =< $total['total'])
-            {
-
-            }
-
-
             $nome = strtoupper($nome);
             $documento = strtoupper($documento);
 
@@ -61,7 +55,7 @@ class registerVisitante extends SITE_ADMIN
 
             } else             
                 {
-                    if($maxConvidados =< $total['total'])
+                    if($maxConvidados <= $total['total'])
                     {
                         echo "São permitidos apenas $maxConvidados convidados por apartamento.";
                     }
