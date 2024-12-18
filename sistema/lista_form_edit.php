@@ -1,5 +1,8 @@
 <?php
 	include_once '../objetos.php'; // Carrega a classe de conexão e objetos
+	ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 	session_start(); 
 	define('SESSION_TIMEOUT', 1800); // 30 minutos
