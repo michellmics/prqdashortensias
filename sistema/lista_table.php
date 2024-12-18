@@ -23,6 +23,10 @@
 
 	$siteAdmin = new SITE_ADMIN();
 	$siteAdmin->getListaInfo($userid);
+
+	
+	var_dump($siteAdmin->ARRAY_LISTAINFO);
+	die();
   
 
 	if(count($siteAdmin->ARRAY_LISTAINFO) > 0)
@@ -44,8 +48,6 @@
 	    	$dadosPagina = "Não há visitantes cadastrados para este morador.";
 		}
 
-		var_dump($siteAdmin->ARRAY_LISTAINFO);
-		die();
 
 ?>
 
