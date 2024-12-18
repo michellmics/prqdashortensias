@@ -169,7 +169,7 @@ html, body {
 											<li><a href="lista_form.php">Lista de Visitas </a></li>
 											<li><a href="#contato">Contato </a></li>
 										</ul>
-									</nav>
+									</nav> 
 								</div>
 								<!--/ End Main Menu -->
 							</div>
