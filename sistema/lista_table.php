@@ -266,7 +266,7 @@ html, body {
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td> 
-						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $client['PRC_IDPROSPEC_CLIENTES']; ?>)"><span class="label label-danger"><i class="fa fa-trash"></i></span></a></td>       
+						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $client['PRC_IDPROSPEC_CLIENTES']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
@@ -274,7 +274,113 @@ html, body {
                 </div><!-- /.box-body -->
 </section><!-- /.content -->
 
+<!-- ######################################################## --> 
+    <!-- SWEETALERT 2 -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function confirmDelete(userId){
+        event.preventDefault(); // Impede o envio padrão do formulário
+        Swal.fire({
+          title: 'Formulário de Clientes',
+          text: "Têm certeza que deseja excluir a prospecção?",
+          showDenyButton: true,
+          confirmButtonText: 'SIM',
+          denyButtonText: `CANCELAR`,
+          confirmButtonColor: "#4289a6",
+          denyButtonColor: "#ff8a33",
+          width: '600px', // Largura do alerta
+          icon: 'warning',
+          position: 'top', // Define a posição na parte superior da tela
+          customClass: {
+            title: 'swal-title', // Classe para o título
+            content: 'swal-content', // Classe para o conteúdo (texto)
+            confirmButton: 'swal-confirm-btn',
+            denyButton: 'swal-deny-btn',
+            htmlContainer: 'swal-text',
+            popup: 'swal-custom-popup', // Classe para customizar o popup
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Capturar os dados do formulário
+            var formData = $("#form-empresa").serialize();
+            // Fazer a requisição AJAX
+            $.ajax({
+              url: "prospec_delete.php", // URL para processamento
+              type: "POST",
+              data: { id: userId }, // Dados enviados
+              success: function (response) {
+                Swal.fire({
+              title: 'Salvo!',
+              text: `${response}`,
+              icon: 'success',
+              width: '200px', // Largura do alerta
+              confirmButtonColor: "#4289a6",
+              position: 'top', // Define a posição na parte superior da tela
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            }).then(() => {
+                  // Redirecionar ou atualizar a página, se necessário
+                  location.reload();
+                });
+              },
+              error: function (xhr, status, error) {
+                Swal.fire({
+              title: 'Erro!',
+              text: 'Erro ao atualizar o Cliente.',
+              icon: 'error',
+              width: '200px', // Largura do alerta
+              confirmButtonColor: "#4289a6",
+              position: 'top', // Define a posição na parte superior da tela
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            });
+              },
+            });
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
+          }
+        });
+      }
+      // Associar a função ao botão de submit
+      $(document).ready(function () {
+        $("#salvar_empresa_1").on("click", confirmAndSubmit);
+      });
+</script> 
+<style>
+  /* Estilos para aumentar o tamanho da fonte */
+  .swal-title {
+    font-size: 22px !important; /* Tamanho maior para o título */
+  }
 
+  .swal-text {
+    font-size: 16px !important; /* Tamanho maior para o conteúdo */
+  }
+
+  @media screen and (max-width: 768px) {
+  .swal-custom-popup {
+    top: 10% !important; /* Ajuste de posição vertical */
+    transform: translateY(0) !important; /* Centraliza no topo */
+  }
+}
+
+  /* Aumentar o tamanho dos textos dos botões */
+  .swal-confirm-btn,
+  .swal-deny-btn,
+  .swal-cancel-btn {
+    font-size: 14px !important; /* Tamanho maior para os textos dos botões */
+    padding: 9px 9px !important; /* Aumenta o espaço ao redor do texto */
+  }
+</style>
+<!-- ######################################################## --> 
+<!-- SWEETALERT 2 -->   
 
 
 <script>
