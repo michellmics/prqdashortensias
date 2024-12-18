@@ -281,13 +281,13 @@ html, body {
       function confirmDelete(listid){
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
-          title: 'Lista de COnvidados',
+          title: 'Lista de Convidados',
           text: "Têm certeza que deseja excluir o convidado?",
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
-          confirmButtonColor: "#4289a6",
-          denyButtonColor: "#ff8a33",
+          confirmButtonColor: "#599dce",
+          denyButtonColor: "#de2f37",
           width: '600px', // Largura do alerta
           icon: 'warning',
           position: 'top', // Define a posição na parte superior da tela
@@ -314,7 +314,7 @@ html, body {
               text: `${response}`,
               icon: 'success',
               width: '200px', // Largura do alerta
-              confirmButtonColor: "#4289a6",
+              confirmButtonColor: "#599dce",
               position: 'top', // Define a posição na parte superior da tela
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
