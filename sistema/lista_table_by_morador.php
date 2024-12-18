@@ -22,7 +22,7 @@
 
 
 	$siteAdmin = new SITE_ADMIN();
-	$siteAdmin->getListaInfo($userid);
+	$siteAdmin->getListaActiveInfo($userid);
 
 	if(count($siteAdmin->ARRAY_LISTAINFO) > 0)
 	{
@@ -231,19 +231,14 @@ html, body {
 		
 	
     <section class="content">
-		<button class="btn btn-danger btn-sm" 
-        	style="font-size: 10px; padding: 2px 5px; height: 25px; margin: 10px; margin-bottom: 10px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
-        	onclick="window.location.href='lista_form.php';">
-    		Adicionar Convidado
-		</button>  
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
                       <th></th> 
-					  <th></th> 
+					            <th></th> 
                       <th>NOME</th>
                       <th>DOC</th>   
-					  <th></th>                
+					                
                     </tr>
                     <tr>
 					<? $lin = 0 ?>
@@ -261,13 +256,12 @@ html, body {
 						?>
 
 
-                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.prqdashortensias.com.br/sistema/lista_form_edit.php?id=<?= $usuario['LIS_IDLISTACONVIDADOS'] ?>';">
+                      
                         <td style="text-transform: uppercase; font-size: 15px;">
                         </td> <? $lin++; ?>
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td> 
-						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $usuario['LIS_IDLISTACONVIDADOS']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
