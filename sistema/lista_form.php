@@ -230,6 +230,36 @@ html, body {
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
                             </div>
                         </div>
+
+
+
+
+
+						<div class="form-row">
+						<div class="col-7">
+								<label class="control-label" for="inputWarning">Nível</label>
+								<div>
+								    <label>
+								        <input type="radio" name="nivel" value="MORADOR" required>
+								        MORADOR
+								    </label>
+								</div>
+								<div>
+								    <label>
+								        <input type="radio" name="nivel" value="PORTARIA" required>
+								        PORTARIA
+								    </label>
+								</div>
+								<div>
+								    <label>
+								        <input type="radio" name="nivel" value="SINDICO" required>
+								        SÍNDICO
+								    </label>
+								</div>
+                            </div>
+							</div>
+
+
                     </div>
 
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
