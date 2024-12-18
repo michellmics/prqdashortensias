@@ -10,6 +10,12 @@ if (!isset($_SESSION['user_id']))
   exit();
 }
 
+if ($_SESSION['user_nivelacesso'] != "SINDICO") 
+{
+  header("Location: noAuth.php");
+  exit();
+}
+
 
 class deleteMorador extends SITE_ADMIN
 {
