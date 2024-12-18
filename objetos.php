@@ -1378,6 +1378,7 @@
             if (!$this->pdo) {
                 $this->conexao();
             }
+
             $now = new DateTime(); 
             $DATA = $now->format('Y-m-d H:i:s');
 

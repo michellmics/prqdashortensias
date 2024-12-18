@@ -21,6 +21,27 @@ class registerVisitante extends SITE_ADMIN
                 $this->conexao();
             }
 
+            $this->getParameterInfo();
+
+            foreach($this->ARRAY_PARAMETERINFO as $value)
+            {
+                if($value["CFG_DCPARAMETRO"] == "MAX_CONVIDADOS")
+                {
+                    $maxConvidados = $value["CFG_DCVALOR"];
+                }
+            } 
+
+            $sql = "SELECT COUNT(*) as total FROM LIS_LISTACONVIDADOS WHERE USU_IDUSUARIO = $userid";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            $total = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            if($maxConvidados =< $total['total'])
+            {
+
+            }
+
+
             $nome = strtoupper($nome);
             $documento = strtoupper($documento);
 
@@ -34,14 +55,22 @@ class registerVisitante extends SITE_ADMIN
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             
             // Se o usuário for encontrado e a senha for válida
-            if (isset($user['USU_IDUSUARIO'])) {
+            if (isset($user['USU_IDUSUARIO'])) 
+            {
                 echo "Usuário já cadastrado."; 
-                //exit();
-            } else 
+
+            } else             
                 {
-                    $result = $this->insertVisitListaInfo($nome, $userid, $documento, $status);
-                    echo "Convidado cadastrado com sucesso."; 
-                    
+                    if($maxConvidados =< $total['total'])
+                    {
+                        echo "São permitidos apenas $maxConvidados convidados por apartamento.";
+                    }
+                    else
+                    {
+                        $result = $this->insertVisitListaInfo($nome, $userid, $documento, $status);
+                        echo "Convidado cadastrado com sucesso."; 
+                    }              
+                   
                 }
         } catch (PDOException $e) {  
             echo "Erro ao cadastrar convidado."; 
