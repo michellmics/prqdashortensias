@@ -44,6 +44,13 @@
 
         <!-- SWEETALERT -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<!-- ######################################################## --> 
+    	<!-- SWEETALERT 2 --> 
+    	<!-- SweetAlert2 CSS -->
+    	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css" rel="stylesheet">
+    	<!-- SweetAlert2 JS -->
+    	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    	<!-- ######################################################## --> 
 
 		<link rel="icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
     	<link rel="shortcut icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
@@ -238,10 +245,175 @@ html, body {
 </section><!-- /.content -->
 
 
+			<script>
+                function validarFormulario() {
+                    const nome = document.querySelector('input[name="nome"]').value.trim();
+					const bloco = document.querySelector('input[name="bloco"]').value.trim();
+					const apartamento = document.querySelector('input[name="apartamento"]').value.trim();
+                    const email = document.querySelector('input[name="email"]').value.trim();
+                    const nivel = document.querySelector('select[name="nivel"]').value;
+                    const senha = document.querySelector('input[name="senha"]').value.trim();
+
+                    if (!nome || !email || !nivel || !senha || !bloco || !apartamento) {
+                        alert("Todos os campos devem ser preenchidos.");
+                        return false;
+                    }
+
+                    // Validação do e-mail
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular básica para e-mail
+                    if (!emailRegex.test(email)) {
+                        alert("Por favor, insira um endereço de e-mail válido.");
+                        return false;
+                    }
+
+                    // Expressão regular para validar a senha
+                    const senhaRegex = /^(?=.*[A-Z])(?=.*[\W_])(?=.{8,})/; // Pelo menos 8 caracteres, uma letra maiúscula, um caractere especial
+                    if (!senhaRegex.test(senha)) {
+                        alert("A senha deve ter pelo menos 8 caracteres, incluir pelo menos uma letra maiúscula e um caractere especial.");
+                        return false;
+                    }
+
+                    // Envia o formulário manualmente após a validação
+                    document.getElementById('formRegistro').submit();
+                }
+            </script>
 
 
+<!-- ######################################################## --> 
+    <!-- SWEETALERT 2 -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+                function validarFormulario() {
+                    const nome = document.querySelector('input[name="nome"]').value.trim();
+                    const email = document.querySelector('input[name="email"]').value.trim();
+                    const sexo = document.querySelector('select[name="sexo"]').value;
+                    const senha = document.querySelector('input[name="senha"]').value.trim();
+
+                    if (!nome || !email || !sexo || !senha) {
+                        alert("Todos os campos devem ser preenchidos.");
+                        return false;
+                    }
+
+                    // Validação do e-mail
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular básica para e-mail
+                    if (!emailRegex.test(email)) {
+                        alert("Por favor, insira um endereço de e-mail válido.");
+                        return false;
+                    }
+
+                    // Expressão regular para validar a senha
+                    const senhaRegex = /^(?=.*[A-Z])(?=.*[\W_])(?=.{8,})/; // Pelo menos 8 caracteres, uma letra maiúscula, um caractere especial
+                    if (!senhaRegex.test(senha)) {
+                        alert("A senha deve ter pelo menos 8 caracteres, incluir pelo menos uma letra maiúscula e um caractere especial.");
+                        return false;
+                    }
+                    return true;
+                }
 
 
+      function confirmAndSubmit(event) {
+          // Chama a validação do formulário
+        const isValid = validarFormulario();
+
+        // Se a validação falhar, interrompe a execução
+        if (!isValid) {
+            return;
+        }
+
+        event.preventDefault(); // Impede o envio padrão do formulário
+        Swal.fire({
+          title: 'Formulário de usuários',
+          text: "Têm certeza que deseja cadastrar o usuário?",
+          showDenyButton: true,
+          confirmButtonText: 'SIM',
+          denyButtonText: `CANCELAR`,
+          confirmButtonColor: "#4289a6",
+          denyButtonColor: "#ff8a33",
+          width: '600px', // Largura do alerta
+          icon: 'warning',
+          customClass: {
+            title: 'swal-title', // Classe para o título
+            content: 'swal-content', // Classe para o conteúdo (texto)
+            confirmButton: 'swal-confirm-btn',
+            denyButton: 'swal-deny-btn',
+            htmlContainer: 'swal-text'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Capturar os dados do formulário
+            var formData = new FormData($("#form-empresa")[0]); // Usa o FormData para enviar arquivos
+            // Fazer a requisição AJAX
+            $.ajax({
+              url: "register_proc.php", // URL para processamento
+              type: "POST",
+              data: formData,
+              processData: false, // Impede o jQuery de processar os dados
+              contentType: false, // Impede o jQuery de definir o tipo de conteúdo
+              success: function (response) {
+                Swal.fire({
+              title: 'Salvo!',
+              text: `${response}`,
+              icon: 'success',
+              width: '600px', // Largura do alerta
+              confirmButtonColor: "#4289a6",
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            }).then(() => {
+                  // Redirecionar ou atualizar a página, se necessário
+                  location.reload();
+                });
+              },
+              error: function (xhr, status, error) {
+                Swal.fire({
+              title: 'Erro!',
+              text: 'Erro ao atualizar o Cliente.',
+              icon: 'error',
+              width: '600px', // Largura do alerta
+              confirmButtonColor: "#4289a6",
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            });
+              },
+            });
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
+          }
+        });
+      }
+      // Associar a função ao botão de submit
+      $(document).ready(function () {
+        $("#salvar_empresa_1").on("click", confirmAndSubmit);
+      });
+</script> 
+<style>
+  /* Estilos para aumentar o tamanho da fonte */
+  .swal-title {
+    font-size: 36px !important; /* Tamanho maior para o título */
+  }
+
+  .swal-text {
+    font-size: 24px !important; /* Tamanho maior para o conteúdo */
+  }
+
+  /* Aumentar o tamanho dos textos dos botões */
+  .swal-confirm-btn,
+  .swal-deny-btn,
+  .swal-cancel-btn {
+    font-size: 20px !important; /* Tamanho maior para os textos dos botões */
+    padding: 12px 12px !important; /* Aumenta o espaço ao redor do texto */
+  }
+</style>
+<!-- ######################################################## --> 
+<!-- SWEETALERT 2 -->   
 
 
 
