@@ -191,7 +191,7 @@ html, body {
                 <h3 class="box-title">Cadastro de Visitante</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <form id="form-empresa" role="form" method="POST">
+                <form id="form-empresa" role="form" action="lista_form_proc.php" method="POST">
 
                     <div class="form-group has-warning">
 						<label class="control-label" for="inputWarning"> </label>
@@ -220,7 +220,41 @@ html, body {
 
 
 
+<script>
+    // Função de validação
+    	function validarFormulario(event) {
+        event.preventDefault(); // Impede o envio do formulário
 
+        // Captura os valores dos campos
+        const nome = document.querySelector('input[name="nome"]').value.trim();
+        const documento = document.querySelector('input[name="documento"]').value.trim();
+
+        // Validações
+        if (!nome || !documento) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos Obrigatórios',
+                text: 'Todos os campos devem ser preenchidos.',
+            });
+            return false;
+        }
+
+        // Se todas as validações passarem
+        Swal.fire({
+            icon: 'success',
+            title: 'Validação Bem-Sucedida',
+            text: 'Formulário enviado com sucesso!',
+        }).then(() => {
+            // Envia o formulário após o SweetAlert
+            document.getElementById('form-empresa').submit();
+        });
+
+        return true;
+    }
+
+    // Adiciona o evento de validação ao formulário
+    document.getElementById('form-empresa').addEventListener('submit', validarFormulario);
+</script>
 
 
 

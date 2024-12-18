@@ -1377,6 +1377,40 @@
             }
         }
 
+        public function insertVisitListaInfo($LIS_DCNOME, $USU_IDUSUARIO, $LIS_DCDOCUMENTO)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+            $now = new DateTime(); 
+            $DATA = $now->format('Y-m-d H:i:s');
+
+            try {
+                $sql = "INSERT INTO LIS_LISTACONVIDADOS 
+                        (LIS_DCNOME, USU_IDUSUARIO, LIS_DCDOCUMENTO, LIS_DTCADASTRO) 
+                        VALUES (:LIS_DCNOME, :USU_IDUSUARIO, :LIS_DCDOCUMENTO, :LIS_DTCADASTRO)";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':LIS_DCNOME', $LIS_DCNOME, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_DCDOCUMENTO', $LIS_DCDOCUMENTO, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_DTCADASTRO', $DATA, PDO::PARAM_STR);
+                
+            
+                $stmt->execute();
+            
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Visitante cadastrado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
+
         public function insertContratoInfo($GEC_IDGESTAO_CONTRATO,
         $CLI_IDCLIENT, 
         $PRS_IDPRODUTO_SERVICO, 
