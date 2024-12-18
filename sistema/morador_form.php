@@ -188,7 +188,7 @@ html, body {
         <!-- general form elements disabled -->
         <div class="box box-warning">
             <div class="box-header">
-                <h3 class="box-title">Cadastro de Visitante</h3>
+                <h3 class="box-title">Cadastro de Morador</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form id="form-empresa" role="form" method="POST">
@@ -202,7 +202,11 @@ html, body {
                                 <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." maxlength="28" required/>
                             </div>
                             <div class="col-4">
-								<label class="control-label" for="inputWarning">Documento</label>
+								<label class="control-label" for="inputWarning">Bloco</label>
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
+                            </div>
+							<div class="col-4">
+								<label class="control-label" for="inputWarning">Apart.</label>
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
                             </div>
                         </div>
