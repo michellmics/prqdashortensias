@@ -41,7 +41,7 @@ class registerUser extends SITE_ADMIN
                     $passHash = password_hash($senha, PASSWORD_DEFAULT);
                     $result = $this->insertUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash);
                     
-                    $SUBJECT = "Cadastro de novo usuário morador";
+                    $SUBJECT = "Cadastro de novo usuário";
                     $MSG = "O morador(a) $nome com e-mail $email foi cadastrado no sistema do Condomínio Parque das Hortências.";
                     $this->notifyEmail($SUBJECT, $MSG); //notificação por email
 
