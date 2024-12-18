@@ -37,11 +37,11 @@ class registerVisitante extends SITE_ADMIN
             } else 
                 {
                     $result = $this->insertVisitListaInfo($nome, $userid, $documento, $status);
-                    echo "Visitante cadastrado com sucesso."; 
+                    echo "Convidado cadastrado com sucesso."; 
                     
                 }
         } catch (PDOException $e) {  
-            echo "Erro ao cadastrar Visitante."; 
+            echo "Erro ao cadastrar convidado."; 
         } 
     }
 }
