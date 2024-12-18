@@ -271,8 +271,9 @@ html, body {
                     <?php endforeach; ?>   
                     </tr>
                   </table>
+                  <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
                 </div><!-- /.box-body -->
-                <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
+                
 </section><!-- /.content -->
 
 <!-- ######################################################## --> 
