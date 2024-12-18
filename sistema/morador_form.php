@@ -203,13 +203,19 @@ html, body {
                             </div>
                             <div class="col-2">
 								<label class="control-label" for="inputWarning">Bloco</label>
-                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="1" required />
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="1" required />
                             </div>
 							<div class="col-2">
 								<label class="control-label" for="inputWarning">Apart.</label>
-                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="4" required />
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="4" required />
                             </div>
                         </div>
+						<div class="form-row">
+							<div class="col-2">
+								<label class="control-label" for="inputWarning">Apart.</label>
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="4" required />
+                            </div>
+						</div>
                     </div>
 
                     <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
