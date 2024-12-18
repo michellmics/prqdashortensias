@@ -59,7 +59,7 @@ html, body {
     background-color: #f0f0f0; /* Cinza bem claro */
     color: #000; /* Cinza clarinho para o texto */
     font-size: 12px; /* Fonte pequena */
-    text-align: left; /* Centraliza o texto */
+    text-align: center; /* Centraliza o texto */
     padding: 0; /* Remove espaçamento interno */
     height: 30px; /* Altura do footer */
     line-height: 30px; /* Centraliza verticalmente o texto */
@@ -216,7 +216,7 @@ html, body {
 
 <!-- Footer -->
 <footer class="footerNew">
-  <a href="https://codemaze.com.br" target="_blank">Codemaze</a> - Soluções de MKT e Software
+  <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> - Soluções de MKT e Software
 </footer>
 		
 
