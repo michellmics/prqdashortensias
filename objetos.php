@@ -1363,7 +1363,7 @@
                 $stmt->bindParam(':USU_DTCADASTRO', $DATA, PDO::PARAM_STR);
             
                 $stmt->execute();
-            
+           
                 // Retorna uma mensagem de sucesso (opcional)
                 return ["success" => "Morador cadastrado com sucesso."];
             } catch (PDOException $e) {
@@ -1771,6 +1771,24 @@
             // Configurações do e-mail
             $to = $emailTo; 
             $subject = "ATENÇÃO: $SUBJECT";
+            $body = "$MSG\n";
+
+            // Adiciona cabeçalhos para o e-mail
+            $headers = "From: no-reply@prqdashortensias.com.br\r\n";
+            $headers .= "Reply-To: no-reply@prqdashortensias.com.br\r\n";
+            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Define a codificação como UTF-8
+            $headers .= "MIME-Version: 1.0\r\n";
+            
+            mail($to, $subject, $body, $headers);        
+        }
+
+        public function notifyUsuarioEmail($SUBJECT, $MSG, $EMAIL)
+        {
+            $this->getParameterInfo();
+
+            // Configurações do e-mail
+            $to = $EMAIL; 
+            $subject = "$SUBJECT";
             $body = "$MSG\n";
 
             // Adiciona cabeçalhos para o e-mail
