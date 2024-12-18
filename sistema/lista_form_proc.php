@@ -2,7 +2,7 @@
 include_once '../objetos.php'; // Carrega a classe de conexão e objetos
 
 session_start(); 
-define('SESSION_TIMEOUT', 1800); // 30 minutos
+define('SESSION_TIMEOUT', 43200); // 30 minutos
 
 if (!isset($_SESSION['user_id'])) 
 {

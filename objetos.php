@@ -32,7 +32,7 @@
         public $ARRAY_WHATSAPPBOTINFO;
         public $ARRAY_PARAMETERINFO;
         public $ARRAY_LISTAMORADORESINFO;
-        public $configPath = '/home/codemaze/config.cfg';
+        public $configPath = '/home/hortensias/config.cfg';
 
 
         function conexao()

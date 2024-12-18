@@ -6,7 +6,7 @@
   	include_once '../objetos.php'; 
 
   	session_start(); 
-  	define('SESSION_TIMEOUT', 18000); 
+  	define('SESSION_TIMEOUT', 43200); 
 	
   	if (!isset($_SESSION['user_id'])) 
   	{

@@ -5,7 +5,7 @@
 	//error_reporting(E_ALL);
 
 	session_start(); 
-	define('SESSION_TIMEOUT', 1800); // 30 minutos
+	define('SESSION_TIMEOUT', 43200); // 30 minutos
 
 	if (!isset($_SESSION['user_id'])) 
 	{
