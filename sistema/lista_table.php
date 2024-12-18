@@ -266,7 +266,7 @@ html, body {
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td> 
-						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $client['PRC_IDPROSPEC_CLIENTES']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
+						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $usuario['LIS_IDLISTACONVIDADOS']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
@@ -278,11 +278,11 @@ html, body {
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-      function confirmDelete(userId){
+      function confirmDelete(listid){
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
-          title: 'Formulário de Clientes',
-          text: "Têm certeza que deseja excluir a prospecção?",
+          title: 'Lista de COnvidados',
+          text: "Têm certeza que deseja excluir o convidado?",
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
@@ -305,9 +305,9 @@ html, body {
             var formData = $("#form-empresa").serialize();
             // Fazer a requisição AJAX
             $.ajax({
-              url: "prospec_delete.php", // URL para processamento
+              url: "lista_delete.php", // URL para processamento
               type: "POST",
-              data: { id: userId }, // Dados enviados
+              data: { id: listid }, // Dados enviados
               success: function (response) {
                 Swal.fire({
               title: 'Salvo!',
