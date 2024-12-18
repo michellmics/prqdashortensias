@@ -57,7 +57,7 @@ html, body {
 /* Footer fixo no final */
 .footerNew {
     background-color: #f0f0f0; /* Cinza bem claro */
-    color: #ccc; /* Cinza clarinho para o texto */
+    color: #000; /* Cinza clarinho para o texto */
     font-size: 12px; /* Fonte pequena */
     text-align: left; /* Centraliza o texto */
     padding: 0; /* Remove espaçamento interno */
@@ -214,7 +214,7 @@ html, body {
 
 <!-- Footer -->
 <footer class="footerNew">
-  Codemaze - Soluções de MKT e Software
+  <a href="https://codemaze.com.br" target="_blank">Codemaze</a> - Soluções de MKT e Software
 </footer>
 		
 
