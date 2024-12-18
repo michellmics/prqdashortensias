@@ -291,8 +291,9 @@ html, body {
     	const apartamento = document.querySelector('input[name="apartamento"]').value.trim();
     	const email = document.querySelector('input[name="email"]').value.trim();
     	const senha = document.querySelector('input[name="senha"]').value.trim();
+		const nivel = document.querySelector('input[name="nivel"]:checked'); 
         
-		if (!nome || !bloco || !apartamento || !email || !senha) {
+		if (!nome || !bloco || !apartamento || !email || !senha || !nivel) {
             alert("Todos os campos devem ser preenchidos.");
             return false;
         }

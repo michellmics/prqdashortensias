@@ -292,7 +292,7 @@ html, body {
                     const documento = document.querySelector('input[name="documento"]').value.trim();
 					const status = document.querySelector('input[name="status"]:checked'); 
 
-                    if (!nome || !documento) {
+                    if (!nome || !documento || !status) {
                         alert("Todos os campos devem ser preenchidos.");
                         return false;
                     }
