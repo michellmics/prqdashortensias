@@ -20,7 +20,8 @@
   	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
   	$userid = $_SESSION['user_id'];
 
-
+	echo "aqui";
+	echo $userid;
 	$siteAdmin = new SITE_ADMIN();
 	$siteAdmin->getListaInfo($userid);
 
