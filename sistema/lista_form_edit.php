@@ -317,7 +317,7 @@ html, body {
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
           confirmButtonColor: "#993399",
-          denyButtonColor: "#de2f37",
+          denyButtonColor: "#D8BFD8",
           width: '600px', // Largura do alerta
           icon: 'warning',
           customClass: {

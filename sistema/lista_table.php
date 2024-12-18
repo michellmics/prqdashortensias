@@ -286,8 +286,8 @@ html, body {
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
-          confirmButtonColor: "#599dce",
-          denyButtonColor: "#de2f37",
+          confirmButtonColor: "#993399",
+          denyButtonColor: "#D8BFD8",
           width: '600px', // Largura do alerta
           icon: 'warning',
           position: 'top', // Define a posição na parte superior da tela
@@ -314,7 +314,7 @@ html, body {
               text: `${response}`,
               icon: 'success',
               width: '200px', // Largura do alerta
-              confirmButtonColor: "#599dce",
+              confirmButtonColor: "#993399",
               position: 'top', // Define a posição na parte superior da tela
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
@@ -333,7 +333,7 @@ html, body {
               text: 'Erro ao deletar o convidado.',
               icon: 'error',
               width: '200px', // Largura do alerta
-              confirmButtonColor: "#4289a6",
+              confirmButtonColor: "#993399",
               position: 'top', // Define a posição na parte superior da tela
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
