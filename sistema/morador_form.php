@@ -225,8 +225,8 @@ html, body {
 						</div>
 						<div class="form-row">
 							<div class="col-6">
+								<label class="control-label" for="inputWarning">Nível</label>
 								<select name="nivel" required>
-                        			<option value="" disabled selected>Selecione o Nível</option>
                         			<option value="MORADOR">MORADOR</option>
                         			<option value="PORTARIA">PORTARIA</option>
 									<option value="SINDICO">SÍNDICO</option>
