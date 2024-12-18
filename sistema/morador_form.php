@@ -199,7 +199,7 @@ html, body {
                             <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
                             <div class="col-8">
 								<label class="control-label" for="inputWarning">Nome Completo</label>
-                                <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." maxlength="28" required/>
+                                <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" required/>
                             </div>
                             <div class="col-2">
 								<label class="control-label" for="inputWarning">Bloco</label>
@@ -213,7 +213,7 @@ html, body {
 						<div class="form-row">
 							<div class="col-12">
 								<label class="control-label" for="inputWarning">E-mail</label>
-                                <input id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="" maxlength="50" required />
+                                <input id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="50" required />
                             </div>
 						</div>
 						<div class="form-row">
