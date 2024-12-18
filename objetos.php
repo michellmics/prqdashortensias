@@ -45,7 +45,7 @@
                 pass = dbpass
             */
 
-            $this->configPath = '/home/prqdashortensias/config.cfg';
+            $this->configPath = '/home/hortensias/config.cfg';
 
             if (!file_exists($this->configPath)) {
                 die("Erro: Arquivo de configuração não encontrado.");
