@@ -164,10 +164,10 @@ html, body {
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li><a href="#slider">Inicio</a></li>
+											<li><a href="index.php">Inicio</a></li>
 											<li><a href="morador_form.php">Cadastro de Morador </a></li>
 											<li><a href="lista_form.php">Lista de Visitas </a></li>
-											<li><a href="#contato">Contato </a></li>
+											<li><a href="logoff.php">Contato </a></li>
 										</ul>
 									</nav>
 								</div>
