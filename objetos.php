@@ -30,6 +30,7 @@
         public $ARRAY_AGENDAATIVIDADES;
         public $ARRAY_PROSPEC_CLIENTESINFO;
         public $ARRAY_WHATSAPPBOTINFO;
+        public $ARRAY_PARAMETERINFO;
         public $configPath = '/home/codemaze/config.cfg';
 
 
@@ -169,21 +170,19 @@
 		}	
 	
 
-        public function getSiteInfo()
+        public function getParameterInfo()
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT SBI_DCSITE, 
-                                SBI_DCDOMAINSITE, 
-                                SBI_DTRENEW_REGISTER_DOMAIN,
-                                SBI_STSITE
-                                FROM SBI_SITEBASEINFO";
+                $sql = "SELECT CFG_DCPARAMETRO, 
+                                CFG_DCVALOR
+                                FROM CFG_CONFIGURACAO";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
-                $this->ARRAY_SITEINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+                $this->ARRAY_PARAMETERINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }       
@@ -1759,14 +1758,24 @@
 
         public function notifyEmail($SUBJECT, $MSG)
         {
+            $this->getParameterInfo();
+
+            foreach($this->ARRAY_PARAMETERINFO as $value)
+            {
+                if($value["CFG_DCPARAMETRO"] == "EMAIL_ALERTAS")
+                {
+                    $emailTo = $value["CFG_DCVALOR"];
+                }
+            } 
+
             // Configurações do e-mail
-            $to = "sindico@prqdashortensias.com.br"; 
+            $to = $emailTo; 
             $subject = "ATENÇÃO: $SUBJECT";
             $body = "$MSG\n";
 
             // Adiciona cabeçalhos para o e-mail
-            $headers = "From: no-reply@codemaze.com.br\r\n";
-            $headers .= "Reply-To: no-reply@codemaze.com.br\r\n";
+            $headers = "From: no-reply@prqdashortensias.com.br\r\n";
+            $headers .= "Reply-To: no-reply@prqdashortensias.com.br\r\n";
             $headers .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Define a codificação como UTF-8
             $headers .= "MIME-Version: 1.0\r\n";
             
