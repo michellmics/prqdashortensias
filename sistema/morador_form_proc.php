@@ -46,7 +46,7 @@ class registerUser extends SITE_ADMIN
                     $this->notifyEmail($SUBJECT, $MSG); //notificação por email
 
                     $SUBJECT = "Seja Bem vindo(a) ao Condomínio Parque das Hortênsias";
-                    $MSG = "Olá $nome, você foi cadastrado(a) no sistema do Condomínio Parque das Hortênsias. Seu usuário é seu e-mail e sua senha é: $senha. Para entrar no sistêma acesse: https://www.prqdashortensias.com.br/";
+                    $MSG = "Olá $nome, você foi cadastrado(a) no sistema do Condomínio Parque das Hortênsias. Seu usuário é seu e-mail e sua senha é: $senha. Para entrar no sistema acesse: https://www.prqdashortensias.com.br/";
                     $this->notifyUsuarioEmail($SUBJECT, $MSG, $email); //notificação por email
 
                     echo "Usuário cadastrado com sucesso."; 
