@@ -275,7 +275,6 @@ html, body {
                 </div><!-- /.box-body -->
                 
 </section><!-- /.content -->
-<button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
 <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
