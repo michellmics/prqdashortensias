@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>asdsadsadsad</title>
+        <title>Condomínio Parque das Hortências</title>
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
@@ -42,6 +42,16 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/responsive.css">
 
+        <!-- SWEETALERT -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+		<link rel="icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
+    	<link rel="shortcut icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
+    	<link rel="apple-touch-icon" href="https://www.prqdashortensias.com.br/logo_icon.png">
+    	<meta name="apple-mobile-web-app-title" content="Hortensias">
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
         <style>
           /* Configuração geral do HTML e Body */
 html, body {
@@ -54,9 +64,9 @@ html, body {
 /* Footer fixo no final */
 .footerNew {
     background-color: #f0f0f0; /* Cinza bem claro */
-    color: #ccc; /* Cinza clarinho para o texto */
+    color: #000; /* Cinza clarinho para o texto */
     font-size: 12px; /* Fonte pequena */
-    text-align: left; /* Centraliza o texto */
+    text-align: center; /* Centraliza o texto */
     padding: 0; /* Remove espaçamento interno */
     height: 30px; /* Altura do footer */
     line-height: 30px; /* Centraliza verticalmente o texto */
@@ -64,6 +74,25 @@ html, body {
     bottom: 0; /* Colado no final da página */
     width: 100%; /* Largura total */
 }
+ /* Botão de Salvar em lilás */
+ .btn-primary {
+      background-color:#8a0653; /* Lilás */
+      border-color: #8a0653; /* Mesma cor da borda */
+      color: white; /* Texto branco */
+  }
+  .btn-primary:hover {
+      background-color: #993399; /* Lilás mais claro ao passar o mouse */
+  }
+
+  /* Botão de Voltar em lilás mais claro */
+  .btn-warning {
+      background-color: #D8BFD8; /* Lilás mais claro */
+      border-color: #D8BFD8; /* Mesma cor da borda */
+      color: #4B0082; /* Texto em roxo escuro */
+  }
+  .btn-warning:hover {
+      background-color: #E6E6FA; /* Lilás ainda mais claro ao passar o mouse */
+  }
 
         </style>
 		
@@ -106,8 +135,8 @@ html, body {
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>3123213213</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li>
+								<li><b>Morador:</b> Michell Duarte de Oliveira</li> 
+								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
 							</ul>
 							<!-- End Top Contact -->
 						</div>
@@ -123,7 +152,7 @@ html, body {
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="#slider"><img src="https://serconeo.com.br/new/img/logo_serconeo.png" alt="#"></a>
+									<a href="#slider"><img src="https://prqdashortensias.com.br/sistema/img/logo_hor_hort.png" alt="#"></a>
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->
@@ -136,8 +165,8 @@ html, body {
 									<nav class="navigation">
 										<ul class="nav menu">
 											<li><a href="#slider">Inicio</a></li>
-											<li><a href="morador_form.php">Cadastro de Morador </a></li>
-											<li><a href="lista_form.php">Lista de Visitas </a></li>
+											<li><a href="#empresa">Empresa </a></li>
+											<li><a href="#servicos">Serviços </a></li>
 											<li><a href="#contato">Contato </a></li>
 										</ul>
 									</nav>
@@ -152,18 +181,68 @@ html, body {
 		</header>
 		<!-- End Header Area -->
 		
-		dsadasdsadsadsadsad
-    dsa
-    das
-    d
-    sa
-    d
-    as
-    d
-		
+	
+        <section class="content">      
+    <!-- right column -->
+    <div class="col-md-6">
+        <!-- general form elements disabled -->
+        <div class="box box-warning">
+            <div class="box-header">
+                <h3 class="box-title">Cadastro de Visitante</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <form id="form-empresa" role="form" method="POST">
+
+                    <div class="form-group has-warning">
+						<label class="control-label" for="inputWarning"> </label>
+                        <div class="form-row">
+                            <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
+                            <div class="col-8">
+								<label class="control-label" for="inputWarning">Nome Completo</label>
+                                <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." maxlength="28" required/>
+                            </div>
+                            <div class="col-4">
+								<label class="control-label" for="inputWarning">Documento</label>
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
+                    <button type="submit" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
+
+                </form>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!--/.col (right) -->
+</section><!-- /.content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Footer -->
 <footer class="footerNew">
-  Codemaze - Soluções de MKT e Software
+  <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> - Soluções de MKT e Software
 </footer>
 		
 
