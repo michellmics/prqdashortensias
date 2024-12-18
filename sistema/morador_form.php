@@ -245,38 +245,67 @@ html, body {
 </section><!-- /.content -->
 
 
-			<script>
-                function validarFormulario() {
-                    const nome = document.querySelector('input[name="nome"]').value.trim();
-					const bloco = document.querySelector('input[name="bloco"]').value.trim();
-					const apartamento = document.querySelector('input[name="apartamento"]').value.trim();
-                    const email = document.querySelector('input[name="email"]').value.trim();
-                    const nivel = document.querySelector('select[name="nivel"]').value;
-                    const senha = document.querySelector('input[name="senha"]').value.trim();
+<script>
+    // Função de validação
+    function validarFormulario(event) {
+        event.preventDefault(); // Impede o envio do formulário
 
-                    if (!nome || !email || !nivel || !senha || !bloco || !apartamento) {
-                        alert("Todos os campos devem ser preenchidos.");
-                        return false;
-                    }
+        // Captura os valores dos campos
+        const nome = document.querySelector('input[name="nome"]').value.trim();
+        const bloco = document.querySelector('input[name="bloco"]').value.trim();
+        const apartamento = document.querySelector('input[name="apartamento"]').value.trim();
+        const email = document.querySelector('input[name="email"]').value.trim();
+        const senha = document.querySelector('input[name="senha"]').value.trim();
 
-                    // Validação do e-mail
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular básica para e-mail
-                    if (!emailRegex.test(email)) {
-                        alert("Por favor, insira um endereço de e-mail válido.");
-                        return false;
-                    }
+        // Validações
+        if (!nome || !bloco || !apartamento || !email || !senha) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos Obrigatórios',
+                text: 'Todos os campos devem ser preenchidos.',
+            });
+            return false;
+        }
 
-                    // Expressão regular para validar a senha
-                    const senhaRegex = /^(?=.*[A-Z])(?=.*[\W_])(?=.{8,})/; // Pelo menos 8 caracteres, uma letra maiúscula, um caractere especial
-                    if (!senhaRegex.test(senha)) {
-                        alert("A senha deve ter pelo menos 8 caracteres, incluir pelo menos uma letra maiúscula e um caractere especial.");
-                        return false;
-                    }
+        // Validação do e-mail
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'E-mail Inválido',
+                text: 'Por favor, insira um endereço de e-mail válido.',
+            });
+            return false;
+        }
 
-                    // Envia o formulário manualmente após a validação
-                    document.getElementById('formRegistro').submit();
-                }
-            </script>
+        // Validação da senha
+        const senhaRegex = /^(?=.*[A-Z])(?=.*[\W_])(?=.{8,})/;
+        if (!senhaRegex.test(senha)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Senha Inválida',
+                text: 'A senha deve ter pelo menos 8 caracteres, incluir uma letra maiúscula e um caractere especial.',
+            });
+            return false;
+        }
+
+        // Se todas as validações passarem
+        Swal.fire({
+            icon: 'success',
+            title: 'Validação Bem-Sucedida',
+            text: 'Formulário enviado com sucesso!',
+        }).then(() => {
+            // Envia o formulário após o SweetAlert
+            document.getElementById('form-empresa').submit();
+        });
+
+        return true;
+    }
+
+    // Adiciona o evento de validação ao formulário
+    document.getElementById('form-empresa').addEventListener('submit', validarFormulario);
+</script>
+
 
 
 <!-- ######################################################## --> 
