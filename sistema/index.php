@@ -167,7 +167,7 @@ html, body {
 											<li><a href="index.php">Inicio</a></li>
 											<li><a href="morador_form.php">Cadastro de Morador </a></li>
 											<li><a href="lista_form.php">Lista de Visitas </a></li>
-											<li><a href="../logoff.php">Contato </a></li>
+											<li><a href="../logoff.php">Sair </a></li>
 										</ul>
 									</nav>
 								</div>
