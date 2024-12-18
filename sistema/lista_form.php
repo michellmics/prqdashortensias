@@ -293,8 +293,8 @@ html, body {
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
-          confirmButtonColor: "#4289a6",
-          denyButtonColor: "#ff8a33",
+          confirmButtonColor: "#599dce",
+          denyButtonColor: "#de2f37",
           width: '600px', // Largura do alerta
           icon: 'warning',
           customClass: {
@@ -321,7 +321,7 @@ html, body {
               text: `${response}`,
               icon: 'success',
               width: '600px', // Largura do alerta
-              confirmButtonColor: "#4289a6",
+              confirmButtonColor: "#599dce",
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
@@ -336,7 +336,7 @@ html, body {
               error: function (xhr, status, error) {
                 Swal.fire({
               title: 'Erro!',
-              text: 'Erro ao atualizar o Cliente.',
+              text: 'Erro ao atualizar o convidado.',
               icon: 'error',
               width: '600px', // Largura do alerta
               confirmButtonColor: "#4289a6",
