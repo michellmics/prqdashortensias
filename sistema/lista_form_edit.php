@@ -215,7 +215,7 @@ html, body {
                 <h3 class="box-title">Cadastro de Convidados</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <form id="form-empresa" role="form" action="lista_form_proc.php" method="POST">
+                <form id="form-empresa" role="form" action="lista_form_edit_proc.php" method="POST">
 
 					<!-- CAMPOS COMO VARIAVEIS -->
                   	<input type="hidden" name="userid" value="<? echo $userid; ?>"/>
