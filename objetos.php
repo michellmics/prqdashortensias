@@ -1348,11 +1348,13 @@
             if (!$this->pdo) {
                 $this->conexao();
             }
-        
+            $now = new DateTime(); 
+            $DATA = $now->format('Y-m-d H:i:s');
+
             try {
                 $sql = "INSERT INTO USU_USUARIO 
-                        (USU_DCEMAIL, USU_DCNOME, USU_DCBLOCO, USU_DCAPARTAMENTO, USU_DCNIVEL, USU_DCSENHA) 
-                        VALUES (:USU_DCEMAIL, :USU_DCNOME, :USU_DCBLOCO, :USU_DCAPARTAMENTO, :USU_DCNIVEL, :USU_DCSENHA)";
+                        (USU_DCEMAIL, USU_DCNOME, USU_DCBLOCO, USU_DCAPARTAMENTO, USU_DCNIVEL, USU_DCSENHA, USU_DTCADASTRO) 
+                        VALUES (:USU_DCEMAIL, :USU_DCNOME, :USU_DCBLOCO, :USU_DCAPARTAMENTO, :USU_DCNIVEL, :USU_DCSENHA, :USU_DTCADASTRO)";
 
                 $stmt = $this->pdo->prepare($sql);
             
@@ -1363,6 +1365,7 @@
                 $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
                 $stmt->bindParam(':USU_DCNIVEL', $USU_DCNIVEL, PDO::PARAM_STR);
                 $stmt->bindParam(':USU_DCSENHA', $USU_DCSENHA, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DTCADASTRO', $DATA, PDO::PARAM_STR);
             
                 $stmt->execute();
             
