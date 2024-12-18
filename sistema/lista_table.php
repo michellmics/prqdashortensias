@@ -21,7 +21,7 @@
   	$userid = $_SESSION['user_id'];
 
 	echo "aqui";
-	echo $userid;
+	echo $userid; 
 	$siteAdmin = new SITE_ADMIN();
 	$siteAdmin->getListaInfo($userid);
 
