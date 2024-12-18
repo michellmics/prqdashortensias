@@ -135,7 +135,7 @@ html, body {
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><b>Morador:</b> Michell Duarte de Oliveira</li> 
+								<li><b>Usuário:</b> Michell Duarte de Oliveira</li> 
 								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
 							</ul>
 							<!-- End Top Contact -->
@@ -197,17 +197,17 @@ html, body {
 						<label class="control-label" for="inputWarning"> </label>
                         <div class="form-row">
                             <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
-                            <div class="col-8">
+                            <div class="col-10">
 								<label class="control-label" for="inputWarning">Nome Completo</label>
                                 <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." maxlength="28" required/>
                             </div>
-                            <div class="col-2">
+                            <div class="col-1">
 								<label class="control-label" for="inputWarning">Bloco</label>
-                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="1" required />
                             </div>
-							<div class="col-2">
+							<div class="col-1">
 								<label class="control-label" for="inputWarning">Apart.</label>
-                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="4" required />
                             </div>
                         </div>
                     </div>
