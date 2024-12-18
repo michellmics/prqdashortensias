@@ -22,7 +22,7 @@
 
 
 	$siteAdmin = new SITE_ADMIN();
-	$siteAdmin->getUserInfo($userid);
+	$siteAdmin->getListaInfo($userid);
   
 
 	if(count($siteAdmin->ARRAY_LISTAINFO) > 0)
