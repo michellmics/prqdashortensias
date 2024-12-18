@@ -76,8 +76,8 @@ html, body {
 }
  /* Botão de Salvar em lilás */
  .btn-primary {
-      background-color: #800080; /* Lilás */
-      border-color: #800080; /* Mesma cor da borda */
+      background-color:#8a0653; /* Lilás */
+      border-color: #8a0653; /* Mesma cor da borda */
       color: white; /* Texto branco */
   }
   .btn-primary:hover {
