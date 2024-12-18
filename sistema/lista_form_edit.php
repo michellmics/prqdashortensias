@@ -239,11 +239,11 @@ html, body {
 							$statusAtivo="";
 							$statusInativo="";
 
-							if($siteAdmin->ARRAY_LISTAINFO["LIS_DCDOCUMENTO"] == "ATIVO")
+							if($siteAdmin->ARRAY_LISTAINFO["LIS_STSTATUS"] == "ATIVO")
 							{
 								$statusAtivo = "checked";
 							}
-							if($siteAdmin->ARRAY_LISTAINFO["LIS_DCDOCUMENTO"] == "ATIVO")
+							if($siteAdmin->ARRAY_LISTAINFO["LIS_STSTATUS"] == "ATIVO")
 							{
 								$statusInativo = "checked";
 							}
