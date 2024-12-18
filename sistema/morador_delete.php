@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id']))
 }
 
 if ($_SESSION['user_nivelacesso'] != "SINDICO") 
-{
+{ 
   header("Location: noAuth.php");
   exit();
 }
