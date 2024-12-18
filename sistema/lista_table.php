@@ -230,7 +230,11 @@ html, body {
 		
 	
     <section class="content">
-	<button class="btn btn-danger btn-sm" onclick="window.location.href='lista_form.php';">Adicionar Convidados</button>      
+		<button class="btn btn-danger btn-sm" 
+        	style="font-size: 10px; padding: 2px 5px;" 
+        	onclick="window.location.href='lista_form.php';">
+    		Adicionar Convidados
+		</button>    
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
