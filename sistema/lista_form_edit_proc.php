@@ -22,16 +22,10 @@ class registerVisitante extends SITE_ADMIN
         try {
             // Cria conexão com o banco de dados
             if (!$this->pdo) {
-                $this->conexao();
-            }
+                $this->conexao(); 
+            } 
 
-            echo $documento;
-            echo $nome;
-            echo  $userid;
-            echo $status;
-            echo $visitanteid;
-
-            //$result = $this->updateVisitante($nome, $userid, $documento, $status, $visitanteid);
+            $result = $this->updateVisitante($nome, $userid, $documento, $status, $visitanteid);
             echo "Convidado atualizado com sucesso."; 
         
         } catch (PDOException $e) {  
