@@ -172,11 +172,11 @@ html, body {
                         <div class="form-row">
                             <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
                             <div class="col-8">
-								<label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Nome Completo</label>
+								<label class="control-label" for="inputWarning">Nome Completo</label>
                                 <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="NOME COMPLETO..." maxlength="28" required/>
                             </div>
                             <div class="col-4">
-								<label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Documento</label>
+								<label class="control-label" for="inputWarning">Documento</label>
                                 <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
                             </div>
                         </div>
