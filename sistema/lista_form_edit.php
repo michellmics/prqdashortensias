@@ -219,6 +219,7 @@ html, body {
 
 					<!-- CAMPOS COMO VARIAVEIS -->
                   	<input type="hidden" name="userid" value="<? echo $userid; ?>"/>
+					<input type="hidden" name="visitanteid" value="<? echo $siteAdmin->ARRAY_LISTAINFO["LIS_IDLISTACONVIDADOS"]; ?>"/> 
                   	<!-- CAMPOS COMO VARIAVEIS -->
 
                     <div class="form-group has-warning">

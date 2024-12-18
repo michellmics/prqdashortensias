@@ -577,36 +577,35 @@
             }
         }
 
-        public function updateLiquidacaoFinanceiraById($LFI_IDLIQUIDACAOFINANCEIRA, $ACAO, $LFI_DTPAGAMENTO)
+        public function updateVisitante($LIS_DCNOME, $USU_IDUSUARIO, $LIS_DCDOCUMENTO, $LIS_STSTATUS, $LIS_IDLISTACONVIDADOS)
         {          
             // Verifica se a conexão já foi estabelecida
             if (!$this->pdo) {
                 $this->conexao();
             }
-            $now = new DateTime(); 
-            $DATA = $now->format('Y-m-d');
-
-            if($ACAO == "ABERTO"){$LFI_DTPAGAMENTO = NULL;}
-            
+           
             try {
-                $sql = "UPDATE LFI_LIQUIDACAOFINANCEIRA 
-                        SET LFI_STPAGAMENTO = :LFI_STPAGAMENTO,
-                        LFI_DTPAGAMENTO = :LFI_DTPAGAMENTO
-                        WHERE LFI_IDLIQUIDACAOFINANCEIRA = :LFI_IDLIQUIDACAOFINANCEIRA";
+                $sql = "UPDATE LIS_LISTACONVIDADOS 
+                        SET LIS_DCNOME = :LIS_DCNOME,
+                        LIS_DCDOCUMENTO = :LIS_DCDOCUMENTO,
+                        LIS_STSTATUS = :LIS_STSTATUS
+                        WHERE LIS_IDLISTACONVIDADOS = :LIS_IDLISTACONVIDADOS";
 
                 $stmt = $this->pdo->prepare($sql);
             
                 // Liga os parâmetros aos valores
-                $stmt->bindParam(':LFI_IDLIQUIDACAOFINANCEIRA', $LFI_IDLIQUIDACAOFINANCEIRA, PDO::PARAM_STR);
-                $stmt->bindParam(':LFI_STPAGAMENTO', $ACAO, PDO::PARAM_STR);
-                $stmt->bindParam(':LFI_DTPAGAMENTO', $LFI_DTPAGAMENTO, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_DCNOME', $LIS_DCNOME, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_DCDOCUMENTO', $LIS_DCDOCUMENTO, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_DTCADASTRO', $DATA, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_STSTATUS', $LIS_STSTATUS, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_IDLISTACONVIDADOS', $LIS_IDLISTACONVIDADOS, PDO::PARAM_STR);
 
                 $stmt->execute();
             
-                return ["success" => "Produto atualizado com sucesso."];
+                return ["success" => "Convidado atualizado com sucesso."];
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                $this->InsertAlarme("Erro na função updateLiquidacaoFinanceiraById.","High");
                 return ["error" => $e->getMessage()];
             }
         }
