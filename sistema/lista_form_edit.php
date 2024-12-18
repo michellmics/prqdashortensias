@@ -243,7 +243,7 @@ html, body {
 							{
 								$statusAtivo = "checked";
 							}
-							if($siteAdmin->ARRAY_LISTAINFO["LIS_STSTATUS"] == "ATIVO")
+							if($siteAdmin->ARRAY_LISTAINFO["LIS_STSTATUS"] == "INATIVO")
 							{
 								$statusInativo = "checked";
 							}
