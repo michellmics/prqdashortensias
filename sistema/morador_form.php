@@ -172,7 +172,7 @@ html, body {
 									<nav class="navigation">
 										<ul class="nav menu">
 											<li><a href="index.php">Inicio</a></li>
-											<li><a href="morador_form.php">Cadastro de Morador </a></li>
+											<li><a href="morador_form.php">Cadastro de Usuário </a></li>
 											<li><a href="lista_form.php">Lista de Visitas </a></li>
 											<li><a href="../logoff.php">Sair </a></li>
 										</ul>
@@ -195,7 +195,7 @@ html, body {
         <!-- general form elements disabled -->
         <div class="box box-warning">
             <div class="box-header">
-                <h3 class="box-title">Cadastro de Morador</h3>
+                <h3 class="box-title">Cadastro de Usuário</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
 			<form id="form-empresa" role="form" action="morador_form_proc.php" method="POST" enctype="multipart/form-data">
