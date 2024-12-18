@@ -25,6 +25,12 @@ class registerVisitante extends SITE_ADMIN
                 $this->conexao();
             }
 
+            echo $documento;
+            echo $nome;
+            echo  $userid;
+            echo $status;
+            echo $visitanteid;
+
             $result = $this->updateVisitante($nome, $userid, $documento, $status, $visitanteid);
             echo "Convidado atualizado com sucesso."; 
         
