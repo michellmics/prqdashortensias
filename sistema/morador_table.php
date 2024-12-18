@@ -42,8 +42,6 @@
 	    	$dadosPagina = "Não há moradores cadastrados.";
 		  }
 
-      var_dump($siteAdmin->ARRAY_LISTAMORADORESINFO);
-      die();
 
 ?>
 
@@ -243,13 +241,14 @@ html, body {
                       <th></th> 
 					  <th></th> 
                       <th>NOME</th>
-                      <th>DOC</th>   
+                      <th>APTO</th>   
 					  <th></th>                
                     </tr>
                     <tr>
 					<? $lin = 0 ?>
-                    <?php foreach ($dadosPagina as $usuario): ?>
+                    <?php foreach ($dadosPagina as $morador): ?>
 						<?php
+            /*
 							if($usuario['LIS_STSTATUS'] == "ATIVO")
 							{
 								$lineColor = "color:#993399;";
@@ -258,17 +257,17 @@ html, body {
 							{
 								$lineColor = "color:rgb(199, 202, 204);";
 							}
-
+               */
 						?>
 
 
-                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.prqdashortensias.com.br/sistema/lista_form_edit.php?id=<?= $usuario['LIS_IDLISTACONVIDADOS'] ?>';">
+                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.prqdashortensias.com.br/sistema/lista_form_edit.php?id=<?= $morador['LIS_IDLISTACONVIDADOS'] ?>';">
                         <td style="text-transform: uppercase; font-size: 15px;">
                         </td> <? $lin++; ?>
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td> 
-						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $usuario['LIS_IDLISTACONVIDADOS']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399;"> <?= htmlspecialchars(strlen($morador['USU_DCNOME']) > 20 ? substr($morador['USU_DCNOME'], 0, 20) . '...' : $morador['USU_DCNOME']) ?></td>                        
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399;"><?= htmlspecialchars(strlen($morador['USU_DCAPARTAMENTO']) > 25 ? substr($morador['USU_DCAPARTAMENTO'], 0, 12) . '...' : $morador['USU_DCAPARTAMENTO']) ?></td> 
+						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $morador['USU_IDUSUARIO']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
