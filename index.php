@@ -56,13 +56,6 @@
             <input type="password" class="form-control" id="password" placeholder="password" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
-          <div class="form-group">
-                      <label>Área</label>
-                      <select  id="area" name="area" class="form-control">
-                        <option>Intranet</option>
-                        <option>Prospecção</option>
-                      </select>
-                    </div>
           <div class="row">
             <div class="col-xs-8">                 
             </div><!-- /.col -->
