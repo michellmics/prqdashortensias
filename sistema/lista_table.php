@@ -234,6 +234,7 @@ html, body {
                   <table class="table table-hover">
                     <tr>
                       <th></th> 
+					  <th></th> 
                       <th>NOME</th>
                       <th>DOCUMENTO</th>                  
                     </tr>
