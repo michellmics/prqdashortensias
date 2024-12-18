@@ -1,3 +1,22 @@
+<?php
+	include_once '../objetos.php'; // Carrega a classe de conexão e objetos
+	
+	session_start(); 
+	define('SESSION_TIMEOUT', 1800); // 30 minutos
+	
+	if (!isset($_SESSION['user_id'])) 
+	{
+	  header("Location: index.php");
+	  exit();
+	}
+	
+	$blocoSession = $_SESSION['user_bloco'];
+	$apartamentoSession = $_SESSION['user_apartamento'];
+	$nomeSession = $_SESSION['user_name'];
+	$usuariologado = $nomeSession." BL ".$blocoSession." AP ".$apartamentoSession;
+	$userid = $_SESSION['user_id'];
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -135,7 +154,7 @@ html, body {
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><b>Morador:</b> Michell Duarte de Oliveira</li> 
+								<li><b>Morador:</b> <? echo $usuariologado; ?></li> 
 								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
 							</ul>
 							<!-- End Top Contact -->
