@@ -235,7 +235,7 @@ html, body {
                             </div>
                             <div class="col-4">
 								<label class="control-label" for="inputWarning">Documento</label>
-                                <input id="documento" name="documento" value="<? echo $siteAdmin->ARRAY_LISTAINFO["LIS_DCDOCUMENTO"]; ?>" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" required />
+                                <input id="documento" name="documento" value="<? echo $siteAdmin->ARRAY_LISTAINFO["LIS_DCDOCUMENTO"]; ?>" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required />
                             </div>
                         </div>
 						<div class="form-row" style="margin-bottom: 10px;  margin: 10px;">
