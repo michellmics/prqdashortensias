@@ -26,8 +26,20 @@
   	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
   	$userid = $_SESSION['user_id'];
 
-	$siteAdmin = new SITE_ADMIN();
-	$siteAdmin->getListaMoradoresInfo();
+	  $siteAdmin = new SITE_ADMIN();    
+
+    if(isset($_GET['table_search'])) //trazer os dados de acordo com o q foi colocado na busca
+    {
+      $search = $_GET['table_search'];
+      $result = $siteAdmin->getListaMoradoresInfoBySearch($search);    
+    }
+    else
+      {
+        $siteAdmin->getListaMoradoresInfo();
+      }
+
+
+
 
 	if(count($siteAdmin->ARRAY_LISTAMORADORESINFO) > 0)
 	{
@@ -241,6 +253,19 @@ html, body {
         	onclick="window.location.href='morador_form.php';">
     		Adicionar Morador
 		</button>  
+    <form method="GET" action="" style="display: flex;">
+                        <input 
+                            type="text" 
+                            name="table_search" 
+                            class="form-control input-sm pull-right" 
+                            style="width: 150px;" 
+                            placeholder="Buscar" 
+                            value="<?php echo isset($_GET['table_search']) ? htmlspecialchars($_GET['table_search']) : ''; ?>" 
+                        />
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
