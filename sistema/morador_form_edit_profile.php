@@ -275,19 +275,19 @@ html, body {
 								<label class="control-label" for="inputWarning">Nível</label>
 								<div>
 								    <label>
-								        <input readonly type="radio" name="nivel" value="MORADOR" <? echo $morador; ?> required>
+								        <input disabled  type="radio" name="nivel" value="MORADOR" <? echo $morador; ?> required>
 								        MORADOR
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input readonly type="radio" name="nivel" value="PORTARIA" <? echo $portaria; ?> required>
+								        <input disabled  type="radio" name="nivel" value="PORTARIA" <? echo $portaria; ?> required>
 								        PORTARIA
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input readonly type="radio" name="nivel" value="SINDICO" <? echo $sindico; ?> required>
+								        <input disabled  type="radio" name="nivel" value="SINDICO" <? echo $sindico; ?> required>
 								        SÍNDICO
 								    </label>
 								</div>
