@@ -1468,7 +1468,7 @@
                         USU_DCNIVEL = :USU_DCNIVEL,
                         USU_DCSENHA = :USU_DCSENHA,
                         USU_DTCADASTRO = :USU_DTCADASTRO
-                        WHERE USU_IDUSUARIO = :USU_IDUSUARIO)";
+                        WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
 
                 $stmt = $this->pdo->prepare($sql);
             
