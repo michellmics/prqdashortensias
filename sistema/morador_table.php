@@ -248,7 +248,7 @@ html, body {
 		
 	
     <section class="content">
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding: 0 20px;">
     <!-- Botão à esquerda -->
     <button class="btn btn-danger btn-sm" 
         style="font-size: 10px; padding: 2px 5px; height: 25px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
@@ -272,6 +272,7 @@ html, body {
         </button>
     </form>
 </div>
+
 
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
