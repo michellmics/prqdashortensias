@@ -299,7 +299,7 @@
                                 ORDER BY USU_DCAPARTAMENTO ASC";
 
                 $stmt = $this->pdo->prepare($sql);
-                $stmt->bindParam(':SEARCH', $SEARCH, PDO::PARAM_STR);
+                $stmt->bindValue(':SEARCH', '%' . $SEARCH . '%', PDO::PARAM_STR);
                 $stmt->execute();
                 $this->ARRAY_LISTAMORADORESINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
