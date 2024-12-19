@@ -26,26 +26,34 @@ class deleteMorador extends SITE_ADMIN
             if (!$this->pdo) {
                 $this->conexao();
             }
-
-            // Prepara a consulta SQL para verificar o usuário
+    
+            // Inicia uma transação
+            $this->pdo->beginTransaction();
+    
+            // Prepara a consulta SQL para deletar da tabela USU_USUARIO
             $sql = "DELETE FROM USU_USUARIO WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
             $stmt->execute();
-
-            // Prepara a consulta SQL para verificar o usuário
+    
+            // Prepara a consulta SQL para deletar da tabela LIS_LISTACONVIDADOS
             $sql = "DELETE FROM LIS_LISTACONVIDADOS WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
             $stmt->execute();
-
+    
+            // Commit na transação se tudo deu certo
+            $this->pdo->commit();
+    
             echo "Usuário deletado com sucesso.";
-            
-
-        } catch (PDOException $e) {  
-            echo "Não foi possível deletar o usuário.";
-        } 
+    
+        } catch (PDOException $e) {
+            // Se ocorrer algum erro, faz o rollback e exibe a mensagem de erro
+            $this->pdo->rollBack();
+            echo "Não foi possível deletar o usuário: " . $e->getMessage();
+        }
     }
+    
 }
 
 // Processa a requisição GET
