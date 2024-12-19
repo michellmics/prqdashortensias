@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id']))
 
 class registerUser extends SITE_ADMIN
 {
-    public function insertUser($email, $senha, $nome, $bloco, $apartamento, $nivel, $userid)
+    public function updateUser($email, $senha, $nome, $bloco, $apartamento, $nivel, $userid)
     {
         try {
             // Cria conexão com o banco de dados
