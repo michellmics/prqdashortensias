@@ -308,7 +308,7 @@ html, body {
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399;"> <?= htmlspecialchars(strlen($morador['USU_DCNOME']) > 20 ? substr($morador['USU_DCNOME'], 0, 20) . '...' : $morador['USU_DCNOME']) ?></td>                        
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399;"><?= htmlspecialchars(strlen($morador['USU_DCAPARTAMENTO']) > 25 ? substr($morador['USU_DCAPARTAMENTO'], 0, 12) . '...' : $morador['USU_DCAPARTAMENTO']) ?></td> 
 						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $morador['USU_IDUSUARIO']; ?>)"><i class="fa fa-trash"></i></span></a></td> 
-            <td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $morador['USU_IDUSUARIO']; ?>)"><i class="fa fa-trash"></i></span></a></td>      
+            <td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $morador['USU_IDUSUARIO']; ?>)"><i class="fa fa-edit"></i></span></a></td>      
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
