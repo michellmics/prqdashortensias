@@ -248,24 +248,24 @@ html, body {
 		
 	
     <section class="content">
-		<button class="btn btn-danger btn-sm" 
-        	style="font-size: 10px; padding: 2px 5px; height: 25px; margin: 10px; margin-bottom: 10px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
-        	onclick="window.location.href='morador_form.php';">
-    		Adicionar Morador
-		</button>  
-    <form method="GET" action="" style="display: flex;">
-                        <input 
-                            type="text" 
-                            name="table_search" 
-                            class="form-control input-sm pull-right" 
-                            style="width: 150px;" 
-                            placeholder="Buscar" 
-                            value="<?php echo isset($_GET['table_search']) ? htmlspecialchars($_GET['table_search']) : ''; ?>" 
-                        />
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                        </div>
-                    </form>
+		  <button class="btn btn-danger btn-sm" 
+          	style="font-size: 10px; padding: 2px 5px; height: 25px; margin: 10px; margin-bottom: 10px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
+          	onclick="window.location.href='morador_form.php';">
+      		Adicionar Morador
+		  </button>  
+      <form method="GET" action="" style="display: flex; margin-left: auto;">
+          <input 
+              type="text" 
+              name="table_search" 
+              class="form-control input-sm pull-right" 
+              style="width: 150px;" 
+              placeholder="Buscar" 
+              value="<?php echo isset($_GET['table_search']) ? htmlspecialchars($_GET['table_search']) : ''; ?>" 
+          />
+          <div class="input-group-btn">
+              <button type="submit" class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+          </div>
+      </form>
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
