@@ -283,6 +283,29 @@
                 return ["error" => $e->getMessage()];
             }          
         }
+
+        public function getListaMoradoresInfoBySearch($SEARCH)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT *
+                                FROM USU_USUARIO
+                                WHERE 
+                                (USU_DCNIVEL = 'SINDICO' OR USU_DCNIVEL = 'MORADOR') 
+                                AND (USU_DCNOME LIKE :SEARCH
+                                OR USU_DCAPARTAMENTO LIKE :SEARCH)
+                                ORDER BY USU_DCAPARTAMENTO ASC";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':SEARCH', $SEARCH, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_LISTAMORADORESINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
        
         public function getProspecInfoByUserId($USA_IDUSERADMIN)
         {          
