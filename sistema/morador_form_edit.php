@@ -1,66 +1,33 @@
 <?php
-	//ini_set('display_errors', 1);
-	//ini_set('display_startup_errors', 1);
-	//error_reporting(E_ALL);
-
-  	include_once '../objetos.php'; 
-
-  	session_start(); 
-  	define('SESSION_TIMEOUT', 43200); 
+	include_once '../objetos.php'; // Carrega a classe de conexão e objetos
 	
-  	if (!isset($_SESSION['user_id'])) 
-  	{
-  	  header("Location: index.php");
-  	  exit();
-  	}
+	session_start(); 
+	define('SESSION_TIMEOUT', 43200); // 30 minutos
+	
+	if (!isset($_SESSION['user_id'])) 
+	{
+	  header("Location: index.php");
+	  exit();
+	}
 
-    if ($_SESSION['user_nivelacesso'] != "SINDICO" && $_SESSION['user_nivelacesso'] != "PORTARIA") 
+	if ($_SESSION['user_nivelacesso'] != "SINDICO") 
     {
       header("Location: noAuth.php");
       exit();
     }
+	
+	$blocoSession = $_SESSION['user_bloco'];
+	$apartamentoSession = $_SESSION['user_apartamento'];
+	$nomeSession =  ucwords($_SESSION['user_name']);
+	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
+	$userid = $_SESSION['user_id'];
 
-  	$blocoSession = $_SESSION['user_bloco'];
-  	$apartamentoSession = $_SESSION['user_apartamento'];
-  	$nomeSession =  ucwords($_SESSION['user_name']);
-  	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
-  	$userid = $_SESSION['user_id'];
+	$idmorador= $_GET['id'];
+	$siteAdmin = new SITE_ADMIN();
+	$siteAdmin->getMoradoreInfoById($idmorador); 
 
-	  $siteAdmin = new SITE_ADMIN();    
-
-    if(isset($_GET['table_search'])) //trazer os dados de acordo com o q foi colocado na busca
-    {
-      $search = $_GET['table_search'];
-      $result = $siteAdmin->getListaMoradoresInfoBySearch($search);    
-    }
-    else
-      {
-        $siteAdmin->getListaMoradoresInfo();
-      }
-
-
-
-
-	if(count($siteAdmin->ARRAY_LISTAMORADORESINFO) > 0)
-	{
-	  // Configurações de Paginação
-	  $registrosPorPagina = 100;
-	  $paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-	  $totalRegistros = count($siteAdmin->ARRAY_LISTAMORADORESINFO);
-	  $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
-
-	  // Determina o índice de início para a página atual
-	  $inicio = ($paginaAtual - 1) * $registrosPorPagina;
-
-	  // Divide o array para exibir apenas os registros da página atual
-	  $dadosPagina = array_slice($siteAdmin->ARRAY_LISTAMORADORESINFO, $inicio, $registrosPorPagina);
-	}
-	else
-	  	{
-	    	$dadosPagina = "Não há moradores cadastrados.";
-		  }
-
-
+	var_dump($siteAdmin->ARRAY_MORADORINFO);
+	die();
 ?>
 
 <!doctype html>
@@ -109,6 +76,13 @@
 
         <!-- SWEETALERT -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<!-- ######################################################## --> 
+    	<!-- SWEETALERT 2 --> 
+    	<!-- SweetAlert2 CSS -->
+    	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css" rel="stylesheet">
+    	<!-- SweetAlert2 JS -->
+    	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    	<!-- ######################################################## --> 
 
 		<link rel="icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
     	<link rel="shortcut icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
@@ -200,7 +174,7 @@ html, body {
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><b>Morador:</b> <? echo $usuariologado; ?></li> 
+							 	<li><b>Morador:</b> <? echo $usuariologado; ?></li> 
 								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
 							</ul>
 							<!-- End Top Contact -->
@@ -234,7 +208,7 @@ html, body {
 											<li><a href="lista_table.php">Minha Lista de Convidados </a></li>
 											<li><a href="../logoff.php">Sair </a></li>
 										</ul>
-									</nav>
+									</nav> 
 								</div>
 								<!--/ End Main Menu -->
 							</div>
@@ -247,84 +221,135 @@ html, body {
 		<!-- End Header Area -->
 		
 	
-    <section class="content">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding: 0 20px;">
-        <!-- Botão à esquerda -->
-        <button class="btn btn-danger btn-sm" 
-            style="font-size: 10px; padding: 2px 5px; height: 25px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
-            onclick="window.location.href='morador_form.php';">
-            Adicionar Morador
-        </button>  
+        <section class="content">      
+    <!-- right column -->
+    <div class="col-md-6">
+        <!-- general form elements disabled -->
+        <div class="box box-warning">
+            <div class="box-header">
+                <h3 class="box-title">Cadastro de Usuário</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+			<form id="form-empresa" role="form" method="POST" enctype="multipart/form-data">
 
-        <!-- Formulário de busca à direita -->
-        <form method="GET" action="" style="display: flex; align-items: center;">
-            <input 
-                type="text" 
-                name="table_search" 
-                class="form-control input-sm" 
-                style="width: 150px; height: 25px; margin-right: 5px; font-size: 12px; text-transform: uppercase;" 
-                placeholder="Buscar" 
-                value="<?php echo isset($_GET['table_search']) ? htmlspecialchars($_GET['table_search']) : ''; ?>" 
-            />
-            <button type="submit" class="btn btn-sm btn-default" 
-                style="height: 25px; padding: 0 8px; font-size: 12px;">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
-      </div>
+                    <div class="form-group has-warning">
+						<label class="control-label" for="inputWarning"> </label>
+                        <div class="form-row">
+                            <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
+                            <div class="col-8">
+								<label class="control-label" for="inputWarning">Nome Completo</label>
+                                <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
+                            </div>
+                            <div class="col-2">
+								<label class="control-label" for="inputWarning">Bloco</label>
+                                <input id="bloco" name="bloco"  type="number" class="form-control" placeholder="" maxlength="1" required />
+                            </div>
+							<div class="col-2">
+								<label class="control-label" for="inputWarning">Apart.</label>
+                                <input id="apartamento" name="apartamento" type="number" class="form-control" placeholder="" maxlength="4" required />
+                            </div>
+                        </div>
+						<div class="form-row">
+							<div class="col-12">
+								<label class="control-label" for="inputWarning">E-mail</label>
+                                <input id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
+                            </div>
+						</div>
+						<div class="form-row">
+							<div class="col-7">
+								<label class="control-label" for="inputWarning">Nível</label>
+								<div>
+								    <label>
+								        <input type="radio" name="nivel" value="MORADOR" checked required>
+								        MORADOR
+								    </label>
+								</div>
+								<div>
+								    <label>
+								        <input type="radio" name="nivel" value="PORTARIA" required>
+								        PORTARIA
+								    </label>
+								</div>
+								<div>
+								    <label>
+								        <input type="radio" name="nivel" value="SINDICO" required>
+								        SÍNDICO
+								    </label>
+								</div>
+                            </div>
+							<div class="col-5">
+								<label class="control-label" for="inputWarning">Senha</label>
+                                <input id="senha" name="senha" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
+                            </div>
+						</div>
+                    </div>
 
+                    <button type="button" name="voltar" class="btn btn-warning" onclick="window.history.back()">VOLTAR</button>
+                    <button type="button" id="salvar_empresa_1" name="salvar_empresa_1" class="btn btn-primary">SALVAR CADASTRO</button>
 
-	<div class="box-body table-responsive no-padding">
-                  <table class="table table-hover">
-                    <tr>
-                      <th></th> 
-					            <th></th> 
-                      <th>NOME</th>
-                      <th>APTO</th>   
-					            <th></th>    
-                      <th></th>            
-                    </tr>
-                    <tr>
-					<? $lin = 0 ?>
-                    <?php foreach ($dadosPagina as $morador): ?>
-						<?php
-            /*
-							if($usuario['LIS_STSTATUS'] == "ATIVO")
-							{
-								$lineColor = "color:#993399;";
-							}
-							if($usuario['LIS_STSTATUS'] == "INATIVO")
-							{
-								$lineColor = "color:rgb(199, 202, 204);";
-							}
-               */
-						?>
-
-
-                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.prqdashortensias.com.br/sistema/lista_table_by_morador.php?id=<?= $morador['USU_IDUSUARIO'] ?>';">
-                        <td style="text-transform: uppercase; font-size: 15px;">
-                        </td> <? $lin++; ?>
-						            <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399;"> <?= htmlspecialchars(strlen($morador['USU_DCNOME']) > 20 ? substr($morador['USU_DCNOME'], 0, 20) . '...' : $morador['USU_DCNOME']) ?></td>                        
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399;"><?= htmlspecialchars(strlen($morador['USU_DCAPARTAMENTO']) > 25 ? substr($morador['USU_DCAPARTAMENTO'], 0, 12) . '...' : $morador['USU_DCAPARTAMENTO']) ?></td> 
-						            <td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $morador['USU_IDUSUARIO']; ?>)"><i class="fa fa-trash"></i></span></a></td> 
-                        <td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="https://www.prqdashortensias.com.br/sistema/morador_form_edit.php?id=<?= $morador['USU_IDUSUARIO'] ?>"><i class="fa fa-edit"></i></span></a></td>      
-                      </tr> 
-                    <?php endforeach; ?>   
-                    </tr>
-                  </table>
-                </div><!-- /.box-body -->
+                </form>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!--/.col (right) -->
 </section><!-- /.content -->
 
 <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-      function confirmDelete(listid){
+
+    function validarFormulario() {
+		const nome = document.querySelector('input[name="nome"]').value.trim();
+    	const bloco = document.querySelector('input[name="bloco"]').value.trim();
+    	const apartamento = document.querySelector('input[name="apartamento"]').value.trim();
+    	const email = document.querySelector('input[name="email"]').value.trim();
+    	const senha = document.querySelector('input[name="senha"]').value.trim();
+		const nivel = document.querySelector('input[name="nivel"]:checked'); 
+        
+		if (!nome || !bloco || !apartamento || !email || !senha || !nivel) {
+            alert("Todos os campos devem ser preenchidos.");
+            return false;
+        }
+
+		// Validação do e-mail
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'E-mail Inválido',
+                text: 'Por favor, insira um endereço de e-mail válido.',
+            });
+            return false;
+        }
+
+        // Validação da senha
+        const senhaRegex = /^(?=.*[A-Z])(?=.*[\W_])(?=.{8,})/;
+        if (!senhaRegex.test(senha)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Senha Inválida',
+                text: 'A senha deve ter pelo menos 8 caracteres, incluir uma letra maiúscula e um caractere especial.',
+            });
+            return false; 
+        }
+
+        return true;
+    }
+
+
+      function confirmAndSubmit(event) {
+          // Chama a validação do formulário
+        const isValid = validarFormulario();
+
+        // Se a validação falhar, interrompe a execução
+        if (!isValid) {
+            return;
+        }
+
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
-          title: 'Lista de Usuários',
-          text: "Têm certeza que deseja excluir o usuário?",
+          title: 'Formulário de usuários',
+          text: "Têm certeza que deseja cadastrar o usuário?",
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
@@ -332,32 +357,31 @@ html, body {
           denyButtonColor: "#D8BFD8",
           width: '600px', // Largura do alerta
           icon: 'warning',
-          position: 'top', // Define a posição na parte superior da tela
           customClass: {
             title: 'swal-title', // Classe para o título
             content: 'swal-content', // Classe para o conteúdo (texto)
             confirmButton: 'swal-confirm-btn',
             denyButton: 'swal-deny-btn',
-            htmlContainer: 'swal-text',
-            popup: 'swal-custom-popup', // Classe para customizar o popup
+            htmlContainer: 'swal-text'
           }
         }).then((result) => {
           if (result.isConfirmed) {
             // Capturar os dados do formulário
-            var formData = $("#form-empresa").serialize();
+            var formData = new FormData($("#form-empresa")[0]); // Usa o FormData para enviar arquivos
             // Fazer a requisição AJAX
             $.ajax({
-              url: "morador_delete.php", // URL para processamento
+              url: "morador_form_proc.php", // URL para processamento
               type: "POST",
-              data: { id: listid }, // Dados enviados
+              data: formData,
+              processData: false, // Impede o jQuery de processar os dados
+              contentType: false, // Impede o jQuery de definir o tipo de conteúdo
               success: function (response) {
                 Swal.fire({
               title: 'Salvo!',
               text: `${response}`,
               icon: 'success',
-              width: '200px', // Largura do alerta
+              width: '600px', // Largura do alerta
               confirmButtonColor: "#993399",
-              position: 'top', // Define a posição na parte superior da tela
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
@@ -372,11 +396,10 @@ html, body {
               error: function (xhr, status, error) {
                 Swal.fire({
               title: 'Erro!',
-              text: 'Erro ao deletar o usuário.',
+              text: 'Erro ao cadastrar o usuário.',
               icon: 'error',
-              width: '200px', // Largura do alerta
+              width: '600px', // Largura do alerta
               confirmButtonColor: "#993399",
-              position: 'top', // Define a posição na parte superior da tela
               customClass: {
                 title: 'swal-title', // Aplicando a mesma classe do título
                 content: 'swal-content', // Aplicando a mesma classe do texto
@@ -399,26 +422,19 @@ html, body {
 <style>
   /* Estilos para aumentar o tamanho da fonte */
   .swal-title {
-    font-size: 22px !important; /* Tamanho maior para o título */
+    font-size: 36px !important; /* Tamanho maior para o título */
   }
 
   .swal-text {
-    font-size: 16px !important; /* Tamanho maior para o conteúdo */
+    font-size: 24px !important; /* Tamanho maior para o conteúdo */
   }
-
-  @media screen and (max-width: 768px) {
-  .swal-custom-popup {
-    top: 10% !important; /* Ajuste de posição vertical */
-    transform: translateY(0) !important; /* Centraliza no topo */
-  }
-}
 
   /* Aumentar o tamanho dos textos dos botões */
   .swal-confirm-btn,
   .swal-deny-btn,
   .swal-cancel-btn {
-    font-size: 14px !important; /* Tamanho maior para os textos dos botões */
-    padding: 9px 9px !important; /* Aumenta o espaço ao redor do texto */
+    font-size: 20px !important; /* Tamanho maior para os textos dos botões */
+    padding: 12px 12px !important; /* Aumenta o espaço ao redor do texto */
   }
 </style>
 <!-- ######################################################## --> 
@@ -426,40 +442,40 @@ html, body {
 
 
 <script>
-    // Função de validação
-    	function validarFormulario(event) {
-        event.preventDefault(); // Impede o envio do formulário
+		document.getElementById('apartamento').addEventListener('input', function (e) {
+	    const maxLength = 4;
+	    const value = e.target.value;
 
-        // Captura os valores dos campos
-        const nome = document.querySelector('input[name="nome"]').value.trim();
-        const documento = document.querySelector('input[name="documento"]').value.trim();
+	    // Limita o comprimento a 4 caracteres
+	    if (value.length > maxLength) {
+	        e.target.value = value.slice(0, maxLength);
+	    }
+		});
+	document.getElementById('bloco').addEventListener('input', function (e) {
+	    const maxLength = 1;
+	    const value = e.target.value;
 
-        // Validações
-        if (!nome || !documento) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Campos Obrigatórios',
-                text: 'Todos os campos devem ser preenchidos.',
-            });
-            return false;
-        }
-
-        // Se todas as validações passarem
-        Swal.fire({
-            icon: 'success',
-            title: 'Validação Bem-Sucedida',
-            text: 'Formulário enviado com sucesso!',
-        }).then(() => {
-            // Envia o formulário após o SweetAlert
-            document.getElementById('form-empresa').submit();
-        });
-
-        return true;
-    }
-
-    // Adiciona o evento de validação ao formulário
-    document.getElementById('form-empresa').addEventListener('submit', validarFormulario);
+	    // Limita o comprimento a 4 caracteres
+	    if (value.length > maxLength) {
+	        e.target.value = value.slice(0, maxLength);
+	    }
+		});
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Footer -->
 <footer class="footerNew">

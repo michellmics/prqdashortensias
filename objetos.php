@@ -31,6 +31,7 @@
         public $ARRAY_PROSPEC_CLIENTESINFO;
         public $ARRAY_WHATSAPPBOTINFO;
         public $ARRAY_PARAMETERINFO;
+        public $ARRAY_MORADORINFO;
         public $ARRAY_LISTAMORADORESINFO;
         public $configPath = '/home/hortensias/config.cfg';
 
@@ -279,6 +280,25 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
                 $this->ARRAY_LISTAMORADORESINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getMoradoreInfoById($USU_IDUSUARIO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT *
+                                FROM USU_USUARIO
+                                WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+                $stmt->execute();
+                $this->ARRAY_MORADORINFO = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
