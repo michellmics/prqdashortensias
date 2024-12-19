@@ -262,15 +262,17 @@ html, body {
             type="text" 
             name="table_search" 
             class="form-control input-sm" 
-            style="width: 150px; margin-right: 5px;" 
+            style="width: 150px; height: 25px; margin-right: 5px; font-size: 12px;" 
             placeholder="Buscar" 
             value="<?php echo isset($_GET['table_search']) ? htmlspecialchars($_GET['table_search']) : ''; ?>" 
         />
-        <button type="submit" class="btn btn-sm btn-default">
+        <button type="submit" class="btn btn-sm btn-default" 
+            style="height: 25px; padding: 0 8px; font-size: 12px;">
             <i class="fa fa-search"></i>
         </button>
     </form>
 </div>
+
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
