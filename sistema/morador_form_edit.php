@@ -25,9 +25,6 @@
 	$idmorador= $_GET['id'];
 	$siteAdmin = new SITE_ADMIN();
 	$siteAdmin->getMoradoreInfoById($idmorador); 
-
-	var_dump($siteAdmin->ARRAY_MORADORINFO);
-	die();
 ?>
 
 <!doctype html>
@@ -231,6 +228,9 @@ html, body {
             </div><!-- /.box-header -->
             <div class="box-body">
 			<form id="form-empresa" role="form" method="POST" enctype="multipart/form-data">
+  					<!-- CAMPOS COMO VARIAVEIS -->
+					<input type="hidden" name="userid" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_IDUSUARIO"]; ?>"/>
+                  	<!-- CAMPOS COMO VARIAVEIS -->
 
                     <div class="form-group has-warning">
 						<label class="control-label" for="inputWarning"> </label>
@@ -238,48 +238,68 @@ html, body {
                             <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
                             <div class="col-8">
 								<label class="control-label" for="inputWarning">Nome Completo</label>
-                                <input id="nome" name="nome" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
+                                <input id="nome" name="nome" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCNOME"]; ?>" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
                             </div>
                             <div class="col-2">
 								<label class="control-label" for="inputWarning">Bloco</label>
-                                <input id="bloco" name="bloco"  type="number" class="form-control" placeholder="" maxlength="1" required />
+                                <input id="bloco" name="bloco"  value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCBLOCO"]; ?>" type="number" class="form-control" placeholder="" maxlength="1" required />
                             </div>
 							<div class="col-2">
 								<label class="control-label" for="inputWarning">Apart.</label>
-                                <input id="apartamento" name="apartamento" type="number" class="form-control" placeholder="" maxlength="4" required />
+                                <input id="apartamento" name="apartamento" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCAPARTAMENTO"]; ?>" type="number" class="form-control" placeholder="" maxlength="4" required />
                             </div>
                         </div>
 						<div class="form-row">
 							<div class="col-12">
 								<label class="control-label" for="inputWarning">E-mail</label>
-                                <input id="email" name="email" style="text-transform: uppercase;" type="text" class="form-control" placeholder="ENTER..." maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
+                                <input id="email" name="email" style="text-transform: uppercase;" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCEMAIL"]; ?>" type="text" class="form-control" placeholder="ENTER..." maxlength="50" oninput="this.value = this.value.replace(/[^A-Za-z0-9._@-]/g, '')" required />
                             </div>
 						</div>
 						<div class="form-row">
+							<?php
+								$morador="";
+								$portaria="";
+								$sindico="";
+
+								if($siteAdmin->ARRAY_MORADORINFO["USU_DCNIVEL"] == "MORADOR")
+								{
+									$morador = "checked";
+								}
+								if($siteAdmin->ARRAY_MORADORINFO["USU_DCNIVEL"] == "PORTARIA")
+								{
+									$portaria = "checked";
+								}
+								if($siteAdmin->ARRAY_MORADORINFO["USU_DCNIVEL"] == "SINDICO")
+								{
+									$sindico = "checked";
+								}
+
+							?>
+
 							<div class="col-7">
 								<label class="control-label" for="inputWarning">Nível</label>
 								<div>
 								    <label>
-								        <input type="radio" name="nivel" value="MORADOR" checked required>
+								        <input type="radio" name="nivel" value="MORADOR" <? echo $morador; ?> required>
 								        MORADOR
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input type="radio" name="nivel" value="PORTARIA" required>
+								        <input type="radio" name="nivel" value="PORTARIA" <? echo $portaria; ?> required>
 								        PORTARIA
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input type="radio" name="nivel" value="SINDICO" required>
+								        <input type="radio" name="nivel" value="SINDICO" <? echo $sindico; ?> required>
 								        SÍNDICO
 								    </label>
 								</div>
                             </div>
 							<div class="col-5">
 								<label class="control-label" for="inputWarning">Senha</label>
-                                <input id="senha" name="senha" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
+                                <input id="senha" name="senha" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCSENHA"]; ?>" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
                             </div>
 						</div>
                     </div>
@@ -370,7 +390,7 @@ html, body {
             var formData = new FormData($("#form-empresa")[0]); // Usa o FormData para enviar arquivos
             // Fazer a requisição AJAX
             $.ajax({
-              url: "morador_form_proc.php", // URL para processamento
+              url: "morador_form_edit_proc.php", // URL para processamento
               type: "POST",
               data: formData,
               processData: false, // Impede o jQuery de processar os dados

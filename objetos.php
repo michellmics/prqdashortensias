@@ -1451,6 +1451,47 @@
             }
         }
 
+        public function updateUserInfo($USU_DCEMAIL, $USU_DCNOME, $USU_DCBLOCO, $USU_DCAPARTAMENTO, $USU_DCNIVEL, $USU_DCSENHA, $USU_IDUSUARIO)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try {
+                $sql = "UPDATE USU_USUARIO 
+                        SET
+                        USU_DCEMAIL = :USU_DCEMAIL,
+                        USU_DCNOME = :USU_DCNOME,
+                        USU_DCBLOCO = :USU_DCBLOCO,
+                        USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
+                        USU_DCNIVEL = :USU_DCNIVEL,
+                        USU_DCSENHA = :USU_DCSENHA,
+                        USU_DTCADASTRO = :USU_DTCADASTRO
+                        WHERE USU_IDUSUARIO = :USU_IDUSUARIO)";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':USU_DCEMAIL', $USU_DCEMAIL, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCNOME', $USU_DCNOME, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCBLOCO', $USU_DCBLOCO, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCNIVEL', $USU_DCNIVEL, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_DCSENHA', $USU_DCSENHA, PDO::PARAM_STR);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+
+            
+                $stmt->execute();
+           
+                // Retorna uma mensagem de sucesso (opcional)
+                return ["success" => "Morador atualizado com sucesso."];
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return ["error" => $e->getMessage()];
+            }
+        }
+
         public function insertVisitListaInfo($LIS_DCNOME, $USU_IDUSUARIO, $LIS_DCDOCUMENTO, $LIS_STSTATUS)
         {       
             // Verifica se a conexão já foi estabelecida
