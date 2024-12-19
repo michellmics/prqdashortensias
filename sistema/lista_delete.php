@@ -6,7 +6,7 @@ define('SESSION_TIMEOUT', 43200); // 30 minutos
 
 if (!isset($_SESSION['user_id'])) 
 {
-  header("Location: index.php");
+  header("Location: https://www.prqdashortensias.com.br/index.php");
   exit();
 }
 

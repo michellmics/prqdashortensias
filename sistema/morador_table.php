@@ -12,7 +12,7 @@
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT)) {
       session_unset(); // Limpa as variáveis da sessão
       session_destroy(); // Destroi a sessão
-      header("Location: ../index.php");
+      header("Location: https://www.prqdashortensias.com.br/index.php");
       exit();
     }
   
@@ -21,7 +21,7 @@
 	
   	if (!isset($_SESSION['user_id'])) 
   	{
-  	  header("Location: index.php");
+  	  header("Location: https://www.prqdashortensias.com.br/index.php");
   	  exit();
   	}
 
