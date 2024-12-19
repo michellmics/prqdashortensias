@@ -33,6 +33,12 @@ class deleteMorador extends SITE_ADMIN
             $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
             $stmt->execute();
 
+            // Prepara a consulta SQL para verificar o usuário
+            $sql = "DELETE FROM LIS_LISTACONVIDADOS WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
+            $stmt->execute();
+
             echo "Usuário deletado com sucesso.";
             
 
