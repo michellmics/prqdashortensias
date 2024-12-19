@@ -270,24 +270,29 @@ html, body {
 								}
 
 							?>
-
+							<style>
+							    .readonly-radio {
+							       pointer-events: none;
+							       opacity: 0.5; /* Torna os botões de rádio visualmente desabilitados */
+							   }
+							</style>
 							<div class="col-7">
 								<label class="control-label" for="inputWarning">Nível</label>
 								<div>
 								    <label>
-								        <input disabled  type="radio" name="nivel" value="MORADOR" <? echo $morador; ?> required>
+								        <input class="readonly-radio"  type="radio" name="nivel" value="MORADOR" <? echo $morador; ?> required>
 								        MORADOR
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input disabled  type="radio" name="nivel" value="PORTARIA" <? echo $portaria; ?> required>
+								        <input class="readonly-radio"  type="radio" name="nivel" value="PORTARIA" <? echo $portaria; ?> required>
 								        PORTARIA
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input disabled  type="radio" name="nivel" value="SINDICO" <? echo $sindico; ?> required>
+								        <input class="readonly-radio"  type="radio" name="nivel" value="SINDICO" <? echo $sindico; ?> required>
 								        SÍNDICO
 								    </label>
 								</div>
