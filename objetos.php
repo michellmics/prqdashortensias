@@ -1466,7 +1466,7 @@
                         USU_DCBLOCO = :USU_DCBLOCO,
                         USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
                         USU_DCNIVEL = :USU_DCNIVEL,
-                        USU_DCSENHA = :USU_DCSENHA,
+                        USU_DCSENHA = :USU_DCSENHA
                         WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
 
                 $stmt = $this->pdo->prepare($sql);
