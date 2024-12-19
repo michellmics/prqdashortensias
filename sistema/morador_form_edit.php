@@ -2,7 +2,18 @@
 	include_once '../objetos.php'; // Carrega a classe de conexão e objetos
 	
 	session_start(); 
-	define('SESSION_TIMEOUT', 43200); // 30 minutos
+	define('SESSION_TIMEOUT', 43200); // 12 horas
+
+	// Verifica se a sessão expirou
+	if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT)) {
+		session_unset(); // Limpa as variáveis da sessão
+		session_destroy(); // Destroi a sessão
+		header("Location: ../index.php");
+		exit();
+	}
+
+	// Atualiza o timestamp da última atividade
+	$_SESSION['last_activity'] = time();
 	
 	if (!isset($_SESSION['user_id'])) 
 	{
