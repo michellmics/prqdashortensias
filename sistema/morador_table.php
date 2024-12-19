@@ -248,24 +248,29 @@ html, body {
 		
 	
     <section class="content">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+    <!-- Botão à esquerda -->
     <button class="btn btn-danger btn-sm" 
-        style="font-size: 10px; padding: 2px 5px; height: 25px; margin: 10px; margin-bottom: 10px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
+        style="font-size: 10px; padding: 2px 5px; height: 25px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
         onclick="window.location.href='morador_form.php';">
         Adicionar Morador
     </button>  
-    <form method="GET" action="" style="display: flex; margin-left: auto;">
+
+    <!-- Formulário de busca à direita -->
+    <form method="GET" action="" style="display: flex; align-items: center;">
         <input 
             type="text" 
             name="table_search" 
-            class="form-control input-sm pull-right" 
-            style="width: 150px;" 
+            class="form-control input-sm" 
+            style="width: 150px; margin-right: 5px;" 
             placeholder="Buscar" 
             value="<?php echo isset($_GET['table_search']) ? htmlspecialchars($_GET['table_search']) : ''; ?>" 
         />
-        <div class="input-group-btn">
-            <button type="submit" class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-        </div>
+        <button type="submit" class="btn btn-sm btn-default">
+            <i class="fa fa-search"></i>
+        </button>
     </form>
+</div>
 	<div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
