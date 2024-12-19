@@ -248,30 +248,30 @@ html, body {
 		
 	
     <section class="content">
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding: 0 20px;">
-    <!-- Botão à esquerda -->
-    <button class="btn btn-danger btn-sm" 
-        style="font-size: 10px; padding: 2px 5px; height: 25px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
-        onclick="window.location.href='morador_form.php';">
-        Adicionar Morador
-    </button>  
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding: 0 20px;">
+        <!-- Botão à esquerda -->
+        <button class="btn btn-danger btn-sm" 
+            style="font-size: 10px; padding: 2px 5px; height: 25px; background-color:#5d95bd; color: white; border-color:rgb(3, 3, 3);" 
+            onclick="window.location.href='morador_form.php';">
+            Adicionar Morador
+        </button>  
 
-    <!-- Formulário de busca à direita -->
-    <form method="GET" action="" style="display: flex; align-items: center;">
-        <input 
-            type="text" 
-            name="table_search" 
-            class="form-control input-sm" 
-            style="width: 150px; height: 25px; margin-right: 5px; font-size: 12px;" 
-            placeholder="Buscar" 
-            value="<?php echo isset($_GET['table_search']) ? htmlspecialchars($_GET['table_search']) : ''; ?>" 
-        />
-        <button type="submit" class="btn btn-sm btn-default" 
-            style="height: 25px; padding: 0 8px; font-size: 12px;">
-            <i class="fa fa-search"></i>
-        </button>
-    </form>
-</div>
+        <!-- Formulário de busca à direita -->
+        <form method="GET" action="" style="display: flex; align-items: center;">
+            <input 
+                type="text" 
+                name="table_search" 
+                class="form-control input-sm" 
+                style="width: 150px; height: 25px; margin-right: 5px; font-size: 12px; text-transform: uppercase;" 
+                placeholder="Buscar" 
+                value="<?php echo isset($_GET['table_search']) ? htmlspecialchars($_GET['table_search']) : ''; ?>" 
+            />
+            <button type="submit" class="btn btn-sm btn-default" 
+                style="height: 25px; padding: 0 8px; font-size: 12px;">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+      </div>
 
 
 	<div class="box-body table-responsive no-padding">
