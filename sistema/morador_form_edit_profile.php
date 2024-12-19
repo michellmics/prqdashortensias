@@ -233,15 +233,15 @@ html, body {
                             <!-- Nome Completo do Visitante ocupa 8 partes da largura e Documento ocupa 4 partes -->
                             <div class="col-8">
 								<label class="control-label" for="inputWarning">Nome Completo</label>
-                                <input id="nome" name="nome" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCNOME"]; ?>" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
+                                <input readonly id="nome" name="nome" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCNOME"]; ?>" style="text-transform: uppercase;" type="text" class="form-control" id="inputWarning" placeholder="ENTER..." maxlength="28" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')" required/>
                             </div>
                             <div class="col-2">
 								<label class="control-label" for="inputWarning">Bloco</label>
-                                <input id="bloco" name="bloco"  value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCBLOCO"]; ?>" type="number" class="form-control" placeholder="" maxlength="1" required />
+                                <input readonly id="bloco" name="bloco"  value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCBLOCO"]; ?>" type="number" class="form-control" placeholder="" maxlength="1" required />
                             </div>
 							<div class="col-2">
 								<label class="control-label" for="inputWarning">Apart.</label>
-                                <input id="apartamento" name="apartamento" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCAPARTAMENTO"]; ?>" type="number" class="form-control" placeholder="" maxlength="4" required />
+                                <input readonly id="apartamento" name="apartamento" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCAPARTAMENTO"]; ?>" type="number" class="form-control" placeholder="" maxlength="4" required />
                             </div>
                         </div>
 						<div class="form-row">
@@ -275,19 +275,19 @@ html, body {
 								<label class="control-label" for="inputWarning">Nível</label>
 								<div>
 								    <label>
-								        <input type="radio" name="nivel" value="MORADOR" <? echo $morador; ?> required>
+								        <input readonly type="radio" name="nivel" value="MORADOR" <? echo $morador; ?> required>
 								        MORADOR
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input type="radio" name="nivel" value="PORTARIA" <? echo $portaria; ?> required>
+								        <input readonly type="radio" name="nivel" value="PORTARIA" <? echo $portaria; ?> required>
 								        PORTARIA
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input type="radio" name="nivel" value="SINDICO" <? echo $sindico; ?> required>
+								        <input readonly type="radio" name="nivel" value="SINDICO" <? echo $sindico; ?> required>
 								        SÍNDICO
 								    </label>
 								</div>
