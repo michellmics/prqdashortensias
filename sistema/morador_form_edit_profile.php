@@ -270,33 +270,29 @@ html, body {
 								}
 
 							?>
-							<style>
-							    .readonly-radio {
-							       pointer-events: none;
-							       opacity: 0.5; /* Torna os botões de rádio visualmente desabilitados */
-							   }
-							</style>
+							
 							<div class="col-7">
 								<label class="control-label" for="inputWarning">Nível</label>
 								<div>
 								    <label>
-								        <input class="readonly-radio"  type="radio" name="nivel" value="MORADOR" <? echo $morador; ?> required>
+								        <input disabled  type="radio" name="nivel" value="MORADOR" <? echo $morador; ?> required>
 								        MORADOR
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input class="readonly-radio"  type="radio" name="nivel" value="PORTARIA" <? echo $portaria; ?> required>
+								        <input disabled  type="radio" name="nivel" value="PORTARIA" <? echo $portaria; ?> required>
 								        PORTARIA
 								    </label>
 								</div>
 								<div>
 								    <label>
-								        <input class="readonly-radio"  type="radio" name="nivel" value="SINDICO" <? echo $sindico; ?> required>
+								        <input disabled  type="radio" name="nivel" value="SINDICO" <? echo $sindico; ?> required>
 								        SÍNDICO
 								    </label>
 								</div>
                             </div>
+							<input type="hidden" name="nivel" value="<?php echo $siteAdmin->ARRAY_MORADORINFO["USU_DCNIVEL"]; ?>">
 							<div class="col-5">
 								<label class="control-label" for="inputWarning">Senha</label>
                                 <input id="senha" name="senha" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCSENHA"]; ?>" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
