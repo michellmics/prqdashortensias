@@ -71,8 +71,12 @@
     	<meta name="apple-mobile-web-app-capable" content="yes">
     	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-		<!-- GRAFICOS -->
+		<!-- DASHBOARD -->
+
 		<link href="build/css/custom.min.css" rel="stylesheet">
+
+		<!-- DASHBOARD -->
+
 
         <style>
           /* Configuração geral do HTML e Body */
@@ -306,6 +310,13 @@ html, body {
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
+
+  		<!-- DASHBOARD -->
+
+		<!-- Chart.js -->
+		<script src="vendors/Chart.js/dist/Chart.min.js"></script>
+
+		<!-- DASHBOARD -->
 
 		
 		
