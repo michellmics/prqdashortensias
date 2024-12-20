@@ -73,7 +73,7 @@
 
 		<!-- DASHBOARD -->
 
-		<link href="build/css/custom.min.css" rel="stylesheet">
+		<script src="codemaze_js\codemaze_js_custom.js"></script>
 
 		<!-- DASHBOARD -->
 
