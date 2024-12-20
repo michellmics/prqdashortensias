@@ -75,7 +75,7 @@
 
 		<!-- Chart.js -->
 		<script src="vendors/Chart.js/dist/Chart.min.js"></script>
-
+		<link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     	<script src="vendors/echarts/dist/echarts.min.js"></script>
     	<script src="vendors/echarts/map/js/world.js"></script>
 		<!-- Custom Theme Style -->
