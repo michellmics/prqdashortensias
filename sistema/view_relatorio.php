@@ -233,15 +233,12 @@ html, body {
 			<div class="container">
 				<div class="row">  					
         			<!-- WIDGETS -->
-        			<div class="animated flipInY col-lg-3 col-md-3 col-sm-4  ">
-        			  <div class="tile-stats">
-        			    <div class="icon"><i class="fa fa-caret-square-o-right"></i>
-        			    </div>
-        			    <div class="count">179</div>
-
-        			    <h3>New Sign ups</h3>
-        			    <p>Lorem ipsum psdea itgum rixt.</p>
-        			  </div>
+        			<div class="col-md-3 tile">
+        			  	<span>Total Sessions</span>
+        			  	<h2>231,809</h2>
+        			  	<span class="sparkline_two" style="height: 160px;">
+        			        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+        				</span>
         			</div>
         			<!-- WIDGETS -->
 				</div>
