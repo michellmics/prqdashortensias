@@ -218,7 +218,7 @@ html, body {
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 
 		<!-- INI GRAFICO GAUGE -->
-		  <div class="col-md-3 col-sm-3  ">
+		  <div class="col-md-3 col-sm-3" style="border: 1px solid #d4cccb;">
     	  <div class="x_panel">
     	    <div class="x_title">
     	      <h2>Performance</h2>
