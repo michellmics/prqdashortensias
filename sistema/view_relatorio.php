@@ -270,7 +270,7 @@ html, body {
         			    </div>
         			    <div class="x_content">
 
-        			      <div id="echart_pie" style="height:350px;"></div>
+        			      <div id="echart_pie_codemaze" style="height:350px;"></div>
 
         			    </div>
         			  </div>
