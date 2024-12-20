@@ -78,6 +78,22 @@
 		<link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     	<script src="vendors/echarts/dist/echarts.min.js"></script>
     	<script src="vendors/echarts/map/js/world.js"></script>
+		<!-- bootstrap-daterangepicker -->
+		<link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    	<!-- bootstrap-datetimepicker -->
+    	<link href="vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    	<!-- Ion.RangeSlider -->
+    	<link href="vendors/normalize-css/normalize.css" rel="stylesheet">
+    	<link href="vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    	<link href="vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    	<!-- Datatables -->
+    	<link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    	<link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    	<link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    	<link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    	<link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+		
 		<!-- Custom Theme Style -->
 		
 
@@ -366,6 +382,34 @@ html, body {
 		<script src="vendors/fastclick/lib/fastclick.js"></script>
 		<!-- easy-pie-chart -->
 		<script src="vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+		<!-- jQuery Sparklines -->
+		<script src="vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    	<!-- easy-pie-chart -->
+    	<script src="vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    	<!-- bootstrap-progressbar -->
+    	<script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+
+    	<!-- bootstrap-daterangepicker -->
+    	<script src="vendors/moment/min/moment.min.js"></script>
+    	<script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    	<!-- bootstrap-datetimepicker -->    
+    	<script src="vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    	<!-- Datatables -->
+    	<script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    	<script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    	<script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    	<script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    	<script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    	<script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    	<script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    	<script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    	<script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    	<script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    	<script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    	<script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    	<script src="vendors/jszip/dist/jszip.min.js"></script>
+    	<script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    	<script src="vendors/pdfmake/build/vfs_fonts.js"></script>
 		
 
 		<!-- DASHBOARD -->
