@@ -1,6 +1,6 @@
 <?php
 	include_once '../objetos.php'; // Carrega a classe de conexão e objetos
-	/*
+	
 	session_start(); 
 	define('SESSION_TIMEOUT', 43200); // 30 minutos
 	
@@ -9,7 +9,7 @@
 	  header("Location: https://www.prqdashortensias.com.br/index.php");
 	  exit();
 	}
-	*/
+	
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
 	$nomeSession =  ucwords($_SESSION['user_name']);
@@ -70,24 +70,6 @@
     	<meta name="apple-mobile-web-app-title" content="Hortensias">
     	<meta name="apple-mobile-web-app-capable" content="yes">
     	<meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-		<!-- bootstrap-daterangepicker -->
-		<link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    	<!-- bootstrap-datetimepicker -->
-    	<link href="vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
-    	<!-- Ion.RangeSlider -->
-    	<link href="vendors/normalize-css/normalize.css" rel="stylesheet">
-    	<link href="vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
-    	<link href="vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
-    	<!-- Datatables -->
-    	<link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    	<link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    	<link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    	<link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    	<link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-	
-    	<!-- Custom Theme Style -->
-    	<link href="build/css/custom.min.css" rel="stylesheet">
 
         <style>
           /* Configuração geral do HTML e Body */
@@ -218,36 +200,12 @@ html, body {
 			<!--/ End Header Inner -->
 		</header>
 		<!-- End Header Area -->
-  <!-- Start CONTENT Area -->
 		
-    		
-
-
-
-
+	
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
     		<img src="https://prqdashortensias.com.br/sistema/img/logo_icon.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
 		</section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-<!-- End CONTENT Area -->
 
 <!-- Footer -->
 <footer class="footerNew">
@@ -296,55 +254,6 @@ html, body {
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
-		<!-- jQuery -->
-		<script src="vendors/jquery/dist/jquery.min.js"></script>
-    	<!-- Bootstrap -->
-   		<script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    	<!-- FastClick -->
-    	<script src="vendors/fastclick/lib/fastclick.js"></script>
-    	<!-- NProgress -->
-    	<script src="vendors/nprogress/nprogress.js"></script>
-    	<!-- Chart.js -->
-    	<script src="vendors/Chart.js/dist/Chart.min.js"></script>
-    	<!-- morris.js -->
-    	<script src="vendors/raphael/raphael.min.js"></script>
-    	<script src="vendors/morris.js/morris.min.js"></script>
-
-    	<!-- ECharts -->
-    	<script src="vendors/echarts/dist/echarts.min.js"></script>
-    	<script src="vendors/echarts/map/js/world.js"></script>
-
-    	<!-- Custom Theme Scripts -->
-    	<script src="build/js/custom.min.js"></script>
-
-    	<!-- jQuery Sparklines -->
-    	<script src="vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-    	<!-- easy-pie-chart -->
-    	<script src="vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-    	<!-- bootstrap-progressbar -->
-    	<script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-
-    	<!-- bootstrap-daterangepicker -->
-    	<script src="vendors/moment/min/moment.min.js"></script>
-    	<script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    	<!-- bootstrap-datetimepicker -->    
-    	<script src="vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    	<!-- Datatables -->
-    	<script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    	<script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    	<script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    	<script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    	<script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    	<script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    	<script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    	<script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    	<script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    	<script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    	<script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    	<script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    	<script src="vendors/jszip/dist/jszip.min.js"></script>
-    	<script src="vendors/pdfmake/build/pdfmake.min.js"></script>
-    	<script src="vendors/pdfmake/build/vfs_fonts.js"></script>
 
 		
 		
