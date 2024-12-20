@@ -218,14 +218,14 @@ html, body {
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 
 		<!-- INI GRAFICO GAUGE -->
-		  <div class="col-md-3 col-sm-3" style="border: 1px solid #d4cccb;">
+		  <div class="col-md-4 col-sm-4" style="border: 1px solid #d4cccb;">
     	  <div class="x_panel">
     	    <div class="x_title">
     	      <h2>Performance</h2>
     	      <div class="clearfix"></div>
     	    </div>
     	    <div class="x_content">
-    	      <div id="echart_gauge_codemaze" style="height:300px;"></div>
+    	      <div id="echart_gauge_codemaze" style="height:350px;"></div>
     	    </div>
     	  </div>
     	</div>
