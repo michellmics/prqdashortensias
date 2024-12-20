@@ -229,7 +229,7 @@ html, body {
 		<!-- End Header Area -->
 		
   		<!-- ini content Area -->
-		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh; margin-top: 100px;">
 			<div class="container">
 
 				<div class="row">
