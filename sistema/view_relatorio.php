@@ -79,7 +79,7 @@
     	<script src="vendors/echarts/dist/echarts.min.js"></script>
     	<script src="vendors/echarts/map/js/world.js"></script>
 		<!-- Custom Theme Style -->
-		<link href="build/css/custom.min.css" rel="stylesheet">
+		
 
 		<!-- DASHBOARD -->
 
