@@ -224,7 +224,7 @@ html, body {
 
   	    <!-- INI GRAFICO PIZZA DETALHE -->
 		<div class="col-md-4 col-sm-4  ">
-          <div class="x_panel">
+          <div>
             <div class="x_title">
               <h2>Pie Graph</h2>
               <ul class="nav navbar-right panel_toolbox">
