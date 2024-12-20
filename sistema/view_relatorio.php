@@ -71,6 +71,9 @@
     	<meta name="apple-mobile-web-app-capable" content="yes">
     	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 
+		<!-- GRAFICOS -->
+		<link href="build/css/custom.min.css" rel="stylesheet">
+
         <style>
           /* Configuração geral do HTML e Body */
 html, body {
