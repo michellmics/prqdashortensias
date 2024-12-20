@@ -78,7 +78,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     	<script src="vendors/echarts/dist/echarts.min.js"></script>
     	<script src="vendors/echarts/map/js/world.js"></script>
-		<script src="codemaze_js\codemaze_js_custom.js"></script>
+		<!-- Custom Theme Style -->
+		<link href="build/css/custom.min.css" rel="stylesheet">
 
 		<!-- DASHBOARD -->
 
