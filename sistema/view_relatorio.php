@@ -231,17 +231,7 @@ html, body {
   		<!-- ini content Area -->
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 			<div class="container">
-				<div class="row">  					
-        			<!-- WIDGETS -->
-        			<div class="col-md-3 tile">
-        			  	<span>Total Sessions</span>
-        			  	<h2>231,809</h2>
-        			  	<span class="sparkline_two" style="height: 160px;">
-        			        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-        				</span>
-        			</div>
-        			<!-- WIDGETS -->
-				</div>
+
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
 					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
