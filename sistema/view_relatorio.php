@@ -378,6 +378,12 @@ html, body {
 		<!-- Chart.js -->
 		<script src="vendors/Chart.js/dist/Chart.min.js"></script>
 		<script src="codemaze_js\codemaze_js_custom.js"></script>
+		<!-- jQuery -->
+		<script src="vendors/jquery/dist/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- NProgress -->
+		<script src="vendors/nprogress/nprogress.js"></script>
 		<!-- FastClick -->
 		<script src="vendors/fastclick/lib/fastclick.js"></script>
 		<!-- easy-pie-chart -->
@@ -388,7 +394,9 @@ html, body {
     	<script src="vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
     	<!-- bootstrap-progressbar -->
     	<script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-
+    	<!-- morris.js -->
+    	<script src="vendors/raphael/raphael.min.js"></script>
+    	<script src="vendors/morris.js/morris.min.js"></script>
     	<!-- bootstrap-daterangepicker -->
     	<script src="vendors/moment/min/moment.min.js"></script>
     	<script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
