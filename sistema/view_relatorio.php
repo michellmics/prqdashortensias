@@ -218,7 +218,7 @@ html, body {
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 
 		<!-- INI GRAFICO GAUGE -->
-		  <div class="col-md-4 col-sm-4" style="border: 1px solid #d4cccb;">
+		  <div class="col-md-4 col-sm-4" style="border: 0px solid #d4cccb;">
     	  <div class="x_panel">
     	    <div class="x_title">
     	      <h2>Performance</h2>
@@ -233,7 +233,7 @@ html, body {
     		
 
   		<!-- INI GRAFICO PIZZA DETALHE -->
-		<div class="col-md-4 col-sm-4" style="border: 1px solid #d4cccb;">
+		<div class="col-md-4 col-sm-4" style="border: 0px solid #d4cccb;">
           <div class="x_panel">
             <div class="x_title">
               <h2>Pie Graph</h2>
