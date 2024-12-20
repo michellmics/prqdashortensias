@@ -1,6 +1,6 @@
 <?php
 	include_once '../objetos.php'; // Carrega a classe de conexão e objetos
-	
+	/*
 	session_start(); 
 	define('SESSION_TIMEOUT', 43200); // 30 minutos
 	
@@ -9,7 +9,7 @@
 	  header("Location: https://www.prqdashortensias.com.br/index.php");
 	  exit();
 	}
-	
+	*/
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
 	$nomeSession =  ucwords($_SESSION['user_name']);
