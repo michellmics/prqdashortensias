@@ -216,6 +216,20 @@ html, body {
 		
   		<!-- ini content Area -->
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+		<!-- INI GRAFICO GAUGE -->
+		  <div class="col-md-3 col-sm-3  ">
+    	  <div class="x_panel">
+    	    <div class="x_title">
+    	      <h2>Performance</h2>
+    	      <div class="clearfix"></div>
+    	    </div>
+    	    <div class="x_content">
+    	      <div id="echart_gauge_codemaze" style="height:300px;"></div>
+    	    </div>
+    	  </div>
+    	</div>
+    	<!-- FIM GRAFICO GAUGE -->
     		
 
   		<!-- INI GRAFICO PIZZA DETALHE -->
