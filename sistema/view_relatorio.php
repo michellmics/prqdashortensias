@@ -378,8 +378,7 @@ html, body {
 		<!-- Chart.js -->
 		<script src="vendors/Chart.js/dist/Chart.min.js"></script>
 		<script src="codemaze_js\codemaze_js_custom.js"></script>
-		<!-- jQuery -->
-		<script src="vendors/jquery/dist/jquery.min.js"></script>
+		
 		<!-- Bootstrap -->
 		<script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 		<!-- NProgress -->
