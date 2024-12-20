@@ -219,7 +219,7 @@ html, body {
 			<div class="container">
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
-					  <div class="col-md-4 col-sm-12" style="border: 0px solid #d4cccb;">
+					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
     				  <div class="x_panel">
     				    <div class="x_title">
     				      <h2>Performance</h2>
@@ -231,10 +231,10 @@ html, body {
     				  </div>
     				</div>
     				<!-- FIM GRAFICO GAUGE -->
-  
-  
+
+
   					<!-- INI GRAFICO PIZZA DETALHE -->
-					<div class="col-md-4 col-sm-12" style="border: 0px solid #d4cccb;">
+					<div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
         			  <div class="x_panel">
         			    <div class="x_title">
         			      <h2>Pie Graph</h2>
@@ -254,9 +254,9 @@ html, body {
         			      <div class="clearfix"></div>
         			    </div>
         			    <div class="x_content">
-  
+
         			      <div id="echart_pie" style="height:350px;"></div>
-  
+
         			    </div>
         			  </div>
         			</div>
