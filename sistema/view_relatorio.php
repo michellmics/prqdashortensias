@@ -321,6 +321,7 @@ html, body {
 
 		<!-- Chart.js -->
 		<script src="vendors/Chart.js/dist/Chart.min.js"></script>
+		<script src="codemaze_js\codemaze_js_custom.js"></script>
 
 		<!-- DASHBOARD -->
 
