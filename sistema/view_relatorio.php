@@ -223,11 +223,11 @@ html, body {
     		
 
   	    <!-- INI GRAFICO PIZZA DETALHE -->
-		<div>
-          <div>
+		<div class="col-md-4 col-sm-4  ">
+          <div class="x_panel">
             <div class="x_title">
               <h2>Pie Graph</h2>
-              <ul class="nav navbar-right panel_toolbox">
+              <ul class="panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
                 <li class="dropdown">
