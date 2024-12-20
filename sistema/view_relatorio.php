@@ -75,7 +75,7 @@
 
 		<!-- Chart.js -->
 		<script src="vendors/Chart.js/dist/Chart.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     	<script src="vendors/echarts/dist/echarts.min.js"></script>
     	<script src="vendors/echarts/map/js/world.js"></script>
 		<!-- Custom Theme Style -->
