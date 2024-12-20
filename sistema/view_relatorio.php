@@ -219,32 +219,34 @@ html, body {
 		</header>
 		<!-- End Header Area -->
   <!-- Start CONTENT Area -->
-		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+		
     		
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    		<img src="https://prqdashortensias.com.br/sistema/img/logo_icon.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
 		</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 <!-- End CONTENT Area -->
 
 <!-- Footer -->
