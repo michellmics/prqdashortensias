@@ -223,7 +223,7 @@ html, body {
     		
 
   	    <!-- INI GRAFICO PIZZA DETALHE -->
-		<div class="col-md-4 col-sm-4  ">
+		<div>
           <div>
             <div class="x_title">
               <h2>Pie Graph</h2>
