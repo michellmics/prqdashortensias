@@ -364,6 +364,8 @@ html, body {
 		<script src="codemaze_js\codemaze_js_custom.js"></script>
 		<!-- FastClick -->
 		<script src="vendors/fastclick/lib/fastclick.js"></script>
+		<!-- easy-pie-chart -->
+		<script src="vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
 		
 
 		<!-- DASHBOARD -->
