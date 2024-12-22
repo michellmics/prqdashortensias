@@ -50,7 +50,7 @@
         <form id="demo-form" action="login.php" method="post">
           <div class="form-group has-feedback">
             <input type="text" class="form-control" id="apartamento" placeholder="Apartamento" name="apartamento"/>
-            <span class="glyphicon glyphicon-tower form-control-feedback"></span>
+            <span class="glyphicon glyphicon-home form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <input type="password" class="form-control" id="password" placeholder="password" name="password"/>
