@@ -274,7 +274,7 @@ html, body {
                     } else 
                         {
                           $rowColor = "background-color: #ffffff;"; // Branco
-                          $lineColor = "color:#993399;";
+                          $lineColor = "color:#ffffff;";
                         }
                     ?>
 
