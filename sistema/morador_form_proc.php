@@ -25,16 +25,16 @@ class registerUser extends SITE_ADMIN
             $email = strtoupper($email);
 
             // Prepara a consulta SQL para verificar o usuário
-            $sql = "SELECT USU_IDUSUARIO, USU_DCSENHA, USU_DCEMAIL FROM USU_USUARIO WHERE USU_DCEMAIL = :email";
+            $sql = "SELECT USU_IDUSUARIO, USU_DCSENHA, USU_DCEMAIL, USU_DCAPARTAMENTO FROM USU_USUARIO WHERE USU_DCAPARTAMENTO = :apartamento";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->bindParam(':apartamento', $apartamento, PDO::PARAM_STR);
             $stmt->execute();
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             
             // Se o usuário for encontrado e a senha for válida
             if (isset($user['USU_IDUSUARIO'])) {
-                echo "Usuário já cadastrado."; 
+                echo "Apartamento já cadastrado."; 
                 //exit();
             } else 
                 {
