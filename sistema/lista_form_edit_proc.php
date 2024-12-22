@@ -31,7 +31,7 @@ class registerVisitante extends SITE_ADMIN
             echo  $result;
         
         } catch (PDOException $e) {  
-            echo "Erro ao atualizar convidado."; 
+            echo $result; 
         } 
     }
 }
