@@ -264,7 +264,7 @@ html, body {
                     $dataLimite = date('Y-m-d H:i:s', strtotime('-12 hours'));
                     
                     // Comparar a data da variável com a data limite
-                    $rowColor = (strtotime($usuario['LIS_STSTATUS']) > strtotime($dataLimite)) 
+                    $rowColor = (strtotime($usuario['LIS_STSTATUS']) < strtotime($dataLimite)) 
                         ? "background-color: #d4edda;" // Verde claro
                         : "background-color: #ffffff;"; // Branco
                     ?>
