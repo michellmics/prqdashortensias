@@ -263,12 +263,17 @@ html, body {
                     // Obter a data atual menos 12 horas
                     $dataLimite = date('Y-m-d H:i:s', strtotime('-12 hours'));
                     
-                    // Comparar a data da variável com a data limite
-                    $rowColor = (strtotime($usuario['LIS_DTULTIMA_ENTRADA']) > strtotime($dataLimite)) 
-                        ? "background-color:rgb(102, 245, 135);" // Verde claro
-                        : "background-color: #ffffff;"; // Branco
+                    if (strtotime($usuario['LIS_DTULTIMA_ENTRADA']) > strtotime($dataLimite)) 
+                    {
+                      echo strtotime($dataLimite);
+                      $rowColor = "background-color:rgb(102, 245, 135);"; // Verde claro
+                    } else 
+                        {
+                          $rowColor = "background-color: #ffffff;"; // Branco
+                          echo strtotime($dataLimite);
+                        }
                     ?>
-
+                 
 
                     
 					          <? $lin = 0 ?>
