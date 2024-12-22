@@ -291,10 +291,10 @@ html, body {
                       
                         <td>
                         <!-- Ícone com ação -->
-                        <button class="btn btn-sm btn-info"  style="background-color:rgb(48, 47, 47); color: white; <? echo $b_adicionar; ?>" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
+                        <button class="btn btn-sm btn-info"  style="background-color:rgb(60, 99, 136); color: white; <? echo $b_adicionar; ?>" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
                             <i class="fa fa-check-circle"></i>
                         </button>
-                        <button class="btn btn-sm btn-info"  style="background-color:rgb(0, 0, 0); color: white; <? echo $b_remover; ?>" onclick="setDataVisitaRem('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
+                        <button class="btn btn-sm btn-info"  style="background-color:rgb(12, 97, 50); color: white; <? echo $b_remover; ?>" onclick="setDataVisitaRem('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
                         <i class="fa fa-close"></i>
                         </button>
                         
