@@ -269,12 +269,12 @@ html, body {
                     
                     if (strtotime($usuario['LIS_DTULTIMA_ENTRADA']) > strtotime($dataLimite)) 
                     {
-                      $rowColor = "background-color:rgb(102, 245, 135);"; // Verde claro
-                      $lineColor = "color:rgb(199, 202, 204);";
+                      $rowColor = "background-color:rgb(86, 209, 115);"; // Verde claro
+                      $lineColor = "color:rgb(255, 255, 255);";
                     } else 
                         {
                           $rowColor = "background-color: #ffffff;"; // Branco
-                          $lineColor = "color:#ffffff;";
+                          $lineColor = "color:#993399;";
                         }
                     ?>
 
