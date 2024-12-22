@@ -371,7 +371,7 @@ html, body {
               error: function (xhr, status, error) {
                 Swal.fire({
               title: 'Erro!',
-              text: 'Erro ao atualizar o convidado.',
+              text: status,
               icon: 'error',
               width: '600px', // Largura do alerta
               confirmButtonColor: "#993399",
