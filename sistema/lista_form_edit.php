@@ -371,7 +371,7 @@ html, body {
               error: function (xhr, status, error) {
                 Swal.fire({
               title: 'Erro!',
-              text: status,
+              text: 'Erro ao atualizar o convidado. Verifique se a quantidade de convidados ativos ultrapassa 60.',
               icon: 'error',
               width: '600px', // Largura do alerta
               confirmButtonColor: "#993399",
