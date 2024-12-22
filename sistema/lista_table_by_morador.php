@@ -328,7 +328,7 @@ html, body {
             var formData = $("#form-empresa").serialize();
             // Fazer a requisição AJAX
             $.ajax({
-              url: "lista_delete.php", // URL para processamento
+              url: "convidado_set_data.php", // URL para processamento
               type: "POST",
               data: { id: idVisita}, // Dados enviados
               success: function (response) {
@@ -353,7 +353,7 @@ html, body {
               error: function (xhr, status, error) {
                 Swal.fire({
               title: 'Erro!',
-              text: 'Erro ao deletar o convidado.',
+              text: 'Erro ao atualizar a data de entrada do visitante.',
               icon: 'error',
               width: '200px', // Largura do alerta
               confirmButtonColor: "#993399",

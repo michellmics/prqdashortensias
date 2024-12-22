@@ -159,6 +159,32 @@
             }
         }
 
+        public function updateDataVisita($LIS_IDLISTACONVIDADOS)
+        {    
+               
+            $now = new DateTime(); 
+            $DATA = $now->format('Y-m-d H:i:s');
+
+            try {
+                $sql = "UPDATE LIS_LISTACONVIDADOS 
+                        SET LIS_DTULTIMA_ENTRADA = :LIS_IDLISTACONVIDADOS
+                        WHERE 	LIS_IDLISTACONVIDADOS = :LIS_IDLISTACONVIDADOS";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':LIS_DTULTIMA_ENTRADA', $DATA, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_IDLISTACONVIDADOS', $LIS_IDLISTACONVIDADOS, PDO::PARAM_STR);
+
+                $stmt->execute();
+            
+                return "Data de entrada do visitante atualizada com sucesso.";
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return "Erro ao atualizar a data de entradada do visitante.";
+            }
+        }
+
 
         public function stmtToArray($stmtFunction)
 		{		
