@@ -287,7 +287,7 @@ html, body {
                       
                         <td>
                         <!-- Ícone com ação -->
-                        <button class="btn btn-sm btn-info"  style="background-color:rgb(66, 152, 245); color: white;" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
+                        <button class="btn btn-sm btn-info"  style="background-color:rgb(60, 148, 100); color: white;" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
                             <i class="fa fa-check-circle"></i>
                         </button>
                     </td>
