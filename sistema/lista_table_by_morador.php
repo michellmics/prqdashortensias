@@ -291,10 +291,10 @@ html, body {
                       
                         <td>
                         <!-- Ícone com ação -->
-                        <button class="btn btn-sm btn-info"  style="background-color:rgb(0, 0, 0); color: white; <? echo $b_adicionar; ?>" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
+                        <button class="btn btn-sm btn-info"  style="background-color:rgb(48, 47, 47); color: white; <? echo $b_adicionar; ?>" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
                             <i class="fa fa-check-circle"></i>
                         </button>
-                        <button class="btn btn-sm btn-info"  style="background-color:rgb(0, 0, 0); color: white; <? echo $b_remover; ?>" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
+                        <button class="btn btn-sm btn-info"  style="background-color:rgb(0, 0, 0); color: white; <? echo $b_remover; ?>" onclick="setDataVisitaRem('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
                         <i class="fa fa-close"></i>
                         </button>
                         
@@ -340,6 +340,114 @@ html, body {
             // Fazer a requisição AJAX
             $.ajax({
               url: "convidado_set_data.php", // URL para processamento
+              type: "POST",
+              data: { id: idVisita}, // Dados enviados
+              success: function (response) {
+                Swal.fire({
+              title: 'Salvo!',
+              text: `${response}`,
+              icon: 'success',
+              width: '200px', // Largura do alerta
+              confirmButtonColor: "#993399",
+              position: 'top', // Define a posição na parte superior da tela
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            }).then(() => {
+                  // Redirecionar ou atualizar a página, se necessário
+                  location.reload();
+                });
+              },
+              error: function (xhr, status, error) {
+                Swal.fire({
+              title: 'Erro!',
+              text: 'Erro ao atualizar a data de entrada do visitante.',
+              icon: 'error',
+              width: '200px', // Largura do alerta
+              confirmButtonColor: "#993399",
+              position: 'top', // Define a posição na parte superior da tela
+              customClass: {
+                title: 'swal-title', // Aplicando a mesma classe do título
+                content: 'swal-content', // Aplicando a mesma classe do texto
+                htmlContainer: 'swal-text',
+                confirmButton: 'swal-confirm-btn'
+              }
+            });
+              },
+            });
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelado', 'Nenhuma alteração foi salva.', 'info');
+          }
+        });
+      }
+      // Associar a função ao botão de submit
+      $(document).ready(function () {
+        $("#salvar_empresa_1").on("click", confirmAndSubmit);
+      });
+</script> 
+<style>
+  /* Estilos para aumentar o tamanho da fonte */
+  .swal-title {
+    font-size: 22px !important; /* Tamanho maior para o título */
+  }
+
+  .swal-text {
+    font-size: 16px !important; /* Tamanho maior para o conteúdo */
+  }
+
+  @media screen and (max-width: 768px) {
+  .swal-custom-popup {
+    top: 10% !important; /* Ajuste de posição vertical */
+    transform: translateY(0) !important; /* Centraliza no topo */
+  }
+}
+
+  /* Aumentar o tamanho dos textos dos botões */
+  .swal-confirm-btn,
+  .swal-deny-btn,
+  .swal-cancel-btn {
+    font-size: 14px !important; /* Tamanho maior para os textos dos botões */
+    padding: 9px 9px !important; /* Aumenta o espaço ao redor do texto */
+  }
+</style>
+<!-- ######################################################## --> 
+<!-- SWEETALERT 2 -->   
+
+<!-- ######################################################## --> 
+    <!-- SWEETALERT 2 -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function setDataVisitaRem(idVisita){
+        event.preventDefault(); // Impede o envio padrão do formulário
+        Swal.fire({
+          title: 'Lista de Convidados',
+          text: "Têm certeza que deseja remover a entrada do convidado?",
+          showDenyButton: true,
+          confirmButtonText: 'SIM',
+          denyButtonText: `CANCELAR`,
+          confirmButtonColor: "#993399",
+          denyButtonColor: "#D8BFD8",
+          width: '600px', // Largura do alerta
+          icon: 'warning',
+          position: 'top', // Define a posição na parte superior da tela
+          customClass: {
+            title: 'swal-title', // Classe para o título
+            content: 'swal-content', // Classe para o conteúdo (texto)
+            confirmButton: 'swal-confirm-btn',
+            denyButton: 'swal-deny-btn',
+            htmlContainer: 'swal-text',
+            popup: 'swal-custom-popup', // Classe para customizar o popup
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Capturar os dados do formulário
+            var formData = $("#form-empresa").serialize(); 
+            // Fazer a requisição AJAX
+            $.ajax({
+              url: "convidado_set_data_rem.php", // URL para processamento
               type: "POST",
               data: { id: idVisita}, // Dados enviados
               success: function (response) {

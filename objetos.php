@@ -182,7 +182,32 @@
                 return "Data de entrada do visitante atualizada com sucesso.";
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                return "Erro ao atualizar a data de entradada do visitante.";
+                return "Erro ao atualizar a data de entrada do visitante.";
+            }
+        }
+        
+        public function updateDataVisitaRem($LIS_IDLISTACONVIDADOS)
+        {    
+               
+            $DATA = "0000-00-00 00:00:00";            
+
+            try {
+                $sql = "UPDATE LIS_LISTACONVIDADOS 
+                        SET LIS_DTULTIMA_ENTRADA = :LIS_DTULTIMA_ENTRADA
+                        WHERE 	LIS_IDLISTACONVIDADOS = :LIS_IDLISTACONVIDADOS";
+
+                $stmt = $this->pdo->prepare($sql);
+            
+                // Liga os parâmetros aos valores
+                $stmt->bindParam(':LIS_DTULTIMA_ENTRADA', $DATA, PDO::PARAM_STR);
+                $stmt->bindParam(':LIS_IDLISTACONVIDADOS', $LIS_IDLISTACONVIDADOS, PDO::PARAM_STR);
+
+                $stmt->execute();
+            
+                return "Entrada do visitante foi removida com sucesso.";
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return "Erro ao remover a entrada do visitante.";
             }
         }
 
