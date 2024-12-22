@@ -15,24 +15,15 @@ class setDataConvidado extends SITE_ADMIN
 {
     public function setDataConvidado($LIS_IDLISTACONVIDADOS)
     {
-        try {
+       
             // Cria conexão com o banco de dados
             if (!$this->pdo) {
-                $this->conexao();
+                $this->conexao(); 
             }
 
-            // Prepara a consulta SQL para verificar o usuário
-            $sql = "DELETE FROM LIS_LISTACONVIDADOS WHERE LIS_IDLISTACONVIDADOS = :LIS_IDLISTACONVIDADOS";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':LIS_IDLISTACONVIDADOS', $LIS_IDLISTACONVIDADOS, PDO::PARAM_STR);
-            $stmt->execute();
-
-            echo "Convidado deletado com sucesso.";
+            $resultado = $this->updateDataVisita($LIS_IDLISTACONVIDADOS);
+            echo $resultado;
             
-
-        } catch (PDOException $e) {  
-            echo "Não foi possível deletar o convidado.";
-        } 
     }
 }
 

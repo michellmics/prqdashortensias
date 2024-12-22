@@ -325,7 +325,7 @@ html, body {
         }).then((result) => {
           if (result.isConfirmed) {
             // Capturar os dados do formulário
-            var formData = $("#form-empresa").serialize();
+            var formData = $("#form-empresa").serialize(); 
             // Fazer a requisição AJAX
             $.ajax({
               url: "convidado_set_data.php", // URL para processamento
