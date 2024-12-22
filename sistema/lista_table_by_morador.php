@@ -265,7 +265,7 @@ html, body {
 						<?php
 							if($usuario['LIS_STSTATUS'] == "ATIVO")
 							{
-								$lineColor = "color:#993399;";
+								$lineColor = "color:#993449;";
 							}
 							if($usuario['LIS_STSTATUS'] == "INATIVO")
 							{
