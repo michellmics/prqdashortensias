@@ -427,6 +427,23 @@
             }          
         }
 
+        public function checkQtdeListaAtivo($USU_IDUSUARIO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT COUNT(*) AS TOTAL FROM LIS_LISTACONVIDADOS
+                        WHERE USU_IDUSUARIO = $USU_IDUSUARIO AND LIS_STSTATUS = 'ATIVO'";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
         public function getContratoInfo()
         {          
                 // Verifica se a conexão já foi estabelecida
@@ -697,7 +714,15 @@
             if (!$this->pdo) {
                 $this->conexao();
             }
-          
+
+            if($LIS_STSTATUS == "ATIVO")
+            {
+                $checkQtde = $this->checkQtdeListaAtivo();
+                if($checkQtde["TOTAL"] >= 2)
+                {
+                    return "O limite máximo para convidados ativos é 60. Desative um convidado e tente ativar este novamente.";
+                }
+            }
             try {
                 $sql = "UPDATE LIS_LISTACONVIDADOS 
                         SET LIS_DCNOME = :LIS_DCNOME,
@@ -715,7 +740,7 @@
 
                 $stmt->execute();
             
-                return ["success" => "Convidado atualizado com sucesso."];
+                return "Convidado atualizado com sucesso.";
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return ["error" => $e->getMessage()];
