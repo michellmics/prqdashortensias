@@ -281,6 +281,15 @@ html, body {
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td> 
+                      
+                        <td>
+                        <!-- Ícone com ação -->
+                        <button class="btn btn-sm btn-info" onclick="showAction('<?= htmlspecialchars($usuario['LIS_DCNOME']) ?>')">
+                            <i class="fa fa-info-circle"></i>
+                        </button>
+                    </td>
+                      
+                      
                       </tr>
                     <?php endforeach; ?>   
                     </tr>
