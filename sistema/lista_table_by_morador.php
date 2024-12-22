@@ -270,10 +270,11 @@ html, body {
                     ?>
 
 
-                    <tr style="<?= $rowColor; ?>">
+                    
 					          <? $lin = 0 ?>
                     
                 <?php foreach ($dadosPagina as $usuario): ?>
+                  <tr style="<?= $rowColor; ?>">
 						          <?php
 						          	if($usuario['LIS_STSTATUS'] == "ATIVO")
 						          	{
