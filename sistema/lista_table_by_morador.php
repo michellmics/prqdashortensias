@@ -285,7 +285,7 @@ html, body {
                         <td>
                         <!-- Ícone com ação -->
                         <button class="btn btn-sm btn-info" onclick="showAction('<?= htmlspecialchars($usuario['LIS_DCNOME']) ?>')">
-                            <i class="fa fa-info-circle"></i>
+                            <i class="fa fa-check-circle"></i>
                         </button>
                     </td>
                       
