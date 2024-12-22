@@ -262,7 +262,7 @@ html, body {
 					          <? $lin = 0 ?>
                     
                 <?php foreach ($dadosPagina as $usuario): ?>
-                  
+
                   <?php
                     // Obter a data atual menos 12 horas
                     $dataLimite = date('Y-m-d H:i:s', strtotime('-12 hours'));
@@ -270,24 +270,15 @@ html, body {
                     if (strtotime($usuario['LIS_DTULTIMA_ENTRADA']) > strtotime($dataLimite)) 
                     {
                       $rowColor = "background-color:rgb(102, 245, 135);"; // Verde claro
+                      $lineColor = "color:rgb(199, 202, 204);";
                     } else 
                         {
                           $rowColor = "background-color: #ffffff;"; // Branco
+                          $lineColor = "color:#993399;";
                         }
                     ?>
 
-                  <tr style="<?= $rowColor; ?>">
-						          <?php
-						          	if($usuario['LIS_STSTATUS'] == "ATIVO")
-						          	{
-						          		$lineColor = "color:#993399;";
-						          	}
-						          	if($usuario['LIS_STSTATUS'] == "INATIVO")
-						          	{
-						          		$lineColor = "color:rgb(199, 202, 204);";
-						          	}
-                      
-						          ?>                      
+                  <tr style="<?= $rowColor; ?>">                      
                         <td style="text-transform: uppercase; font-size: 15px;">
                         </td> <? $lin++; ?>
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
