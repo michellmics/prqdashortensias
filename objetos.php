@@ -717,7 +717,7 @@
 
             if($LIS_STSTATUS == "ATIVO")
             {
-                $checkQtde = $this->checkQtdeListaAtivo();
+                $checkQtde = $this->checkQtdeListaAtivo($USU_IDUSUARIO);
                 if($checkQtde["TOTAL"] >= 60)
                 {
                     return "O limite máximo para convidados ativos é 60. Desative um convidado e tente ativar este novamente.";
