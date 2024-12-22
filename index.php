@@ -18,7 +18,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
         
-      gtag('config', 'G-4VK4QL1B8G');
+      gtag('config', 'G-4VK4QL1B8G'); 
     </script>
 
     <meta charset="UTF-8">
@@ -49,7 +49,7 @@
         <p class="login-box-msg">Acesso a área administrativa</p>
         <form id="demo-form" action="login.php" method="post">
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" id="email" placeholder="E-mail" name="email"/>
+            <input type="text" class="form-control" id="apartamento" placeholder="Apartamento" name="apartamento"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">

@@ -10,7 +10,7 @@ header("Expires: 0");
 
 class LoginSystem extends SITE_ADMIN
 {
-    public function validateUser($email, $password)
+    public function validateUser($apartamento, $password)
     {
         try {
             // Cria conexão com o banco de dados
@@ -19,9 +19,9 @@ class LoginSystem extends SITE_ADMIN
             }
 
             // Prepara a consulta SQL para verificar o usuário
-            $sql = "SELECT USU_IDUSUARIO, USU_DCSENHA, USU_DCEMAIL, USU_DCNOME, USU_DCNIVEL, USU_DCBLOCO, USU_DCAPARTAMENTO FROM USU_USUARIO WHERE USU_DCEMAIL = :email";
+            $sql = "SELECT USU_IDUSUARIO, USU_DCSENHA, USU_DCEMAIL, USU_DCNOME, USU_DCNIVEL, USU_DCBLOCO, USU_DCAPARTAMENTO FROM USU_USUARIO WHERE USU_DCAPARTAMENTO = :apartamento";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->bindParam(':apartamento', $apartamento, PDO::PARAM_STR);
             $stmt->execute();
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $recaptchaResponse = $_POST['g-recaptcha-response'];
 
     // Verifique se o token foi recebido
-    if (!empty($recaptchaResponse)) 
+    if (!empty($recaptchaResponse))  
     {
         
         // Verifique o reCAPTCHA fazendo uma solicitação à API do Google
@@ -71,11 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         if ($responseKeys["success"]) 
         {
 
-            $email = $_POST['email'];
+            $apartamento = $_POST['apartamento'];
             $password = $_POST['password'];
 
             $loginSystem = new LoginSystem();
-            $result=$loginSystem->validateUser($email, $password);
+            $result=$loginSystem->validateUser($apartamento, $password);
         }
         else 
             {
