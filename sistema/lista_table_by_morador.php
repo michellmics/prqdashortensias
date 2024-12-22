@@ -259,7 +259,7 @@ html, body {
                       <th>DOC</th>   
 					                
                     </tr>
-                    <tr>
+                    <tr style="background-color: #d4edda;">
 					<? $lin = 0 ?>
                     <?php foreach ($dadosPagina as $usuario): ?>
 						<?php
