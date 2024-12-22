@@ -364,7 +364,7 @@ html, body {
               error: function (xhr, status, error) {
                 Swal.fire({
               title: 'Erro!',
-              text: 'Erro ao atualizar a data de entrada do visitante.',
+              text: 'Erro ao atualizar a data de entrada do convidado.',
               icon: 'error',
               width: '200px', // Largura do alerta
               confirmButtonColor: "#993399",

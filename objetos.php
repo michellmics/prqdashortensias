@@ -179,10 +179,10 @@
 
                 $stmt->execute();
             
-                return "Data de entrada do visitante atualizada com sucesso.";
+                return "Data de entrada do convidado atualizada com sucesso.";
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                return "Erro ao atualizar a data de entrada do visitante.";
+                return "Erro ao atualizar a data de entrada do convidado.";
             }
         }
         
@@ -204,10 +204,10 @@
 
                 $stmt->execute();
             
-                return "Entrada do visitante foi removida com sucesso.";
+                return "Entrada do convidado foi removida com sucesso.";
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                return "Erro ao remover a entrada do visitante.";
+                return "Erro ao remover a entrada do convidado.";
             }
         }
 
