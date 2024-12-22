@@ -715,15 +715,16 @@
             if (!$this->pdo) {
                 $this->conexao();
             }
-            $checkQtde = $this->checkQtdeListaAtivo($USU_IDUSUARIO);
+            /*
             if($LIS_STSTATUS == "ATIVO")
             {
                 $checkQtde = $this->checkQtdeListaAtivo($USU_IDUSUARIO);
-                if($checkQtde["TOTAL"] >= 2)
+                if($checkQtde["TOTAL"] >= 60)
                 {
                     return "O limite máximo para convidados ativos é 60. Desative um convidado e tente ativar este novamente.";
                 }
             }
+            */
             try {
                 $sql = "UPDATE LIS_LISTACONVIDADOS 
                         SET LIS_DCNOME = :LIS_DCNOME,
@@ -741,7 +742,7 @@
 
                 $stmt->execute();
             
-                return $checkQtde["TOTAL"]." Convidado atualizado com sucesso.";
+                return "Convidado atualizado com sucesso.";
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return ["error" => $e->getMessage()];
