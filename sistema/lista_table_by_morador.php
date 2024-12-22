@@ -265,7 +265,7 @@ html, body {
                     
                     // Comparar a data da variável com a data limite
                     $rowColor = (strtotime($usuario['LIS_STSTATUS']) < strtotime($dataLimite)) 
-                        ? "background-color: #d4edda;" // Verde claro
+                        ? "background-color:rgb(102, 245, 135);" // Verde claro
                         : "background-color: #ffffff;"; // Branco
                     ?>
 
@@ -294,7 +294,7 @@ html, body {
                       
                         <td>
                         <!-- Ícone com ação -->
-                        <button class="btn btn-sm btn-info" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
+                        <button class="btn btn-sm btn-info"  style="background-color:rgb(66, 152, 245); color: white;" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
                             <i class="fa fa-check-circle"></i>
                         </button>
                     </td>
