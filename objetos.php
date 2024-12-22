@@ -434,9 +434,10 @@
             
             try{           
                 $sql = "SELECT COUNT(*) AS TOTAL FROM LIS_LISTACONVIDADOS
-                        WHERE USU_IDUSUARIO = $USU_IDUSUARIO AND LIS_STSTATUS = 'ATIVO'";
+                        WHERE USU_IDUSUARIO = :USU_IDUSUARIO AND LIS_STSTATUS = 'ATIVO'";
 
                 $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_STR);
                 $stmt->execute();
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
