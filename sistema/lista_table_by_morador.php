@@ -284,7 +284,7 @@ html, body {
                       
                         <td>
                         <!-- Ícone com ação -->
-                        <button class="btn btn-sm btn-info" onclick="showAction('<?= htmlspecialchars($usuario['LIS_DCNOME']) ?>')">
+                        <button class="btn btn-sm btn-info" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
                             <i class="fa fa-check-circle"></i>
                         </button>
                     </td>
@@ -301,11 +301,11 @@ html, body {
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-      function confirmDelete(listid){
+      function setDataVisita(idVisita){
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Lista de Convidados',
-          text: "Têm certeza que deseja excluir o convidado?",
+          text: "Têm certeza que deseja marcar a entrada do convidado?",
           showDenyButton: true,
           confirmButtonText: 'SIM',
           denyButtonText: `CANCELAR`,
@@ -330,7 +330,7 @@ html, body {
             $.ajax({
               url: "lista_delete.php", // URL para processamento
               type: "POST",
-              data: { id: listid }, // Dados enviados
+              data: { id: idVisita}, // Dados enviados
               success: function (response) {
                 Swal.fire({
               title: 'Salvo!',
