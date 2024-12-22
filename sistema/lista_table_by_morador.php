@@ -259,26 +259,23 @@ html, body {
                       <th>DOC</th>  
                     </tr>
 
-                    <?php
+					          <? $lin = 0 ?>
+                    
+                <?php foreach ($dadosPagina as $usuario): ?>
+                  
+                  <?php
                     // Obter a data atual menos 12 horas
                     $dataLimite = date('Y-m-d H:i:s', strtotime('-12 hours'));
                     
                     if (strtotime($usuario['LIS_DTULTIMA_ENTRADA']) > strtotime($dataLimite)) 
                     {
-                      echo strtotime($dataLimite);
                       $rowColor = "background-color:rgb(102, 245, 135);"; // Verde claro
                     } else 
                         {
                           $rowColor = "background-color: #ffffff;"; // Branco
-                          echo strtotime($dataLimite);
                         }
                     ?>
-                 
 
-                    
-					          <? $lin = 0 ?>
-                    
-                <?php foreach ($dadosPagina as $usuario): ?>
                   <tr style="<?= $rowColor; ?>">
 						          <?php
 						          	if($usuario['LIS_STSTATUS'] == "ATIVO")
