@@ -164,10 +164,11 @@
                
             $now = new DateTime(); 
             $DATA = $now->format('Y-m-d H:i:s');
+            
 
             try {
                 $sql = "UPDATE LIS_LISTACONVIDADOS 
-                        SET LIS_DTULTIMA_ENTRADA = :LIS_IDLISTACONVIDADOS
+                        SET LIS_DTULTIMA_ENTRADA = :LIS_DTULTIMA_ENTRADA
                         WHERE 	LIS_IDLISTACONVIDADOS = :LIS_IDLISTACONVIDADOS";
 
                 $stmt = $this->pdo->prepare($sql);
