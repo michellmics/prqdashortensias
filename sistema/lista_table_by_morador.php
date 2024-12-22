@@ -256,26 +256,35 @@ html, body {
                       <th></th> 
 					            <th></th> 
                       <th>NOME</th>
-                      <th>DOC</th>   
-					                
+                      <th>DOC</th>  
                     </tr>
-                    <tr style="background-color:rgb(158, 248, 179);">
-					<? $lin = 0 ?>
-                    <?php foreach ($dadosPagina as $usuario): ?>
-						<?php
-							if($usuario['LIS_STSTATUS'] == "ATIVO")
-							{
-								$lineColor = "color:#993449;";
-							}
-							if($usuario['LIS_STSTATUS'] == "INATIVO")
-							{
-								$lineColor = "color:rgb(199, 202, 204);";
-							}
 
-						?>
+                    <?php
+                    // Obter a data atual menos 12 horas
+                    $dataLimite = date('Y-m-d H:i:s', strtotime('-12 hours'));
+                    
+                    // Comparar a data da variável com a data limite
+                    $rowColor = (strtotime($usuario['LIS_STSTATUS']) > strtotime($dataLimite)) 
+                        ? "background-color: #d4edda;" // Verde claro
+                        : "background-color: #ffffff;"; // Branco
+                    ?>
 
 
+                    <tr style="<?= $rowColor; ?>">
+					          <? $lin = 0 ?>
+                    
+                <?php foreach ($dadosPagina as $usuario): ?>
+						          <?php
+						          	if($usuario['LIS_STSTATUS'] == "ATIVO")
+						          	{
+						          		$lineColor = "color:#993399;";
+						          	}
+						          	if($usuario['LIS_STSTATUS'] == "INATIVO")
+						          	{
+						          		$lineColor = "color:rgb(199, 202, 204);";
+						          	}
                       
+						          ?>                      
                         <td style="text-transform: uppercase; font-size: 15px;">
                         </td> <? $lin++; ?>
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; <? echo $lineColor; ?>"> <? echo $lin; ?></td>
