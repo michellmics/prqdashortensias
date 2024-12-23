@@ -169,8 +169,50 @@ html, body {
   .btn-warning:hover {
       background-color: #E6E6FA; /* Lilás ainda mais claro ao passar o mouse */
   }
+  .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
 
-        </style>
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #007bff; /* Azul padrão */
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #007bff;
+  color: #fff; /* Texto branco */
+}
+
+.pagination .active a {
+  background-color: #007bff;
+  color: #fff; /* Texto branco */
+  border-color: #007bff;
+  pointer-events: none;
+}
+
+.pagination .disabled a {
+  color: #ccc;
+  pointer-events: none;
+  border-color: #ddd;
+}
+
+
+</style>
 		
     </head>
     <body>
