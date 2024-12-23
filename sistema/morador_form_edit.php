@@ -353,18 +353,19 @@ html, body {
             });
             return false;
         }
-
-        // Validação da senha
-        const senhaRegex = /^(?=.*[A-Z])(?=.*[\W_])(?=.{8,})/;
-        if (!senhaRegex.test(senha)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Senha Inválida',
-                text: 'A senha deve ter pelo menos 8 caracteres, incluir uma letra maiúscula e um caractere especial.',
-            });
-            return false; 
-        }
-
+		if(senha != "")
+		{
+        	// Validação da senha
+        	const senhaRegex = /^(?=.*[A-Z])(?=.*[\W_])(?=.{8,})/;
+        	if (!senhaRegex.test(senha)) {
+        	    Swal.fire({
+        	        icon: 'error',
+        	        title: 'Senha Inválida',
+        	        text: 'A senha deve ter pelo menos 8 caracteres, incluir uma letra maiúscula e um caractere especial.',
+        	    });
+        	    return false; 
+        	}
+		}
         return true;
     }
 
