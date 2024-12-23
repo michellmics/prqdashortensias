@@ -629,5 +629,27 @@
             }
         }
 
+        public function bdLogClear()
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            try 
+            {
+                $sql = "DELETE FROM LOG_LOGSISTEMA WHERE LOG_DTLOG < CURDATE() - INTERVAL 90 DAY";
+
+                $stmt = $this->pdo->prepare($sql);           
+                $stmt->execute();
+
+                return "Limpeza dos logs realizada com sucesso.";
+           
+            } catch (PDOException $e) {
+                // Captura e retorna o erro
+                return "Erro ao executar a limpeza dos Logs: ".$e->getMessage();
+            }
+        }
+
 
     }
