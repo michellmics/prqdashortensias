@@ -481,6 +481,9 @@
                             USU_DCNIVEL = :USU_DCNIVEL,
                             USU_DCSENHA = :USU_DCSENHA
                             WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+
+                    $stmt = $this->pdo->prepare($sql);
+                    $stmt->bindParam(':USU_DCSENHA', $USU_DCSENHA, PDO::PARAM_STR);
                 }
                 if($USU_DCSENHA == "IGNORE")
                 {
@@ -492,8 +495,9 @@
                             USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
                             USU_DCNIVEL = :USU_DCNIVEL
                             WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
-                }
-                $stmt = $this->pdo->prepare($sql);
+
+                    $stmt = $this->pdo->prepare($sql);
+                }                
             
                 // Liga os parâmetros aos valores
                 $stmt->bindParam(':USU_DCEMAIL', $USU_DCEMAIL, PDO::PARAM_STR);
@@ -501,7 +505,7 @@
                 $stmt->bindParam(':USU_DCBLOCO', $USU_DCBLOCO, PDO::PARAM_STR);
                 $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
                 $stmt->bindParam(':USU_DCNIVEL', $USU_DCNIVEL, PDO::PARAM_STR);
-                $stmt->bindParam(':USU_DCSENHA', $USU_DCSENHA, PDO::PARAM_STR);
+                
                 $stmt->bindParam(':USU_IDUSUARIO', $USU_IDUSUARIO, PDO::PARAM_INT);
 
             
