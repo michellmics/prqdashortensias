@@ -44,7 +44,7 @@
             </div><!-- /.col -->
             <div class="col-xs-4">
               
-              <button onclick="onSubmit(event)" type="submit" class="btn btn-primary btn-block btn-flat">Enviar</button>
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Enviar</button>
             </div><!-- /.col -->
           </div>
           <br>
