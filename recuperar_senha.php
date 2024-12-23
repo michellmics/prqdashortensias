@@ -37,7 +37,7 @@
             </div><!-- /.col -->
             <div class="col-xs-4">
               
-              <button onclick="onSubmit(event)" type="submit" class="btn btn-primary btn-block btn-flat">Enviar link de recuperação de senha</button>
+              <button onclick="onSubmit(event)" type="submit" class="btn btn-primary btn-block btn-flat">Enviar</button>
             </div><!-- /.col -->
           </div>
           <br>
@@ -65,7 +65,7 @@
 							        }
 							    };
 							
-							    xhr.send(formData); // Envia o formulário via AJAX
+							    xhr.send(formData);
 							});
 						</script>
 
