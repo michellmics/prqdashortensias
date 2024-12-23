@@ -3,7 +3,7 @@ include_once 'objetos.php';
 
 class RecSystem extends SITE_ADMIN
 {
-    public function CheckValidUser($apartamento, $password)
+    public function CheckValidUser($apartamento)
     {
             if (!$this->pdo) {
                 $this->conexao();
