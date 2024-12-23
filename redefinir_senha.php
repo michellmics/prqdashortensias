@@ -27,8 +27,8 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Redefinição de senha</p>
-        <form id="demo-form" action="processa_recuperacao.php" method="post">
-
+        <form id="demo-form" action="atualizar_senha.php" method="post">
+          <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token']); ?>">
           <div class="form-group has-feedback">
             <input type="password" class="form-control" id="password" placeholder="Digite sua nova senha" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
