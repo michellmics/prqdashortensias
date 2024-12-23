@@ -49,11 +49,11 @@
         <p class="login-box-msg">Acesso a área administrativa</p>
         <form id="demo-form" action="login.php" method="post">
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" id="apartamento" placeholder="Apartamento" name="apartamento"/>
+            <input type="text" class="form-control" id="apartamento" placeholder="Digite número do apartamento" name="apartamento"/>
             <span class="glyphicon glyphicon-home form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" id="password" placeholder="password" name="password"/>
+            <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
