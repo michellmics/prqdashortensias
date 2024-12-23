@@ -24,7 +24,7 @@
     padding: 0;
     margin: 0;
     position: absolute;
-    top: 0; /* Alinha o submenu ao topo do item pai */
+    top: -10px; /* Alinha o submenu ao topo do item pai */
     left: 100%; /* Submenu abre imediatamente ao lado */
     display: none; /* Submenu oculto por padrão */
     background-color: #fff;
