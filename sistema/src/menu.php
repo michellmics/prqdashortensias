@@ -4,7 +4,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    
+    color: black; /* Texto preto para o menu principal */
 }
 
 .nav.menu li {
