@@ -1,13 +1,3 @@
-<?php
-/*
-  include_once 'objetos.php'; 
-
-  $siteAdmin = new SITE_ADMIN();
-  $result = $siteAdmin->getSiteInfo();
-
- */
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,7 +10,6 @@
         
       gtag('config', 'G-4VK4QL1B8G'); 
     </script>
-
     <meta charset="UTF-8">
     <title>Condomínio Parque das Hortênsias</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -32,13 +21,12 @@
     <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
     <link href="plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
-
 		<link rel="icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
-    	<link rel="shortcut icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
-    	<link rel="apple-touch-icon" href="https://www.prqdashortensias.com.br/logo_icon.png">
-    	<meta name="apple-mobile-web-app-title" content="Hortensias">
-    	<meta name="apple-mobile-web-app-capable" content="yes">
-    	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="shortcut icon" href="https://www.prqdashortensias.com.br/logo_icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://www.prqdashortensias.com.br/logo_icon.png">
+    <meta name="apple-mobile-web-app-title" content="Hortensias">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
   </head>
   <body class="login-page">
     <div class="login-box">
@@ -73,7 +61,7 @@
 
         <!-- SCRIPT RECAPTCHA -->
                     <!-- Onde a mensagem de sucesso/erro será exibida -->
-						<div id="form-message"></div>
+				<div id="form-message"></div>
 						<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 						<!-- Ajax para envio e exibicao do resultado sem load de pag nova -->
