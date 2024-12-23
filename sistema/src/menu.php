@@ -78,7 +78,7 @@
 
     /* Mantém o submenu com cor preta apenas quando visível */
     .submenu {
-        background-color: black;
+        background-color: #333;
     }
 }
 
