@@ -70,6 +70,18 @@
     }
 }
 
+/* Para telas grandes, mantém o menu com fundo normal */
+@media (min-width: 769px) {
+    .nav.menu {
+        background-color: #333; /* Cor de fundo normal do menu */
+    }
+
+    /* Mantém o submenu com cor preta apenas quando visível */
+    .submenu {
+        background-color: black;
+    }
+}
+
 
 </style>
 
