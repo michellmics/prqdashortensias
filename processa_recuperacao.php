@@ -16,7 +16,7 @@ class RecSystem extends SITE_ADMIN
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            if ($user['USU_DCEMAIL']) 
+            if ($user['USU_DCEMAIL'] != "") 
             {
                 $email = $user['USU_DCEMAIL'];
                 return $email;             
