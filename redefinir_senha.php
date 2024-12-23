@@ -26,7 +26,7 @@
         <img src="https://www.prqdashortensias.com.br/img/logo_site_small.png"></img>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Recuperação de senha</p>
+        <p class="login-box-msg">Redefinição de senha</p>
         <form id="demo-form" action="processa_recuperacao.php" method="post">
 
           <div class="form-group has-feedback">
@@ -35,7 +35,7 @@
           </div>
 
           <div class="form-group has-feedback">
-            <input type="password_redit" class="form-control" id="password_redit" placeholder="Digite novamente sua nova senha" name="password_redit"/>
+            <input type="password_redit" class="form-control" id="password_redit" placeholder="Repita a nova senha" name="password_redit"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           
@@ -52,28 +52,48 @@
 
 						<div id="form-message"></div>
 
-						<!-- Ajax para envio e exibicao do resultado sem load de pag nova -->
-						<script>
-							document.getElementById('demo-form').addEventListener('submit', function(e) {
-							    e.preventDefault(); // Impede o envio tradicional do formulário
-						
-							    var formData = new FormData(this); // Captura todos os dados do formulário
-							
-							    var xhr = new XMLHttpRequest();
-							    xhr.open('POST', this.action, true); // Configura o envio via POST para o arquivo PHP
-							
-							    xhr.onload = function() {
-							        if (xhr.status === 200) {
-							            // Exibe a resposta do servidor na página
-							            document.getElementById('form-message').innerHTML = xhr.responseText;
-							        } else {
-							            document.getElementById('form-message').innerHTML = "Houve um erro no envio do formulário.";
-							        }
-							    };
-							
-							    xhr.send(formData);
-							});
-						</script>
+<script>
+    document.getElementById('demo-form').addEventListener('submit', function (e) {
+        e.preventDefault(); // Impede o envio tradicional do formulário
+        
+        const password = document.getElementById('password').value;
+        const passwordRedit = document.getElementById('password_redit').value;
+        const passwordError = document.getElementById('password-error');
+
+        // Verifica se as senhas coincidem
+        if (password !== passwordRedit) {
+            passwordError.style.display = 'block';
+            passwordError.textContent = "As senhas não coincidem.";
+            return; // Interrompe o envio
+        }
+
+        // Verifica os requisitos de força da senha
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{7,7}$/;
+        if (!passwordRegex.test(password)) {
+            passwordError.style.display = 'block';
+            passwordError.textContent = "A senha deve ter 7 caracteres, incluindo uma letra maiúscula e um caractere especial.";
+            return; // Interrompe o envio
+        }
+
+        // Se tudo estiver correto, oculta o erro e envia o formulário
+        passwordError.style.display = 'none';
+
+        // Envia o formulário usando Ajax
+        const formData = new FormData(this);
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', this.action, true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                document.getElementById('form-message').innerHTML = xhr.responseText;
+            } else {
+                document.getElementById('form-message').innerHTML = "Houve um erro no envio do formulário.";
+            }
+        };
+        xhr.send(formData);
+    });
+</script>
+
+
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
     <!-- jQuery 2.1.3 -->
