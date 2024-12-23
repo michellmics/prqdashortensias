@@ -52,6 +52,11 @@
 .nav.menu > li:hover .submenu {
     display: block;
 }
+/* Responsivo: Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+    .nav.menu li {
+        display: block; /* Cada item do menu será exibido em uma linha */
+    }
 /* Responsivo: ajuste do submenu em telas menores */
 @media (max-width: 768px) {
     .submenu {
