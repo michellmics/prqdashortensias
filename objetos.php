@@ -469,16 +469,30 @@
             }
 
             try {
-                $sql = "UPDATE USU_USUARIO 
-                        SET
-                        USU_DCEMAIL = :USU_DCEMAIL,
-                        USU_DCNOME = :USU_DCNOME,
-                        USU_DCBLOCO = :USU_DCBLOCO,
-                        USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
-                        USU_DCNIVEL = :USU_DCNIVEL,
-                        USU_DCSENHA = :USU_DCSENHA
-                        WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
 
+                if($USU_DCSENHA != "IGNORE")
+                {
+                    $sql = "UPDATE USU_USUARIO 
+                            SET
+                            USU_DCEMAIL = :USU_DCEMAIL,
+                            USU_DCNOME = :USU_DCNOME,
+                            USU_DCBLOCO = :USU_DCBLOCO,
+                            USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
+                            USU_DCNIVEL = :USU_DCNIVEL,
+                            USU_DCSENHA = :USU_DCSENHA
+                            WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+                }
+                if($USU_DCSENHA == "IGNORE")
+                {
+                    $sql = "UPDATE USU_USUARIO 
+                            SET
+                            USU_DCEMAIL = :USU_DCEMAIL,
+                            USU_DCNOME = :USU_DCNOME,
+                            USU_DCBLOCO = :USU_DCBLOCO,
+                            USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO,
+                            USU_DCNIVEL = :USU_DCNIVEL
+                            WHERE USU_IDUSUARIO = :USU_IDUSUARIO";
+                }
                 $stmt = $this->pdo->prepare($sql);
             
                 // Liga os parâmetros aos valores

@@ -24,7 +24,7 @@ class registerUser extends SITE_ADMIN
                 $nome = strtoupper($nome);
                 $email = strtoupper($email);
 
-                $passHash = password_hash($senha, PASSWORD_DEFAULT);
+                if($senha != "") { $passHash = password_hash($senha, PASSWORD_DEFAULT);}else{$passHash = "IGNORE";}
                 $result = $this->updateUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $userid);
                 echo "Usuário atualizado com sucesso.";                     
                 
