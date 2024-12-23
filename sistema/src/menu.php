@@ -51,6 +51,15 @@
 .nav.menu > li:hover .submenu {
     display: block;
 }
+/* Responsivo: ajuste do submenu em telas menores */
+@media (max-width: 768px) {
+    .submenu {
+        position: absolute;
+        top: 100%; /* Alinha o submenu abaixo do item pai */
+        left: 0; /* Submenu abre logo abaixo do item pai */
+        width: 100%; /* Garante que o submenu se ajuste ao tamanho do item pai */
+    }
+}
 
 
 </style>
