@@ -69,10 +69,10 @@
         }
 
         // Verifica os requisitos de força da senha
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{7,7}$/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
         if (!passwordRegex.test(password)) {
             passwordError.style.display = 'block';
-            passwordError.textContent = "A senha deve ter 7 caracteres, incluindo uma letra maiúscula e um caractere especial.";
+            passwordError.textContent = "A senha deve ter 6 caracteres, incluindo uma letra maiúscula e um caractere especial.";
             return; // Interrompe o envio
         }
 

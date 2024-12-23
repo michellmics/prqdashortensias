@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         $stmt->bindParam(':USU_DCAPARTAMENTO', $user['USU_DCAPARTAMENTO'], PDO::PARAM_STR);
         $stmt->execute();
 
-        echo "Sua senha foi atualizada com sucesso.";
+        echo "Sua senha foi atualizada com sucesso. Clique <a href='index.php'>aqui </a>para realizar o login.";
     }
     else
         {
