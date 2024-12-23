@@ -4,7 +4,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: #333; /* Cor de fundo do menu */
+    
 }
 
 .nav.menu li {
