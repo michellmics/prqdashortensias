@@ -33,6 +33,14 @@ class LoginSystem extends SITE_ADMIN
                 $_SESSION['user_bloco'] = $user['USU_DCBLOCO'];
                 $_SESSION['user_nivelacesso'] = $user['USU_DCNIVEL'];
 
+                //--------------------LOG----------------------//
+                $LOG_DCTIPO = "LOGIN";
+                $LOG_DCMSG = "Usuário ".$user['USU_DCNOME']." logado com sucesso.";
+                $LOG_DCUSUARIO = $user['USU_DCNOME'];
+                $LOG_DCAPARTAMENTO = $user['USU_DCAPARTAMENTO'];
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                //--------------------LOG----------------------//
+
                 echo '<meta http-equiv="refresh" content="0;url=sistema/index.php">'; // Redireciona após login bem-sucedido
                 exit();
              
