@@ -21,11 +21,40 @@ class RecSystem extends SITE_ADMIN
                 $email = $user['USU_DCEMAIL'];
                 return $email;             
             } else 
-                {
-                    echo "Apartamento não cadastrado no sistema. Entre em contato com o síndico.";
-                    exit();
-                }
-        
+                  {
+                      echo "Apartamento não cadastrado no sistema. Entre em contato com o síndico.";
+                      exit();
+                  }        
+    }
+
+    public function sendToken($apartamento,$email)
+    {
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+
+            $USU_DCREDEF_TOKEN = bin2hex(random_bytes(16));
+            $USU_DTREDEF_TOKEN_EXP = date('Y-m-d H:i:s', strtotime('+1 hour'));
+
+            $sql = "UPDATE USU_USUARIO 
+                SET 
+                USU_DCREDEF_TOKEN = :USU_DCREDEF_TOKEN, 
+                USU_DTREDEF_TOKEN_EXP = :USU_DTREDEF_TOKEN_EXP
+                WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':USU_DCAPARTAMENTO', $apartamento, PDO::PARAM_STR);
+            $stmt->bindParam(':USU_DCREDEF_TOKEN', $USU_DCREDEF_TOKEN, PDO::PARAM_STR);
+            $stmt->bindParam(':USU_DTREDEF_TOKEN_EXP', $USU_DTREDEF_TOKEN_EXP, PDO::PARAM_STR);
+            $stmt->execute();
+
+            // Enviar o link de redefinição
+            $link = "https://seusite.com/redefinir_senha.php?token=$USU_DCREDEF_TOKEN";
+            $mensagem = "Clique no link para redefinir sua senha: $link";
+            $assunto = "Condomínio Parque das Hortênsias - Recuperação de senha";
+
+            $this->notifyUsuarioEmail($assunto,$mensagem,$email);
+            echo "Um link de recuperação foi enviado para seu e-mail.";                 
     }
 }
 
@@ -35,7 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
     $RecSystem = new RecSystem();
     
-    $result=$RecSystem->CheckValidUser($apartamento);
+    $email=$RecSystem->CheckValidUser($apartamento);
+    $result=$RecSystem->sendToken($apartamento,$email);
 
 }
  
