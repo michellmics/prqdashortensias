@@ -311,7 +311,7 @@ html, body {
                             </div>
 							<div class="col-5">
 								<label class="control-label" for="inputWarning">Senha</label>
-                                <input id="senha" name="senha" value="<? echo $siteAdmin->ARRAY_MORADORINFO["USU_DCSENHA"]; ?>" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
+                                <input id="senha" name="senha" value="" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
                             </div>
 						</div>
                     </div>
@@ -338,7 +338,7 @@ html, body {
     	const senha = document.querySelector('input[name="senha"]').value.trim();
 		const nivel = document.querySelector('input[name="nivel"]:checked'); 
         
-		if (!nome || !bloco || !apartamento || !email || !senha || !nivel) {
+		if (!nome || !bloco || !apartamento || !email || !nivel) {
             alert("Todos os campos devem ser preenchidos.");
             return false;
         }
