@@ -52,7 +52,7 @@ class RecSystem extends SITE_ADMIN
 
                 // Enviar o link de redefinição
                 $link = "https://seusite.com/redefinir_senha.php?token=$USU_DCREDEF_TOKEN";
-                $mensagem = "Clique no link para redefinir sua senha: $link";
+                $mensagem = "Clique no link para redefinir sua senha:";
                // $assunto = "Condomínio Parque das Hortênsias - Recuperação de senha";
                $assunto = "aassddffgg";
 
