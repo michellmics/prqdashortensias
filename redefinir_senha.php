@@ -51,6 +51,7 @@
         </form>
 
 						<div id="password-error"></div>
+            <div id="form-message"></div>
 
 <script>
     document.getElementById('demo-form').addEventListener('submit', function (e) {
