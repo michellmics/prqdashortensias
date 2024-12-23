@@ -32,6 +32,7 @@
           <div class="form-group has-feedback">
             <input type="password" class="form-control" id="password" placeholder="Digite sua nova senha" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            Preencha para alterar a senha. Ela deve ter pelo menos 8 caracteres, incluir uma letra maiúscula e um caractere especial.
           </div>
 
           <div class="form-group has-feedback">
