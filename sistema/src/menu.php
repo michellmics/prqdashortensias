@@ -1,5 +1,5 @@
 <style>
-    /* Estilo básico para o menu */
+/* Estilo básico para o menu */
 .nav.menu {
     list-style: none;
     padding: 0;
@@ -15,6 +15,7 @@
     text-decoration: none;
     padding: 10px 15px;
     display: block;
+    color: black; /* Texto preto para o menu principal */
 }
 
 /* Estilo para o submenu */
@@ -24,10 +25,11 @@
     margin: 0;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%; /* Move o submenu mais para a direita */
     display: none; /* Submenu oculto por padrão */
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
 }
 
 .submenu li {
@@ -37,12 +39,19 @@
 .submenu a {
     padding: 10px 15px;
     white-space: nowrap;
+    color: black; /* Texto preto para os itens do submenu */
+    background-color: #fff; /* Fundo branco para contraste */
+}
+
+.submenu a:hover {
+    background-color: #f0f0f0; /* Efeito hover no submenu */
 }
 
 /* Mostrar submenu ao passar o mouse */
 .nav.menu > li:hover .submenu {
     display: block;
 }
+
 
 </style>
 
