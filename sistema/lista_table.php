@@ -43,7 +43,7 @@
 	if(count($siteAdmin->ARRAY_LISTAINFO) > 0)
 	{
 	  // Configurações de Paginação
-	  $registrosPorPagina = 50;
+	  $registrosPorPagina = 100;
 	  $paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 	  $totalRegistros = count($siteAdmin->ARRAY_LISTAINFO);
 	  $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
@@ -291,6 +291,17 @@ html, body {
                   </table>
                   
                 </div><!-- /.box-body -->
+
+                <!-- Paginação -->
+<nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination">
+                <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+                    <li class="<?= ($i == $paginaAtual) ? 'active' : '' ?>">
+                        <a href="?pagina=<?= $i ?>"><?= $i ?></a>
+                    </li>
+                <?php endfor; ?>
+            </ul>
+        </nav>
                 
 </section><!-- /.content -->
 <!-- ######################################################## --> 
