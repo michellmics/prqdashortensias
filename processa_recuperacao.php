@@ -3,7 +3,7 @@ include_once 'objetos.php';
 
 class RecSystem extends SITE_ADMIN
 {
-    public function CheckValidUser($apartamento)
+    public function CheckValidUser($USU_DCAPARTAMENTO)
     {
             if (!$this->pdo) {
                 $this->conexao();
@@ -11,7 +11,7 @@ class RecSystem extends SITE_ADMIN
 
             $sql = "SELECT USU_DCEMAIL FROM USU_USUARIO WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':USU_DCAPARTAMENTO', $apartamento, PDO::PARAM_STR);
+            $stmt->bindParam(':USU_DCAPARTAMENTO', $USU_DCAPARTAMENTO, PDO::PARAM_STR);
             $stmt->execute();
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -51,7 +51,7 @@ class RecSystem extends SITE_ADMIN
                 $stmt->execute();
 
                 // Enviar o link de redefinição
-                $link = "https://seusite.com/redefinir_senha.php?token=$USU_DCREDEF_TOKEN";
+                $link = "https://prqdashortensias.com.br/redefinir_senha.php?token=$USU_DCREDEF_TOKEN";
                 $mensagem = "Clique no link para redefinir sua senha: $link";
                 $assunto = "Condomínio Parque das Hortênsias - Recuperação de senha";
 
