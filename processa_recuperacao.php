@@ -16,14 +16,14 @@ class RecSystem extends SITE_ADMIN
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            if ($user['USU_DCEMAIL'] != "") 
+            if ($user['USU_DCEMAIL']) 
             {
                 $email = $user['USU_DCEMAIL'];
                 return $email;             
             } else 
                   {
                       echo "Apartamento não cadastrado no sistema. Entre em contato com o síndico.";
-                      die();
+                      exit();
                   }        
     }
 
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $RecSystem = new RecSystem();
     
     $email=$RecSystem->CheckValidUser($apartamento);
-    $result=$RecSystem->sendToken($apartamento,$email);
+    if($email != ""){$result=$RecSystem->sendToken($apartamento,$email);}
 
 }
  
