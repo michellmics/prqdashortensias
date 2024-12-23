@@ -29,7 +29,8 @@
     display: none; /* Submenu oculto por padrão */
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+    width: 100%; /* O submenu ocupa toda a largura do item pai */
+    z-index: 1000; /* Certifica-se de que o submenu aparece por cima */
 }
 
 .submenu li {
