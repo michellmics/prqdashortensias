@@ -37,7 +37,7 @@
 }
 
 .submenu a {
-    padding: 10px 15px;
+    padding: 20px 15px;
     white-space: nowrap;
     color: black; /* Texto preto para os itens do submenu */
     background-color: #fff; /* Fundo branco para contraste */
