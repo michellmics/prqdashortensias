@@ -53,7 +53,7 @@
             <span class="glyphicon glyphicon-home form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password"/>
+            <input type="password" aria-label="Digite sua senha" class="form-control" id="password" placeholder="Digite sua senha" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             <div class="text-left">
               <a href="recuperar_senha.php" class="btn btn-link">Esqueceu sua senha?</a>
