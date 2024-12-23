@@ -64,7 +64,7 @@
 
 </style>
 
-<nav class="navigation">
+<nav class="">
     <ul class="nav menu">
         <li><a href="index.php">Inicio</a></li>
         <li><a href="lista_table.php">Minha Lista de Convidados</a></li>
