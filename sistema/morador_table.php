@@ -327,8 +327,12 @@ html, body {
                   </table>
                 </div><!-- /.box-body -->
 
+        
+</section><!-- /.content -->
+
+
                 <!-- Paginação -->
-<nav aria-label="Page navigation" class="text-center">
+                <nav aria-label="Page navigation" class="text-center">
             <ul class="pagination">
                 <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
                     <li class="<?= ($i == $paginaAtual) ? 'active' : '' ?>">
@@ -337,8 +341,6 @@ html, body {
                 <?php endfor; ?>
             </ul>
         </nav>
-        
-</section><!-- /.content -->
 
 <!-- ######################################################## --> 
     <!-- SWEETALERT 2 -->   
