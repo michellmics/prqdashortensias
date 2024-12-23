@@ -29,7 +29,7 @@
         <p class="login-box-msg">Recuperação de senha</p>
         <form id="demo-form" action="processa_recuperacao.php" method="post">
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" id="apartamento" placeholder="Digite o número do apartamento" name="apartamento"/>
+            <input type="number" class="form-control" id="apartamento" placeholder="Digite o número do apartamento" name="apartamento"/>
             <span class="glyphicon glyphicon-home form-control-feedback"></span>
           </div>
           <div class="row">
