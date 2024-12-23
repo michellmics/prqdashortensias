@@ -29,7 +29,7 @@ class deleteLista extends SITE_ADMIN
 
             //--------------------LOG----------------------//
             $LOG_DCTIPO = "REMOÇÃO DE VISITANTE";
-            $LOG_DCMSG = "O visitante $nome foi removido com sucesso.";
+            $LOG_DCMSG = "O visitante com id $LIS_IDLISTACONVIDADOS foi removido com sucesso.";
             $LOG_DCUSUARIO = $_SESSION['user_id'];
             $LOG_DCAPARTAMENTO = "N/A";
             $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
