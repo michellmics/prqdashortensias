@@ -23,7 +23,7 @@ class RecSystem extends SITE_ADMIN
             } else 
                   {
                       echo "Apartamento não cadastrado no sistema. Entre em contato com o síndico.";
-                      exit();
+                      die();
                   }        
     }
 
