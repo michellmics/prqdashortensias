@@ -35,7 +35,7 @@
           </div>
 
           <div class="form-group has-feedback">
-            <input type="password_redit" class="form-control" id="password_redit" placeholder="Repita a nova senha" name="password_redit"/>
+            <input type="password" class="form-control" id="password_redit" placeholder="Repita a nova senha" name="password_redit"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           
@@ -50,7 +50,7 @@
           <br>
         </form>
 
-						<div id="form-message"></div>
+						<div id="password-error"></div>
 
 <script>
     document.getElementById('demo-form').addEventListener('submit', function (e) {
