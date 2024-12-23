@@ -19,8 +19,6 @@ class RecSystem extends SITE_ADMIN
             if ($user['USU_DCEMAIL']) 
             {
                 $email = $user['USU_DCEMAIL'];
-                echo "jahajkha";
-                echo $user['USU_DCEMAIL'];
                 return $email;             
             } else 
                   {
@@ -74,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $RecSystem = new RecSystem();
     
     $email=$RecSystem->CheckValidUser($apartamento);
-    if($email != ""){$result=$RecSystem->sendToken($apartamento,$email);}
+    $result=$RecSystem->sendToken($apartamento,$email);
 
 }
  
