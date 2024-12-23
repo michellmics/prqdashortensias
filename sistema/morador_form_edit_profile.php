@@ -333,7 +333,7 @@ html, body {
     	const senha = document.querySelector('input[name="senha"]').value.trim();
 		const nivel = document.querySelector('input[name="nivel"]:checked'); 
         
-		if (!nome || !bloco || !apartamento || !email || !senha || !nivel) {
+		if (!nome || !bloco || !apartamento || !email || !nivel) {
             alert("Todos os campos devem ser preenchidos.");
             return false;
         }
