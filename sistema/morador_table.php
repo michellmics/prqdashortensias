@@ -326,6 +326,18 @@ html, body {
                     </tr>
                   </table>
                 </div><!-- /.box-body -->
+
+                <!-- Paginação -->
+<nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination">
+                <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+                    <li class="<?= ($i == $paginaAtual) ? 'active' : '' ?>">
+                        <a href="?pagina=<?= $i ?>"><?= $i ?></a>
+                    </li>
+                <?php endfor; ?>
+            </ul>
+        </nav>
+        
 </section><!-- /.content -->
 
 <!-- ######################################################## --> 
