@@ -46,6 +46,14 @@ class LoginSystem extends SITE_ADMIN
              
             } else 
                 {
+                    //--------------------LOG----------------------//
+                    $LOG_DCTIPO = "LOGIN FAILED";
+                    $LOG_DCMSG = "Usuario ou senha incorretos";
+                    $LOG_DCUSUARIO = "N/A";
+                    $LOG_DCAPARTAMENTO = $apartamento;
+                    $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                    //--------------------LOG----------------------//
+
                     $_SESSION = [];
                     session_destroy();
                     echo "Usuário ou senha incorretos."; 
@@ -82,11 +90,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         }
         else 
             {
+                //--------------------LOG----------------------//
+                $LOG_DCTIPO = "LOGIN FAILED";
+                $LOG_DCMSG = "Falha na verificação do reCAPTCHA";
+                $LOG_DCUSUARIO = "N/A";
+                $LOG_DCAPARTAMENTO = $apartamento;
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                //--------------------LOG----------------------//
                 echo "Falha na verificação do reCAPTCHA. Por favor, tente novamente.";
             }
     }
     else 
         {
+            //--------------------LOG----------------------//
+            $LOG_DCTIPO = "LOGIN FAILED";
+            $LOG_DCMSG = "Não completou o reCAPTCHA";
+            $LOG_DCUSUARIO = "N/A";
+            $LOG_DCAPARTAMENTO = $apartamento;
+            $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+            //--------------------LOG----------------------//
+
             echo "Por favor, complete o reCAPTCHA.";
         }
 }

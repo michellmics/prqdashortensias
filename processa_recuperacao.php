@@ -22,8 +22,15 @@ class RecSystem extends SITE_ADMIN
                 return $email;             
             } else 
                   {
-                      echo "Apartamento não cadastrado no sistema. Entre em contato com o síndico.";
-                      exit();
+                    //--------------------LOG----------------------//
+                    $LOG_DCTIPO = "REC SENHA";
+                    $LOG_DCMSG = "Apartamento não cadastrado no sistema";
+                    $LOG_DCUSUARIO = "N/A";
+                    $LOG_DCAPARTAMENTO = $USU_DCAPARTAMENTO;
+                    $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                    //--------------------LOG----------------------//
+                    echo "Apartamento não cadastrado no sistema. Entre em contato com o síndico.";
+                    exit();
                   }        
     }
 
@@ -56,7 +63,15 @@ class RecSystem extends SITE_ADMIN
                 $assunto = "Condomínio Parque das Hortênsias - Recuperação de senha";
 
                 $this->notifyUsuarioEmail($assunto,$mensagem,$email);
-                echo "Um link de recuperação foi enviado para seu e-mail.";   
+                echo "Um link de recuperação foi enviado para seu e-mail."; 
+                
+                //--------------------LOG----------------------//
+                $LOG_DCTIPO = "REC SENHA";
+                $LOG_DCMSG = "Envio de link de recuperação de senha para o e-mail: $email.";
+                $LOG_DCUSUARIO = "N/A";
+                $LOG_DCAPARTAMENTO = $apartamento;
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                //--------------------LOG----------------------//
             }
             catch (Exception $e) 
             {
