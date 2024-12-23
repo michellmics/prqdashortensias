@@ -307,7 +307,8 @@ html, body {
 							<div class="col-5">
 								<label class="control-label" for="inputWarning">Senha</label>
                                 <input id="senha" name="senha" value="" type="password" class="form-control" placeholder="" minlength="8" maxlength="10" required />
-                            </div>
+								Preencha para alterar a senha. Ela deve ter pelo menos 8 caracteres, incluir uma letra maiúscula e um caractere especial.
+							</div>
 						</div>
                     </div>
 
