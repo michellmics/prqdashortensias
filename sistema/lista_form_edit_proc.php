@@ -28,6 +28,15 @@ class registerVisitante extends SITE_ADMIN
             } 
 
             $result = $this->updateVisitanteInfo($nome, $userid, $documento, $status, $visitanteid);
+
+            //--------------------LOG----------------------//
+            $LOG_DCTIPO = "ATUALIZAÇÃO DE VISITANTE";
+            $LOG_DCMSG = "O visitante $nome foi atualizado para o status $status.";
+            $LOG_DCUSUARIO = $_SESSION['user_id'];
+            $LOG_DCAPARTAMENTO = "N/A";
+            $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+            //--------------------LOG----------------------//
+
             echo  $result;
         
         } catch (PDOException $e) {  

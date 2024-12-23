@@ -27,6 +27,14 @@ class deleteLista extends SITE_ADMIN
             $stmt->bindParam(':LIS_IDLISTACONVIDADOS', $LIS_IDLISTACONVIDADOS, PDO::PARAM_STR);
             $stmt->execute();
 
+            //--------------------LOG----------------------//
+            $LOG_DCTIPO = "REMOÇÃO DE VISITANTE";
+            $LOG_DCMSG = "O visitante $nome foi removido com sucesso.";
+            $LOG_DCUSUARIO = $_SESSION['user_id'];
+            $LOG_DCAPARTAMENTO = "N/A";
+            $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+            //--------------------LOG----------------------//
+
             echo "Convidado deletado com sucesso.";
             
 

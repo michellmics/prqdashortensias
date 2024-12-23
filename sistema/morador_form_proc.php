@@ -49,6 +49,14 @@ class registerUser extends SITE_ADMIN
                     $MSG = "Olá $nome, você foi cadastrado(a) no sistema do Condomínio Parque das Hortênsias. Seu usuário é seu e-mail e sua senha é: $senha. Para entrar no sistema acesse: https://www.prqdashortensias.com.br/";
                     $this->notifyUsuarioEmail($SUBJECT, $MSG, $email); //notificação por email
 
+                    //--------------------LOG----------------------//
+                    $LOG_DCTIPO = "NOVO CADASTRO";
+                    $LOG_DCMSG = "O usuário $nome foi cadastrado com sucesso com credenciais de $nivel.";
+                    $LOG_DCUSUARIO = $_SESSION['user_id'];
+                    $LOG_DCAPARTAMENTO = $apartamento;
+                    $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                    //--------------------LOG----------------------//
+
                     echo "Usuário cadastrado com sucesso."; 
                     
                 }

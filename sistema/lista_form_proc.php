@@ -62,6 +62,15 @@ class registerVisitante extends SITE_ADMIN
                     else
                     {
                         $result = $this->insertVisitListaInfo($nome, $userid, $documento, $status);
+
+                        //--------------------LOG----------------------//
+                        $LOG_DCTIPO = "CADASTRO DE VISITANTE";
+                        $LOG_DCMSG = "O visitante $nome foi cadastrado com sucesso.";
+                        $LOG_DCUSUARIO = $_SESSION['user_id'];
+                        $LOG_DCAPARTAMENTO = "N/A";
+                        $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                        //--------------------LOG----------------------//
+
                         echo "Convidado cadastrado com sucesso."; 
                     }              
                    

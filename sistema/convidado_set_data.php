@@ -22,6 +22,15 @@ class setDataConvidado extends SITE_ADMIN
             }
 
             $resultado = $this->updateDataVisita($LIS_IDLISTACONVIDADOS);
+
+            //--------------------LOG----------------------//
+            $LOG_DCTIPO = "ATUALIZAÇÃO DE VISITANTE";
+            $LOG_DCMSG = "O visitante com id $LIS_IDLISTACONVIDADOS teve a entrada registrada com sucesso.";
+            $LOG_DCUSUARIO = $_SESSION['user_id'];
+            $LOG_DCAPARTAMENTO = "N/A";
+            $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+            //--------------------LOG----------------------//
+
             echo $resultado;
             
     }

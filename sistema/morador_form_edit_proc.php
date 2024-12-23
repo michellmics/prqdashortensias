@@ -26,6 +26,15 @@ class registerUser extends SITE_ADMIN
 
                 if($senha != "") { $passHash = password_hash($senha, PASSWORD_DEFAULT);}else{$passHash = "IGNORE";}
                 $result = $this->updateUserInfo($email, $nome, $bloco, $apartamento, $nivel, $passHash, $userid);
+
+                //--------------------LOG----------------------//
+                $LOG_DCTIPO = "ATUALIZAÇÃO DE CADASTRO";
+                $LOG_DCMSG = "O usuário $nome foi atualizado com sucesso.";
+                $LOG_DCUSUARIO = $_SESSION['user_id'];
+                $LOG_DCAPARTAMENTO = $apartamento;
+                $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+                //--------------------LOG----------------------//
+
                 echo "Usuário atualizado com sucesso.";                     
                 
         } catch (PDOException $e) {  

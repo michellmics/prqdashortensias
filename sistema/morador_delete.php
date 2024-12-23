@@ -44,6 +44,14 @@ class deleteMorador extends SITE_ADMIN
     
             // Commit na transação se tudo deu certo
             $this->pdo->commit();
+
+            //--------------------LOG----------------------//
+            $LOG_DCTIPO = "REMOÇÃO DE CADASTRO";
+            $LOG_DCMSG = "O usuário com ID $USU_IDUSUARIO foi removido com sucesso.";
+            $LOG_DCUSUARIO = $_SESSION['user_id'];
+            $LOG_DCAPARTAMENTO = "N/A";
+            $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
+            //--------------------LOG----------------------//
     
             echo "Usuário deletado com sucesso.";
     
