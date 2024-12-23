@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     }
 
     $sql = "SELECT USU_DCAPARTAMENTO FROM USU_USUARIO WHERE USU_DCREDEF_TOKEN = :USU_DCREDEF_TOKEN AND USU_DTREDEF_TOKEN_EXP > NOW()";
-    $stmt = $this->pdo->prepare($sql);
+    $stmt = $siteAdmin->pdo->prepare($sql);
     $stmt->bindParam(':USU_DCREDEF_TOKEN', $token, PDO::PARAM_STR);
     $stmt->execute();
 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         USU_DCSENHA = :USU_DCSENHA
         WHERE USU_DCAPARTAMENTO = :USU_DCAPARTAMENTO";
 
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $siteAdmin->pdo->prepare($sql);
         $stmt->bindParam(':USU_DCSENHA', $password, PDO::PARAM_STR);
         $stmt->bindParam(':USU_DCAPARTAMENTO', $user['USU_DCAPARTAMENTO'], PDO::PARAM_STR);
         $stmt->execute();
