@@ -175,7 +175,7 @@ html, body {
   align-items: center;
   list-style: none;
   padding: 0;
-  margin: 20px 0;
+  margin: 40px 0;
 }
 
 .pagination li {
@@ -186,7 +186,7 @@ html, body {
   display: inline-block;
   padding: 8px 12px;
   font-size: 14px;
-  color: #007bff; /* Azul padrão */
+  color:rgb(75, 102, 131); /* Azul padrão */
   text-decoration: none;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -194,14 +194,14 @@ html, body {
 }
 
 .pagination a:hover {
-  background-color: #007bff;
+  background-color:rgb(115, 148, 184);
   color: #fff; /* Texto branco */
 }
 
 .pagination .active a {
-  background-color: #007bff;
+  background-color:rgb(102, 131, 161);
   color: #fff; /* Texto branco */
-  border-color: #007bff;
+  border-color:rgb(131, 155, 180);
   pointer-events: none;
 }
 
