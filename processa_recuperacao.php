@@ -20,6 +20,7 @@ class RecSystem extends SITE_ADMIN
             {
                 $email = $user['USU_DCEMAIL'];
                 echo "jahajkha";
+                echo $user['USU_DCEMAIL'];
                 return $email;             
             } else 
                   {
