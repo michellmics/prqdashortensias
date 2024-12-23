@@ -1,3 +1,51 @@
+<style>
+    /* Estilo básico para o menu */
+.nav.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav.menu > li {
+    display: inline-block;
+    position: relative;
+}
+
+.nav.menu a {
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+/* Estilo para o submenu */
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none; /* Submenu oculto por padrão */
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu a {
+    padding: 10px 15px;
+    white-space: nowrap;
+}
+
+/* Mostrar submenu ao passar o mouse */
+.nav.menu > li:hover .submenu {
+    display: block;
+}
+
+</style>
+
 <nav class="navigation">
     <ul class="nav menu">
         <li><a href="index.php">Inicio</a></li>
