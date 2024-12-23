@@ -1,26 +1,6 @@
-<?php
-/*
-  include_once 'objetos.php'; 
-
-  $siteAdmin = new SITE_ADMIN();
-  $result = $siteAdmin->getSiteInfo();
-
- */
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK4QL1B8G"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-        
-      gtag('config', 'G-4VK4QL1B8G'); 
-    </script>
-
     <meta charset="UTF-8">
     <title>Condomínio Parque das Hortênsias</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -46,48 +26,31 @@
         <img src="https://www.prqdashortensias.com.br/img/logo_site_small.png"></img>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Acesso a área administrativa</p>
-        <form id="demo-form" action="login.php" method="post">
+        <p class="login-box-msg">Recuperação de senha</p>
+        <form id="demo-form" action="processa_recuperacao.php" method="post">
           <div class="form-group has-feedback">
             <input type="text" class="form-control" id="apartamento" placeholder="Digite o número do apartamento" name="apartamento"/>
             <span class="glyphicon glyphicon-home form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password"/>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            <div class="text-left">
-              <a href="recuperar_senha.php" class="btn btn-link">Esqueceu sua senha?</a>
-            </div>
           </div>
           <div class="row">
             <div class="col-xs-8">                 
             </div><!-- /.col -->
             <div class="col-xs-4">
               
-              <button onclick="onSubmit(event)" type="submit" class="btn btn-primary btn-block btn-flat">login</button>
+              <button onclick="onSubmit(event)" type="submit" class="btn btn-primary btn-block btn-flat">Enviar link de recuperação de senha</button>
             </div><!-- /.col -->
           </div>
           <br>
-          <center><div class="g-recaptcha" data-sitekey="6Lf3654qAAAAANEwGw3z4944gsNE3IT_vVAIrkSP"></div></center>
         </form>
 
-        <!-- SCRIPT RECAPTCHA -->
-                    <!-- Onde a mensagem de sucesso/erro será exibida -->
 						<div id="form-message"></div>
-						<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
 						<!-- Ajax para envio e exibicao do resultado sem load de pag nova -->
 						<script>
 							document.getElementById('demo-form').addEventListener('submit', function(e) {
 							    e.preventDefault(); // Impede o envio tradicional do formulário
-							
-							    // Verifica o reCAPTCHA
-							    var recaptchaResponse = grecaptcha.getResponse();
-							    if (recaptchaResponse.length === 0) {
-							        document.getElementById('form-message').innerHTML = "Por favor, complete o reCAPTCHA.";
-							        return; // Se o reCAPTCHA não foi resolvido, não submeta o formulário
-							    }
-							
+						
 							    var formData = new FormData(this); // Captura todos os dados do formulário
 							
 							    var xhr = new XMLHttpRequest();
@@ -117,14 +80,6 @@
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- iCheck -->
     <script src="plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-    <script>
-      $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
-          increaseArea: '20%' // optional
-        });
-      });
-    </script>
+
   </body>
 </html>
