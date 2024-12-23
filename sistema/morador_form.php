@@ -468,20 +468,6 @@ html, body {
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- Footer -->
 <footer class="footerNew">
 	<?php include 'src/footer.php'; ?>
