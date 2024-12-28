@@ -2403,10 +2403,10 @@ function init_echarts() {
 						show: !0,
 						lineStyle: {
 							color: [
-								[.2, "lightgreen"],
-								[.4, "orange"],
-								[.8, "skyblue"],
-								[1, "#ff4500"]
+								[.2, "#9b59b6"],
+								[.4, "#34495e"],
+								[.8, "#bdc3c7"],
+								[1, "#26b99a"]
 							],
 							width: 30
 						}
