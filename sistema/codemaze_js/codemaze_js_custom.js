@@ -2393,8 +2393,8 @@ function init_echarts() {
 					name: "Meta",
 					type: "gauge",
 					center: ["50%", "50%"],
-					startAngle: 140,
-					endAngle: -140,
+					startAngle: -90,
+					endAngle: 90,
 					min: 0,
 					max: 100,
 					precision: 0,
@@ -2425,13 +2425,13 @@ function init_echarts() {
 						show: !0,
 						formatter: function(e) {
 							switch (e + "") {
-								case "45":
+								case "10":
 									return "a";
-								case "35":
+								case "30":
 									return "b";
-								case "25":
+								case "60":
 									return "c";
-								case "20":
+								case "90":
 									return "d";
 								default:
 									return ""
