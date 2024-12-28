@@ -2393,7 +2393,7 @@ function init_echarts() {
 					name: "Meta",
 					type: "gauge",
 					center: ["50%", "50%"],
-					startAngle: 140,
+					startAngle: 180,
 					endAngle: -140,
 					min: 0,
 					max: 100,
