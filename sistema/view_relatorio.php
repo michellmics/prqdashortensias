@@ -335,16 +335,17 @@ html, body {
 		<style>
   			/* Para dispositivos móveis (telas menores que 768px) */
 
-			@media (max-width: 360px) {
-				.content {
-  			    margin-top: 280px;
-  			  }  				
-			}
+
   			@media (max-width: 768px) {
   			  .content {
   			    margin-top: 230px;
   			  }
   			}		
+			  @media (max-width: 360px) {
+				.content {
+  			    margin-top: 300px;
+  			  }  				
+			}
   			/* Para telas maiores que 768px */
   			@media (min-width: 769px) {
   			  .content {
