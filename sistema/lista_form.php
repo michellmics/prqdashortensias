@@ -193,11 +193,7 @@ html, body {
 							<div class="col-lg-7 col-md-9 col-12">
 								<!-- Main Menu -->
 								<div class="main-menu">
-									<nav class="navigation">
-										<ul class="nav menu">
-                                            <?php include 'src/menu.php'; ?>
-										</ul>
-									</nav>
+                  <?php include 'src/menu.php'; ?>
 								</div>
 								<!--/ End Main Menu -->
 							</div>
