@@ -250,7 +250,7 @@ html, body {
 					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
     				  <div class="x_panel">
     				    <div class="x_title">
-    				      <h2>Fundo de Reserva</h2>
+    				      <h1>Fundo de Reserva</h1>
     				      <div class="clearfix"></div>
     				    </div>
     				    <div class="x_content">
@@ -265,7 +265,7 @@ html, body {
 					<div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
         			  <div class="x_panel">
         			    <div class="x_title">
-        			      <h2>Despesas (Mês Corrente)</h2>
+        			      <h1>Despesas (Mês Corrente)</h1>
         			      <ul class="nav navbar-right panel_toolbox">
         			        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
         			        </li>
@@ -295,7 +295,7 @@ html, body {
         			<div class="col-md-12 col-sm-12  ">
         			  <div class="x_panel">
         			    <div class="x_title">
-        			      <h2>Despesas</h2>
+        			      <h1>Despesas</h1>
         			      <ul class="nav navbar-right panel_toolbox">
         			        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
         			        </li>
