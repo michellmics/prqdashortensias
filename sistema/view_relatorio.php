@@ -340,8 +340,13 @@ html, body {
   			  .content {
   			    margin-top: 230px;
   			  }
-  			}		
-			  @media (max-width: 360px) {
+  			}	
+			@media (max-width: 375px) {
+				.content {
+  			    margin-top: 300px;
+  			  }  				
+			}
+			@media (max-width: 360px) {
 				.content {
   			    margin-top: 300px;
   			  }  				
