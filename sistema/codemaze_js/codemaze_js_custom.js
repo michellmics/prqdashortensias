@@ -2393,8 +2393,8 @@ function init_echarts() {
 					name: "Meta",
 					type: "gauge",
 					center: ["50%", "50%"],
-					startAngle: -90,
-					endAngle: 90,
+					startAngle: 140,
+					endAngle: -140,
 					min: 0,
 					max: 100,
 					precision: 0,
@@ -2403,10 +2403,10 @@ function init_echarts() {
 						show: !0,
 						lineStyle: {
 							color: [
-                                [0.2, "#9b59b6"], // 0% a 20%
-                                [0.4, "#34495e"], // 20% a 40%
-                                [0.6, "#bdc3c7"], // 40% a 60%
-                                [1, "#26b99a"]    // 60% a 100%
+								[.2, "#9b59b6"],
+								[.4, "#34495e"],
+								[.8, "#bdc3c7"],
+								[1, "#26b99a"]
 							],
 							width: 30
 						}
