@@ -244,9 +244,9 @@ html, body {
                   <table class="table table-hover">
                     <tr>
                       <th></th> 
-					            <th></th> 
-                      <th>NOME</th>
-                      <th>DOC</th>   
+					            <th>DATA</th> 
+                      <th>AP</th>
+                      <th>LOG</th>   
 					            <th></th>                
                     </tr>
                    
@@ -258,7 +258,7 @@ html, body {
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"> <? echo $lin; ?></td>
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"> <?= htmlspecialchars(strlen($log['LOG_DTLOG']) > 20 ? substr($log['LOG_DTLOG'], 0, 20) . '...' : $log['LOG_DTLOG']) ?></td>                        
                         <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"><?= htmlspecialchars(strlen($log['LOG_DCAPARTAMENTO']) > 25 ? substr($log['LOG_DCAPARTAMENTO'], 0, 12) . '...' : $log['LOG_DCUSUARIO']) ?></td> 
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"><?= htmlspecialchars(strlen($log['LOG_DCMSG']) > 50 ? substr($log['LOG_DCMSG'], 0, 50) . '...' : $log['LOG_DCMSG']) ?></td> 
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"><?= htmlspecialchars(strlen($log['LOG_DCMSG']) > 50 ? substr($log['LOG_DCMSG'], 0, 80) . '...' : $log['LOG_DCMSG']) ?></td> 
 						      
                       
                     <?php endforeach; ?>   
