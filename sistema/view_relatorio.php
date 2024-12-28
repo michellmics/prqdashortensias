@@ -343,7 +343,7 @@ html, body {
   			/* Para telas maiores que 768px */
   			@media (min-width: 769px) {
   			  .content {
-  			    margin-top: 200px;
+  			    margin-top: 100px;
   			  }
   			}
 		</style>
