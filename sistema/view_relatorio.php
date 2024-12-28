@@ -174,7 +174,23 @@ html, body {
 		<!-- Header Area -->
 		<?php include 'src/header.php'; ?>
 		<!-- End Header Area -->
-		
+
+		<div class="col-md-5">
+                      Timepeaker
+                      <form class="">
+                        <fieldset>
+                          <div class="control-group">
+                            <div class="controls">
+                              <div class="input-prepend input-group">
+                                <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                                <input type="text" name="reservation-time" id="reservation-time" class="form-control" value="01/01/2016 - 01/25/2016" />
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </form>
+                    </div>
+					
   		<!-- ini content Area -->
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 			<div class="container">
