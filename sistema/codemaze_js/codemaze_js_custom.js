@@ -2658,7 +2658,7 @@ function init_echarts() {
                 type: "value"
             }],
             series: [{
-                name: "Deal",
+                name: "Custo Variável",
                 type: "line",
                 smooth: !0,
                 itemStyle: {
@@ -2670,7 +2670,7 @@ function init_echarts() {
                 },
                 data: [10, 12, 21, 54, 260, 830, 710]
             }, {
-                name: "Pre-order",
+                name: "Emergêncial",
                 type: "line",
                 smooth: !0,
                 itemStyle: {
@@ -2682,7 +2682,7 @@ function init_echarts() {
                 },
                 data: [30, 182, 434, 791, 390, 30, 10]
             }, {
-                name: "Intent",
+                name: "Custo Fixo",
                 type: "line",
                 smooth: !0,
                 itemStyle: {
