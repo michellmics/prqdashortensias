@@ -181,7 +181,7 @@ html, body {
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 			<div class="container">
 		
-				<div class="col-md-5" style="border: none;">
+				<div class="col-md-5" style="border: none; outline: none;">
 				  Escolha o mês
 				  <form class="">
 				    <fieldset>
