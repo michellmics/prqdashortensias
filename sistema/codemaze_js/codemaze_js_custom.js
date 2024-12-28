@@ -2381,11 +2381,11 @@ function init_echarts() {
 					feature: {
 						restore: {
 							show: !0,
-							title: "Restore"
+							title: "Restaurar"
 						},
 						saveAsImage: {
 							show: !0,
-							title: "Save Image"
+							title: "Salvar"
 						}
 					}
 				},
@@ -2470,8 +2470,8 @@ function init_echarts() {
 						borderColor: "#ccc",
 						width: 100,
 						height: 40,
-						offsetCenter: ["-120%", 10],
-						formatter: "R${value}",
+						offsetCenter: ["-60%", 10],
+						formatter: "{value}%",
 						textStyle: {
 							color: "auto",
 							fontSize: 30

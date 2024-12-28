@@ -206,7 +206,7 @@ html, body {
 					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
     				  <div class="x_panel">
     				    <div class="x_title">
-    				      <h1>Fundo de Reserva</h1>
+    				      <h1>Inadimplência</h1>
     				      <div class="clearfix"></div>
     				    </div>
     				    <div class="x_content">
