@@ -242,7 +242,7 @@ html, body {
 		<!-- End Header Area -->
 		
   		<!-- ini content Area -->
-		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh; ">
+		<section class="content mt-0 mt-sm-5" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 			<div class="container">
 
 				<div class="row">
@@ -332,13 +332,7 @@ html, body {
 
 
 		</section>
-		<style>
-  			@media (max-width: 768px) { /* Para dispositivos móveis (telas menores que 768px) */
-  			  .content {
-  			    margin-top: 250px;
-  			  }
-  			}
-	</style>
+		
   		<!-- end content Area -->
 
 <!-- Footer -->
