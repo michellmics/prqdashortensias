@@ -2478,7 +2478,7 @@ function init_echarts() {
 						}
 					},
 					data: [{
-						value: Math.floor(Math.random() * 101),
+						value: Math.floor(Math.random() * (100000 - 50000 + 1)) + 50000,
 						name: "Meta"
 					}]
 				}]
