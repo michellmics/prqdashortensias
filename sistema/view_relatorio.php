@@ -179,6 +179,10 @@ html, body {
 					
   		<!-- ini content Area -->
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+		
+		<div class="container">
+
 		
 		<div class="col-md-5">
                       Timepeaker
@@ -195,8 +199,7 @@ html, body {
                         </fieldset>
                       </form>
                     </div>
-		
-		<div class="container">
+
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
 					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
