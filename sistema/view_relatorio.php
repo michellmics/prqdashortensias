@@ -221,7 +221,7 @@ html, body {
 					<div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
         			  <div class="x_panel">
         			    <div class="x_title">
-        			      <h1>Despesas (Mês Corrente)</h1>
+        			      <h1>Receita (Mês Corrente)</h1>
         			      <ul class="nav navbar-right panel_toolbox">
         			        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
         			        </li>

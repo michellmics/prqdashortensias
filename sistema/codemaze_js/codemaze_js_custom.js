@@ -3483,7 +3483,7 @@ function init_echarts() {
                 legend: {
                     x: "center",
                     y: "bottom",
-                    data: ["Restaurante", "Mercado", "Apple Store", "Conveniência", "Farmacia"]
+                    data: ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"]
                 },
                 toolbox: {
                     show: !0,
@@ -3502,11 +3502,11 @@ function init_echarts() {
                         },
                         restore: {
                             show: !0,
-                            title: "Restore"
+                            title: "restaurar"
                         },
                         saveAsImage: {
                             show: !0,
-                            title: "Save Image"
+                            title: "Salvar Imagem"
                         }
                     }
                 },
@@ -3518,19 +3518,19 @@ function init_echarts() {
                     center: ["50%", "48%"],
                     data: [{
                         value: 335,
-                        name: "Restaurante"
+                        name: "Multas"
                     }, {
                         value: 310,
-                        name: "Mercado"
+                        name: "Salão de Festas"
                     }, {
                         value: 234,
-                        name: "Apple Store"
+                        name: "Processos"
                     }, {
                         value: 135,
-                        name: "Conveniência"
+                        name: "Construtora"
                     }, {
                         value: 1548,
-                        name: "Farmacia"
+                        name: "Cota Condominal"
                     }]
                 }]
             });
