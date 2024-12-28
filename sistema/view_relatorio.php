@@ -336,7 +336,7 @@ html, body {
   			/* Para dispositivos móveis (telas menores que 768px) */
   			@media (max-width: 768px) {
   			  .content {
-  			    margin-top: 48%;
+  			    margin-top: 55%;
   			  }
   			}
 		
