@@ -353,7 +353,7 @@ html, body {
 			}
 			@media (max-width: 450px) {
 				.content {
-  			    margin-top: 250px;
+  			    margin-top: 270px;
   			  }  				
 			}
   			/* Para telas maiores que 768px */
