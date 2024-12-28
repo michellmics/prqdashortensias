@@ -23,6 +23,7 @@
         public $ARRAY_PARAMETERINFO;
         public $ARRAY_MORADORINFO;
         public $ARRAY_LISTAMORADORESINFO;
+        public $ARRAY_LOGINFO;
         public $configPath = '/home/hortensias/config.cfg';
 
 
@@ -368,6 +369,22 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
                 $this->ARRAY_LISTAINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getLogInfo() 
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT * FROM LOG_LOGSISTEMA ORDER BY LOG_DTLOG DESC";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_LOGINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
