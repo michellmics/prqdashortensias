@@ -279,7 +279,7 @@ html, body {
 				<div class="row">
 
 					<!-- INI TABELA -->
-					<div class="col-md-12 col-sm-12 ">
+					<div>
         			  <div class="x_panel">FFF
         			    <div class="x_title">
         			      <h2>Button Example <small>Users</small></h2>
