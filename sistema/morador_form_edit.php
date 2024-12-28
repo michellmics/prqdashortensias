@@ -147,78 +147,12 @@ html, body {
     <body>
 	
 		<!-- Preloader -->
-		<div class="preloader">
-		    <div class="loader">
-		        <div class="loader-outter"></div>
-		        <div class="loader-inner"></div>
-
-		        <div class="indicator"> 
-		            <!-- Substitua este SVG pelo seu novo ícone -->
-		            <svg width="50px" height="50px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-		                <circle cx="50" cy="50" r="45" stroke="#000" stroke-width="5" fill="none" />
-		                <circle cx="50" cy="50" r="40" stroke="#3498db" stroke-width="5" fill="none" />
-		            </svg>
-		        </div>
-		    </div>
-		</div>
+		<?php include 'src/preloader.php'; ?>
 		<!-- End Preloader -->
      
 
 		<!-- Header Area -->
-		<header class="header" >
-			<!-- Topbar -->
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-5 col-12">
-							<!-- Contact -->
-							<ul class="top-link">
-								<!-- <li><a href="#">Serviços</a></li> -->
-								<!-- <li><a href="#">Contact</a></li> -->
-								<!-- <li><a href="#">FAQ</a></li> -->
-							</ul>
-							<!-- End Contact -->
-						</div>
-						<div class="col-lg-6 col-md-7 col-12">
-							<!-- Top Contact -->
-							<ul class="top-contact">
-							 	<li><b>Morador:</b> <? echo $usuariologado; ?></li> 
-								<!--  <li><i class="fa fa-envelope"></i><a href="mailto:sada@sdf.com">23123213123</a></li> -->
-							</ul>
-							<!-- End Top Contact -->
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- End Topbar -->
-			<!-- Header Inner -->
-			<div class="header-inner">
-				<div class="container">
-					<div class="inner">
-						<div class="row">
-							<div class="col-lg-2 col-md-3 col-12">
-								<!-- Start Logo -->
-								<div class="logo">
-									<a href="#slider"><img src="https://prqdashortensias.com.br/sistema/img/logo_hor_hort.png" alt="#"></a>
-								</div>
-								<!-- End Logo -->
-								<!-- Mobile Nav -->
-								<div class="mobile-nav"></div>
-								<!-- End Mobile Nav -->
-							</div>
-							<div class="col-lg-10 col-md-9 col-12">
-								<!-- Main Menu -->
-								<div class="main-menu">
-									<?php include 'src/menu.php'; ?>
-								</div>
-								<!--/ End Main Menu -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ End Header Inner -->
-		</header>
+		<?php include 'src/header.php'; ?>
 		<!-- End Header Area -->
 		
 	
