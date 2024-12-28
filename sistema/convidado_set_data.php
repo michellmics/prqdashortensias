@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id']))
 
 class setDataConvidado extends SITE_ADMIN
 {
-    public function setDataConvidado($LIS_IDLISTACONVIDADOS, $APARTAMENTO)
+    public function setDataConvidado($LIS_IDLISTACONVIDADOS)
     {
        
             // Cria conexão com o banco de dados
@@ -27,7 +27,7 @@ class setDataConvidado extends SITE_ADMIN
             $LOG_DCTIPO = "ATUALIZAÇÃO DE VISITANTE";
             $LOG_DCMSG = "O visitante com id $LIS_IDLISTACONVIDADOS teve a entrada registrada com sucesso.";
             $LOG_DCUSUARIO = $_SESSION['user_id'];
-            $LOG_DCAPARTAMENTO = $APARTAMENTO;
+            $LOG_DCAPARTAMENTO = $_SESSION['user_apartamento'];
             $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
             //--------------------LOG----------------------//
 
@@ -39,9 +39,8 @@ class setDataConvidado extends SITE_ADMIN
 // Processa a requisição GET
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id']; 
-    $ap = $_POST['ap'];
  
      $setData = new setDataConvidado();
-     $setData->setDataConvidado($id, $ap);
+     $setData->setDataConvidado($id);
  }
  ?>
