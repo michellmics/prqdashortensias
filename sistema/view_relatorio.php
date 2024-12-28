@@ -184,7 +184,7 @@ html, body {
 				<div class="col-md-5" style="border: none; outline: none;">
 				  Escolha o mês
 				  <form class="">
-				    <fieldset>
+				    <fieldset style="border: none; outline: none;">
 				      <div class="control-group">
 				        <div class="controls">
 				          <div class="input-prepend input-group">
