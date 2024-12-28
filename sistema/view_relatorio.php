@@ -348,7 +348,7 @@ html, body {
 			}
 			@media (max-width: 360px) {
 				.content {
-  			    margin-top: 300px;
+  			    margin-top: 350px;
   			  }  				
 			}
 			@media (max-width: 450px) {
