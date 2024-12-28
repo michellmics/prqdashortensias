@@ -187,7 +187,7 @@ html, body {
 				<div class="container">
 					<div class="inner">
 						<div class="row">
-							<div class="col-lg-3 col-md-3 col-12">
+							<div class="col-lg-2 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
 									<a href="#slider"><img src="https://prqdashortensias.com.br/sistema/img/logo_hor_hort.png" alt="#"></a>
@@ -197,7 +197,7 @@ html, body {
 								<div class="mobile-nav"></div>
 								<!-- End Mobile Nav -->
 							</div>
-							<div class="col-lg-7 col-md-9 col-12">
+							<div class="col-lg-10 col-md-9 col-12">
 								<!-- Main Menu -->
 								<div class="main-menu">
 									<?php include 'src/menu.php'; ?>
