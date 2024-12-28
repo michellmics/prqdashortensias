@@ -2402,7 +2402,7 @@ function init_echarts() {
 					axisLine: {
 						show: !0,
 						lineStyle: {
-							color: [
+							color: [ 
 								[.2, "#9b59b6"],
 								[.4, "#34495e"],
 								[.8, "#bdc3c7"],
