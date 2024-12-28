@@ -356,6 +356,11 @@ html, body {
   			    margin-top: 350px;
   			  }  				
 			}
+			@media (max-width: 350px) {
+				.content {
+  			    margin-top: 300px;
+  			  }  				
+			}
 
   			/* Para telas maiores que 768px */
   			@media (min-width: 769px) {
