@@ -2470,7 +2470,7 @@ function init_echarts() {
 						borderColor: "#ccc",
 						width: 100,
 						height: 40,
-						offsetCenter: ["-90%", 10],
+						offsetCenter: ["-120%", 10],
 						formatter: "R${value}",
 						textStyle: {
 							color: "auto",
