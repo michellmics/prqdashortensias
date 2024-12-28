@@ -3476,7 +3476,7 @@ function init_echarts() {
         });
 		if ($("#echart_pie_codemaze").length) {
             echarts.init(document.getElementById("echart_pie_codemaze"), e).setOption({
-                color: ["#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A133FF"],
+                //color: ["#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A133FF"], //caso queira personalizar as cores
                 tooltip: {
                     trigger: "item",
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
