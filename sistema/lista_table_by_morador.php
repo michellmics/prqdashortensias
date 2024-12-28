@@ -283,7 +283,7 @@ html, body {
                       
                         <td>
                         <!-- Ícone com ação -->
-                        <button class="btn btn-sm btn-info"  style="background-color:rgb(60, 99, 136); color: white; <? echo $b_adicionar; ?>" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
+                        <button class="btn btn-sm btn-info"  style="background-color:rgb(60, 99, 136); color: white; <? echo $b_adicionar; ?>" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>', '<?= htmlspecialchars($apartamentoSession) ?>')">
                             <i class="fa fa-check-circle"></i>
                         </button>
                         <button class="btn btn-sm btn-info"  style="background-color:rgb(12, 97, 50); color: white; <? echo $b_remover; ?>" onclick="setDataVisitaRem('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>', '<?= htmlspecialchars($apartamentoSession) ?>')">
