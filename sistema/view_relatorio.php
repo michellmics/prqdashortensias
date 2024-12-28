@@ -175,7 +175,12 @@ html, body {
 		<?php include 'src/header.php'; ?>
 		<!-- End Header Area -->
 
-		<div class="col-md-5">
+
+
+  		<!-- ini content Area -->
+		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+			<div class="container">
+			<div class="col-md-5">
                       Timepeaker
                       <form class="">
                         <fieldset>
@@ -190,10 +195,6 @@ html, body {
                         </fieldset>
                       </form>
                     </div>
-					
-  		<!-- ini content Area -->
-		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-			<div class="container">
 
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
