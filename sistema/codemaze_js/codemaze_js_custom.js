@@ -2403,10 +2403,10 @@ function init_echarts() {
 						show: !0,
 						lineStyle: {
 							color: [
-                                [.2, "#9b59b6"], // 0% a 20% Roxo
-                                [.4, "#34495e"], // 20% a 40% chumbo
-                                [.8, "#bdc3c7"], // 40% a 80% cinza
-                                [1, "#26b99a"]    // 80% a 100% verde
+                                [.2, "#26b99a"], // 0% a 20% Roxo 
+                                [.4, "#bdc3c7"], // 20% a 40% chumbo
+                                [.8, "#34495e"], // 40% a 80% cinza 
+                                [1, "#9b59b6"]    // 80% a 100% verde
 							],
 							width: 30
 						}
