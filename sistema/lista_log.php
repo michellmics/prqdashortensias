@@ -251,15 +251,16 @@ html, body {
                     </tr>
                     <tr>
 					<? $lin = 0 ?>
-                    <?php foreach ($dadosPagina as $usuario): ?>
-                      <tr style="cursor: pointer;" onclick="window.location.href='https://www.prqdashortensias.com.br/sistema/lista_form_edit.php?id=<?= $usuario['LIS_IDLISTACONVIDADOS'] ?>';">
+                    <?php foreach ($dadosPagina as $log): ?>
+                     
                         <td style="text-transform: uppercase; font-size: 15px;">
                         </td> <? $lin++; ?>
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"> <? echo $lin; ?></td>
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"> <?= htmlspecialchars(strlen($usuario['LIS_DCNOME']) > 20 ? substr($usuario['LIS_DCNOME'], 0, 20) . '...' : $usuario['LIS_DCNOME']) ?></td>                        
-                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"><?= htmlspecialchars(strlen($usuario['LIS_DCDOCUMENTO']) > 25 ? substr($usuario['LIS_DCDOCUMENTO'], 0, 12) . '...' : $usuario['LIS_DCDOCUMENTO']) ?></td> 
-						<td style="text-transform: uppercase; font-size: 15px; vertical-align: middle;"><a href="javascript:void(0);" onclick="event.stopPropagation(); confirmDelete(<?= $usuario['LIS_IDLISTACONVIDADOS']; ?>)"><i class="fa fa-trash"></i></span></a></td>       
-                      </tr>
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"> <?= htmlspecialchars(strlen($log['LOG_DTLOG']) > 20 ? substr($log['LOG_DTLOG'], 0, 20) . '...' : $log['LOG_DTLOG']) ?></td>                        
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"><?= htmlspecialchars(strlen($log['LOG_DCUSUARIO']) > 25 ? substr($log['LOG_DCUSUARIO'], 0, 12) . '...' : $log['LOG_DCUSUARIO']) ?></td> 
+                        <td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"><?= htmlspecialchars(strlen($log['LOG_DCMSG']) > 25 ? substr($log['LOG_DCMSG'], 0, 12) . '...' : $log['LOG_DCMSG']) ?></td> 
+						      
+                      
                     <?php endforeach; ?>   
                     </tr>
                   </table>
