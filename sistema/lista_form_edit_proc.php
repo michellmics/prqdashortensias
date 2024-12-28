@@ -33,7 +33,7 @@ class registerVisitante extends SITE_ADMIN
             $LOG_DCTIPO = "ATUALIZAÇÃO DE VISITANTE";
             $LOG_DCMSG = "O visitante $nome foi atualizado para o status $status.";
             $LOG_DCUSUARIO = $_SESSION['user_id'];
-            $LOG_DCAPARTAMENTO = "N/A";
+            $LOG_DCAPARTAMENTO = $_SESSION['user_apartamento'];
             $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
             //--------------------LOG----------------------//
 

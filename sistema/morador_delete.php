@@ -49,7 +49,7 @@ class deleteMorador extends SITE_ADMIN
             $LOG_DCTIPO = "REMOÇÃO DE CADASTRO";
             $LOG_DCMSG = "O usuário com ID $USU_IDUSUARIO foi removido com sucesso.";
             $LOG_DCUSUARIO = $_SESSION['user_id'];
-            $LOG_DCAPARTAMENTO = "N/A";
+            $LOG_DCAPARTAMENTO = $_SESSION['user_apartamento'];
             $this->insertLogInfo($LOG_DCTIPO, $LOG_DCMSG, $LOG_DCUSUARIO, $LOG_DCAPARTAMENTO);
             //--------------------LOG----------------------//
     
