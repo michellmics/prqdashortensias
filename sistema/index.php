@@ -178,7 +178,7 @@ html, body {
 								<div class="mobile-nav"></div>
 								<!-- End Mobile Nav -->
 							</div>
-							<div class="col-lg-7 col-md-9 col-12">
+							<div class="col-lg-7 col-md-12 col-12">
 								<!-- Main Menu -->
 								<div class="main-menu">
 									<?php include 'src/menu.php'; ?>
