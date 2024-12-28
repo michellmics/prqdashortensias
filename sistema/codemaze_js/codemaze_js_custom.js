@@ -2614,8 +2614,8 @@ function init_echarts() {
         });
         if ($("#echart_line").length) echarts.init(document.getElementById("echart_line"), e).setOption({
             title: {
-                text: "Line Graph",
-                subtext: "Subtitle"
+                text: "Valores em R$.",
+                subtext: "Despesas ao longo do ano."
             },
             tooltip: {
                 trigger: "axis"
@@ -2623,7 +2623,7 @@ function init_echarts() {
             legend: {
                 x: 220,
                 y: 40,
-                data: ["Intent", "Pre-order", "Deal"]
+                data: ["Emergêncial", "Custo Fixo", "Custo Variável"]
             },
             toolbox: {
                 show: !0,
