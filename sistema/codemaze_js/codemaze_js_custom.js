@@ -2471,7 +2471,7 @@ function init_echarts() {
 						width: 100,
 						height: 40,
 						offsetCenter: ["-60%", 10],
-						formatter: "{value}%",
+						formatter: "R${value}",
 						textStyle: {
 							color: "auto",
 							fontSize: 30
