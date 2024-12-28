@@ -2425,13 +2425,13 @@ function init_echarts() {
 						show: !0,
 						formatter: function(e) {
 							switch (e + "") {
-								case "10":
+								case "45":
 									return "a";
-								case "30":
+								case "35":
 									return "b";
-								case "60":
+								case "25":
 									return "c";
-								case "90":
+								case "20":
 									return "d";
 								default:
 									return ""
