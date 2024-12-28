@@ -340,7 +340,12 @@ html, body {
   			  .content {
   			    margin-top: 230px;
   			  }
-  			}	
+  			}
+			  @media (max-width: 450px) {
+				.content {
+  			    margin-top: 270px;
+  			  }  				
+			}	
 			@media (max-width: 375px) {
 				.content {
   			    margin-top: 400px;
@@ -351,11 +356,7 @@ html, body {
   			    margin-top: 350px;
   			  }  				
 			}
-			@media (max-width: 450px) {
-				.content {
-  			    margin-top: 270px;
-  			  }  				
-			}
+
   			/* Para telas maiores que 768px */
   			@media (min-width: 769px) {
   			  .content {
