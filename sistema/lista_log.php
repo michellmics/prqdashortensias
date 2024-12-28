@@ -249,10 +249,10 @@ html, body {
                       <th>DOC</th>   
 					            <th></th>                
                     </tr>
-                    <tr>
+                   
 					<? $lin = 0 ?>
                     <?php foreach ($dadosPagina as $log): ?>
-                     
+                      <tr>
                         <td style="text-transform: uppercase; font-size: 15px;">
                         </td> <? $lin++; ?>
 						<td style="text-transform: uppercase; font-size: 10px; vertical-align: middle; color:#993399; ?>"> <? echo $lin; ?></td>
