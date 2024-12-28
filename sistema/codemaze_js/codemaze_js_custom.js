@@ -2393,8 +2393,8 @@ function init_echarts() {
 					name: "Meta",
 					type: "gauge",
 					center: ["50%", "50%"],
-					startAngle: -140,
-					endAngle: 140,
+					startAngle: -90,
+					endAngle: 90,
 					min: 0,
 					max: 100,
 					precision: 0,
@@ -2402,7 +2402,7 @@ function init_echarts() {
 					axisLine: {
 						show: !0,
 						lineStyle: {
-							color: [ 
+							color: [
 								[.2, "#9b59b6"],
 								[.4, "#34495e"],
 								[.8, "#bdc3c7"],
