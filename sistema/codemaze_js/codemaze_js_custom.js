@@ -2404,8 +2404,6 @@ function init_echarts() {
 						lineStyle: {
 							color: [
                                 [.2, "#9b59b6"], // 0% a 20%
-                                [.4, "#34495e"], // 20% a 40%
-                                [.8, "#bdc3c7"], // 40% a 80%
                                 [1, "#26b99a"]    // 80% a 100%
 							],
 							width: 30
