@@ -286,7 +286,7 @@ html, body {
                         <button class="btn btn-sm btn-info"  style="background-color:rgb(60, 99, 136); color: white; <? echo $b_adicionar; ?>" onclick="setDataVisita('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
                             <i class="fa fa-check-circle"></i>
                         </button>
-                        <button class="btn btn-sm btn-info"  style="background-color:rgb(12, 97, 50); color: white; <? echo $b_remover; ?>" onclick="setDataVisitaRem('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>')">
+                        <button class="btn btn-sm btn-info"  style="background-color:rgb(12, 97, 50); color: white; <? echo $b_remover; ?>" onclick="setDataVisitaRem('<?= htmlspecialchars($usuario['LIS_IDLISTACONVIDADOS']) ?>', '<?= htmlspecialchars($apartamentoSession) ?>')">
                         <i class="fa fa-close"></i>
                         </button>
                         
@@ -304,7 +304,7 @@ html, body {
     <!-- SWEETALERT 2 -->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-      function setDataVisita(idVisita){
+      function setDataVisita(idVisita, apartamentoSession){
         event.preventDefault(); // Impede o envio padrão do formulário
         Swal.fire({
           title: 'Lista de Convidados',
@@ -333,7 +333,7 @@ html, body {
             $.ajax({
               url: "convidado_set_data.php", // URL para processamento
               type: "POST",
-              data: { id: idVisita}, // Dados enviados
+              data: { id: idVisita, ap: apartamentoSession}, // Dados enviados
               success: function (response) {
                 Swal.fire({
               title: 'Salvo!',
