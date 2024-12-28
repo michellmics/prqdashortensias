@@ -43,7 +43,7 @@
 	if(count($siteAdmin->ARRAY_LOGINFO) > 0)
 	{
 	  // Configurações de Paginação
-	  $registrosPorPagina = 100;
+	  $registrosPorPagina = 50;
 	  $paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 	  $totalRegistros = count($siteAdmin->ARRAY_LOGINFO);
 	  $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
