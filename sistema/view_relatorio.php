@@ -172,7 +172,7 @@ html, body {
      
 
 		<!-- Header Area -->
-		<?php include 'src/header.php'; ?>
+		<?php include 'src/header.php'; ?> 
 		<!-- End Header Area -->
 		
   		<!-- ini content Area -->
