@@ -4359,7 +4359,7 @@ $.fn.popover.Constructor.prototype.leave = function(e) {
 
 // Função para buscar dados de uma consulta específica
 function buscarDados(consulta) {
-    fetch('consultas.php', {
+    fetch('charts_consultas.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
