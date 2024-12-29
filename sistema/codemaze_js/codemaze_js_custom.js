@@ -2493,7 +2493,7 @@ function init_echarts() {
 						}
 					},
 					data: [{
-						value: Math.floor(Math.random() * 101),
+						value: valor,
 						name: "Meta"
 					}]
 				}]
@@ -2502,17 +2502,6 @@ function init_echarts() {
 			// Definir a opção inicial para o gráfico
 			myChart.setOption(option);
 		
-			// Atualizar o gráfico a cada 1 segundo
-			setInterval(function() {
-				myChart.setOption({
-					series: [{
-						data: [{
-							value: Math.floor(Math.random() * 101), // Novo valor aleatório
-							name: "Meta"
-						}]
-					}]
-				});
-			}, 1000); // 1000ms = 1 segundo
 		}
 
 		
