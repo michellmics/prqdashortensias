@@ -2374,7 +2374,7 @@ function init_echarts() {
             const element = document.getElementById("echart_gauge_codemaze"); //pra buscar o atributo de data
             var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
             const dataCalendario = element.getAttribute("data-valor"); // ou element.dataset.valor
-            console.log('Valor de datetime:', data);
+            console.log('Valor de datetime:', dataCalendario);
         
             async function carregarDados() {
                 try {
