@@ -47,7 +47,7 @@
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
-                $this->ARRAY_DESPESAFULLINFO = $stmt->fetch(PDO::FETCH_ASSOC);
+                $this->ARRAY_DESPESAFULLINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
