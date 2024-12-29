@@ -2379,17 +2379,7 @@ function init_echarts() {
                     const valor = dados[0]?.REP_NMVALOR; // Obtém o valor desejado
                     console.log('Valor de REP_NMVALOR:', valor);
         
-                    // Aqui você pode usar o valor para configurar o gráfico
-                    var option = {
-                        series: [
-                            {
-                                type: 'gauge',
-                                data: [{ value: parseFloat(valor), name: 'Inadimplência' }]
-                            }
-                        ]
-                    };
-                    myChart.setOption(option); // Atualiza o gráfico com os dados
-                } catch (error) {
+                   } catch (error) {
                     console.error('Erro ao carregar os dados:', error);
                 }
             }
@@ -2503,7 +2493,7 @@ function init_echarts() {
 						}
 					},
 					data: [{
-						value: parseFloat(valor),
+						value: Math.floor(Math.random() * 101),
 						name: "Meta"
 					}]
 				}]
@@ -2517,8 +2507,7 @@ function init_echarts() {
 				myChart.setOption({
 					series: [{
 						data: [{
-							//value: Math.floor(Math.random() * 101), // Novo valor aleatório
-                            value: parseFloat(valor),
+							value: Math.floor(Math.random() * 101), // Novo valor aleatório
 							name: "Meta"
 						}]
 					}]
