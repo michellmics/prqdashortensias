@@ -2371,6 +2371,7 @@ function init_echarts() {
         });
 		if ($("#echart_gauge_codemaze").length) {
             // Inicializa o gráfico
+            const element = document.getElementById("echart_gauge_codemaze");
             var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
             const data = element.getAttribute("data-valor"); // ou element.dataset.valor
             console.log('Valor de datetime:', data);
