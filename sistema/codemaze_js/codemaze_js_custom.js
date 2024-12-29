@@ -2493,7 +2493,7 @@ function init_echarts() {
 						}
 					},
 					data: [{
-						value: valor,
+						value: Math.floor(Math.random() * 101),
 						name: "Meta"
 					}]
 				}]
@@ -2507,7 +2507,7 @@ function init_echarts() {
 				myChart.setOption({
 					series: [{
 						data: [{
-							value: valor, // Novo valor aleatório
+							value: Math.floor(Math.random() * 101), // Novo valor aleatório
 							name: "Meta"
 						}]
 					}]
