@@ -43,7 +43,7 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM REP_REPORT WHERE REP_DCTIPO LIKE DESPESA = 'DESPESA%'";
+                $sql = "SELECT * FROM REP_REPORT WHERE REP_DCTIPO LIKE 'DESPESA%'";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
