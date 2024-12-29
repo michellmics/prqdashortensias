@@ -2372,10 +2372,29 @@ function init_echarts() {
 		if ($("#echart_gauge_codemaze").length) {
 			// Inicializa o gráfico
 			var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
-            var dados;
-
-            dados = buscarDados('inadimplencia');
-            console.log(dados);
+            
+            async function carregarDados() {
+                try {
+                    const dados = await buscarDados('inadimplencia');
+                    const valor = dados[0]?.REP_NMVALOR; // Obtém o valor desejado
+                    console.log('Valor de REP_NMVALOR:', valor);
+        
+                    // Aqui você pode usar o valor para configurar o gráfico
+                    var option = {
+                        series: [
+                            {
+                                type: 'gauge',
+                                data: [{ value: parseFloat(valor), name: 'Inadimplência' }]
+                            }
+                        ]
+                    };
+                    myChart.setOption(option); // Atualiza o gráfico com os dados
+                } catch (error) {
+                    console.error('Erro ao carregar os dados:', error);
+                }
+            }
+        
+            carregarDados();
 		
 			// Opções iniciais do gráfico
 			var option = {
