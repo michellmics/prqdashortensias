@@ -210,7 +210,7 @@ html, body {
     				      <div class="clearfix"></div>
     				    </div>
     				    <div class="x_content">
-    				      <div id="echart_gauge_codemaze" style="height:350px;"></div>
+    				      <div id="echart_gauge_codemaze" datetime="452" style="height:350px;"></div>
     				    </div>
     				  </div>
     				</div>
