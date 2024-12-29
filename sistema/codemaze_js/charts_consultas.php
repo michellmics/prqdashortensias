@@ -14,7 +14,7 @@
 	 switch ($consulta) {
         case 'inadimplencia':
 			$siteCharts->getInadimplenciaFull();
-			echo json_encode($siteCharts->ARRAY_DESPESAFULLINFO);
+			echo json_encode($siteCharts->ARRAY_INADIMPLENCIAFULLINFO);
             break;
 
         case 'despesas':
