@@ -5,6 +5,9 @@
 
 	header('Content-Type: application/json');
 
+	$dados = json_decode(file_get_contents("php://input"), true);
+	$consulta = isset($dados['consulta']) ? $dados['consulta'] : null;
+
   	include_once '../../objetos_chart.php'; 
 	$siteCharts = new SITE_CHARTS();    
 

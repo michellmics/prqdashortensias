@@ -1,3 +1,5 @@
+const baseUrl = 'charts_consultas.php';
+
 ! function(a) {
     jQuery.fn[a] = function(e) {
         return e ? this.bind("resize", (t = e, function() {
@@ -2370,6 +2372,8 @@ function init_echarts() {
 		if ($("#echart_gauge_codemaze").length) {
 			// Inicializa o gráfico
 			var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
+
+            buscarDados('usuarios');
 		
 			// Opções iniciais do gráfico
 			var option = {
@@ -4352,3 +4356,17 @@ $.fn.popover.Constructor.prototype.leave = function(e) {
 }), $(document).ready(function() {
     init_sparklines(), init_flot_chart(), init_sidebar(), init_wysiwyg(), init_InputMask(), init_JQVmap(), init_cropper(), init_knob(), init_IonRangeSlider(), init_ColorPicker(), init_TagsInput(), init_parsley(), init_daterangepicker(), init_daterangepicker_right(), init_daterangepicker_single_call(), init_daterangepicker_reservation(), init_SmartWizard(), init_EasyPieChart(), init_charts(), init_echarts(), init_morris_charts(), init_skycons(), init_select2(), init_validator(), init_DataTables(), init_chart_doughnut(), init_gauge(), init_PNotify(), init_starrr(), init_calendar(), init_compose(), init_CustomNotification(), init_autosize(), init_autocomplete()
 });
+
+// Função para buscar dados de uma consulta específica
+function buscarDados(consulta) {
+    fetch('consultas.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ consulta: consulta })
+    })
+    .then(response => response.json())
+    .then(data => console.log(`Resultados para ${consulta}:`, data))
+    .catch(error => console.error(`Erro ao buscar os dados (${consulta}):`, error));
+}
