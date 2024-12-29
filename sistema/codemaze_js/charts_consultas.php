@@ -3,6 +3,8 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 
+	header('Content-Type: application/json');
+
   	include_once '../../objetos_chart.php'; 
 	$siteCharts = new SITE_CHARTS();    
 
