@@ -2372,6 +2372,8 @@ function init_echarts() {
 		if ($("#echart_gauge_codemaze").length) {
             // Inicializa o gráfico
             var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
+            const datetime = element.getAttribute("datetime"); // ou element.dataset.valor
+            console.log('Valor de datetime:', datetime);
         
             async function carregarDados() {
                 try {
