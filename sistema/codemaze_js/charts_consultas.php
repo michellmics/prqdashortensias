@@ -9,10 +9,31 @@
 	$consulta = isset($dados['consulta']) ? $dados['consulta'] : null;
 
   	include_once '../../objetos_chart.php'; 
-	$siteCharts = new SITE_CHARTS();    
+	$siteCharts = new SITE_CHARTS(); 
+	
+	 switch ($consulta) {
+        case 'inadimplencia':
+			$siteCharts->getInadimplenciaFull();
+			echo json_encode($siteCharts->ARRAY_DESPESAFULLINFO);
+            break;
 
- 	$siteCharts->getDespesasFull();
-  	echo json_encode($siteCharts->ARRAY_DESPESAFULLINFO);
+        case 'despesas':
+			$siteCharts->getDespesasFull();
+			echo json_encode($siteCharts->ARRAY_DESPESAFULLINFO);
+            break;
+
+        case 'receita':
+			$siteCharts->getReceitasFull();
+			echo json_encode($siteCharts->ARRAY_DESPESAFULLINFO);
+            break;
+
+        default:
+            $resultados = ['erro' => 'Consulta inválida ou não especificada'];
+            break;
+    }
+	
+
+
 
 
 
