@@ -2371,14 +2371,14 @@ function init_echarts() {
         });
 		if ($("#echart_gauge_codemaze").length) {
             // Inicializa o gráfico
-            const element = document.getElementById("echart_gauge_codemaze");
+            const element = document.getElementById("echart_gauge_codemaze"); //pra buscar o atributo de data
             var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
-            const data = element.getAttribute("data-valor"); // ou element.dataset.valor
+            const dataCalendario = element.getAttribute("data-valor"); // ou element.dataset.valor
             console.log('Valor de datetime:', data);
         
             async function carregarDados() {
                 try {
-                    const dados = await buscarDados('inadimplencia');
+                    const dados = await buscarDados('inadimplencia', dataCalendario);
                     const valor = dados[0]?.REP_NMVALOR; // Obtém o valor desejado
                     console.log('Valor de REP_NMVALOR:', valor);
         
@@ -4362,13 +4362,13 @@ $.fn.popover.Constructor.prototype.leave = function(e) {
 });
 
 // Função para buscar dados de uma consulta específica
-function buscarDados(consulta) {
+function buscarDados(consulta, dataCalendario) {
     return fetch('codemaze_js/charts_consultas.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ consulta: consulta })
+        body: JSON.stringify({ consulta: consulta, dataCalendario: dataCalendario })
     })
     .then(response => {
         if (!response.ok) {
