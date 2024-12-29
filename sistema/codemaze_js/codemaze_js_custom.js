@@ -2502,6 +2502,7 @@ function init_echarts() {
 			// Definir a opção inicial para o gráfico
 			myChart.setOption(option);
 		
+
 		}
 
 		
