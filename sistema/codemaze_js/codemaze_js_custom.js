@@ -2373,7 +2373,7 @@ function init_echarts() {
 			// Inicializa o gráfico
 			var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
 
-            buscarDados('usuarios');
+            buscarDados('inadimplencia');
 		
 			// Opções iniciais do gráfico
 			var option = {
