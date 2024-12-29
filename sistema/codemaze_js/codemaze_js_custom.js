@@ -2372,8 +2372,10 @@ function init_echarts() {
 		if ($("#echart_gauge_codemaze").length) {
 			// Inicializa o gráfico
 			var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
+            var dados;
 
-            buscarDados('inadimplencia');
+            dados = buscarDados('inadimplencia');
+            console.log(dados);
 		
 			// Opções iniciais do gráfico
 			var option = {
@@ -4359,14 +4361,22 @@ $.fn.popover.Constructor.prototype.leave = function(e) {
 
 // Função para buscar dados de uma consulta específica
 function buscarDados(consulta) {
-    fetch('codemaze_js/charts_consultas.php', {
+    return fetch('codemaze_js/charts_consultas.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ consulta: consulta })
     })
-    .then(response => response.json())
-    .then(data => console.log(`Resultados para ${consulta}:`, data))
-    .catch(error => console.error(`Erro ao buscar os dados (${consulta}):`, error));
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Erro na resposta do servidor: ${response.statusText}`);
+        }
+        return response.json(); // Retorna os dados como JSON
+    })
+    .catch(error => {
+        console.error(`Erro ao buscar os dados (${consulta}):`, error);
+        throw error; // Propaga o erro para o chamador
+    });
 }
+
