@@ -2487,7 +2487,7 @@ function init_echarts() {
                             },
                             data: [{
                                 value: parseFloat(valor), // Usa o valor obtido
-                                name: "Meta"
+                                name: "Atual"
                             }]
                         }]
                     };
