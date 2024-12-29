@@ -2370,150 +2370,140 @@ function init_echarts() {
             }]
         });
 		if ($("#echart_gauge_codemaze").length) {
-			// Inicializa o gráfico
-			var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
-            
+            // Inicializa o gráfico
+            var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
+        
             async function carregarDados() {
                 try {
                     const dados = await buscarDados('inadimplencia');
                     const valor = dados[0]?.REP_NMVALOR; // Obtém o valor desejado
                     console.log('Valor de REP_NMVALOR:', valor);
         
-                   } catch (error) {
+                    // Atualiza o gráfico com o valor obtido
+                    var option = {
+                        tooltip: {
+                            formatter: "{a} <br/>{b} : {c}%"
+                        },
+                        toolbox: {
+                            show: !0,
+                            feature: {
+                                restore: {
+                                    show: !0,
+                                    title: "Restaurar"
+                                },
+                                saveAsImage: {
+                                    show: !0,
+                                    title: "Salvar"
+                                }
+                            }
+                        },
+                        series: [{
+                            name: "Meta",
+                            type: "gauge",
+                            center: ["50%", "50%"],
+                            startAngle: 140,
+                            endAngle: -140,
+                            min: 0,
+                            max: 100,
+                            precision: 0,
+                            splitNumber: 10,
+                            axisLine: {
+                                show: !0,
+                                lineStyle: {
+                                    color: [
+                                        [.2, "#26b99a"], // 0% a 20% Roxo 
+                                        [.4, "#bdc3c7"], // 20% a 40% chumbo
+                                        [.8, "#34495e"], // 40% a 80% cinza 
+                                        [1, "#9b59b6"]    // 80% a 100% verde
+                                    ],
+                                    width: 30
+                                }
+                            },
+                            axisTick: {
+                                show: !0,
+                                splitNumber: 5,
+                                length: 8,
+                                lineStyle: {
+                                    color: "#eee",
+                                    width: 1,
+                                    type: "solid"
+                                }
+                            },
+                            axisLabel: {
+                                show: !0,
+                                formatter: function(e) {
+                                    switch (e + "") {
+                                        case "10":
+                                            return "a";
+                                        case "30":
+                                            return "b";
+                                        case "60":
+                                            return "c";
+                                        case "90":
+                                            return "d";
+                                        default:
+                                            return ""
+                                    }
+                                },
+                                textStyle: {
+                                    color: "#333"
+                                }
+                            },
+                            splitLine: {
+                                show: !0,
+                                length: 30,
+                                lineStyle: {
+                                    color: "#eee",
+                                    width: 2,
+                                    type: "solid"
+                                }
+                            },
+                            pointer: {
+                                length: "80%",
+                                width: 8,
+                                color: "auto"
+                            },
+                            title: {
+                                show: !0,
+                                offsetCenter: ["-65%", -10],
+                                textStyle: {
+                                    color: "#333",
+                                    fontSize: 15
+                                }
+                            },
+                            detail: {
+                                show: !0,
+                                backgroundColor: "rgba(0,0,0,0)",
+                                borderWidth: 0,
+                                borderColor: "#ccc",
+                                width: 100,
+                                height: 40,
+                                offsetCenter: ["-60%", 10],
+                                formatter: "{value}%",
+                                textStyle: {
+                                    color: "auto",
+                                    fontSize: 30
+                                }
+                            },
+                            data: [{
+                                value: parseFloat(valor), // Usa o valor obtido
+                                name: "Meta"
+                            }]
+                        }]
+                    };
+        
+                    // Define a opção inicial para o gráfico
+                    myChart.setOption(option);
+        
+                } catch (error) {
                     console.error('Erro ao carregar os dados:', error);
                 }
             }
         
+            // Carrega os dados e atualiza o gráfico
             carregarDados();
-		
-			// Opções iniciais do gráfico
-			var option = {
-				tooltip: {
-					formatter: "{a} <br/>{b} : {c}%"
-				},
-				toolbox: {
-					show: !0,
-					feature: {
-						restore: {
-							show: !0,
-							title: "Restaurar"
-						},
-						saveAsImage: {
-							show: !0,
-							title: "Salvar"
-						}
-					}
-				},
-				series: [{
-					name: "Meta",
-					type: "gauge",
-					center: ["50%", "50%"],
-					startAngle: 140,
-					endAngle: -140,
-					min: 0,
-					max: 100,
-					precision: 0,
-					splitNumber: 10,
-					axisLine: {
-						show: !0,
-						lineStyle: {
-							color: [
-                                [.2, "#26b99a"], // 0% a 20% Roxo 
-                                [.4, "#bdc3c7"], // 20% a 40% chumbo
-                                [.8, "#34495e"], // 40% a 80% cinza 
-                                [1, "#9b59b6"]    // 80% a 100% verde
-							],
-							width: 30
-						}
-					},
-					axisTick: {
-						show: !0,
-						splitNumber: 5,
-						length: 8,
-						lineStyle: {
-							color: "#eee",
-							width: 1,
-							type: "solid"
-						}
-					},
-					axisLabel: {
-						show: !0,
-						formatter: function(e) {
-							switch (e + "") {
-								case "10":
-									return "a";
-								case "30":
-									return "b";
-								case "60":
-									return "c";
-								case "90":
-									return "d";
-								default:
-									return ""
-							}
-						},
-						textStyle: {
-							color: "#333"
-						}
-					},
-					splitLine: {
-						show: !0,
-						length: 30,
-						lineStyle: {
-							color: "#eee",
-							width: 2,
-							type: "solid"
-						}
-					},
-					pointer: {
-						length: "80%",
-						width: 8,
-						color: "auto"
-					},
-					title: {
-						show: !0,
-						offsetCenter: ["-65%", -10],
-						textStyle: {
-							color: "#333",
-							fontSize: 15
-						}
-					},
-					detail: {
-						show: !0,
-						backgroundColor: "rgba(0,0,0,0)",
-						borderWidth: 0,
-						borderColor: "#ccc",
-						width: 100,
-						height: 40,
-						offsetCenter: ["-60%", 10],
-						formatter: "{value}%",
-						textStyle: {
-							color: "auto",
-							fontSize: 30
-						}
-					},
-					data: [{
-						value: Math.floor(Math.random() * 101),
-						name: "Meta"
-					}]
-				}]
-			};
-		
-			// Definir a opção inicial para o gráfico
-			myChart.setOption(option);
-		
-			// Atualizar o gráfico a cada 1 segundo
-			setInterval(function() {
-				myChart.setOption({
-					series: [{
-						data: [{
-							value: Math.floor(Math.random() * 101), // Novo valor aleatório
-							name: "Meta"
-						}]
-					}]
-				});
-			}, 1000); // 1000ms = 1 segundo
-		}
+        }
+        
 
 		
         if ($("#echart_gauge").length) echarts.init(document.getElementById("echart_gauge"), e).setOption({
