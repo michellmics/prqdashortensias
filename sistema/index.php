@@ -181,7 +181,7 @@ html, body {
 		<div id="promoPopup" style="display: none;">
 		    <div class="popup-content">
 		        <button class="close-btn" onclick="closePopup()">×</button>
-		        <img src="https://prqdashortensias.com.br/sistema/img/logo_icon.png" 
+		        <img src="https://prqdashortensias.com.br/sistema/img/pop_up_publi.png" 
 		             alt="Promoção" style="max-width: 100%; height: auto;">
 		    </div>
 		</div>
