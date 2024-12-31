@@ -147,9 +147,9 @@ html, body {
     }
 
     .close-btn {
+		top: -20px; /* Move o botão para cima da imagem */
+        right: -20px; /* Move o botão para a direita da imagem */
         position: absolute;
-        top: 10px;
-        right: 10px;
         background: #ff0000;
         color: white;
         border: none;
