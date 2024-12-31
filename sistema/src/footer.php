@@ -46,7 +46,7 @@
 <footer class="footerNew">
   <!-- Marquee com o conteúdo rolante -->
   <div class="marquee-container">
-    <span>Promoção imperdivel da PizzaHut! Compre 2 pizzas grandes e ganhe uma sobremesa grátis. Promoção válida para os moradores do Cond. Hortênsias. Clique <a href="#" target="_blank" >aqui</a> e siga-nos no instagram!.</span>
+    <span><a href="#" target="_blank" >Promoção imperdivel da PizzaHut! Compre 2 pizzas grandes e ganhe uma sobremesa grátis. Promoção válida para os moradores do Cond. Hortênsias. Clique aqui e siga-nos no instagram!.</a> </span>
   </div>
   
   <!-- Conteúdo abaixo do marquee -->
