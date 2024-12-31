@@ -113,7 +113,57 @@ html, body {
       background-color: #E6E6FA; /* Lilás ainda mais claro ao passar o mouse */
   }
 
-        </style>
+</style>
+
+<!-- pop-up promoção CSS -->
+<style>
+    #promoPopup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .popup-content {
+        position: relative;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 90%;
+        max-height: 90%;
+        text-align: center;
+    }
+
+    .popup-content img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff0000;
+        color: white;
+        border: none;
+        font-size: 20px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background: #cc0000;
+    }
+</style>
+<!-- pop-up promoção CSS -->
 		
     </head>
     <body>
@@ -126,10 +176,20 @@ html, body {
 		<!-- Header Area -->
 		<?php include 'src/header.php'; ?>
 		<!-- End Header Area -->
+
+		<!--  Pop-up publicidade-->
+		<div id="promoPopup" style="display: none;">
+		    <div class="popup-content">
+		        <button class="close-btn" onclick="closePopup()">×</button>
+		        <img src="https://prqdashortensias.com.br/sistema/img/logo_icon_trasnparent.png" 
+		             alt="Promoção" style="max-width: 100%; height: auto;">
+		    </div>
+		</div>
+		<!--  Pop-up publicidade-->
 		
 	
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    		<img src="https://prqdashortensias.com.br/sistema/img/logo_icon_trasnparent.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
+    		<img src="https://prqdashortensias.com.br/sistema/img/logo_hor_hortencias.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
 		</section>
 
 
@@ -138,6 +198,23 @@ html, body {
 <?php include 'src/footer.php'; ?>
 </footer>
 		
+<!-- Controle do pop-up de promoção -->
+<script>
+    // Função para abrir o pop-up
+    function openPopup() {
+        document.getElementById('promoPopup').style.display = 'flex';
+    }
+
+    // Função para fechar o pop-up
+    function closePopup() {
+        document.getElementById('promoPopup').style.display = 'none';
+    }
+
+    // Abra o pop-up automaticamente após 2 segundos
+    window.onload = function() {
+        setTimeout(openPopup, 2000);
+    };
+</script>
 
 		
 		<!-- jquery Min JS -->
