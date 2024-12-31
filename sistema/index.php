@@ -87,7 +87,7 @@ html, body {
     font-size: 12px; /* Fonte pequena */
     text-align: center; /* Centraliza o texto */
     padding: 0; /* Remove espaçamento interno */
-    height: 80px; /* Altura do footer */
+    height: 65px; /* Altura do footer */
     line-height: 30px; /* Centraliza verticalmente o texto */
     position: fixed; /* Fixa o footer */
     bottom: 0; /* Colado no final da página */
