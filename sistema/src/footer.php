@@ -1,7 +1,7 @@
 <style>
   /* Estilo para o container do texto rolante */
   .marquee-container {
-    display: inline-block; /* Faz o conteúdo rolar em linha */
+    display: block;
     white-space: nowrap;
     overflow: hidden;
     width: 100%; /* Ajusta a largura conforme necessário */
@@ -28,10 +28,9 @@
 
   /* Estilo do conteúdo abaixo do marquee */
   .footer-info {
-    font-size: 14px;
-    color: #333;
     text-align: center;
-    padding-top: 5px; /* Reduz o espaçamento entre o marquee e o conteúdo abaixo */
+    font-size: 11px;
+    color: #333;
   }
 
   .footer-info a {
