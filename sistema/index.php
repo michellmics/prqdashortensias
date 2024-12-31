@@ -164,6 +164,22 @@ html, body {
     }
 </style>
 <!-- pop-up promoção CSS -->
+
+<style>
+.footerUpper {
+    background-color: #d9d9d9; /* Cinza claro */
+    color: #333; /* Texto escuro */
+    font-size: 12px; /* Fonte pequena */
+    text-align: center; /* Centraliza o texto */
+    padding: 5px 0; /* Espaçamento interno */
+    height: auto; /* Altura ajustável conforme o conteúdo */
+    line-height: normal; /* Alinha verticalmente o texto */
+    position: relative; /* Para empilhar corretamente com o footer existente */
+    width: 100%; /* Largura total */
+    border-bottom: 1px solid #ccc; /* Linha separadora opcional */
+}
+</style>
+
 		
     </head>
     <body>
@@ -192,15 +208,13 @@ html, body {
 
 
 
-
-	<footer class="footerNew">
-  <a href="https://codemaze.com.br" target="_blank"><b>Codemaze</b></a> - Soluções de Mkt e Software | 
-  <b><font color="red"><?php echo $_SESSION['user_nivelacesso']; ?></font></b> | <a href="https://prqdashortensias.com.br/webmail" target="_blank">Webmail</a>
-</footer>
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
     		<img src="https://prqdashortensias.com.br/sistema/img/logo_hor_hortencias.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
 		</section>
 
+		<footer class="footerUpper">
+    <p>Este é o novo footer acima do existente</p>
+</footer>
 
 <!-- Footer -->
 <footer class="footerNew">
