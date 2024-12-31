@@ -7,11 +7,13 @@ include_once '../objetos.php'; // Carrega a classe de conexão e objetos
 // Verifica se a requisição é POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validação básica para os campos obrigatórios
-    $dataInicio = $_POST['data_inicio'] ?? null;
-    $dataFim = $_POST['data_fim'] ?? null;
-    $nomeCliente = $_POST['nome_cliente'] ?? null;
+    $dataInicio = $_POST['dataInicio'] ?? null;
+    $dataFim = $_POST['dataFim'] ?? null;
+    $clienteOrigin = $_POST['clienteOrigin'] ?? null;
+    $status = $_POST['status'] ?? null;
+    $mktId = $_POST['mktId'] ?? null;
 
-    if (!$dataInicio || !$dataFim || !$nomeCliente) {
+    if (!$dataInicio || !$dataFim || !$clienteOrigin || !$status || !$mktId) {
         echo json_encode(['success' => false, 'message' => 'Campos obrigatórios ausentes']);
         exit;
     }
@@ -21,9 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'success' => true,
         'message' => 'Dados recebidos com sucesso',
         'data' => [
-            'data_inicio' => $dataInicio,
-            'data_fim' => $dataFim,
-            'nome_cliente' => $nomeCliente,
+            'dataInicio' => $dataInicio,
+            'dataFim' => $dataFim,
+            'clienteOrigin' => $clienteOrigin,
+            'status' => $status,
+            'mktId' => $mktId,
         ]
     ];
 
@@ -32,7 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $file = $_FILES['file'];
 
         // Define o diretório de upload
-        $uploadDirectory = 'uploads/';
+        $clienteOriginPath = preg_replace('/[^a-zA-Z0-9_-]/', '', $clienteOrigin);
+        $uploadDirectory = "uploads/$clienteOriginPath/";
         if (!is_dir($uploadDirectory)) {
             mkdir($uploadDirectory, 0777, true); // Cria o diretório se não existir
         }
