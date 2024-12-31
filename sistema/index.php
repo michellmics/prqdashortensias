@@ -164,22 +164,6 @@ html, body {
     }
 </style>
 <!-- pop-up promoção CSS -->
-
-<style>
-.footerUpper {
-    background-color: #d9d9d9; /* Cinza claro */
-    color: #333; /* Texto escuro */
-    font-size: 12px; /* Fonte pequena */
-    text-align: center; /* Centraliza o texto */
-    padding: 5px 0; /* Espaçamento interno */
-    height: auto; /* Altura ajustável conforme o conteúdo */
-    line-height: normal; /* Alinha verticalmente o texto */
-    position: relative; /* Para empilhar corretamente com o footer existente */
-    width: 100%; /* Largura total */
-    border-bottom: 1px solid #ccc; /* Linha separadora opcional */
-}
-</style>
-
 		
     </head>
     <body>
@@ -212,9 +196,7 @@ html, body {
     		<img src="https://prqdashortensias.com.br/sistema/img/logo_hor_hortencias.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
 		</section>
 
-		<footer class="footerUpper">
-    <p>Este é o novo footer acima do existente</p>
-</footer>
+
 
 <!-- Footer -->
 <footer class="footerNew">
