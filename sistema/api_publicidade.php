@@ -49,8 +49,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $imagem = null; // Caso nenhuma imagem seja enviada
     }
 
-	$insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem);    
-    echo $insertPubli; //retorna OK se tudo ocorreu bem
+    $checkExist = $publi->checkPubliExisInfo($mktId); //verifica se a publi já esta no sistema
+
+    if ($checkExist === true) 
+    {
+        $insertPubli = $publi->updatePubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem);    
+        echo $insertPubli; //retorna OK se tudo ocorreu bem
+    } 
+    if ($checkExist === false) 
+    {
+        $insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem);    
+        echo $insertPubli; //retorna OK se tudo ocorreu bem
+    } 
 
 } else {
     echo json_encode(['success' => false, 'message' => 'Método inválido']);
