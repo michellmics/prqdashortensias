@@ -49,16 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $imagem = null; // Caso nenhuma imagem seja enviada
     }
 
-	$insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem); 
-    
-    if($insertPubli == "OK")
-    {
-        echo json_encode("OK");
-    }
-    else
-        {
-            echo json_encode($insertPubli);    
-        }
+	$insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem);    
+    echo $insertPubli; //retorna OK se tudo ocorreu bem
 
 } else {
     echo json_encode(['success' => false, 'message' => 'Método inválido']);
