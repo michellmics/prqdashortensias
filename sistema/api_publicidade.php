@@ -12,27 +12,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $clienteOrigin = $_POST['clienteOrigin'] ?? null;
     $status = $_POST['status'] ?? null;
     $mktId = $_POST['mktId'] ?? null;
+    $imagem="";
+
+    $publi = new SITE_ADMIN();
 
     if (!$dataInicio || !$dataFim || !$clienteOrigin || !$status || !$mktId) {
         echo json_encode(['success' => false, 'message' => 'Campos obrigatórios ausentes']);
         exit;
     }
 
-    // Inicializa o resultado
-    $result = [
-        'success' => true,
-        'message' => 'Dados recebidos com sucesso',
-        'data' => [
-            'dataInicio' => $dataInicio,
-            'dataFim' => $dataFim,
-            'clienteOrigin' => $clienteOrigin,
-            'status' => $status,
-            'mktId' => $mktId,
-        ]
-    ];
+    function converteData($dataHora) 
+    {
+        $dateTime = DateTime::createFromFormat('d/m/Y H:i:s', $dataHora);
+        return $dateTime->format('Y-m-d H:i:s');
+    }
 
-    //echo json_encode($result);
-    //die();
+    $dataInicio = converteData($dataInicio);
+    $dataFim = converteData($dataFim);
+
 
     // Verifica se um arquivo foi enviado
     if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
@@ -53,17 +50,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Move a imagem para o diretório de uploads
         if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
-            $result['data']['imagem'] = $uploadPath; // Adiciona o caminho da imagem ao resultado
+            $imagem = $uploadPath; // Adiciona o caminho da imagem ao resultado
         } else {
             $result['success'] = false;
             $result['message'] = 'Erro ao mover o arquivo';
         }
     } else {
-        $result['data']['imagem'] = null; // Caso nenhuma imagem seja enviada
+        $imagem = null; // Caso nenhuma imagem seja enviada
     }
 
-    // Retorna o resultado em JSON
-    echo json_encode($result);
+	$insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem); 
+    
+    if($insertPubli == "OK")
+    {
+        echo json_encode("OK");
+    }
+    else
+        {
+            echo json_encode($insertPubli);    
+        }
+
 } else {
     echo json_encode(['success' => false, 'message' => 'Método inválido']);
 }
