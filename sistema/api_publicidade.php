@@ -23,16 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    function converteData($dataHora) 
-    {
-        $dateTime = DateTime::createFromFormat('d/m/Y H:i:s', $dataHora);
-        return $dateTime->format('Y-m-d H:i:s');
-    }
-
-    $dataInicio = converteData($dataInicio);
-    $dataFim = converteData($dataFim);
-
-
     // Verifica se um arquivo foi enviado
     if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
         $file = $_FILES['file'];
