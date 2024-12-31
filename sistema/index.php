@@ -210,9 +210,9 @@ html, body {
         document.getElementById('promoPopup').style.display = 'none';
     }
 
-    // Abra o pop-up automaticamente após 2 segundos
+    // Abra o pop-up automaticamente após 1,5 segundos
     window.onload = function() {
-        setTimeout(openPopup, 2000);
+        setTimeout(openPopup, 1500);
     };
 </script>
 
