@@ -38,6 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
         $file = $_FILES['file'];
 
+        $microtime = microtime(true); // Retorna o tempo atual como float
+        $timestamp = (int)($microtime * 1000); // Converte para milissegundos
+
         // Define o diretório de upload
         $clienteOriginPath = preg_replace('/[^a-zA-Z0-9_-]/', '', $clienteOrigin);
         $uploadDirectory = "uploads/$clienteOriginPath/";
@@ -46,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Define o caminho para salvar a imagem
-        $uploadPath = $uploadDirectory . basename($file['name']);
+        $uploadPath = $uploadDirectory . $timestamp . "_" . basename($file['name']);
 
         // Move a imagem para o diretório de uploads
         if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
