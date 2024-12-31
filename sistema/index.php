@@ -150,7 +150,7 @@ html, body {
 		top: -20px; /* Move o botão para cima da imagem */
         right: -20px; /* Move o botão para a direita da imagem */
         position: absolute;
-        background: #ff0000;
+        background:rgb(0, 0, 0);
         color: white;
         border: none;
         font-size: 20px;
