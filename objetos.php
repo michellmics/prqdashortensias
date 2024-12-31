@@ -510,7 +510,7 @@
                 return "OK";
             } catch (PDOException $e) {
                 // Captura e retorna o erro
-                return ["error" => $e->getMessage()];
+                return "ERRO: Não foi possível inserir a publicidade.";
             }
         }
 
