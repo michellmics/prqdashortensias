@@ -6,6 +6,7 @@
   font-size: 14px; /* Fonte ligeiramente maior */
   text-align: center; /* Centraliza o texto */
   padding: 10px 0; /* Espaçamento interno */
+  margin: 0; /* Remove margem externa */
   width: 100%; /* Largura total */
   border-bottom: 1px solid #ccc; /* Linha separadora opcional */
 }
@@ -17,6 +18,7 @@
   font-size: 12px; /* Fonte menor */
   text-align: center; /* Centraliza o texto */
   padding: 10px 0; /* Espaçamento interno */
+  margin: 0; /* Remove margem externa */
   width: 100%; /* Largura total */
   border-top: 1px solid #ccc; /* Linha separadora opcional */
 }
