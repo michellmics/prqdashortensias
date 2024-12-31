@@ -14,8 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mktId = $_POST['mktId'] ?? null;
     $imagem="";
 
-    var_dump($dataInicio);
-
     $publi = new SITE_ADMIN();
 
     if (!$dataInicio || !$dataFim || !$clienteOrigin || !$status || !$mktId) {
