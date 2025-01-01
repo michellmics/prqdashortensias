@@ -57,6 +57,10 @@
     text-decoration: none;
   }
 
+  .marquee-container p {
+  color: red; /* Cor do texto do <p> */
+}
+
   .footer-info a:hover {
     text-decoration: underline;
   }
