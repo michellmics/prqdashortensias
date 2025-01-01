@@ -39,7 +39,9 @@ function processCSV($filePath) {
                 echo "<br><br>";
                 die();
             */
-            print_r($data[0]);
+
+            echo '<pre>' . htmlspecialchars($data[0]) . '</pre>';
+            //print_r($data[0]);
             echo "<br>";
 
         }
