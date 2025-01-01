@@ -8,7 +8,7 @@ header("Expires: 0");
 
 class LoginSystem extends SITE_ADMIN
 {
-    public function validateUser($apartamento, $password)
+    public function validateUser($apartamento, $password, $remember)
     {
         try {
             // Cria conexão com o banco de dados
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
             $apartamento = $_POST['apartamento'];
             $password = $_POST['password'];
-            $remember = $_POST['remember'];
+            $remember = isset($_POST['remember']) && $_POST['remember'] === '1';
 
             $loginSystem = new LoginSystem();
             $result=$loginSystem->validateUser($apartamento, $password, $remember);
