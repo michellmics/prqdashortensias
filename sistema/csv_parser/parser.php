@@ -20,7 +20,9 @@ function processCSV($filePath) {
 
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-            $data = array_map('trim', $data); // Remove espaços extras de cada campo da linha
+            $data = array_map(function($item) {
+                return preg_replace('/\s+/', '', $item); // Remove todos os espaços
+            }, $data);
             
             if ($data[0] == "Taxa Condominial"){
                 // Adiciona as informações da linha à variável
