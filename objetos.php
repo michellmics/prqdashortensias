@@ -266,7 +266,7 @@
             
             try{           
                 $sql = "SELECT PUB_DCDESC  FROM PUB_PUBLICIDADE
-                                WHERE PUB_STSTATUS = 'ATIVA'";
+                        WHERE PUB_STSTATUS = 'ATIVA' AND PUB_DCTIPO LIKE '%TEXTO%'";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
