@@ -31,7 +31,7 @@ function processCSV($filePath) {
             $data[0] = preg_replace('/\s+/', ' ', $data[0]);  // Substitui múltiplos espaços por um único espaço
             $data[0] = trim($data[0]);  // Remove espaços extras nas extremidades
             
-            if (trim($data[0]) == "Taxa Condominial"){
+            if (trim($data[0]) == "Parcelamento  SABESP"){
                 // Adiciona as informações da linha à variável
                 echo "aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii";
             }
