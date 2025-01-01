@@ -196,7 +196,7 @@ html, body {
 		    <div class="popup-content">
 		        <button class="close-btn" onclick="closePopup()">×</button>
 		        <img src=<?php echo $$publiImage; ?> 
-		             alt="Promoção" style="max-width: 100%; height: auto;">
+		             alt=<?php echo $$publiImage; ?> style="max-width: 100%; height: auto;">
 		    </div>
 		</div>
 		<!--  Pop-up publicidade-->
