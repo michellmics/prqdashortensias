@@ -12,7 +12,8 @@
 
     $qtdePubli = count($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
     $num = rand(0, $qtdePubli -1);
-    echo $num ;
+    $publiText = $siteAdmin->ARRAY_FOOTERPUBLISHINFO[$num]["PUB_DCDESC"];
+    echo $publiText;
     die();
 
 ?>
