@@ -27,7 +27,7 @@ function processCSV($filePath) {
             
             if (trim($data[0]) == 'Taxa Condominial'){
                 // Adiciona as informações da linha à variável
-                $taxaCondominial[] = $taxaCondominial[0];
+                $taxaCondominial[0] = $taxaCondominial[0];
             }
 
             /*
