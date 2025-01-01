@@ -35,7 +35,7 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Acesso a área administrativa</p>
-        <form id="demo-form" action="login.php" method="post">
+        <form id="demo-form" action="login.php" method="post" autocomplete="on">
           <div class="form-group has-feedback">
             <input type="number" class="form-control" id="apartamento" placeholder="Digite o número do apartamento" name="apartamento" autocomplete="apartamento"/>
             <span class="glyphicon glyphicon-home form-control-feedback"></span>
