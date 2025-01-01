@@ -22,7 +22,6 @@ function removeBOM($filePath) {
         file_put_contents($filePath, $fileContents);
     }
 
-    echo "BOM removido, se presente.";
 }
 
 function processCSV($filePath) {
