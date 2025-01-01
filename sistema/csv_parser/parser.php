@@ -33,6 +33,7 @@ function processCSV($filePath) {
                 echo "<br><br>";
                 die();
             */
+            print_r($data[0]);
 
         }
 
@@ -40,7 +41,7 @@ function processCSV($filePath) {
         // Fechar o arquivo
         fclose($handle);
 
-        print_r($data);
+        //print_r($data);
         die();
 
         echo "Dados importados com sucesso!";
