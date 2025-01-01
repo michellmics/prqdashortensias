@@ -25,7 +25,8 @@
     $num = rand(0, $qtdePubli -1);
     $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
 
-
+    echo $publiImage;
+    die();
 
 ?>
 
