@@ -39,10 +39,12 @@ function processCSV($filePath) {
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
             foreach ($data as &$item) {
-                // Remove espaços comuns e NBSP do início usando regex
-                $item = preg_replace('/^[\s\xC2\xA0]+/', '', $item);  // Remove espaços no início
-                $item = preg_replace('/[\s\xC2\xA0]+$/', '', $item);  // Remove espaços no final
-                $item = preg_replace('/\s+/', ' ', $item);  // Substitui múltiplos espaços internos por um único espaço
+                // Substitui NBSP por espaços comuns
+                $item = str_replace("\xC2\xA0", ' ', $item);
+                // Remove espaços do início e do final
+                $item = trim($item);
+                // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
+                $item = preg_replace('/\s+/', ' ', $item);
             }
             echo $data[0];
             echo "Receitas  Ordinárias  (99,58%)";
