@@ -147,7 +147,7 @@ html, body {
             <h3><i class="fa fa-warning text-yellow"></i> Permissões insuficientes.</h3>
             <p>
               Suas credenciais não autorizam o acesso a esta seção.
-              Por favor, entre em contato com o administrador do sistema para verificar suas permissões e tente novamente.
+              Por favor, entre em contato com o síndico.
             </p>
           </div><!-- /.error-content -->
         </div><!-- /.error-page -->
