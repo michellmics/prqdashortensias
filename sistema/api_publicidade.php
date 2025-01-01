@@ -13,11 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'] ?? null;
     $mktId = $_POST['mktId'] ?? null; 
     $publiDesc = $_POST['publiDesc'] ?? null;
+    $tipo = $_POST['tipo'] ?? null;
     $imagem="";
 
     $publi = new SITE_ADMIN();
 
-    if (!$dataInicio || !$dataFim || !$clienteOrigin || !$status || !$mktId) {
+    if (!$dataInicio || !$dataFim || !$clienteOrigin || !$status || !$mktId || !$tipo) {
         echo json_encode(['success' => false, 'message' => 'Campos obrigatórios ausentes']);
         exit;
     }
@@ -54,12 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($checkExist === true) 
     {
-        $insertPubli = $publi->updatePubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc);    
+        $insertPubli = $publi->updatePubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc,$tipo);    
         echo $insertPubli; //retorna OK se tudo ocorreu bem
     } 
     if ($checkExist === false) 
     {
-        $insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc);    
+        $insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc,$tipo);    
         echo $insertPubli; //retorna OK se tudo ocorreu bem
     } 
 
