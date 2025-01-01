@@ -200,7 +200,7 @@ html, body {
 
 <!-- Footer -->
 <footer class="footerNew">
-
+<?php include 'src/footer.php'; ?>
 </footer>
 		
 <!-- Controle do pop-up de promoção -->
