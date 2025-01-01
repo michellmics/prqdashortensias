@@ -37,11 +37,11 @@
         <p class="login-box-msg">Acesso a área administrativa</p>
         <form id="demo-form" action="login.php" method="post">
           <div class="form-group has-feedback">
-            <input type="number" class="form-control" id="apartamento" placeholder="Digite o número do apartamento" name="apartamento"/>
+            <input type="number" class="form-control" id="apartamento" placeholder="Digite o número do apartamento" name="apartamento" autocomplete="apartamento"/>
             <span class="glyphicon glyphicon-home form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" aria-label="Digite sua senha" class="form-control" id="password" placeholder="Digite sua senha" name="password"/>
+            <input type="password" aria-label="Digite sua senha" class="form-control" id="password" placeholder="Digite sua senha" name="password" autocomplete="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             <div class="text-left">
               <a href="recuperar_senha.php" class="btn btn-link">Esqueceu sua senha?</a>
