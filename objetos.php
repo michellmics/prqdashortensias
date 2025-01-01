@@ -23,6 +23,7 @@
         public $ARRAY_PARAMETERINFO;
         public $ARRAY_MORADORINFO;
         public $ARRAY_LISTAMORADORESINFO;
+        public $ARRAY_FOOTERPUBLISHINFO;
         public $ARRAY_LOGINFO;
         public $configPath = '/home/hortensias/config.cfg';
 
@@ -253,6 +254,23 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
                 $this->ARRAY_LISTAMORADORESINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getFooterPublish()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT PUB_DCDESC  FROM USU_USUARIO
+                                WHERE PUB_STSTATUS = 'ATIVA'";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_FOOTERPUBLISHINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          

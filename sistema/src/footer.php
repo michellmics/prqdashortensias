@@ -1,3 +1,19 @@
+<?php
+	//ini_set('display_errors', 1);
+	//ini_set('display_startup_errors', 1);
+	//error_reporting(E_ALL);
+
+  	include_once '../../objetos.php'; 
+
+    $siteAdmin = new SITE_ADMIN();  
+    $siteAdmin->getFooterPublish();    
+
+    var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+    die();
+
+?>
+
+
 <style>
   /* Estilo para o container do texto rolante */
   .marquee-container {
