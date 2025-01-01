@@ -42,7 +42,7 @@ function processCSV($filePath) {
 
             echo '<pre>' . htmlspecialchars($data[0]) . '</pre>';
             //print_r($data[0]);
-            echo "<br>";
+
 
         }
 
