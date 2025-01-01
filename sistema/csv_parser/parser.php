@@ -22,12 +22,12 @@ function processCSV($filePath) {
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
             $taxaCondominial = [];
-            echo trim($data[0]);
-            echo "<br>";
+            //echo trim($data[0]);
+            //echo "<br>";
             
-            if (strpos($data[0], 'Taxa Condominial') !== false) {
+            if (trim($data[0]) == 'Taxa Condominial'){
                 // Adiciona as informações da linha à variável
-                $taxaCondominial[] = $data;
+                $taxaCondominial[] = $taxaCondominial[0];
             }
 
             /*
@@ -38,7 +38,7 @@ function processCSV($filePath) {
             */
 
         }
-        //print_r($taxaCondominial);
+        print_r($taxaCondominial);
         die();
 
         // Fechar o arquivo
