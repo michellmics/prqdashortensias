@@ -34,6 +34,7 @@ function processCSV($filePath) {
                 die();
             */
             print_r($data[0]);
+            echo "<br>";
 
         }
 
