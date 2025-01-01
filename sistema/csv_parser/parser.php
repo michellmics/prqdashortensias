@@ -22,6 +22,7 @@ function processCSV($filePath) {
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
             $taxaCondominial = [];
+            $capturandoTaxa = false;
             
             // Verifica se a linha contém "Taxa Condominial"
             if (stripos(trim($data[0]), 'Taxa Condominial') !== false) {
