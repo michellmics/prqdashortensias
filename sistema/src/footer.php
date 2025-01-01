@@ -13,9 +13,6 @@
     $qtdePubli = count($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
     $num = rand(0, $qtdePubli -1);
     $publiText = $siteAdmin->ARRAY_FOOTERPUBLISHINFO[$num]["PUB_DCDESC"];
-    echo $publiText;
-    die();
-
 ?>
 
 
@@ -67,7 +64,7 @@
 <footer class="footerNew">
   <!-- Marquee com o conteúdo rolante -->
   <div class="marquee-container">
-    <span><a href="#" target="_blank" >Promoção imperdivel da PizzaHut! Compre 2 pizzas grandes e ganhe uma sobremesa grátis. Promoção válida para os moradores do Cond. Hortênsias. Clique aqui e siga-nos no instagram!.</a> </span>
+    <span><?php echo $publiText; ?></span>
   </div>
   
   <!-- Conteúdo abaixo do marquee -->
