@@ -27,6 +27,9 @@ function processCSV($filePath) {
                 // Remove espaços comuns e NBSP do início usando regex
                 $item = preg_replace('/^[\s\xC2\xA0]+/', '', $item);
             }
+
+            $data[0] = preg_replace('/\s+/', ' ', $data[0]);  // Substitui múltiplos espaços por um único espaço
+            $data[0] = trim($data[0]);  // Remove espaços extras nas extremidades
             
             if (trim($data[0]) == "Taxa Condominial"){
                 // Adiciona as informações da linha à variável
