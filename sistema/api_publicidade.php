@@ -56,14 +56,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($checkExist === true) 
     {
         $updatePubli = $publi->updatePubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc,$tipo);    
-        // echo $updatePubli; //retorna OK se tudo ocorreu bem
-         echo $status; //retorna OK se tudo ocorreu bem
+        echo $updatePubli; //retorna OK se tudo ocorreu bem
     } 
     if ($checkExist === false) 
     {
         $insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc,$tipo);    
-        // echo $insertPubli; //retorna OK se tudo ocorreu bem
-        echo $status; //retorna OK se tudo ocorreu bem
+        echo $insertPubli; //retorna OK se tudo ocorreu bem
     } 
 
 } else {

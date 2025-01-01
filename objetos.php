@@ -545,7 +545,7 @@
             
                 $stmt->execute();
 
-                if($PUB_STSTATUS = "ATIVA")
+                if($PUB_STSTATUS == "ATIVA")
                 {
                     return "PUBLICADO";
                 } 
@@ -598,7 +598,7 @@
                 $stmt->execute();
            
 
-                if($PUB_STSTATUS = "ATIVA")
+                if($PUB_STSTATUS == "ATIVA")
                 {
                     return "PUBLICADO";
                 } 
