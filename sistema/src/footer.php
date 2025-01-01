@@ -48,7 +48,7 @@
   .footer-info {
     text-align: center;
     font-size: 11px;
-    color: #333;
+    color: #9a0456;
   }
 
   .footer-info a {
