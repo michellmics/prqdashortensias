@@ -20,14 +20,11 @@ function processCSV($filePath) {
 
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-
-            $taxaCondominial = [];
-            //echo trim($data[0]);
-            //echo "<br>";
+            $data = array_map('trim', $data); // Remove espaços extras de cada campo da linha
             
             if (trim($data[0]) == 'Taxa Condominial'){
                 // Adiciona as informações da linha à variável
-                $taxaCondominial[0] = $taxaCondominial[0];
+                echo "aquii";
             }
 
             /*
@@ -38,8 +35,8 @@ function processCSV($filePath) {
             */
 
         }
-        print_r($taxaCondominial);
-        die();
+        //print_r($taxaCondominial);
+        //die();
 
         // Fechar o arquivo
         fclose($handle);
