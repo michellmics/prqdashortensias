@@ -8,7 +8,10 @@
     $siteAdmin = new SITE_ADMIN();  
     $siteAdmin->getFooterPublish();    
 
-    var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+    //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+
+    $qtdePubli = count($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+    echo $qtdePubli;
     die();
 
 ?>
