@@ -9,6 +9,22 @@ include_once '../../objetos.php';
 
 $siteAdmin = new SITE_ADMIN();  
 
+function removeBOM($filePath) {
+    // Ler o conteúdo do arquivo
+    $fileContents = file_get_contents($filePath);
+
+    // Verificar se o arquivo contém o BOM UTF-8
+    if (substr($fileContents, 0, 3) == "\xEF\xBB\xBF") {
+        // Remover o BOM (os três primeiros bytes)
+        $fileContents = substr($fileContents, 3);
+        
+        // Regravar o arquivo sem o BOM
+        file_put_contents($filePath, $fileContents);
+    }
+
+    echo "BOM removido, se presente.";
+}
+
 function processCSV($filePath) {
     // Abrir o arquivo CSV
     if (($handle = fopen($filePath, 'r')) !== FALSE) {
@@ -25,11 +41,10 @@ function processCSV($filePath) {
 
             foreach ($data as &$item) {
                 // Remove espaços comuns e NBSP do início usando regex
-                $item = preg_replace('/^[\s\xC2\xA0]+/', '', $item);
+                $item = preg_replace('/^[\s\xC2\xA0]+/', '', $item);  // Remove espaços no início
+                $item = preg_replace('/[\s\xC2\xA0]+$/', '', $item);  // Remove espaços no final
+                $item = preg_replace('/\s+/', ' ', $item);  // Substitui múltiplos espaços internos por um único espaço
             }
-
-            $data[0] = preg_replace('/\s+/', ' ', $data[0]);  // Substitui múltiplos espaços por um único espaço
-            $data[0] = trim($data[0]);  // Remove espaços extras nas extremidades
             
             if ($data[0] == "Receitas  Ordinárias  (99,58%)"){
                 // Adiciona as informações da linha à variável
@@ -67,5 +82,6 @@ function processCSV($filePath) {
 $filePath = 'receitas.csv';
 
 // Chamar a função para processar o CSV
+removeBOM($filePath);
 processCSV($filePath);
 ?>
