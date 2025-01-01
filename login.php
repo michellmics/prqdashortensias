@@ -33,6 +33,16 @@ class LoginSystem extends SITE_ADMIN
                 $_SESSION['user_bloco'] = $user['USU_DCBLOCO'];
                 $_SESSION['user_nivelacesso'] = $user['USU_DCNIVEL'];
 
+                if ($remember) {
+                    // Salvar e-mail e senha nos cookies (válido por 30 dias)
+                    setcookie('apartamento', $apartamento, time() + (30 * 24 * 60 * 60), "/");
+                    setcookie('password', $password, time() + (30 * 24 * 60 * 60), "/");
+                } else {
+                    // Remover os cookies se a opção não for marcada
+                    setcookie('apartamento', '', time() - 3600, "/");
+                    setcookie('password', '', time() - 3600, "/");
+                }
+
                 //--------------------LOG----------------------//
                 $LOG_DCTIPO = "LOGIN";
                 $LOG_DCMSG = "Usuário ".$user['USU_DCNOME']." logado com sucesso.";
@@ -84,9 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
             $apartamento = $_POST['apartamento'];
             $password = $_POST['password'];
+            $remember = $_POST['remember'];
 
             $loginSystem = new LoginSystem();
-            $result=$loginSystem->validateUser($apartamento, $password);
+            $result=$loginSystem->validateUser($apartamento, $password, $remember);
         }
         else 
             {
