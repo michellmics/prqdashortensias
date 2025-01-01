@@ -44,7 +44,7 @@
             <input type="password" aria-label="Digite sua senha" class="form-control" id="password" placeholder="Digite sua senha" name="password" autocomplete="current-password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             <div class="text-left">
-              <a href="recuperar_senha.php" class="btn btn-link">Esqueceuu sua senha?</a>
+              <a href="recuperar_senha.php" class="btn btn-link">Esqueceu sua senha?</a>
             </div>
           </div>
           <div class="row">
