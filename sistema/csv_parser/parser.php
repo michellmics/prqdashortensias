@@ -37,7 +37,7 @@ function processCSV($filePath) {
 
         }
         echo "Dados da linha:<br>";
-        print_r($taxaCondominial);
+        var_dump($taxaCondominial);
         echo "<br><br>";
         die();
 
