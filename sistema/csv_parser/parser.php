@@ -26,7 +26,7 @@ function processCSV($filePath) {
                 $item = preg_replace('/^[\s\xC2\xA0]+/', '', $item);
             }
             
-            if ($data[0] != "Taxa  Condominial"){
+            if ($data[0] == "Taxa  Condominial"){
                 // Adiciona as informações da linha à variável
                 echo "aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii";
             }
