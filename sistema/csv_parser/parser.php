@@ -22,7 +22,7 @@ function processCSV($filePath) {
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
             $data = array_map('trim', $data); // Remove espaços extras de cada campo da linha
             
-            if (trim($data[0]) == 'Taxa Condominial'){
+            if ($data[0] == "Taxa Condominial"){
                 // Adiciona as informações da linha à variável
                 echo "aquii";
             }
