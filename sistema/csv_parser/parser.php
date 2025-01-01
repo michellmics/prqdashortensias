@@ -25,6 +25,8 @@ function processCSV($filePath) {
             print_r($data);
             echo "<br><br>";
 
+            die();
+
             // Aqui você pode adicionar lógica para processar os dados
             // Exemplo: se quiser acessar uma coluna específica:
             // $nome = $data[0];  // Primeira coluna
