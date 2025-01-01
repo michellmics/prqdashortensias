@@ -1,4 +1,19 @@
+<?php
+	//ini_set('display_errors', 1);
+	//ini_set('display_startup_errors', 1);
+	//error_reporting(E_ALL);
 
+  	include_once '../../objetos.php'; 
+
+    $siteAdmin = new SITE_ADMIN();  
+    $siteAdmin->getFooterPublish();    
+
+    //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+
+    $qtdePubli = count($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+    $num = rand(0, $qtdePubli -1);
+    $publiText = $siteAdmin->ARRAY_FOOTERPUBLISHINFO[$num]["PUB_DCDESC"];
+?>
 
 
 <style>
