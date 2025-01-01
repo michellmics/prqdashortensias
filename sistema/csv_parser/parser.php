@@ -23,8 +23,16 @@ function processCSV($filePath) {
 
             $taxaCondominial = [];
             
-            if (strpos($data[0], 'Taxa Condominial') !== false) {
-                // Adiciona as informações da linha à variável
+            // Verifica se a linha contém "Taxa Condominial"
+            if (stripos(trim($data[0]), 'Taxa Condominial') !== false) {
+                $capturandoTaxa = true; // Inicia a captura
+                // Adiciona a linha da "Taxa Condominial" no array
+                $taxaCondominial[] = $data;
+            } elseif ($capturandoTaxa && trim($data[0]) == "") {
+                // Se encontramos uma linha vazia, é possível que tenhamos terminado de capturar os dados da "Taxa Condominial"
+                $capturandoTaxa = false;
+            } elseif ($capturandoTaxa) {
+                // Caso esteja dentro da captura da "Taxa Condominial", adiciona as linhas seguintes
                 $taxaCondominial[] = $data;
             }
 
@@ -36,9 +44,7 @@ function processCSV($filePath) {
             */
 
         }
-        echo "Dados da linha:<br>";
         print_r($taxaCondominial);
-        echo "<br><br>";
         die();
 
         // Fechar o arquivo
