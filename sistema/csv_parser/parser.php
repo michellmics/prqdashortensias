@@ -17,8 +17,8 @@ function processCSV($filePath) {
 
         // Exibir o cabeçalho para referência (opcional)
         //echo "Cabeçalho do CSV:<br>";
-        print_r($header);
-        echo "<br><br>";
+        //print_r($header);
+        //echo "<br><br>";
 
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
