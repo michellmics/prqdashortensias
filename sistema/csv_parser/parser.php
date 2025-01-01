@@ -23,6 +23,7 @@ function processCSV($filePath) {
 
             $taxaCondominial = [];
             echo trim($data[0]);
+            echo "<br>";
             
             if (strpos($data[0], 'Taxa Condominial') !== false) {
                 // Adiciona as informações da linha à variável
@@ -37,7 +38,7 @@ function processCSV($filePath) {
             */
 
         }
-        print_r($taxaCondominial);
+        //print_r($taxaCondominial);
         die();
 
         // Fechar o arquivo
