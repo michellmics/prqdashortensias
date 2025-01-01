@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         // Verifique o sucesso da validação
         if ($responseKeys["success"]) 
         {
-            $apartamento = $_POST['apartamento'];
+            $apartamento = $_POST['username'];
             $password = $_POST['password'];
 
             $loginSystem = new LoginSystem();
