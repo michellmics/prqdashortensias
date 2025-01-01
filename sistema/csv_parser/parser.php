@@ -18,21 +18,28 @@ function processCSV($filePath) {
         print_r($header);
         echo "<br><br>";
 
-        // Ler cada linha do arquivo CSV
+        //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-            // Exibir os dados de cada linha
-            echo "Dados da linha:<br>";
-            print_r($data);
-            echo "<br><br>";
 
-            die();
+            $taxaCondominial = [];
+            
+            if (strpos($data[0], 'Taxa Condominial') !== false) {
+                // Adiciona as informações da linha à variável
+                $taxaCondominial[] = $data;
+            }
 
-            // Aqui você pode adicionar lógica para processar os dados
-            // Exemplo: se quiser acessar uma coluna específica:
-            // $nome = $data[0];  // Primeira coluna
-            // $email = $data[1];  // Segunda coluna
-            // Processar os dados conforme necessário
+            /*
+                echo "Dados da linha:<br>";
+                print_r($data);
+                echo "<br><br>";
+                die();
+            */
+
         }
+        echo "Dados da linha:<br>";
+        print_r($taxaCondominial);
+        echo "<br><br>";
+        die();
 
         // Fechar o arquivo
         fclose($handle);
