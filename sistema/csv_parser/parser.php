@@ -15,8 +15,8 @@ function processCSV($filePath) {
 
         // Exibir o cabeçalho para referência (opcional)
         //echo "Cabeçalho do CSV:<br>";
-        //print_r($header);
-        //echo "<br><br>";
+        print_r($header);
+        echo "<br><br>";
 
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
@@ -35,11 +35,13 @@ function processCSV($filePath) {
             */
 
         }
-        print_r($data);
-        die();
+
 
         // Fechar o arquivo
         fclose($handle);
+
+        print_r($data);
+        die();
 
         echo "Dados importados com sucesso!";
     } else {
