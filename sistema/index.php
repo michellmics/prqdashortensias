@@ -23,7 +23,7 @@
 
     $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
     $num = rand(0, $qtdePubli -1);
-    $publiText = $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
+    $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
 
 
 
@@ -195,7 +195,7 @@ html, body {
 		<div id="promoPopup" style="display: none;">
 		    <div class="popup-content">
 		        <button class="close-btn" onclick="closePopup()">×</button>
-		        <img src="https://prqdashortensias.com.br/sistema/img/pop_up_publi.png" 
+		        <img src=<?php echo $$publiImage; ?> 
 		             alt="Promoção" style="max-width: 100%; height: auto;">
 		    </div>
 		</div>
