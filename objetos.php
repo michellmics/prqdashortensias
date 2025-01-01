@@ -544,9 +544,18 @@
 
             
                 $stmt->execute();
-           
-                // Retorna uma mensagem de sucesso (opcional)
-                return "OK";
+
+                if($PUB_STSTATUS = "ATIVA")
+                {
+                    return "PUBLICADO";
+                } 
+                else
+                    {
+                        return "PENDENTE";
+                    }
+
+                        
+
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return "ERRO: Não foi possível inserir a publicidade.";
@@ -588,8 +597,16 @@
             
                 $stmt->execute();
            
-                // Retorna uma mensagem de sucesso (opcional)
-                return "OK";
+
+                if($PUB_STSTATUS = "ATIVA")
+                {
+                    return "PUBLICADO";
+                } 
+                else
+                    {
+                        return "PENDENTE";
+                    }
+                    
             } catch (PDOException $e) {
                 // Captura e retorna o erro
                 return "ERRO: Não foi possível atualizar a publicidade.";
