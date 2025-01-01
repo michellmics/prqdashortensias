@@ -265,7 +265,7 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT PUB_DCDESC  FROM USU_USUARIO
+                $sql = "SELECT PUB_DCDESC  FROM PUB_PUBLICIDADE
                                 WHERE PUB_STSTATUS = 'ATIVA'";
 
                 $stmt = $this->pdo->prepare($sql);
