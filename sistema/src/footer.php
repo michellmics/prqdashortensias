@@ -11,7 +11,8 @@
     //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
 
     $qtdePubli = count($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
-    echo $qtdePubli;
+    $num = rand(0, $qtdePubli -1);
+    echo $num ;
     die();
 
 ?>
