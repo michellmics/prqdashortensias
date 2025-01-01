@@ -46,9 +46,7 @@ function processCSV($filePath) {
                 // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
                 $item = preg_replace('/\s+/', ' ', $item);
             }
-            echo $data[0];
-            echo "Receitas  Ordinárias  (99,58%)";
-            
+           
             if ($data[0] == "Receitas  Ordinárias  (99,58%)")
             {
                 // Adiciona as informações da linha à variável
@@ -63,7 +61,7 @@ function processCSV($filePath) {
             */
            // var_dump($data[0]);
             
-           // echo '<pre>' . htmlspecialchars($data[0]) . '</pre>';
+            echo '<pre>' . htmlspecialchars($data[0]) . '</pre>';
             //print_r($data[0]);
             die();
 
