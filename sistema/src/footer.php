@@ -58,7 +58,7 @@
   }
 
   .marquee-container p {
-  color: #803e62; /* Cor do texto do <p> */
+  color: #3696ab; /* Cor do texto do <p> */
 }
 
   .footer-info a:hover {
