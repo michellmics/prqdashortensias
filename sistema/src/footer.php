@@ -32,6 +32,7 @@
     display: inline-block;
     animation: marquee 20s linear infinite;
     white-space: nowrap; /* Garante que o texto não quebre a linha */
+    color: red;
   }
 
   /* Animação para rolar o texto */
@@ -48,7 +49,7 @@
   .footer-info {
     text-align: center;
     font-size: 11px;
-    color: #9a0456;
+    color: #333;
   }
 
   .footer-info a {
