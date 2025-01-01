@@ -14,9 +14,9 @@ function processCSV($filePath) {
         $header = fgetcsv($handle);  // Aqui lemos o cabeçalho
 
         // Exibir o cabeçalho para referência (opcional)
-        echo "Cabeçalho do CSV:<br>";
-        print_r($header);
-        echo "<br><br>";
+        //echo "Cabeçalho do CSV:<br>";
+        //print_r($header);
+        //echo "<br><br>";
 
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
@@ -37,7 +37,7 @@ function processCSV($filePath) {
 
         }
         echo "Dados da linha:<br>";
-        var_dump($taxaCondominial);
+        print_r($taxaCondominial);
         echo "<br><br>";
         die();
 
