@@ -43,6 +43,9 @@
           <div class="form-group has-feedback">
             <input type="password" aria-label="Digite sua senha" class="form-control" id="password" placeholder="Digite sua senha" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <label>
+              <input type="checkbox" name="remember" <?php echo isset($_COOKIE['apartamento']) ? 'checked' : ''; ?>> Lembrar minha senha
+            </label>
             <div class="text-left">
               <a href="recuperar_senha.php" class="btn btn-link">Esqueceu sua senha?</a>
             </div>
