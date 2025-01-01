@@ -15,6 +15,18 @@
 	$nomeSession =  ucwords($_SESSION['user_name']);
 	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
 	$userid = $_SESSION['user_id'];
+
+    $siteAdmin = new SITE_ADMIN();  
+    $siteAdmin->getPopupImagePublish();    
+
+    //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+
+    $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
+    $num = rand(0, $qtdePubli -1);
+    $publiText = $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
+
+
+
 ?>
 
 <!doctype html>
