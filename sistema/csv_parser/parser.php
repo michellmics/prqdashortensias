@@ -20,9 +20,10 @@ function processCSV($filePath) {
 
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-            // Remover o NBSP (Non-Breaking Space) do início de cada valor
+            // Remover todos os espaços (comum e NBSP) do início de cada valor
             $data = array_map(function($item) {
-                return ltrim($item, "\xC2\xA0"); // Remove NBSP (Non-Breaking Space) do início
+                // Remove espaços comuns e NBSP do início
+                return ltrim($item, " \xC2\xA0");
             }, $data);
             
             if ($data[0] == "Taxa Condominial"){
