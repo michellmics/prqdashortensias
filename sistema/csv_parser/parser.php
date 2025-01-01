@@ -36,7 +36,7 @@ function processCSV($filePath) {
 
         }
         //print_r($taxaCondominial);
-        //die();
+        die();
 
         // Fechar o arquivo
         fclose($handle);
