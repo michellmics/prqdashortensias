@@ -41,7 +41,6 @@ function processCSV($filePath) {
             foreach ($data as &$item) {
                 // Substitui NBSP por espaços comuns
                 $item = str_replace("\xC2\xA0", ' ', $item);
-                // Remove espaços do início e do final
                 $item = trim($item);
                 // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
                 $item = preg_replace('/\s+/', ' ', $item);
@@ -53,17 +52,8 @@ function processCSV($filePath) {
                 echo "aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii";
             }
 
-            /*
-                echo "Dados da linha:<br>";
-                print_r($data);
-                echo "<br><br>";
-                die();
-            */
-           // var_dump($data[0]);
-            
-            echo '<pre>' . htmlspecialchars($data[0]) . '</pre>';
-            //print_r($data[0]);
-            die();
+          
+            echo '<pre>' . $data[0] . '</pre>';
 
         }
 
