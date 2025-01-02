@@ -32,7 +32,17 @@
     $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
     $num = rand(0, $qtdePubli -1);
     $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
-    $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
+    
+    if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
+    {
+        $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
+    }
+    else
+        {
+            $publiImageLink = "";
+        }
+
+    
 
 
 ?>
