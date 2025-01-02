@@ -24,7 +24,7 @@
     overflow: hidden;
     width: 100%; /* Ajusta a largura conforme necessário */
     box-sizing: border-box;
-    background-color:rgb(56, 56, 56); /* Exemplo de cor de fundo para o marquee */
+    background-color:rgb(21, 129, 179); /* Exemplo de cor de fundo para o marquee */
     padding: 3px 0; /* Espaçamento para o marquee */
   }
 
@@ -58,7 +58,7 @@
   }
 
   .marquee-container p {
-  color: #58ddf2; /* Cor do texto do <p> */
+  color:rgb(243, 243, 243); /* Cor do texto do <p> */
 }
 
   .footer-info a:hover {
