@@ -9,6 +9,14 @@
 	  header("Location: https://www.prqdashortensias.com.br/index.php");
 	  exit();
 	}
+    	// Atualiza o timestamp da última atividade
+	$_SESSION['last_activity'] = time();
+
+	if (!isset($_SESSION['user_id'])) 
+	{
+	  header("Location: https://www.prqdashortensias.com.br/index.php");
+	  exit();
+	}
 	
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];

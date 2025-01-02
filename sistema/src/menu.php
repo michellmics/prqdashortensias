@@ -1,3 +1,29 @@
+
+<?php
+	session_start(); 
+	define('SESSION_TIMEOUT', 43200); // 30 minutos
+	
+	if (!isset($_SESSION['user_id'])) 
+	{
+	  header("Location: https://www.prqdashortensias.com.br/index.php");
+	  exit();
+	}
+
+    // Atualiza o timestamp da última atividade
+	$_SESSION['last_activity'] = time();
+
+	if (!isset($_SESSION['user_id'])) 
+	{
+	  header("Location: https://www.prqdashortensias.com.br/index.php");
+	  exit();
+	}
+	
+	$blocoSession = $_SESSION['user_bloco'];
+	$apartamentoSession = $_SESSION['user_apartamento'];
+	$nomeSession =  ucwords($_SESSION['user_name']);
+	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
+	$userid = $_SESSION['user_id'];
+?>
 <style>
 /* Estilo básico para o menu */
 .nav.menu {
