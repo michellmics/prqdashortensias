@@ -179,10 +179,9 @@ html, body {
 					
   		<!-- ini content Area -->
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-			<div class="container">
-
-			<div class="col-2">
-			    <label class="control-label" for="apartamento">Apart.</label>
+			
+		<div class="col-2">
+			    <label class="control-label" for="apartamento">Mês</label>
 			    <select id="apartamento" name="apartamento" class="form-control" required>
 			        <?php
 			            // Aqui você pode preencher o select com os números de apartamentos
@@ -195,7 +194,7 @@ html, body {
 			    </select>
 			</div>
 		
-
+			<div class="container">
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
 					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
