@@ -1,7 +1,7 @@
 
 <?php
 	session_start(); 
-	define('SESSION_TIMEOUT', 43200); // 30 minutos
+	//define('SESSION_TIMEOUT', 43200); // 30 minutos
 	
 	if (!isset($_SESSION['user_id'])) 
 	{
