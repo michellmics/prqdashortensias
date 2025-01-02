@@ -66,6 +66,9 @@ function processCSV($filePath) {
         $PARCELAMENTO_SABESP = [];
         $isParcelamentoSabesp = false;
 
+        $SALAO_FESTA = [];
+        $isSalaoFesta = false;
+
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
@@ -416,6 +419,34 @@ function processCSV($filePath) {
             }
             // FIM PARCELAMENTO SABESP
 
+            // INI SALAO DE FESTAS
+           if ($data[0] == "Salao de Festa"){$isSalaoFesta = true;continue;}
+           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
+           if ($isSalaoFesta && !empty($data[0])) {
+               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
+               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
+                   $isSalaoFesta = false; // Sai da seção
+                   continue;
+               }    
+
+               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+               $competencia = $data[1];
+               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+               $ano = null;         // Valor padrão para o ano
+
+               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
+                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
+                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
+               }
+               $SALAO_FESTA[] = [
+                   'DESCRICAO' => $data[0],
+                   'COMPETENCIA MES' => $mes,
+                   'COMPETENCIA ANO' => $ano,
+                   'VALOR' => $data[3],
+               ];
+            }
+            // FIM SALAO DE FESTAS
+
 
 
 
@@ -466,8 +497,12 @@ function processCSV($filePath) {
         //print_r($CONSUMO_AGUA);
         echo "</pre>"; 
 
-        echo "<pre>";
-        print_r($PARCELAMENTO_SABESP);
+        echo "<pre>"; 
+        //print_r($PARCELAMENTO_SABESP);
+        echo "</pre>"; 
+
+        echo "<pre>"; 
+        print_r($SALAO_FESTA);
         echo "</pre>";
         
       
