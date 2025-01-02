@@ -3489,12 +3489,18 @@ function init_echarts() {
             const dataCalendario = element.getAttribute("data-valor"); // ou element.dataset.valor
             const [mes, ano] = dataCalendario.split('-');
             console.log('Valor de datetime Pie:', mes);
+
+            const categorias = dados.dados.map(item => item.TITULO);
+            const valores = dados.dados.map(item => item.TOTAL);
+
+            console.log('Categorias:', categorias);
+            console.log('Valores:', valores);
             
             async function carregarDadosPie() {
                 try {
                     
                     // Supondo que você tenha uma função 'buscarDados' para buscar dados de inadimplência ou qualquer outro dado necessário
-                    //const dados = await buscarDados('receita', mes, ano);
+                    const dados = await buscarDados('receita', mes, ano);
                     const categorias = ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"];
                     const valores = [
                         12, // valor da categoria "Multas"

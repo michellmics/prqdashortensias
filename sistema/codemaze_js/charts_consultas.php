@@ -26,7 +26,7 @@
 
         case 'receita':
 			$siteCharts->getReceitasFull();
-			echo json_encode($siteCharts->ARRAY_DESPESAFULLINFO);
+			echo json_encode($siteCharts->ARRAY_RECEITAFULLINFO);
             break;
 
         default:
