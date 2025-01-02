@@ -58,6 +58,8 @@ function processCSV($filePath) {
         $isParcelamentoSabesp = false;
         $SALAO_FESTA = [];
         $isSalaoFesta = false;
+        $ACORDOS_RECEBIDOS = [];
+        $isAcordosRecebidos = false;
 
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
@@ -501,6 +503,39 @@ function processCSV($filePath) {
                ];
             }
             // FIM SALAO DE FESTAS
+
+            // INI ACORDOS RECEBIDOS
+           if ($data[0] == "Acordos Recebidos"){$isAcordosRecebidos = true;continue;}
+           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
+           if ($isAcordosRecebidos && !empty($data[0])) {
+               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
+               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
+                   $isAcordosRecebidos = false; // Sai da seção
+                   continue;
+               }    
+
+               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+               $competencia = $data[1];
+               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+               $ano = null;         // Valor padrão para o ano
+
+               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
+                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
+                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
+               }
+               $ACORDOS_RECEBIDOS[] = [
+                   'DESCRICAO' => $data[0],
+                   'COMPETENCIA MES' => $mes,
+                   'COMPETENCIA ANO' => $ano,
+                   'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
+                   'TITULO' => 'Salao de Festa',
+               ];
+            }
+            // FIM ACORDOS RECEBIDOS
         }
 
         //Alertas de campos vazio
@@ -517,6 +552,7 @@ function processCSV($filePath) {
         if(count($CONSUMO_AGUA) == 0){echo "ATENÇÃO: CONSUMO_AGUA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($CONSUMO_AGUA);}
         if(count($PARCELAMENTO_SABESP) == 0){echo "ATENÇÃO: PARCELAMENTO_SABESP VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($PARCELAMENTO_SABESP);}
         if(count($SALAO_FESTA) == 0){echo "ATENÇÃO: SALAO_FESTA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($SALAO_FESTA);}
+        if(count($ACORDOS_RECEBIDOS) == 0){echo "ATENÇÃO: ACORDOS_RECEBIDOS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($ACORDOS_RECEBIDOS);}
 
         fclose($handle);
 
