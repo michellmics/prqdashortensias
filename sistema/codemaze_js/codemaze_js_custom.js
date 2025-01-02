@@ -3547,7 +3547,7 @@ function init_echarts() {
                         },
                         calculable: !0,
                         series: [{
-                            name: "Receitas - ".mes,
+                            name: `Receitas - ${mes}`,
                             type: "pie",
                             radius: "55%",
                             center: ["50%", "48%"],
