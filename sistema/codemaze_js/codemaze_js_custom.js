@@ -2379,7 +2379,7 @@ function init_echarts() {
             async function carregarDados() {
                 try {
                     const dados = await buscarDados('inadimplencia', dataCalendario);
-                    const valor = dados[0]?.valor; // Obtém o valor desejado
+                    const valor = dados.valor; // Acessa a chave 'valor' diretamente
                     console.log('Valor de REP_NMVALOR:', valor);
         
                     // Atualiza o gráfico com o valor obtido
