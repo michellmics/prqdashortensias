@@ -3508,68 +3508,7 @@ function init_echarts() {
                     //console.log('Valores recebidos:', valores);
         
                     // Atualiza o gráfico com os dados obtidos
-                    var option = {
-                        tooltip: {
-                            trigger: "item",
-                            formatter: "{a} <br/>{b} : {c} ({d}%)"
-                        },
-                        legend: {
-                            x: "center",
-                            y: "bottom",
-                            data: ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"]
-                        },
-                        toolbox: {
-                            show: !0,
-                            feature: {
-                                magicType: {
-                                    show: !0,
-                                    type: ["pie", "funnel"],
-                                    option: {
-                                        funnel: {
-                                            x: "25%",
-                                            width: "50%",
-                                            funnelAlign: "left",
-                                            max: 1548
-                                        }
-                                    }
-                                },
-                                restore: {
-                                    show: !0,
-                                    title: "restaurar"
-                                },
-                                saveAsImage: {
-                                    show: !0,
-                                    title: "Salvar Imagem"
-                                }
-                            }
-                        },
-                        calculable: !0,
-                        series: [{
-                            name: "Vendas",
-                            type: "pie",
-                            radius: "55%",
-                            center: ["50%", "48%"],
-                            data: [{
-                                value: 335,
-                                name: "Multas"
-                            }, {
-                                value: 310,
-                                name: "Salão de Festas"
-                            }, {
-                                value: 234,
-                                name: "Processos"
-                            }, {
-                                value: 135,
-                                name: "Construtora"
-                            }, {
-                                value: 1548,
-                                name: "Cota Condominal"
-                            }]
-                        }]
-                    };
         
-                    // Define a opção inicial para o gráfico
-                    myChart.setOption(option);
         
                 } catch (error) {
                     console.error('Erro ao carregar os dados:', error);
