@@ -40,7 +40,7 @@
   	$userid = $_SESSION['user_id'];
 
 	$siteAdmin->getRelatoriosDisponiveis();
-	$mesDefault = $siteAdmin->ARRAY_RELINFO[0]["MES"];
+	$mesANoDefault = $siteAdmin->ARRAY_RELINFO[0]["MES"]."/".$siteAdmin->ARRAY_RELINFO[0]["ANO"];
 
 	var_dump($mesDefault);
 	die();
