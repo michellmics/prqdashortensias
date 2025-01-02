@@ -283,7 +283,7 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT PUB_DCIMG  FROM PUB_PUBLICIDADE
+                $sql = "SELECT PUB_DCIMG, PUB_DCLINK  FROM PUB_PUBLICIDADE
                         WHERE PUB_STSTATUS = 'ATIVA' AND PUB_DCTIPO LIKE '%IMAGEM%'";
 
                 $stmt = $this->pdo->prepare($sql);
