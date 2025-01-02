@@ -192,8 +192,8 @@ html, body {
 			<div class="container">
 			<div class="row">
 				<div class="col-2">
-				    <label class="control-label" for="apartamento">Mês</label>
-				    <select id="apartamento" name="apartamento" class="form-control" required>
+				    <label class="control-label" for="mesRelatorio">Mês</label>
+				    <select id="mesRelatorio" name="mesRelatorio" class="form-control" required>
 				        <?php
 				            // Aqui você pode preencher o select com os números de apartamentos
 				            foreach ($siteAdmin->ARRAY_RELINFO as $relatorio)
@@ -426,7 +426,7 @@ html, body {
 		<script>
     $(document).ready(function () {
         // Detecta mudança no combobox
-        $('#apartamento').on('change', function () {
+        $('#mesRelatorio').on('change', function () {
             const selectedValue = $(this).val(); // Valor selecionado no combobox
             const gauge = $('#echart_gauge_codemaze'); // Seleciona o elemento do gauge
             gauge.attr('data-valor', selectedValue); // Atualiza o atributo data-valor do gauge
