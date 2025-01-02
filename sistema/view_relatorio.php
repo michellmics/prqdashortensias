@@ -210,7 +210,7 @@ html, body {
 					<button 
             type="button" 
             class="btn btn-primary" 
-            style="height: calc(2.25rem + 3px);" 
+            style="height: calc(2.25rem + 6px);" 
             onclick="window.location.href='pagina_adicionar_relatorio.php';">
             Adicionar Relatório
         </button>
