@@ -327,7 +327,7 @@ function processCSV($filePath) {
             // FIM RENDIMENTO APLICAÇÃO
 
             // INI FUNDO INADIMPLENCA
-           if ($data[0] == "Rendimento Aplicação F.O."){$isFundoInadimplencia = true;continue;}
+           if ($data[0] == "F. Inadimplencia"){$isFundoInadimplencia = true;continue;}
            // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isFundoInadimplencia && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
