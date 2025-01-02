@@ -180,6 +180,20 @@ html, body {
   		<!-- ini content Area -->
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 			<div class="container">
+
+			<div class="col-2">
+			    <label class="control-label" for="apartamento">Apart.</label>
+			    <select id="apartamento" name="apartamento" class="form-control" required>
+			        <?php
+			            // Aqui você pode preencher o select com os números de apartamentos
+			            for ($i = 1; $i <= 352; $i++) {
+			                // Verifica se o apartamento atual é o selecionado
+			                $selected = ($i == $siteAdmin->ARRAY_MORADORINFO["USU_DCAPARTAMENTO"]) ? 'selected' : '';
+			                echo "<option value=\"$i\" $selected>Apartamento $i</option>";
+			            }
+			        ?>
+			    </select>
+			</div>
 		
 
 				<div class="row">
