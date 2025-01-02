@@ -416,37 +416,21 @@ html, body {
 
 
 		<script>
-		document.addEventListener('DOMContentLoaded', () => {
-		    const comboBox = document.getElementById('apartamento');
-		    const gaugeElement = document.getElementById('echart_gauge_codemaze');
-				
-		    // Atualiza o valor do gauge quando o ComboBox muda
-		    comboBox.addEventListener('change', async () => {
-		        const selectedValue = comboBox.value;
-			
-		        // Simula uma chamada para buscar os dados do apartamento selecionado
-		        const response = await fetch(`buscarDadosInadimplencia.php?apartamento=${selectedValue}`);
-		        const data = await response.json();
-			
-		        // Atualiza o atributo data-valor com o valor recebido
-		        gaugeElement.setAttribute('data-valor', data.valor);
-			
-		        // Atualiza o gráfico (exemplo com ECharts)
-		        if (typeof echarts !== 'undefined') {
-		            const chart = echarts.getInstanceByDom(gaugeElement);
-		            if (chart) {
-		                chart.setOption({
-		                    series: [
-		                        {
-		                            data: [{ value: data.valor, name: 'Inadimplência' }]
-		                        }
-		                    ]
-		                });
-		            }
-		        }
-		    });
-		});
+document.addEventListener('DOMContentLoaded', () => {
+    const comboBox = document.getElementById('apartamento');
+    const gaugeElement = document.getElementById('echart_gauge_codemaze');
 
+    // Atualiza o valor do atributo data-valor quando o ComboBox muda
+    comboBox.addEventListener('change', () => {
+        const selectedValue = comboBox.value;
+
+        // Aqui você pode definir a lógica para calcular o novo valor
+        // Exemplo simples: valor igual ao número do apartamento multiplicado por 2
+        const novoValor = selectedValue * 2; // Ajuste conforme sua lógica
+
+        // Atualiza o atributo data-valor
+        gaugeElement.setAttribute('data-valor', novoValor);
+    });
 		</script>
 		
 		
