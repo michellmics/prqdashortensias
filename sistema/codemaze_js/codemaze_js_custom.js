@@ -3500,7 +3500,7 @@ function init_echarts() {
 
                     // Acessa os títulos e converte os totais para números
                     const categorias = dados.map(item => item.TITULO);
-                    const valores = dados.map(item => `R$ ${parseFloat(item.TOTAL).toFixed(2)}`);
+                    const valores = dados.map(item => parseFloat(item.TOTAL));
 
                     // Prepara os dados para o gráfico
                     const dataGrafico = categorias.map((categoria, index) => ({
@@ -3547,11 +3547,18 @@ function init_echarts() {
                         },
                         calculable: !0,
                         series: [{
-                            name: `Receitas - ${mes}`,
+                            name: "Receitas - " + mes,  // Exemplo de como concatenar "Receitas - mês"
                             type: "pie",
                             radius: "55%",
                             center: ["50%", "48%"],
-                            data: dataGrafico
+                            data: dataGrafico.map(item => ({
+                                value: item.value,
+                                name: item.name,
+                                // Formatação da legenda
+                                label: {
+                                    formatter: `R$ {value.toFixed(2)}`
+                                }
+                            }))
                         }]
                     };
         
