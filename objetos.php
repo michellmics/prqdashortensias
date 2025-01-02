@@ -532,18 +532,14 @@
                     die("Erro ao preparar a consulta: " . $conn->error);
                 }
             
-                // Substituir os placeholders com os valores reais
-                $stmt->bind_param(
-                    'sssissss',                         // Tipos de dados: s = string
-                    $dados['TIPO'],              
-                    $dados['COMPETENCIA MES'],       
-                    $dados['DESCRICAO'],        
-                    $dados['VALOR'],                  
-                    $dados['DATANOW'],  
-                    $dados['COMPETENCIA MES USUARIO'],  
-                    $dados['COMPETENCIA ANO USUARIO'],  
-                    $dados['COMPETENCIA ANO']               
-                );
+                $stmt->bindValue(':tipo', $dados['TIPO'], PDO::PARAM_STR);
+                $stmt->bindValue(':mes_competencia', $dados['COMPETENCIA MES'], PDO::PARAM_STR);
+                $stmt->bindValue(':descricao', $dados['DESCRICAO'], PDO::PARAM_STR);
+                $stmt->bindValue(':valor', $dados['VALOR'], PDO::PARAM_STR);
+                $stmt->bindValue(':datanow', $dados['DATANOW'], PDO::PARAM_STR);
+                $stmt->bindValue(':mes_competencia_usuario', $dados['COMPETENCIA MES USUARIO'], PDO::PARAM_STR);
+                $stmt->bindValue(':ano_competencia_usuario', $dados['COMPETENCIA ANO USUARIO'], PDO::PARAM_STR);
+                $stmt->bindValue(':ano_competencia', $dados['COMPETENCIA ANO'], PDO::PARAM_STR);
             
                 // Executar a consulta
                 if (!$stmt->execute()) {
