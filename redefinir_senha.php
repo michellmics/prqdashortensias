@@ -45,14 +45,14 @@
           <div class="form-group has-feedback">
             <input type="password" class="form-control" id="password" placeholder="Digite sua nova senha" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            <span class="toggle-password" onclick="togglePassword('password_redit', this)">👁️</span>
+            <span class="toggle-password" onclick="togglePassword('password_redit', this)"></span>
             Preencha para alterar a senha. Ela deve ter pelo menos 8 caracteres, incluir uma letra maiúscula e um caractere especial.
           </div>
 
           <div class="form-group has-feedback">
             <input type="password" class="form-control" id="password_redit" placeholder="Repita a nova senha" name="password_redit"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            <span class="toggle-password" onclick="togglePassword('password_redit', this)">👁️</span>
+            <span class="toggle-password" onclick="togglePassword('password_redit', this)"></span>
           </div>
           
           <div class="row">
