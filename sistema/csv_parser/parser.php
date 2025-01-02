@@ -8,7 +8,7 @@ header('Content-Type: text/html; charset=UTF-8');
 include_once '../../objetos.php';
 
 $siteAdmin = new SITE_ADMIN();  
-$dataHoraAtual = date('Y-m-d H:i:s'); 
+
 
 function removeBOM($filePath) {
     // Ler o conteúdo do arquivo
@@ -25,6 +25,9 @@ function removeBOM($filePath) {
 }
 
 function processCSV($filePath) {
+    
+    $dataHoraAtual = date('Y-m-d H:i:s'); 
+
     // Abrir o arquivo CSV
     if (($handle = fopen($filePath, 'r')) !== FALSE) {
         // Ler o cabeçalho
