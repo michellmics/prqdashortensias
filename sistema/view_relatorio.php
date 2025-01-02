@@ -206,14 +206,8 @@ html, body {
 					
 				</div>
 				<div class="col-2">
-				    <label class="control-label" for="mesAno">&nbsp;</label>
-					<button 
-            type="button" 
-            class="btn btn-primary" 
-            style="height: calc(2.25rem + 6px);" 
-            onclick="window.location.href='pagina_adicionar_relatorio.php';">
-            Adicionar Relatório
-        </button>
+				    <label class="control-label" for="rel">&nbsp;</label>
+					<button type="button" class="btn btn-primary" style="height: calc(2.25rem + 6px);" onclick="window.location.href='form_relatorio.php';">Adicionar Relatório</button>
 					
 				</div>
 				
