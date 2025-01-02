@@ -201,7 +201,7 @@ function processCSV($filePath) {
             // FIM ATUALIZACAO MONETARIA
 
             // INI PAGAMENTO A MENOR
-           if ($data[0] == " Pagamento a menor"){$isPagamentoMenor = true;continue;}
+           if ($data[0] == "Pagamento a menor"){$isPagamentoMenor = true;continue;}
            // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isPagamentoMenor && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
