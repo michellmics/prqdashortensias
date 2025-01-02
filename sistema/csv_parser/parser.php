@@ -70,10 +70,11 @@ function processCSV($filePath) {
                 $TAXA_CONDOMINAL['COMPETENCIA'] = $data[1];
                 $TAXA_CONDOMINAL['VALOR'] = $data[3];
 
-        }
+            }
 
+        }
         var_dump($TAXA_CONDOMINAL);
-        die();
+     
 
 
         // Fechar o arquivo
