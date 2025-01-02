@@ -60,6 +60,9 @@ function processCSV($filePath) {
         $FUNDO_INADIMPLENCIA = [];
         $isFundoInadimplencia = false;
 
+        $CONSUMO_AGUA = [];
+        $isConsumoAgua = false;
+
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
@@ -354,6 +357,34 @@ function processCSV($filePath) {
             }
             // FIM FUNDO INADIMPLENCA
 
+            // INI CONSUMO AGUA
+           if ($data[0] == "Consumo de água"){$isConsumoAgua = true;continue;}
+           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
+           if ($isConsumoAgua && !empty($data[0])) {
+               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
+               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
+                   $isConsumoAgua = false; // Sai da seção
+                   continue;
+               }    
+
+               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+               $competencia = $data[1];
+               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+               $ano = null;         // Valor padrão para o ano
+
+               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
+                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
+                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
+               }
+               $CONSUMO_AGUA[] = [
+                   'DESCRICAO' => $data[0],
+                   'COMPETENCIA MES' => $mes,
+                   'COMPETENCIA ANO' => $ano,
+                   'VALOR' => $data[3],
+               ];
+            }
+            // FIM CONSUMO AGUA
+
 
 
 
@@ -397,9 +428,12 @@ function processCSV($filePath) {
         echo "</pre>";
 
         echo "<pre>";
-        print_r($FUNDO_INADIMPLENCIA);
-        echo "</pre>"; 
+        //print_r($FUNDO_INADIMPLENCIA);
+        echo "</pre>";  
 
+        echo "<pre>";
+        print_r($CONSUMO_AGUA);
+        echo "</pre>";
         
       
 
