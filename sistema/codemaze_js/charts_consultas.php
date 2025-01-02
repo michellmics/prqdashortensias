@@ -25,7 +25,7 @@
             break;
 
         case 'receita':
-			$siteCharts->getReceitasFull();
+			$siteCharts->getReceitasFull($mes,$ano);
 			echo json_encode($siteCharts->ARRAY_RECEITAFULLINFO);
             break;
 
