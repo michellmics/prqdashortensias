@@ -205,7 +205,7 @@ html, body {
     				      <div class="clearfix"></div>
     				    </div>
     				    <div class="x_content">
-    				      <div id="echart_gauge_codemaze" data-valor="452" style="height:350px;"></div>
+    				      <div id="echart_gauge_codemaze" data-valor="<?php echo htmlspecialchars($_GET['valor'] ?? '452'); ?>"  style="height:350px;"></div>
     				    </div>
     				  </div>
     				</div>
@@ -415,23 +415,21 @@ html, body {
 		<!-- DASHBOARD -->
 
 
-		<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const comboBox = document.getElementById('apartamento');
-    const gaugeElement = document.getElementById('echart_gauge_codemaze');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const comboBox = document.getElementById('apartamento');
 
-    // Atualiza o valor do atributo data-valor quando o ComboBox muda
-    comboBox.addEventListener('change', () => {
-        const selectedValue = comboBox.value;
+        comboBox.addEventListener('change', () => {
+            const selectedValue = comboBox.value;
 
-        // Aqui você pode definir a lógica para calcular o novo valor
-        // Exemplo simples: valor igual ao número do apartamento multiplicado por 2
-        const novoValor = selectedValue * 2; // Ajuste conforme sua lógica
+            // Aqui você pode definir a lógica para calcular o novo valor
+            const novoValor = selectedValue * 2; // Ajuste conforme sua lógica
 
-        // Atualiza o atributo data-valor
-        gaugeElement.setAttribute('data-valor', novoValor);
+            // Atualiza a página com o novo valor
+            window.location.href = `?apartamento=${selectedValue}&valor=${novoValor}`;
+        });
     });
-		</script>
+</script>
 		
 		
     </body>
