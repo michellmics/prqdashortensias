@@ -3547,18 +3547,11 @@ function init_echarts() {
                         },
                         calculable: !0,
                         series: [{
-                            name: "Receitas - " + mes,  // Exemplo de como concatenar "Receitas - mês"
+                            name: `Receitas R$ - ${mes}`,
                             type: "pie",
                             radius: "55%",
                             center: ["50%", "48%"],
-                            data: dataGrafico.map(item => ({
-                                value: item.value,
-                                name: item.name,
-                                // Formatação da legenda
-                                label: {
-                                    formatter: `R$ {value.toFixed(2)}`
-                                }
-                            }))
+                            data: dataGrafico
                         }]
                     };
         
