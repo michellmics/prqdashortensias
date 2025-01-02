@@ -219,8 +219,8 @@ html, body {
 							    <div class="x_panel">
 							        <div class="x_content">
 							            <p>
-							                <strong>Explicação do gráfico:</strong><br>
-							                Este gráfico de pizza exibe as receitas dos 10 principais itens para o mês selecionado. Cada fatia representa uma categoria de receita, como "Multas", "Taxa Condominial" ou "Salao de Festa". A porcentagem de cada fatia é calculada com base no total das receitas e permite uma visualização rápida da contribuição de cada item para o total.
+							                <strong>Gráfico 'Inadimplência'</strong><br>
+							                A proposta deste gráfico é ilustrar a inadimplência do mês selecionado, com a ressalva de que os valores podem ser ajustados conforme os moradores regularizem suas dívidas nos meses seguintes.
 							            </p>
 							        </div>
 							    </div>
@@ -259,8 +259,8 @@ html, body {
 							    <div class="x_panel">
 							        <div class="x_content">
 							            <p>
-							                <strong>Explicação do gráfico:</strong><br>
-							                Este gráfico de pizza exibe as receitas dos 10 principais itens para o mês selecionado. Cada fatia representa uma categoria de receita, como "Multas", "Taxa Condominial" ou "Salao de Festa". A porcentagem de cada fatia é calculada com base no total das receitas e permite uma visualização rápida da contribuição de cada item para o total.
+							                <strong>Gráfico 'Receitas (Top 10)'</strong><br>
+							                O objetivo deste gráfico é apresentar as 10 maiores receitas conforme o mês selecionado. Os valores exibidos estão em Reais (R$) e podem ser ajustados à medida que os moradores efetuam os pagamentos nos meses subsequentes.
 							            </p>
 							        </div>
 							    </div>
