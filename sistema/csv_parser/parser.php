@@ -29,6 +29,7 @@ function processCSV($filePath) {
         // Ler o cabeçalho
         $header = fgetcsv($handle);  // Aqui lemos o cabeçalho
 
+        //campos a serem verificados
         $TAXA_CONDOMINAL = [];
         $isTaxaCondominial = false;
         $MULTAS = [];
