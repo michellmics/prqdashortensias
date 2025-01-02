@@ -307,10 +307,6 @@ html, body {
         			</div>
         			<!-- FIM GRAFICO AREA -->
 				</div>
-				
-				<div class="row">
-
-				</div>
 			</div>
 
 
