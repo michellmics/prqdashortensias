@@ -42,6 +42,9 @@
 	$siteAdmin->getRelatoriosDisponiveis();
 	$mesDefault = $siteAdmin->ARRAY_RELINFO[0]["MES"];
 
+	var_dump($siteAdmin->ARRAY_RELINFO);
+	die();
+
 
 	$dataValor = isset($_GET['data-valor']) ? intval($_GET['data-valor']) : $mesDefault; // Valor padrão
 	  
@@ -193,22 +196,16 @@ html, body {
 			<div class="row">
 				<div class="col-2">
 				    <label class="control-label" for="apartamento">Mês</label>
-					<select id="apartamento" name="apartamento[]" class="form-control" multiple required>
-    <?php
-        // Supondo que o array MES contém os meses selecionados, que podem ser repetidos
-        $mesesSelecionados = $siteAdmin->ARRAY_RELINFO[0]["MES"];
-        
-        // Remover duplicatas do array MES para garantir que o select não mostre meses repetidos
-        $mesesUnicos = array_unique($mesesSelecionados);
-        
-        // Exibe os meses únicos que estão no array
-        foreach ($mesesUnicos as $mes) {
-            // Verifica se o mês está no array de meses selecionados
-            $selected = in_array($mes, $mesesSelecionados) ? 'selected' : '';
-            echo "<option value=\"$mes\" $selected>Mês $mes</option>";
-        }
-    ?>
-</select>
+				    <select id="apartamento" name="apartamento" class="form-control" required>
+				        <?php
+				            // Aqui você pode preencher o select com os números de apartamentos
+				            for ($i = 1; $i <= 352; $i++) {
+				                // Verifica se o apartamento atual é o selecionado
+				                $selected = ($i == $siteAdmin->ARRAY_RELINFO[0]["MES"]) ? 'selected' : '';
+				                echo "<option value=\"$i\" $selected>Mês $i</option>";
+				            }
+				        ?>
+				    </select>
 				</div>
 			</div>
 				<div class="row">
