@@ -207,16 +207,13 @@ html, body {
 				</div>
 				<div class="col-2">
 				    <label class="control-label" for="mesAno">Mês</label>
-				    <select id="mesAno" name="mesAno" class="form-control" required>
-				        <?php
-							foreach ($siteAdmin->ARRAY_RELINFO as $relatorio)
-							{	
-								$mesAno = $relatorio["MES"]."-".$relatorio["ANO"];
-								$mesAnoLabel = ucfirst($mesAno);
-								echo "<option value=\"$mesAno\">$mesAnoLabel </option>";
-							}
-				        ?>
-				    </select>
+					<button 
+            type="button" 
+            class="btn btn-primary" 
+            style="height: calc(2.25rem + 2px);" 
+            onclick="window.location.href='pagina_adicionar_relatorio.php';">
+            Adicionar Relatório
+        </button>
 					
 				</div>
 				
