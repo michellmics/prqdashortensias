@@ -2379,7 +2379,7 @@ function init_echarts() {
         
             async function carregarDados() {
                 try {
-                    const dados = await buscarDados('inadimplencia', mes);
+                    const dados = await buscarDados('inadimplencia', mes, ano);
                     const valor = dados.valor; 
                     console.log('Valor de REP_NMVALOR:', valor);
         
@@ -4363,13 +4363,13 @@ $.fn.popover.Constructor.prototype.leave = function(e) {
 });
 
 // Função para buscar dados de uma consulta específica
-function buscarDados(consulta, dataCalendario) {
+function buscarDados(consulta, mes, ano) {
     return fetch('codemaze_js/charts_consultas.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ consulta: consulta, dataCalendario: dataCalendario })
+        body: JSON.stringify({ consulta: consulta, mes: mes, ano: ano })
     })
     .then(response => {
         if (!response.ok) {

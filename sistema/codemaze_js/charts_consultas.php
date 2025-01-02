@@ -7,14 +7,15 @@
 
 	$dados = json_decode(file_get_contents("php://input"), true);
 	$consulta = isset($dados['consulta']) ? $dados['consulta'] : null; 
-	$dataCalendario = isset($dados['dataCalendario']) ? $dados['dataCalendario'] : null; 
+	$mes = isset($dados['mes']) ? $dados['mes'] : null; 
+	$ano = isset($dados['ano']) ? $dados['ano'] : null; 
 
   	include_once '../../objetos_chart.php'; 
 	$siteCharts = new SITE_CHARTS(); 
 	
 	 switch ($consulta) {
         case 'inadimplencia':
-			$valorInadimplencia = $siteCharts->getInadimplenciaFull();
+			$valorInadimplencia = $siteCharts->getInadimplenciaFull($mes,$ano);
 			echo json_encode(['valor' => $valorInadimplencia]);
             break;
 

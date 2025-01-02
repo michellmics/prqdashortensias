@@ -44,7 +44,6 @@
 
 
 	$dataValor = isset($_GET['data-valor']) ? strval($_GET['data-valor']) : $mesANoDefault; // Valor padrão
-	var_dump($dataValor);
 	  
 ?>
 

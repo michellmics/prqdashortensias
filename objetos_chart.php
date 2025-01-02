@@ -54,7 +54,7 @@
             }          
         }     
 
-        public function getInadimplenciaFull()
+        public function getInadimplenciaFull($CON_DCMES_COMPETENCIA_USUARIO,$CON_DCANO_COMPETENCIA_USUARIO)
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
@@ -67,11 +67,13 @@
                         WHERE 
                             CONC.CON_DCTIPO = 'RECEITA' 
                             AND CONC.CON_NMTITULO = 'Taxa Condominial'
-                            AND CONC.CON_DCMES_COMPETENCIA_USUARIO = 'novembro'
-                            AND CONC.CON_DCANO_COMPETENCIA_USUARIO = '2024'
+                            AND CONC.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
+                            AND CONC.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
                             AND CONC.CON_DCMES_COMPETENCIA = 'Nov';";
 
                 $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':CON_DCANO_COMPETENCIA_USUARIO', $CON_DCANO_COMPETENCIA_USUARIO, PDO::PARAM_STR);
                 $stmt->execute();
                 $ADIMPLENTES = $stmt->fetch(PDO::FETCH_ASSOC);
 
