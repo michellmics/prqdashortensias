@@ -181,25 +181,6 @@ html, body {
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 			<div class="container">
 		
-				<div class="col-md-5" style="border: none; outline: none;">
-				  Escolha o mês
-				  <form class="">
-				    <fieldset style="border: none; outline: none;">
-				      <div class="control-group">
-				        <div class="controls">
-				          <div class="input-prepend input-group">
-				            <span class="add-on input-group-addon">
-				              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-				            </span>
-				            <!-- Substituí o input para aceitar apenas meses -->
-				            <input type="month" name="reservation-month" id="reservation-month" class="form-control" />
-				          </div>
-				        </div>
-				      </div>
-				    </fieldset>
-				  </form>
-				</div>
-
 
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
