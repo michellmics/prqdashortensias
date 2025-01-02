@@ -26,6 +26,7 @@
         public $ARRAY_FOOTERPUBLISHINFO;
         public $ARRAY_LOGINFO;
         public $ARRAY_POPUPPUBLISHINFO;
+        public $ARRAY_RELINFO;
         public $configPath = '/home/hortensias/config.cfg';
 
 
@@ -474,6 +475,25 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
                 $this->ARRAY_USERINFOBYID = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }
+
+        public function getRelatoriosDisponiveis()
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT DISTINCT CON_DCMES_COMPETENCIA_USUARIO AS MES, 
+                        CON_DCANO_COMPETENCIA_USUARIO AS ANO
+                        FROM CON_CONCILIACAO
+                        ORDER BY CON_DCMES_COMPETENCIA_USUARIO DESC";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $this->ARRAY_RELINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
