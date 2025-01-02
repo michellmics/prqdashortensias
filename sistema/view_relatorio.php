@@ -203,16 +203,15 @@ html, body {
 							}
 				        ?>
 				    </select>
-				</div>
-				<div class="col-auto d-flex align-items-end">
-        <button 
+					<button 
             type="button" 
             class="btn btn-primary" 
             style="height: calc(2.25rem + 2px);" 
             onclick="window.location.href='pagina_adicionar_relatorio.php';">
             Adicionar Relatório
         </button>
-    </div>
+				</div>
+				
 			</div>
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
