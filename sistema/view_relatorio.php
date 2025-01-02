@@ -218,6 +218,18 @@ html, body {
     				  </div>
     				</div>
     				<!-- FIM GRAFICO GAUGE -->
+					 		<!-- INI EXPLICAÇÃO -->
+							  <div class="col-md-6 col-sm-12" style="margin-top: 20px;">
+							    <div class="x_panel">
+							        <div class="x_content">
+							            <p>
+							                <strong>Explicação do gráfico:</strong><br>
+							                Este gráfico de pizza exibe as receitas dos 10 principais itens para o mês selecionado. Cada fatia representa uma categoria de receita, como "Multas", "Taxa Condominial" ou "Salao de Festa". A porcentagem de cada fatia é calculada com base no total das receitas e permite uma visualização rápida da contribuição de cada item para o total.
+							            </p>
+							        </div>
+							    </div>
+							</div>
+							<!-- FIM EXPLICAÇÃO -->
 
 
   					<!-- INI GRAFICO PIZZA DETALHE -->
