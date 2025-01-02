@@ -46,6 +46,9 @@
             <div class="text-left">
               <a href="recuperar_senha.php" class="btn btn-link">Esqueceu sua senha?</a>
             </div>
+            <div class="text-left">
+              <a href="https://www.prqdashortensias.com.br/hortensiasapp.apk" download class="btn btn-link">Download App (Android)</a>
+          </div>
           </div>
           <div class="row">
             <div class="col-xs-8">                 
