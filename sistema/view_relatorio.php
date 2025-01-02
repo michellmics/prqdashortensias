@@ -40,7 +40,7 @@
   	$userid = $_SESSION['user_id'];
 
 	$siteAdmin->getRelatoriosDisponiveis();
-	$mesANoDefault = $siteAdmin->ARRAY_RELINFO[0]["MES"]."/".$siteAdmin->ARRAY_RELINFO[0]["ANO"];
+	$mesANoDefault = $siteAdmin->ARRAY_RELINFO[0]["MES"]."-".$siteAdmin->ARRAY_RELINFO[0]["ANO"];
 
 
 	$dataValor = isset($_GET['data-valor']) ? intval($_GET['data-valor']) : $mesANoDefault; // Valor padrão
@@ -198,9 +198,9 @@ html, body {
 				            // Aqui você pode preencher o select com os números de apartamentos
 				            foreach ($siteAdmin->ARRAY_RELINFO as $relatorio)
 							{
-				                $mesAno = $relatorio["MES"]."/".$relatorio["ANO"];
+				                $mesAno = $relatorio["MES"]."-".$relatorio["ANO"];
 
-				                echo "<option value=\"$mesAno\" $selected>Mês $mesAno </option>";
+				                echo "<option value=\"$mesAno\" $selected>$mesAno </option>";
 				            }
 				        ?>
 				    </select>
