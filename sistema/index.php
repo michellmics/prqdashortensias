@@ -202,7 +202,7 @@ html, body {
         <div id="promoPopup" style="display: none;">
             <div class="popup-content">
                 <button class="close-btn" onclick="closePopup()">×</button>
-                <a href="<?php echo $publiImageLink; ?>" target="_blank">
+                <a>
                     <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: 100%; height: auto;">
                 </a>
             </div>
