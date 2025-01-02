@@ -35,6 +35,9 @@ function processCSV($filePath) {
         //print_r($header);
         //echo "<br><br>";
 
+        $TAXA_CONDOMINAL = [];
+        $isTaxaCondominial = false;
+
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
@@ -45,17 +48,32 @@ function processCSV($filePath) {
                 // Substitui múltiplos espaços internos (inclusive NBSP) por um único espaço comum
                 $item = preg_replace('/\s+/', ' ', $item);
             }
+
+            
            
             if ($data[0] == "Receitas Ordinárias (99,58%)")
             {
-                // Adiciona as informações da linha à variável
-                echo "aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii";
+                $isTaxaCondominial = true;
+                continue;
             }
 
-          
-            echo '<pre>' . $data[0] . '</pre>';
+            // Se estamos na seção "Taxa Condominial" e a linha não está vazia
+            if ($isTaxaCondominial && !empty($data[0])) {
+                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
+                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
+                    $isTaxaCondominial = false; // Sai da seção
+                    continue;
+                }
+           
+                // Adiciona as informações da linha à variável
+                $TAXA_CONDOMINAL['DESCRICAO'] = $data[0];
+                $TAXA_CONDOMINAL['COMPETENCIA'] = $data[1];
+                $TAXA_CONDOMINAL['VALOR'] = $data[3];
 
         }
+
+        var_dump($TAXA_CONDOMINAL);
+        die();
 
 
         // Fechar o arquivo
