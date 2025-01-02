@@ -248,7 +248,9 @@ html, body {
 						
         			  </div>
 					  
-<!-- INI EXPLICAÇÃO -->
+
+        			</div>
+					<!-- INI EXPLICAÇÃO -->
 <div class="col-md-6 col-sm-12" style="margin-top: 20px;">
     <div class="x_panel">
         <div class="x_content">
@@ -260,7 +262,6 @@ html, body {
     </div>
 </div>
 <!-- FIM EXPLICAÇÃO -->
-        			</div>
         			<!-- FIM GRAFICO PIZZA DETALHE -->
 				</div>
 
