@@ -42,7 +42,7 @@
 	$siteAdmin->getRelatoriosDisponiveis();
 	$mesDefault = $siteAdmin->ARRAY_RELINFO[0]["MES"];
 
-	var_dump($siteAdmin->ARRAY_RELINFO);
+	var_dump($mesDefault);
 	die();
 
 
