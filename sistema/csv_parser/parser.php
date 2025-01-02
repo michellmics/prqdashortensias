@@ -70,7 +70,7 @@ function processCSV($filePath) {
 
             
            // INI TAXA CONDOMINAL
-            if ($data[0] == "Taxa Condominial"){$isTaxaCondominial = true;continue;}
+            if ($data[0] == "Taxa Condominial "){$isTaxaCondominial = true;continue;}
             // Se estamos na seção "Taxa Condominial" e a linha não está vazia
             if ($isTaxaCondominial && !empty($data[0])) {
                 // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
