@@ -504,95 +504,21 @@ function processCSV($filePath) {
         }
 
         //Alertas de campos vazio
-        if(count($TAXA_CONDOMINAL) == 0){echo "ATENÇÃO: TAXA_CONDOMINAL VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($MULTAS) == 0){echo "ATENÇÃO: MULTAS VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($JUROS) == 0){echo "ATENÇÃO: JUROS VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($ADVOCATICIOS) == 0){echo "ATENÇÃO: ADVOCATICIOS VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($ATUALIZACAO_MONETARIA) == 0){echo "ATENÇÃO: ATUALIZACAO_MONETARIA VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($PAGAMENTO_A_MENOR) == 0){echo "ATENÇÃO: PAGAMENTO_A_MENOR VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($CARTAO_ACESSO) == 0){echo "ATENÇÃO: CARTAO_ACESSO VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($OUTRAS_RECEITAS) == 0){echo "ATENÇÃO: OUTRAS_RECEITAS VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($RENDIMENTO_APLICACAO) == 0){echo "ATENÇÃO: RENDIMENTO_APLICACAO VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($FUNDO_INADIMPLENCIA) == 0){echo "ATENÇÃO: FUNDO_INADIMPLENCIA VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($CONSUMO_AGUA) == 0){echo "ATENÇÃO: CONSUMO_AGUA VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($PARCELAMENTO_SABESP) == 0){echo "ATENÇÃO: PARCELAMENTO_SABESP VAZIO, Contate o Administrador do Sistema.<br>";}
-        if(count($SALAO_FESTA) == 0){echo "ATENÇÃO: SALAO_FESTA VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($TAXA_CONDOMINAL) == 0){echo "ATENÇÃO: TAXA_CONDOMINAL VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($TAXA_CONDOMINAL);}
+        if(count($MULTAS) == 0){echo "ATENÇÃO: MULTAS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($MULTAS);}
+        if(count($JUROS) == 0){echo "ATENÇÃO: JUROS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($JUROS);}
+        if(count($ADVOCATICIOS) == 0){echo "ATENÇÃO: ADVOCATICIOS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($ADVOCATICIOS);}
+        if(count($ATUALIZACAO_MONETARIA) == 0){echo "ATENÇÃO: ATUALIZACAO_MONETARIA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($ATUALIZACAO_MONETARIA);}
+        if(count($PAGAMENTO_A_MENOR) == 0){echo "ATENÇÃO: PAGAMENTO_A_MENOR VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($PAGAMENTO_A_MENOR);}
+        if(count($CARTAO_ACESSO) == 0){echo "ATENÇÃO: CARTAO_ACESSO VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($CARTAO_ACESSO);}
+        if(count($OUTRAS_RECEITAS) == 0){echo "ATENÇÃO: OUTRAS_RECEITAS VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($OUTRAS_RECEITAS);}
+        if(count($RENDIMENTO_APLICACAO) == 0){echo "ATENÇÃO: RENDIMENTO_APLICACAO VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($RENDIMENTO_APLICACAO);}
+        if(count($FUNDO_INADIMPLENCIA) == 0){echo "ATENÇÃO: FUNDO_INADIMPLENCIA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($FUNDO_INADIMPLENCIA);}
+        if(count($CONSUMO_AGUA) == 0){echo "ATENÇÃO: CONSUMO_AGUA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($CONSUMO_AGUA);}
+        if(count($PARCELAMENTO_SABESP) == 0){echo "ATENÇÃO: PARCELAMENTO_SABESP VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($PARCELAMENTO_SABESP);}
+        if(count($SALAO_FESTA) == 0){echo "ATENÇÃO: SALAO_FESTA VAZIO, Contate o Administrador do Sistema.<br>";} else {$siteAdmin->insertConciliacaoInfo($SALAO_FESTA);}
 
-
-
-
-        $result=$siteAdmin->insertConciliacaoInfo($TAXA_CONDOMINAL);
-        echo $result;
-
-
-
-
-
-
-
-
-
-
-
-        echo "<pre>";
-        //print_r($TAXA_CONDOMINAL);
-        echo "</pre>";
-
-        echo "<pre>";
-        //print_r($MULTAS);
-        echo "</pre>";
-
-        echo "<pre>";
-        //print_r($JUROS);
-        echo "</pre>"; 
-
-        echo "<pre>";
-        //print_r($ADVOCATICIOS);
-        echo "</pre>"; 
-
-        echo "<pre>";
-        //print_r($ATUALIZACAO_MONETARIA);
-        echo "</pre>"; 
-
-        echo "<pre>";
-        //print_r($PAGAMENTO_A_MENOR);
-        echo "</pre>"; 
-
-        echo "<pre>";
-        //print_r($CARTAO_ACESSO);
-        echo "</pre>"; 
-
-        echo "<pre>";
-        //print_r($OUTRAS_RECEITAS);
-        echo "</pre>";  
-
-        echo "<pre>";
-        //print_r($RENDIMENTO_APLICACAO); 
-        echo "</pre>";
-
-        echo "<pre>";
-        //print_r($FUNDO_INADIMPLENCIA);
-        echo "</pre>";  
-
-        echo "<pre>";
-        //print_r($CONSUMO_AGUA);
-        echo "</pre>"; 
-
-        echo "<pre>"; 
-        //print_r($PARCELAMENTO_SABESP);
-        echo "</pre>"; 
-
-        echo "<pre>"; 
-        //print_r($SALAO_FESTA);
-        echo "</pre>";
-        
-      
-
-
-        // Fechar o arquivo
         fclose($handle);
-
-
 
         echo "Dados importados com sucesso!";
     } else {
