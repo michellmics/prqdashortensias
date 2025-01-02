@@ -204,72 +204,61 @@ html, body {
 				    </select>
 				</div>
 			</div>
-			<div class="row">
-			    <!-- INI GRAFICO GAUGE -->
-			    <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
-			        <div class="x_panel">
-			            <div class="x_title">
-			                <h1>Inadimplência</h1>
-			                <div class="clearfix"></div>
-			            </div>
-			            <div class="x_content">
-			                <div id="echart_gauge_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
-			            </div>
-			        </div>
-			    </div>
-			    <!-- FIM GRAFICO GAUGE -->
-									
-			    <!-- Explicação do gráfico GAUGE -->
-			    <div class="col-md-6 col-sm-12" style="margin-top: 20px;">
-			        <div class="x_panel">
-			            <div class="x_content">
-			                <p>
-			                    <strong>Explicação do gráfico de Inadimplência:</strong><br>
-			                    O gráfico de gauge exibe o índice de inadimplência com base nas receitas. Ele é representado como um medidor, onde a posição da agulha indica o nível de inadimplência em relação ao valor ideal ou esperado. Quanto mais próximo de 100%, maior a inadimplência.
-			                </p>
-			            </div>
-			        </div>
-			    </div>
-			    <!-- FIM EXPLICAÇÃO GRAFICO GAUGE -->
-									
-			    <!-- INI GRAFICO PIZZA DETALHE -->
-			    <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
-			        <div class="x_panel">
-			            <div class="x_title">
-			                <h1>Receitas (Top 10)</h1>
-			                <ul class="nav navbar-right panel_toolbox">
-			                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			                    <li class="dropdown">
-			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-			                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			                            <a class="dropdown-item" href="#">Settings 1</a>
-			                            <a class="dropdown-item" href="#">Settings 2</a>
-			                        </div>
-			                    </li>
-			                    <li><a class="close-link"><i class="fa fa-close"></i></a></li>
-			                </ul>
-			                <div class="clearfix"></div>
-			            </div>
-			            <div class="x_content">
-			                <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
-			            </div>
-			        </div>
-			    </div>
-			    <!-- FIM GRAFICO PIZZA DETALHE -->
-									
-			    <!-- Explicação do gráfico PIZZA -->
-			    <div class="col-md-6 col-sm-12" style="margin-top: 20px;">
-			        <div class="x_panel">
-			            <div class="x_content">
-			                <p>
-			                    <strong>Explicação do gráfico de Receitas:</strong><br>
-			                    O gráfico de pizza mostra a distribuição das receitas por categoria, com base nas 10 principais receitas. Cada fatia representa uma categoria específica e a porcentagem da receita total que ela representa. Isso ajuda a visualizar rapidamente quais áreas estão contribuindo mais para o total das receitas.
-			                </p>
-			            </div>
-			        </div>
-			    </div>
-			    <!-- FIM EXPLICAÇÃO GRAFICO PIZZA -->
-			</div>
+				<div class="row">
+					<!-- INI GRAFICO GAUGE -->
+					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
+    				  <div class="x_panel">
+    				    <div class="x_title">
+    				      <h1>Inadimplência</h1>
+    				      <div class="clearfix"></div>
+    				    </div>
+    				    <div class="x_content">
+    				      <div id="echart_gauge_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
+    				    </div>
+    				  </div>
+    				</div>
+    				<!-- FIM GRAFICO GAUGE -->
+
+
+  					<!-- INI GRAFICO PIZZA DETALHE -->
+					<div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
+        			  <div class="x_panel">
+        			    <div class="x_title">
+        			      <h1>Receitas (Top 10)</h1>
+        			      <ul class="nav navbar-right panel_toolbox">
+        			        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        			        </li>
+        			        <li class="dropdown">
+        			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        			          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        			              <a class="dropdown-item" href="#">Settings 1</a>
+        			              <a class="dropdown-item" href="#">Settings 2</a>
+        			            </div>
+        			        </li>
+        			        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        			        </li>
+        			      </ul>
+        			      <div class="clearfix"></div>
+        			    </div>
+        			    <div class="x_content">
+
+        			      <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
+						  <div class="col-md-6 col-sm-12" style="margin-top: 20px;">
+    <div class="x_panel">
+        <div class="x_content">
+            <p>
+                <strong>Explicação do gráfico:</strong><br>
+                Este gráfico de pizza exibe as receitas dos 10 principais itens para o mês selecionado. Cada fatia representa uma categoria de receita, como "Multas", "Taxa Condominial" ou "Salao de Festa". A porcentagem de cada fatia é calculada com base no total das receitas e permite uma visualização rápida da contribuição de cada item para o total.
+            </p>
+        </div>
+    </div>
+</div>
+
+        			    </div>
+        			  </div>
+        			</div>
+        			<!-- FIM GRAFICO PIZZA DETALHE -->
+				</div>
 
 				<div class="row">
         			<!-- INI GRAFICO AREA -->
