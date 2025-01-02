@@ -98,7 +98,7 @@ function processCSV($filePath) {
             // FIM TAXA CONDOMINAL
 
            // INI MULTAS
-           if ($data[0] == "Multas"){$isMultas = true;continue;}
+           if ($data[0] == "Multas "){$isMultas = true;continue;}
            // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isMultas && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
@@ -436,19 +436,20 @@ function processCSV($filePath) {
             // FIM SALAO DE FESTAS
         }
 
-        if(count($TAXA_CONDOMINAL) == 0){echo "ATENÇÃO: TAXA_CONDOMINAL VAZIO <br>";}
-        if(count($MULTAS) == 0)
-        if(count($JUROS) == 0)
-        if(count($ADVOCATICIOS) == 0)
-        if(count($ATUALIZACAO_MONETARIA) == 0)
-        if(count($PAGAMENTO_A_MENOR) == 0)
-        if(count($CARTAO_ACESSO) == 0)
-        if(count($OUTRAS_RECEITAS) == 0)
-        if(count($RENDIMENTO_APLICACAO) == 0)
-        if(count($FUNDO_INADIMPLENCIA) == 0)
-        if(count($CONSUMO_AGUA) == 0)
-        if(count($PARCELAMENTO_SABESP) == 0)
-        if(count($SALAO_FESTA) == 0)
+        //Alertas de campos vazio
+        if(count($TAXA_CONDOMINAL) == 0){echo "ATENÇÃO: TAXA_CONDOMINAL VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($MULTAS) == 0){echo "ATENÇÃO: MULTAS VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($JUROS) == 0){echo "ATENÇÃO: JUROS VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($ADVOCATICIOS) == 0){echo "ATENÇÃO: ADVOCATICIOS VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($ATUALIZACAO_MONETARIA) == 0){echo "ATENÇÃO: ATUALIZACAO_MONETARIA VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($PAGAMENTO_A_MENOR) == 0){echo "ATENÇÃO: PAGAMENTO_A_MENOR VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($CARTAO_ACESSO) == 0){echo "ATENÇÃO: CARTAO_ACESSO VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($OUTRAS_RECEITAS) == 0){echo "ATENÇÃO: OUTRAS_RECEITAS VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($RENDIMENTO_APLICACAO) == 0){echo "ATENÇÃO: RENDIMENTO_APLICACAO VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($FUNDO_INADIMPLENCIA) == 0){echo "ATENÇÃO: FUNDO_INADIMPLENCIA VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($CONSUMO_AGUA) == 0){echo "ATENÇÃO: CONSUMO_AGUA VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($PARCELAMENTO_SABESP) == 0){echo "ATENÇÃO: PARCELAMENTO_SABESP VAZIO, Contate o Administrador do Sistema.<br>";}
+        if(count($SALAO_FESTA) == 0){echo "ATENÇÃO: SALAO_FESTA VAZIO, Contate o Administrador do Sistema.<br>";}
 
 
 
