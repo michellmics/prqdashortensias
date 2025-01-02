@@ -204,6 +204,10 @@ html, body {
 				        ?>
 				    </select>
 				</div>
+				<div class="col-2">
+        <label>&nbsp;</label> <!-- Espaço para alinhar o botão com o select -->
+        <button type="button" class="btn btn-primary btn-block">Adicionar Relatório</button>
+    </div>
 			</div>
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
