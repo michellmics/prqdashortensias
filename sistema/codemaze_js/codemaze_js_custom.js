@@ -3497,12 +3497,11 @@ function init_echarts() {
                     
                     // Supondo que você tenha uma função 'buscarDados' para buscar dados de inadimplência ou qualquer outro dado necessário
                     const dados = await buscarDados('receita', mes, ano);
-// Acessa os títulos e converte os totais para números
-const categoriasS = dados.map(item => item.TITULO);
-const valoresS = dados.map(item => parseFloat(item.TOTAL));
 
-console.log(categoriasS); // Exibe os títulos
-console.log(valoresS); // Exibe os valores numéricos
+                    // Acessa os títulos e converte os totais para números
+                    const categorias = dados.map(item => item.TITULO);
+                    const valores = dados.map(item => parseFloat(item.TOTAL));
+/*
                     const categorias = ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"];
                     const valores = [
                         12, // valor da categoria "Multas"
@@ -3511,7 +3510,7 @@ console.log(valoresS); // Exibe os valores numéricos
                         32, // valor da categoria "Construtora"
                         22 // valor da categoria "Cota Condominal"
                     ];
-                    
+  */                  
         
                     console.log('Valores recebidos:', valores);
         
