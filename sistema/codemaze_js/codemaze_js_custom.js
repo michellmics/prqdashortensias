@@ -3490,7 +3490,7 @@ function init_echarts() {
             const [mes, ano] = dataCalendario.split('-');
             console.log('Valor de datetime Pie:', mes);
             
-            async function carregarDados() {
+            async function carregarDadosPie() {
                 try {
                     // Supondo que você tenha uma função 'buscarDados' para buscar dados de inadimplência ou qualquer outro dado necessário
                     const dados = await buscarDados('receita', mes, ano);
@@ -3563,7 +3563,7 @@ function init_echarts() {
             }
         
             // Carrega os dados e atualiza o gráfico
-            carregarDados();
+            carregarDadosPie();
         }
         if ($("#echart_pie").length) {
             echarts.init(document.getElementById("echart_pie"), e).setOption({
