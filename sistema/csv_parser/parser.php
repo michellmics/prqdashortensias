@@ -108,7 +108,6 @@ function processCSV($filePath) {
 
            // INI MULTAS
            if ($data[0] == "Multas"){$isMultas = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isMultas && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -141,7 +140,6 @@ function processCSV($filePath) {
 
             // INI JUROS
            if ($data[0] == "Juros"){$isJuros = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isJuros && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -174,7 +172,6 @@ function processCSV($filePath) {
             
             // INI HONORARIOS ADVOCATICIOS
            if ($data[0] == "Honorários Advocaticios"){$isAdvocaticios = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isAdvocaticios && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -207,7 +204,6 @@ function processCSV($filePath) {
                         
             // INI ATUALIZACAO MONETARIA
            if ($data[0] == "Atualização Monetária"){$isAtualizacaoMonetaria = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isAtualizacaoMonetaria && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -240,7 +236,6 @@ function processCSV($filePath) {
 
             // INI PAGAMENTO A MENOR
            if ($data[0] == "Pagamento a menor"){$isPagamentoMenor = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isPagamentoMenor && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -273,7 +268,6 @@ function processCSV($filePath) {
 
             // INI CARTAO DE ACESSO
            if ($data[0] == "Cartão de Acesso"){$isCartaoAcesso = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isCartaoAcesso && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -306,7 +300,6 @@ function processCSV($filePath) {
 
             // INI OUTRAS RECEITAS
            if ($data[0] == "Outras Receitas"){$isOutrasReceitas = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isOutrasReceitas && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -341,7 +334,6 @@ function processCSV($filePath) {
 
             // INI RENDIMENTO APLICAÇÃO
            if ($data[0] == "Rendimento Aplicação F.O."){$isRendimentoAplicacao = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isRendimentoAplicacao && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -374,7 +366,6 @@ function processCSV($filePath) {
 
             // INI FUNDO INADIMPLENCA
            if ($data[0] == "F. Inadimplencia"){$isFundoInadimplencia = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isFundoInadimplencia && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -407,7 +398,6 @@ function processCSV($filePath) {
 
             // INI CONSUMO AGUA
            if ($data[0] == "Consumo de água"){$isConsumoAgua = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isConsumoAgua && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -440,7 +430,6 @@ function processCSV($filePath) {
 
             // INI PARCELAMENTO SABESP
            if ($data[0] == "Parcelamento SABESP"){$isParcelamentoSabesp = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isParcelamentoSabesp && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -473,7 +462,6 @@ function processCSV($filePath) {
 
             // INI SALAO DE FESTAS
            if ($data[0] == "Salao de Festa"){$isSalaoFesta = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isSalaoFesta && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
@@ -506,7 +494,6 @@ function processCSV($filePath) {
 
             // INI ACORDOS RECEBIDOS
            if ($data[0] == "Acordos Recebidos"){$isAcordosRecebidos = true;continue;}
-           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
            if ($isAcordosRecebidos && !empty($data[0])) {
                // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
