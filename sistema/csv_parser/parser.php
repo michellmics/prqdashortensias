@@ -51,7 +51,7 @@ function processCSV($filePath) {
 
             
            
-            if ($data[0] == "Receitas Ordinárias (99,58%)")
+            if ($data[0] == "Taxa Condominial")
             {
                 $isTaxaCondominial = true;
                 continue;
