@@ -165,7 +165,7 @@ html, body {
                             </div>
                             <div class="col-4">
 								<label class="control-label" for="inputWarning">Documento</label>
-                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" maxlength="12" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required />
+                                <input id="documento" name="documento" style="text-transform: uppercase;" type="text" class="form-control" placeholder="RG OU CPF" minlength="8" maxlength="14" oninput="this.value = this.value.replace(/[^A-Za-z0-9-]/g, '')" required />
                             </div>
                         </div>
 						<div class="form-row" style="margin-bottom: 10px;  margin: 10px;">
