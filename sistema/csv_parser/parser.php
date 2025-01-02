@@ -99,6 +99,7 @@ function processCSV($filePath) {
                     'COMPETENCIA MES USUARIO' => 'Outubro',
                     'COMPETENCIA ANO USUARIO' => '2024',
                     'TIPO' => 'RECEITA',
+                    'TITULO' => 'Taxa Condominial',
                 ];
             }
             // FIM TAXA CONDOMINAL
@@ -131,6 +132,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Multas',
                ];
             }
             // FIM MULTAS
@@ -163,6 +165,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Juros',
                ];
             }
             // FIM JUROS
@@ -195,6 +198,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Honorários Advocaticios',
                ];
             }
             // FIM HONORARIOS ADVOCATICIOS
@@ -227,6 +231,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Atualização Monetária',
                ];
             }
             // FIM ATUALIZACAO MONETARIA
@@ -259,6 +264,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Pagamento a menor',
                ];
             }
             // FIM PAGAMENTO A MENOR
@@ -291,6 +297,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Cartão de Acesso',
                ];
             }
             // FIM CARTAO DE ACESSO
@@ -324,6 +331,7 @@ function processCSV($filePath) {
                     'COMPETENCIA MES USUARIO' => 'Outubro',
                     'COMPETENCIA ANO USUARIO' => '2024',
                     'TIPO' => 'RECEITA',
+                    'TITULO' => 'Outras Receitas',
                 ];
                 }
             }
@@ -357,6 +365,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Rendimento Aplicação F.O.',
                ];
             }
             // FIM RENDIMENTO APLICAÇÃO
@@ -389,6 +398,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'F. Inadimplencia',
                ];
             }
             // FIM FUNDO INADIMPLENCA
@@ -421,6 +431,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Consumo de água',
                ];
             }
             // FIM CONSUMO AGUA
@@ -453,6 +464,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Parcelamento SABESP',
                ];
             }
             // FIM PARCELAMENTO SABESP
@@ -485,6 +497,7 @@ function processCSV($filePath) {
                    'COMPETENCIA MES USUARIO' => 'Outubro',
                    'COMPETENCIA ANO USUARIO' => '2024',
                    'TIPO' => 'RECEITA',
+                   'TITULO' => 'Salao de Festa',
                ];
             }
             // FIM SALAO DE FESTAS

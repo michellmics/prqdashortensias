@@ -523,8 +523,8 @@
            // Preparar e executar as inserções no banco de dados
             foreach ($ARRAY_DADOS as $dados) {
                 // Query de inserção
-                $sql = "INSERT INTO CON_CONCILIACAO (CON_DCTIPO, CON_DCMES_COMPETENCIA, CON_DCDESC, CON_NMVALOR, CON_DTINSERT, CON_DCMES_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA)
-                          VALUES (:tipo, :mes_competencia, :descricao, :valor, :datanow, :mes_competencia_usuario, :ano_competencia_usuario, :ano_competencia)";
+                $sql = "INSERT INTO CON_CONCILIACAO (CON_DCTIPO, CON_DCMES_COMPETENCIA, CON_DCDESC, CON_NMVALOR, CON_DTINSERT, CON_DCMES_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA, CON_NMTITULO)
+                          VALUES (:tipo, :mes_competencia, :descricao, :valor, :datanow, :mes_competencia_usuario, :ano_competencia_usuario, :ano_competencia, :titulo)";
 
                 // Preparar a consulta
                 $stmt = $this->pdo->prepare($sql);
@@ -540,6 +540,7 @@
                 $stmt->bindValue(':mes_competencia_usuario', $dados['COMPETENCIA MES USUARIO'], PDO::PARAM_STR);
                 $stmt->bindValue(':ano_competencia_usuario', $dados['COMPETENCIA ANO USUARIO'], PDO::PARAM_STR);
                 $stmt->bindValue(':ano_competencia', $dados['COMPETENCIA ANO'], PDO::PARAM_STR);
+                $stmt->bindValue(':titulo', $dados['TITULO'], PDO::PARAM_STR);
             
                 // Executar a consulta
                 if (!$stmt->execute()) {
