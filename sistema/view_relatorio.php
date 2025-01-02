@@ -182,19 +182,19 @@ html, body {
 	
 			<div class="container">
 			<div class="row">
-			<div class="col-2">
-			    <label class="control-label" for="apartamento">Mês</label>
-			    <select id="apartamento" name="apartamento" class="form-control" required>
-			        <?php
-			            // Aqui você pode preencher o select com os números de apartamentos
-			            for ($i = 1; $i <= 352; $i++) {
-			                // Verifica se o apartamento atual é o selecionado
-			                $selected = ($i == $siteAdmin->ARRAY_MORADORINFO["USU_DCAPARTAMENTO"]) ? 'selected' : '';
-			                echo "<option value=\"$i\" $selected>Apartamento $i</option>";
-			            }
-			        ?>
-			    </select>
-			</div>
+				<div class="col-2">
+				    <label class="control-label" for="apartamento">Mês</label>
+				    <select id="apartamento" name="apartamento" class="form-control" required>
+				        <?php
+				            // Aqui você pode preencher o select com os números de apartamentos
+				            for ($i = 1; $i <= 352; $i++) {
+				                // Verifica se o apartamento atual é o selecionado
+				                $selected = ($i == $siteAdmin->ARRAY_MORADORINFO["USU_DCAPARTAMENTO"]) ? 'selected' : '';
+				                echo "<option value=\"$i\" $selected>Apartamento $i</option>";
+				            }
+				        ?>
+				    </select>
+				</div>
 			</div>
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
@@ -414,6 +414,40 @@ html, body {
 
 		<!-- DASHBOARD -->
 
+
+		<script>
+		document.addEventListener('DOMContentLoaded', () => {
+		    const comboBox = document.getElementById('apartamento');
+		    const gaugeElement = document.getElementById('echart_gauge_codemaze');
+				
+		    // Atualiza o valor do gauge quando o ComboBox muda
+		    comboBox.addEventListener('change', async () => {
+		        const selectedValue = comboBox.value;
+			
+		        // Simula uma chamada para buscar os dados do apartamento selecionado
+		        const response = await fetch(`buscarDadosInadimplencia.php?apartamento=${selectedValue}`);
+		        const data = await response.json();
+			
+		        // Atualiza o atributo data-valor com o valor recebido
+		        gaugeElement.setAttribute('data-valor', data.valor);
+			
+		        // Atualiza o gráfico (exemplo com ECharts)
+		        if (typeof echarts !== 'undefined') {
+		            const chart = echarts.getInstanceByDom(gaugeElement);
+		            if (chart) {
+		                chart.setOption({
+		                    series: [
+		                        {
+		                            data: [{ value: data.valor, name: 'Inadimplência' }]
+		                        }
+		                    ]
+		                });
+		            }
+		        }
+		    });
+		});
+
+		</script>
 		
 		
     </body>
