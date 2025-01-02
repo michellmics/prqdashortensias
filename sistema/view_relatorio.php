@@ -201,7 +201,7 @@ html, body {
 							{
 				                $mesAno = $relatorio["MES"]."-".$relatorio["ANO"];
 
-				                echo "<option value=$mesAno $selected>$mesAno </option>";
+				                echo "<option value=\"$mesAno\" $selected>$mesAno </option>";
 				            }
 				        ?>
 				    </select>
@@ -216,7 +216,7 @@ html, body {
     				      <div class="clearfix"></div>
     				    </div>
     				    <div class="x_content">
-    				      <div id="echart_gauge_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
+    				      <div id="echart_gauge_codemaze" data-valor="<? echo $dataValor; ?>" style="height:350px;"></div>
     				    </div>
     				  </div>
     				</div>
