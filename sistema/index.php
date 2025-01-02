@@ -200,13 +200,14 @@ html, body {
 
 
 		<!--  Pop-up publicidade-->
-		<div id="promoPopup" style="display: none;">
-		    <div class="popup-content">
-		        <button class="close-btn" onclick="closePopup()">×</button>
-		        <a href=<?php echo $publiImageLink; ?> target="_blank"><img src=<?php echo $publiImage; ?> </a>
-		             alt="Promoção" style="max-width: 100%; height: auto;">
-		    </div>
-		</div>
+        <div id="promoPopup" style="display: none;">
+            <div class="popup-content">
+                <button class="close-btn" onclick="closePopup()">×</button>
+                <a href="<?php echo $publiImageLink; ?>" target="_blank">
+                    <img src="<?php echo $publiImage; ?>" alt="Promoção" style="max-width: 100%; height: auto;">
+                </a>
+            </div>
+        </div>
 		<!--  Pop-up publicidade-->
 		
 
