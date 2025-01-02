@@ -42,11 +42,11 @@
 	$siteAdmin->getRelatoriosDisponiveis();
 	$mesANoDefault = $siteAdmin->ARRAY_RELINFO[0]["MES"]."/".$siteAdmin->ARRAY_RELINFO[0]["ANO"];
 
-	var_dump($mesDefault);
+	var_dump($mesANoDefault);
 	die();
 
 
-	$dataValor = isset($_GET['data-valor']) ? intval($_GET['data-valor']) : $mesDefault; // Valor padrão
+	$dataValor = isset($_GET['data-valor']) ? intval($_GET['data-valor']) : $mesANoDefault; // Valor padrão
 	  
 ?>
 
