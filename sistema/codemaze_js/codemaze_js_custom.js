@@ -3485,7 +3485,8 @@ function init_echarts() {
         });
 		if ($("#echart_pie_codemaze").length) {
             const element = document.getElementById("echart_pie_codemaze"); //pra buscar o atributo de data
-          
+            var myChart = echarts.init(document.getElementById("echart_pie_codemaze"), e);
+ 
             
 
         
