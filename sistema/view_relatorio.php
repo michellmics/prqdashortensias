@@ -201,7 +201,7 @@ html, body {
 							{
 				                $mesAno = $relatorio["MES"]."-".$relatorio["ANO"];
 
-				                echo "<option value=\"$mesAno\" $selected>$mesAno </option>";
+				                echo "<option value=$mesAno $selected>$mesAno </option>";
 				            }
 				        ?>
 				    </select>
