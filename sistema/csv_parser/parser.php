@@ -75,7 +75,7 @@ function processCSV($filePath) {
 
         }
         echo "<pre>";
-        echo $TAXA_CONDOMINAL;
+        print_r($TAXA_CONDOMINAL);
         echo "</pre>";
      
 
