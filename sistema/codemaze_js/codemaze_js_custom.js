@@ -3485,13 +3485,99 @@ function init_echarts() {
         });
 		if ($("#echart_pie_codemaze").length) {
             const element = document.getElementById("echart_pie_codemaze"); //pra buscar o atributo de data
-            var myChart1 = echarts.init(document.getElementById("echart_pie_codemaze"), e);
- 
+            var myChartPie = echarts.init(document.getElementById("echart_pie_codemaze"), e);
+            const dataCalendario = element.getAttribute("data-valor"); // ou element.dataset.valor
+            const [mes, ano] = dataCalendario.split('-');
+            console.log('Valor de datetime Pie:', mes);
             
-
+            async function carregarDadosPie() {
+                try {
+                    /*
+                    // Supondo que você tenha uma função 'buscarDados' para buscar dados de inadimplência ou qualquer outro dado necessário
+                    const dados = await buscarDados('receita', mes, ano);
+                    const categorias = ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"];
+                    const valores = [
+                        12, // valor da categoria "Multas"
+                        23, // valor da categoria "Salão de Festas"
+                        45, // valor da categoria "Processos"
+                        32, // valor da categoria "Construtora"
+                        22 // valor da categoria "Cota Condominal"
+                    ];
+                    */
+        
+                    //console.log('Valores recebidos:', valores);
+        
+                    // Atualiza o gráfico com os dados obtidos
+                    var option = {
+                        tooltip: {
+                            trigger: "item",
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        legend: {
+                            x: "center",
+                            y: "bottom",
+                            data: ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"]
+                        },
+                        toolbox: {
+                            show: !0,
+                            feature: {
+                                magicType: {
+                                    show: !0,
+                                    type: ["pie", "funnel"],
+                                    option: {
+                                        funnel: {
+                                            x: "25%",
+                                            width: "50%",
+                                            funnelAlign: "left",
+                                            max: 1548
+                                        }
+                                    }
+                                },
+                                restore: {
+                                    show: !0,
+                                    title: "restaurar"
+                                },
+                                saveAsImage: {
+                                    show: !0,
+                                    title: "Salvar Imagem"
+                                }
+                            }
+                        },
+                        calculable: !0,
+                        series: [{
+                            name: "Vendas",
+                            type: "pie",
+                            radius: "55%",
+                            center: ["50%", "48%"],
+                            data: [{
+                                value: 335,
+                                name: "Multas"
+                            }, {
+                                value: 310,
+                                name: "Salão de Festas"
+                            }, {
+                                value: 234,
+                                name: "Processos"
+                            }, {
+                                value: 135,
+                                name: "Construtora"
+                            }, {
+                                value: 1548,
+                                name: "Cota Condominal"
+                            }]
+                        }]
+                    };
+        
+                    // Define a opção inicial para o gráfico
+                    myChartPie.setOption(option);
+        
+                } catch (error) {
+                    console.error('Erro ao carregar os dados:', error);
+                }
+            }
         
             // Carrega os dados e atualiza o gráfico
-            //carregarDadosPie();
+            carregarDadosPie();
         }
         if ($("#echart_pie").length) {
             echarts.init(document.getElementById("echart_pie"), e).setOption({
