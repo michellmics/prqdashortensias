@@ -3507,18 +3507,6 @@ function init_echarts() {
                         name: categoria,
                         value: valores[index]
                     }));
-/*
-                    const categorias = ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"];
-                    const valores = [
-                        12, // valor da categoria "Multas"
-                        23, // valor da categoria "Salão de Festas"
-                        45, // valor da categoria "Processos"
-                        32, // valor da categoria "Construtora"
-                        22 // valor da categoria "Cota Condominal"
-                    ];
-  */                  
-        
-                    console.log('Valores recebidos:', valores);
         
                     // Atualiza o gráfico com os dados obtidos
                     var option = {
@@ -3559,7 +3547,7 @@ function init_echarts() {
                         },
                         calculable: !0,
                         series: [{
-                            name: "Vendas",
+                            name: "Receitas - ".mes,
                             type: "pie",
                             radius: "55%",
                             center: ["50%", "48%"],
