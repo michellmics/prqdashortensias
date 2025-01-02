@@ -3490,30 +3490,7 @@ function init_echarts() {
             const [mes, ano] = dataCalendario.split('-');
             console.log('Valor de datetime Pie:', mes);
             
-            async function carregarDadosPie() {
-                try {
-                    /*
-                    // Supondo que você tenha uma função 'buscarDados' para buscar dados de inadimplência ou qualquer outro dado necessário
-                    const dados = await buscarDados('receita', mes, ano);
-                    const categorias = ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"];
-                    const valores = [
-                        12, // valor da categoria "Multas"
-                        23, // valor da categoria "Salão de Festas"
-                        45, // valor da categoria "Processos"
-                        32, // valor da categoria "Construtora"
-                        22 // valor da categoria "Cota Condominal"
-                    ];
-                    */
-        
-                    //console.log('Valores recebidos:', valores);
-        
-                    // Atualiza o gráfico com os dados obtidos
-        
-        
-                } catch (error) {
-                    console.error('Erro ao carregar os dados:', error);
-                }
-            }
+
         
             // Carrega os dados e atualiza o gráfico
             //carregarDadosPie();
