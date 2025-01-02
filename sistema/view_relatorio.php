@@ -196,9 +196,10 @@ html, body {
 				    <select id="mesAno" name="mesAno" class="form-control" required>
 				        <?php
 							foreach ($siteAdmin->ARRAY_RELINFO as $relatorio)
-							{
+							{	
 								$mesAno = $relatorio["MES"]."-".$relatorio["ANO"];
-								echo "<option value=\"$mesAno\">$mesAno </option>";
+								$mesAnoLabel = ucfirst($mesAno);
+								echo "<option value=\"$mesAno\">$mesAnoLabel </option>";
 							}
 				        ?>
 				    </select>
