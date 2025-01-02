@@ -36,6 +36,9 @@
   	$nomeSession =  ucwords($_SESSION['user_name']);
   	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
   	$userid = $_SESSION['user_id'];
+
+	  $dataValor = isset($_GET['data-valor']) ? intval($_GET['data-valor']) : 452; // Valor padrão
+	  echo "<script>document.getElementById('echart_gauge_codemaze').setAttribute('data-valor', $dataValor);</script>";
 ?>
 
 <!doctype html>
