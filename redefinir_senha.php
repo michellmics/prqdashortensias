@@ -19,6 +19,19 @@
     	<meta name="apple-mobile-web-app-title" content="Hortensias">
     	<meta name="apple-mobile-web-app-capable" content="yes">
     	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+      <style>
+      .password-container {
+        position: relative;
+      }
+      .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body class="login-page">
     <div class="login-box">
@@ -32,12 +45,14 @@
           <div class="form-group has-feedback">
             <input type="password" class="form-control" id="password" placeholder="Digite sua nova senha" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <span class="toggle-password" onclick="togglePassword('password_redit', this)">👁️</span>
             Preencha para alterar a senha. Ela deve ter pelo menos 8 caracteres, incluir uma letra maiúscula e um caractere especial.
           </div>
 
           <div class="form-group has-feedback">
             <input type="password" class="form-control" id="password_redit" placeholder="Repita a nova senha" name="password_redit"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <span class="toggle-password" onclick="togglePassword('password_redit', this)">👁️</span>
           </div>
           
           <div class="row">
@@ -55,6 +70,18 @@
             <div id="form-message"></div>
 
 <script>
+    function togglePassword(inputId, toggleElement) {
+    const passwordField = document.getElementById(inputId);
+
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+      toggleElement.textContent = "🙈"; // Ícone de olho fechado
+    } else {
+      passwordField.type = "password";
+      toggleElement.textContent = "👁️"; // Ícone de olho aberto
+    }
+  }
+  
     document.getElementById('demo-form').addEventListener('submit', function (e) {
         e.preventDefault(); // Impede o envio tradicional do formulário
         
