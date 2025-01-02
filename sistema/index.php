@@ -34,7 +34,7 @@
     $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
     $publiImageLink = $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"];
 
-    var_dump($siteAdmin->ARRAY_POPUPPUBLISHINFO);
+
     echo $publiImageLink;
     die();
 ?>
