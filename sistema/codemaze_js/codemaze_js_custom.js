@@ -3501,6 +3501,12 @@ function init_echarts() {
                     // Acessa os títulos e converte os totais para números
                     const categorias = dados.map(item => item.TITULO);
                     const valores = dados.map(item => parseFloat(item.TOTAL));
+
+                    // Prepara os dados para o gráfico
+                    const dataGrafico = categorias.map((categoria, index) => ({
+                        name: categoria,
+                        value: valores[index]
+                    }));
 /*
                     const categorias = ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"];
                     const valores = [
@@ -3523,7 +3529,8 @@ function init_echarts() {
                         legend: {
                             x: "center",
                             y: "bottom",
-                            data: ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"]
+                            data: categorias
+                            //data: ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"]
                         },
                         toolbox: {
                             show: !0,
@@ -3556,22 +3563,7 @@ function init_echarts() {
                             type: "pie",
                             radius: "55%",
                             center: ["50%", "48%"],
-                            data: [{
-                                value: 335,
-                                name: "Multas"
-                            }, {
-                                value: 310,
-                                name: "Salão de Festas"
-                            }, {
-                                value: 234,
-                                name: "Processos"
-                            }, {
-                                value: 135,
-                                name: "Construtora"
-                            }, {
-                                value: 1548,
-                                name: "Cota Condominal"
-                            }]
+                            data: dataGrafico
                         }]
                     };
         
