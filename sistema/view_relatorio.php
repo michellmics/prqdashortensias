@@ -204,12 +204,11 @@ html, body {
 				        ?>
 				    </select>
 				</div>
-				<div class="col-auto">
-        <label>&nbsp;</label> <!-- Espaço para alinhar -->
+				<div class="col-auto d-flex align-items-end">
         <button 
             type="button" 
             class="btn btn-primary" 
-            style="height: 22;" 
+            style="height: calc(2.25rem + 2px);" 
             onclick="window.location.href='pagina_adicionar_relatorio.php';">
             Adicionar Relatório
         </button>
