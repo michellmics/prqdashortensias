@@ -204,9 +204,15 @@ html, body {
 				        ?>
 				    </select>
 				</div>
-				<div class="col-2">
-        <label>&nbsp;</label> <!-- Espaço para alinhar o botão com o select -->
-        <button type="button" class="btn btn-primary btn-block">Adicionar Relatório</button>
+				<div class="col-auto">
+        <label>&nbsp;</label> <!-- Espaço para alinhar -->
+        <button 
+            type="button" 
+            class="btn btn-primary" 
+            style="height: calc(2.25rem + 2px);" 
+            onclick="window.location.href='pagina_adicionar_relatorio.php';">
+            Adicionar Relatório
+        </button>
     </div>
 			</div>
 				<div class="row">
