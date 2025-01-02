@@ -524,7 +524,7 @@
             foreach ($ARRAY_DADOS as $dados) {
                 // Query de inserção
                 $sql = "INSERT INTO CON_CONCILIACAO (CON_DCTIPO, CON_DCMES_COMPETENCIA, CON_DCDESC, CON_NMVALOR, CON_DTINSERT, CON_DCMES_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA)
-                          VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                          VALUES (:tipo, :mes_competencia, :descricao, :valor, :datanow, :mes_competencia_usuario, :ano_competencia_usuario, :ano_competencia)";
 
                 // Preparar a consulta
                 $stmt = $this->pdo->prepare($sql);
