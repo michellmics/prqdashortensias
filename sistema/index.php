@@ -246,6 +246,16 @@ html, body {
         document.getElementById('promoPopup').style.display = 'none';
     }
 
+    // Fecha o pop-up ao clicar fora do quadrante
+    document.addEventListener('click', function(event) {
+        const popup = document.getElementById('promoPopup');
+        const popupContent = document.querySelector('.popup-content');
+        
+        if (popup.style.display === 'flex' && !popupContent.contains(event.target)) {
+            closePopup();
+        }
+    });
+
     // Abra o pop-up automaticamente após 1,5 segundos
     window.onload = function() {
         setTimeout(openPopup, 1500);
