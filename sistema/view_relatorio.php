@@ -243,7 +243,10 @@ html, body {
         			    <div class="x_content">
 
         			      <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
-						  <div class="col-md-6 col-sm-12" style="margin-top: 20px;">
+
+        			    </div>
+						<!-- INI EXPLICAÇÃO -->
+<div class="col-md-6 col-sm-12" style="margin-top: 20px;">
     <div class="x_panel">
         <div class="x_content">
             <p>
@@ -253,12 +256,14 @@ html, body {
         </div>
     </div>
 </div>
-
-        			    </div>
+<!-- FIM EXPLICAÇÃO -->
         			  </div>
         			</div>
         			<!-- FIM GRAFICO PIZZA DETALHE -->
 				</div>
+
+
+
 
 				<div class="row">
         			<!-- INI GRAFICO AREA -->
