@@ -205,7 +205,7 @@ html, body {
 				    </select>
 					
 				</div>
-				<div class="col-md-2 col-sm-6 d-flex justify-content-end align-items-end">
+				<div class="col-2">
 				    <label class="control-label" for="rel">&nbsp;</label>
 					<button type="button" class="btn btn-primary" style="height: calc(2.25rem + 6px);" onclick="window.location.href='form_relatorio.php';">ADD</button>
 				</div>
