@@ -3484,11 +3484,11 @@ function init_echarts() {
             }]
         });
 		if ($("#echart_pie_codemaze").length) {
-            const element = document.getElementById("echart_gauge_codemaze"); //pra buscar o atributo de data
-            var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
+            const element = document.getElementById("echart_pie_codemaze"); //pra buscar o atributo de data
+            var myChart = echarts.init(document.getElementById("echart_pie_codemaze"), e);
             const dataCalendario = element.getAttribute("data-valor"); // ou element.dataset.valor
             const [mes, ano] = dataCalendario.split('-');
-            console.log('Valor de datetime:', mes);
+            console.log('Valor de datetime Pie:', mes);
             /*
             echarts.init(document.getElementById("echart_pie_codemaze"), e).setOption({
                 //color: ["#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A133FF"], //caso queira personalizar as cores
