@@ -417,19 +417,13 @@ html, body {
 		<!-- DASHBOARD -->
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const comboBox = document.getElementById('apartamento');
-
-        comboBox.addEventListener('change', () => {
-            const selectedValue = comboBox.value;
-
-            // Aqui você pode definir a lógica para calcular o novo valor
-            const novoValor = selectedValue * 2; // Ajuste conforme sua lógica
-
-            // Atualiza a página com o novo valor
-            window.location.href = `?apartamento=${selectedValue}&valor=${novoValor}`;
-        });
+		<script>
+    // Captura o evento de mudança no select
+    document.getElementById('apartamento').addEventListener('change', function() {
+        // Obtém o valor selecionado
+        const selectedValue = this.value;
+        // Redireciona para a página atual com o novo parâmetro
+        window.location.href = `?apartamento=${selectedValue}`;
     });
 </script>
 		
