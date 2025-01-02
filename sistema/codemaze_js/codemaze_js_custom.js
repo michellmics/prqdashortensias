@@ -2402,7 +2402,7 @@ function init_echarts() {
                             }
                         },
                         series: [{
-                            name: mes.replace(/^./, mes[0].toUpperCase()),
+                            name: "Inadimplência",
                             type: "gauge",
                             center: ["50%", "50%"],
                             startAngle: 140,
