@@ -90,7 +90,7 @@
                 $percentualInadimplentes = ($inadimplentes / $totalApartamentos) * 100;
 
 
-                $this->ARRAY_INADIMPLENCIAFULLINFO = $percentualInadimplente;
+                return $percentualInadimplentes;
 
 
             } catch (PDOException $e) {
