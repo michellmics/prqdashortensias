@@ -252,11 +252,11 @@ html, body {
 
 
 				<div class="row">
-        			<!-- INI GRAFICO AREA -->
-        			<div class="col-md-12 col-sm-12  ">
+  					<!-- INI GRAFICO PIZZA DETALHE -->
+					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
         			  <div class="x_panel">
         			    <div class="x_title">
-        			      <h1>Despesas</h1>
+        			      <h1>Despesas (Top 10)</h1>
         			      <ul class="nav navbar-right panel_toolbox">
         			        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
         			        </li>
@@ -273,13 +273,11 @@ html, body {
         			      <div class="clearfix"></div>
         			    </div>
         			    <div class="x_content">
-
-        			      <div id="echart_line" style="height:350px;"></div>
-
-        			    </div>
+        			      <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
+        			    </div>						
         			  </div>
         			</div>
-        			<!-- FIM GRAFICO AREA -->
+        			<!-- FIM GRAFICO PIZZA DETALHE -->
 				</div>
 				
 				<div class="row">
