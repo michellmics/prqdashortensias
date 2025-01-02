@@ -281,12 +281,14 @@ function processCSV($filePath) {
                    $mes = $matches[1]; // Primeiro grupo corresponde ao mês
                    $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
                }
-               $OUTRAS_RECEITAS[] = [
-                   'DESCRICAO' => $data[0],
-                   'COMPETENCIA MES' => $mes,
-                   'COMPETENCIA ANO' => $ano,
-                   'VALOR' => $data[3],
-               ];
+               if ($data[3] != "") { //junção de varias receitas sem total.
+                $OUTRAS_RECEITAS[] = [
+                    'DESCRICAO' => $data[0],
+                    'COMPETENCIA MES' => $mes,
+                    'COMPETENCIA ANO' => $ano,
+                    'VALOR' => $data[3],
+                ];
+                }
             }
             // FIM OUTRAS RECEITAS
 
