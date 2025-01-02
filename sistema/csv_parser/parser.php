@@ -74,7 +74,7 @@ function processCSV($filePath) {
             }
 
         }
-        var_dump($TAXA_CONDOMINAL);
+        print_r($TAXA_CONDOMINAL);
      
 
 
