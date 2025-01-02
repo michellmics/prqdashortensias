@@ -3497,6 +3497,8 @@ function init_echarts() {
                     
                     // Supondo que você tenha uma função 'buscarDados' para buscar dados de inadimplência ou qualquer outro dado necessário
                     const dados = await buscarDados('receita', mes, ano);
+                    console.log('DADOSS:', dados);
+
                     const categoriasS = dados.dados.map(item => item.TITULO);
                     const valoresS = dados.dados.map(item => item.TOTAL);
         
