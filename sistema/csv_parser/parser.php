@@ -50,28 +50,39 @@ function processCSV($filePath) {
             }
 
             
-           
-            if ($data[0] == "Taxa Condominial")
-            {
-                $isTaxaCondominial = true;
-                continue;
-            }
-
+           // INI TAXA CONDOMINAL
+            if ($data[0] == "Taxa Condominial"){$isTaxaCondominial = true;continue;}
             // Se estamos na seção "Taxa Condominial" e a linha não está vazia
             if ($isTaxaCondominial && !empty($data[0])) {
                 // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
                 if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
                     $isTaxaCondominial = false; // Sai da seção
                     continue;
+                }    
+                
+                // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+                $competencia = $data[1];
+                $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+                $ano = null;         // Valor padrão para o ano
+                
+                if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
+                    $mes = $matches[1]; // Primeiro grupo corresponde ao mês
+                    $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
                 }
-           
                 $TAXA_CONDOMINAL[] = [
                     'DESCRICAO' => $data[0],
-                    'COMPETENCIA' => $data[1],
+                    'COMPETENCIA MES' => $mes,
+                    'COMPETENCIA ANO' => $ano,
                     'VALOR' => $data[3],
                 ];
-
             }
+            // FIM TAXA CONDOMINAL
+
+
+
+
+
+
 
         }
         echo "<pre>";
