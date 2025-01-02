@@ -3500,7 +3500,7 @@ function init_echarts() {
 
                     // Acessa os títulos e converte os totais para números
                     const categorias = dados.map(item => item.TITULO);
-                    const valores = dados.map(item => parseFloat(item.TOTAL));
+                    const valores = dados.map(item => `R$ ${parseFloat(item.TOTAL).toFixed(2)}`);
 
                     // Prepara os dados para o gráfico
                     const dataGrafico = categorias.map((categoria, index) => ({
