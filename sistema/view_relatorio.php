@@ -280,53 +280,7 @@ html, body {
 
 
 				<div class="row">
-
-				<!-- INI GRAFICO PIZZA DETALHE -->
-				  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
-        			  <div class="x_panel">
-        			    <div class="x_title">
-        			      <h1>Despesas (Top 10)</h1>
-        			      <ul class="nav navbar-right panel_toolbox">
-        			        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-        			        </li>
-        			        <li class="dropdown">
-        			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-        			          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        			              <a class="dropdown-item" href="#">Settings 1</a>
-        			              <a class="dropdown-item" href="#">Settings 2</a>
-        			            </div>
-        			        </li>
-        			        <li><a class="close-link"><i class="fa fa-close"></i></a>
-        			        </li>
-        			      </ul>
-        			      <div class="clearfix"></div>
-        			    </div>
-        			    <div class="x_content">
-        			      <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
-							<!-- INI EXPLICAÇÃO -->
-							<div  style="margin-top: 20px;">
-							    <div class="x_panel">
-							        <div class="x_content">
-							            <p>
-							                <strong>Gráfico 'Despesas (Top 10)'</strong><br>
-							                O objetivo deste gráfico é apresentar as 10 maiores despesas conforme o mês selecionado. Os valores exibidos estão em Reais (R$) e podem ser ajustados à medida que o condomínio efetue os pagamentos nos meses subsequentes .
-							            </p>
-							        </div>
-							    </div>
-							</div>
-							<!-- FIM EXPLICAÇÃO -->
-							</div>						
-						</div>			
-					  </div>
-					  
-					  <!-- FIM GRAFICO PIZZA DETALHE -->
-
-
-
-
-
-
-				<!--
+        			<!-- INI GRAFICO AREA -->
         			<div class="col-md-12 col-sm-12  ">
         			  <div class="x_panel">
         			    <div class="x_title">
@@ -351,7 +305,7 @@ html, body {
         			    </div>
         			  </div>
         			</div>
-					-->
+        			<!-- FIM GRAFICO AREA -->
 				</div>
 				
 				<div class="row">
