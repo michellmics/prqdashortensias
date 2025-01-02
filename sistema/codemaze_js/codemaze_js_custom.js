@@ -2374,12 +2374,13 @@ function init_echarts() {
             const element = document.getElementById("echart_gauge_codemaze"); //pra buscar o atributo de data
             var myChart = echarts.init(document.getElementById("echart_gauge_codemaze"), e);
             const dataCalendario = element.getAttribute("data-valor"); // ou element.dataset.valor
-            console.log('Valor de datetime:', dataCalendario);
+            const [mes, ano] = dataCalendario.split('-');
+            console.log('Valor de datetime:', mes);
         
             async function carregarDados() {
                 try {
-                    const dados = await buscarDados('inadimplencia', dataCalendario);
-                    const valor = dados.valor; // Acessa a chave 'valor' diretamente
+                    const dados = await buscarDados('inadimplencia', mes);
+                    const valor = dados.valor; 
                     console.log('Valor de REP_NMVALOR:', valor);
         
                     // Atualiza o gráfico com o valor obtido
