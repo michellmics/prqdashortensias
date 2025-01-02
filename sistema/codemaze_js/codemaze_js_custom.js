@@ -3518,7 +3518,7 @@ function init_echarts() {
                             x: "center",
                             y: "bottom",
                             data: categorias,
-                            padding: [10, 0, -12, 0]
+                            padding: [10, 0, 0, 0]
                             //data: ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"]
                         },
                         toolbox: {
