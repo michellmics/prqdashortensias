@@ -3569,7 +3569,7 @@ function init_echarts() {
                     };
         
                     // Define a opção inicial para o gráfico
-                    myChart.setOption(option);
+                   // myChart.setOption(option);
         
                 } catch (error) {
                     console.error('Erro ao carregar os dados:', error);
