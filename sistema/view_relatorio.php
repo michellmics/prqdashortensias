@@ -240,17 +240,7 @@ html, body {
         			      </ul>
         			      <div class="clearfix"></div>
         			    </div>
-        			    <div class="x_content">
-
-        			      <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
-
-        			    </div>
-						
-        			  </div>
-					  
-
-        			</div>
-					<!-- INI EXPLICAÇÃO -->
+						<!-- INI EXPLICAÇÃO -->
 <div class="col-md-6 col-sm-12" style="margin-top: 20px;">
     <div class="x_panel">
         <div class="x_content">
@@ -262,6 +252,17 @@ html, body {
     </div>
 </div>
 <!-- FIM EXPLICAÇÃO -->
+        			    <div class="x_content">
+
+        			      <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
+
+        			    </div>
+						
+        			  </div>
+					  
+
+        			</div>
+					
         			<!-- FIM GRAFICO PIZZA DETALHE -->
 				</div>
 
