@@ -240,6 +240,7 @@ html, body {
         			      </ul>
         			      <div class="clearfix"></div>
         			    </div>
+						<br>
         			    <div class="x_content">
 
         			      <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
