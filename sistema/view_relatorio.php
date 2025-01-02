@@ -44,6 +44,7 @@
 
 
 	$dataValor = isset($_GET['data-valor']) ? intval($_GET['data-valor']) : $mesANoDefault; // Valor padrão
+	$dataValor = "12";
 	  
 ?>
 
