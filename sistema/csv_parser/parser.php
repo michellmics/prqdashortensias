@@ -47,6 +47,9 @@ function processCSV($filePath) {
         $ADVOCATICIOS = [];
         $isAdvocaticios = false;
 
+        $ATUALIZACAO_MONETARIA = [];
+        $isAtualizacaoMonetaria = false;
+
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
@@ -170,6 +173,34 @@ function processCSV($filePath) {
                ];
             }
             // FIM HONORARIOS ADVOCATICIOS
+                        
+            // INI ATUALIZACAO MONETARIA
+           if ($data[0] == "Atualização Monetária"){$isAtualizacaoMonetaria = true;continue;}
+           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
+           if ($isAtualizacaoMonetaria && !empty($data[0])) {
+               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
+               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
+                   $isAtualizacaoMonetaria = false; // Sai da seção
+                   continue;
+               }    
+
+               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+               $competencia = $data[1];
+               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+               $ano = null;         // Valor padrão para o ano
+
+               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
+                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
+                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
+               }
+               $ATUALIZACAO_MONETARIA[] = [
+                   'DESCRICAO' => $data[0],
+                   'COMPETENCIA MES' => $mes,
+                   'COMPETENCIA ANO' => $ano,
+                   'VALOR' => $data[3],
+               ];
+            }
+            // FIM ATUALIZACAO MONETARIA
 
 
 
@@ -190,7 +221,11 @@ function processCSV($filePath) {
         echo "</pre>"; 
 
         echo "<pre>";
-        print_r($ADVOCATICIOS);
+        //print_r($ADVOCATICIOS);
+        echo "</pre>"; 
+
+        echo "<pre>";
+        print_r($ATUALIZACAO_MONETARIA);
         echo "</pre>";
      
 
