@@ -164,6 +164,14 @@ html, body {
         </style>
 		
     </head>
+
+	<script>
+function atualizarValor(valor) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('apartamento', valor); // Atualiza o parâmetro 'apartamento' na URL
+    window.location.href = url.toString(); // Recarrega a página com o novo valor
+}
+</script>
     <body>
 	
 		<!-- Preloader -->
