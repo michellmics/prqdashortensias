@@ -246,21 +246,15 @@ html, body {
 						  
 							
         			    </div>
-
-						
-        			  </div>
-					  						            <!-- INI EXPLICAÇÃO -->
-														
-              <div>
-                <div>
-                  
+						<div class="x_content">
+                  <p>
                     <strong>Gráfico 'Receitas (Top 10)'</strong><br>
                     O objetivo deste gráfico é apresentar as 10 maiores receitas conforme o mês selecionado. Os valores exibidos estão em Reais (R$) e podem ser ajustados à medida que os moradores efetuam os pagamentos nos meses subsequentes.
-                 
+                  </p>
                 </div>
-              
-            </div>
-            <!-- FIM EXPLICAÇÃO -->
+						
+        			  </div>
+					  
 
         			</div>
 					
