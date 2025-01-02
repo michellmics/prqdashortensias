@@ -65,10 +65,11 @@ function processCSV($filePath) {
                     continue;
                 }
            
-                // Adiciona as informações da linha à variável
-                $TAXA_CONDOMINAL['DESCRICAO'] = $data[0];
-                $TAXA_CONDOMINAL['COMPETENCIA'] = $data[1];
-                $TAXA_CONDOMINAL['VALOR'] = $data[3];
+                $TAXA_CONDOMINAL[] = [
+                    'DESCRICAO' => $data[0],
+                    'COMPETENCIA' => $data[1],
+                    'VALOR' => $data[3],
+                ];
 
             }
 
