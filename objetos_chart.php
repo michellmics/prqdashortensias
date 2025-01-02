@@ -86,8 +86,7 @@
                         AND CONC.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
                         AND CONC.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA
                         GROUP BY 
-                        CONC.CON_NMTITULO
-                        ORDER BY CON_NMTITULO ASC;";
+                        CONC.CON_NMTITULO";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
