@@ -87,7 +87,8 @@
                         AND CONC.CON_DCMES_COMPETENCIA = :CON_DCMES_COMPETENCIA
                         GROUP BY 
                         CONC.CON_NMTITULO
-                        ORDER BY TITULO DESC";
+                        ORDER BY TOTAL DESC
+                        LIMIT 10";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
