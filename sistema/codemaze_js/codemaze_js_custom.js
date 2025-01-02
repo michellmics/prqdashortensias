@@ -2491,7 +2491,7 @@ function init_echarts() {
                             },
                             data: [{
                                 value: parseFloat(valor), // Usa o valor obtido
-                                name: "Atual"
+                                name: mes
                             }]
                         }]
                     };
