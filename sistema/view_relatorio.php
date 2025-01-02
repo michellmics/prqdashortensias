@@ -43,7 +43,7 @@
 	$mesANoDefault = $siteAdmin->ARRAY_RELINFO[0]["MES"]."-".$siteAdmin->ARRAY_RELINFO[0]["ANO"];
 
 
-	$dataValor = isset($_GET['data-valor']) ? intval($_GET['data-valor']) : $mesANoDefault; // Valor padrão
+	$dataValor = isset($_GET['data-valor']) ? strval($_GET['data-valor']) : $mesANoDefault; // Valor padrão
 	var_dump($dataValor);
 	  
 ?>
