@@ -206,7 +206,7 @@ html, body {
 					
 				</div>
 				<div class="col-2">
-				    <label class="control-label" for="mesAno">Mês</label>
+				    <label class="control-label" for=""></label>
 					<button 
             type="button" 
             class="btn btn-primary" 
