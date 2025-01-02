@@ -41,6 +41,9 @@ function processCSV($filePath) {
         $MULTAS = [];
         $isMultas = false;
 
+        $JUROS = [];
+        $isJuros = false;
+
         //Ler os dados de pagamento da taxa condominal
         while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
@@ -106,8 +109,36 @@ function processCSV($filePath) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                ];
-           }
-           // FIM MULTAS
+            }
+            // FIM MULTAS
+
+            // INI JUROS
+           if ($data[0] == "Juros"){$isJuros = true;continue;}
+           // Se estamos na seção "Taxa Condominial" e a linha não está vazia
+           if ($isJuros && !empty($data[0])) {
+               // Verifica se é o fim da seção (exemplo: outra categoria ou seção vazia)
+               if (strpos($data[0], 'Total') !== false || empty(trim($data[0]))) {
+                   $isJuros = false; // Sai da seção
+                   continue;
+               }    
+
+               // Extrai o mês e o ano se o valor da competência estiver no formato esperado
+               $competencia = $data[1];
+               $mes = $competencia; // Valor padrão, caso não seja no formato esperado
+               $ano = null;         // Valor padrão para o ano
+
+               if (preg_match('/^([A-Za-z]{3})-(\d{2})$/', $competencia, $matches)) {
+                   $mes = $matches[1]; // Primeiro grupo corresponde ao mês
+                   $ano = '20' . $matches[2]; // Segundo grupo corresponde ao ano (convertido para formato completo)
+               }
+               $JUROS[] = [
+                   'DESCRICAO' => $data[0],
+                   'COMPETENCIA MES' => $mes,
+                   'COMPETENCIA ANO' => $ano,
+                   'VALOR' => $data[3],
+               ];
+            }
+            // FIM JUROS
 
 
 
@@ -116,11 +147,15 @@ function processCSV($filePath) {
 
         }
         echo "<pre>";
-        print_r($TAXA_CONDOMINAL);
+        //print_r($TAXA_CONDOMINAL);
         echo "</pre>";
 
         echo "<pre>";
-        print_r($MULTAS);
+        //print_r($MULTAS);
+        echo "</pre>";
+
+        echo "<pre>";
+        print_r($JUROS);
         echo "</pre>";
      
 
