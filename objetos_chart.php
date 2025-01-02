@@ -83,11 +83,12 @@
                 $stmt->execute();
                 $TOTAL_APARTAMENTOS = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                $inadimplentes = $ADIMPLENTES['Total']; 
+                $adimplentes = $ADIMPLENTES['Total']; 
                 $totalApartamentos = $TOTAL_APARTAMENTOS['Total']; 
     
                 // Calcula a porcentagem de inadimplentes
-                $percentualInadimplentes = ($totalApartamentos / $inadimplentes) * 100;
+                $inadimplentes = $totalApartamentos - $adimplentes;
+                $percentualInadimplentes = ($inadimplentes / $totalApartamentos) * 100;
 
                 return $percentualInadimplentes;
 
