@@ -3492,7 +3492,7 @@ function init_echarts() {
             
             async function carregarDadosPie() {
                 try {
-                    /*
+                    
                     // Supondo que você tenha uma função 'buscarDados' para buscar dados de inadimplência ou qualquer outro dado necessário
                     const dados = await buscarDados('receita', mes, ano);
                     const categorias = ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"];
@@ -3503,9 +3503,9 @@ function init_echarts() {
                         32, // valor da categoria "Construtora"
                         22 // valor da categoria "Cota Condominal"
                     ];
-                    */
+                    
         
-                    //console.log('Valores recebidos:', valores);
+                    console.log('Valores recebidos:', valores);
         
                     // Atualiza o gráfico com os dados obtidos
                     var option = {
