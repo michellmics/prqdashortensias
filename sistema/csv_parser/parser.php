@@ -437,7 +437,7 @@ function processCSV($filePath) {
         }
 
         if(count($TAXA_CONDOMINAL) == 0){echo "ATENÇÃO: TAXA_CONDOMINAL VAZIO <br>";}
-        if(count($MULTA) == 0)
+        if(count($MULTAS) == 0)
         if(count($JUROS) == 0)
         if(count($ADVOCATICIOS) == 0)
         if(count($ATUALIZACAO_MONETARIA) == 0)
