@@ -3513,8 +3513,14 @@ function init_echarts() {
                         tooltip: {
                             trigger: "item",
                             formatter: "{a} <br/>{b} : {c} ({d}%)"
-                        },
-      
+                        },/*
+                        legend: {
+                            x: "center",
+                            y: "bottom",
+                           // data: categorias,
+                            padding: [10, 0, 0, 0]
+                            //data: ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"]
+                        },*/
                         toolbox: {
                             show: !0,
                             feature: {
