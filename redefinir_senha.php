@@ -75,13 +75,11 @@
 
     if (passwordField.type === "password") {
       passwordField.type = "text";
-      toggleElement.textContent = "🙈"; // Ícone de olho fechado
     } else {
       passwordField.type = "password";
-      toggleElement.textContent = "👁️"; // Ícone de olho aberto
     }
   }
-  
+
     document.getElementById('demo-form').addEventListener('submit', function (e) {
         e.preventDefault(); // Impede o envio tradicional do formulário
         
