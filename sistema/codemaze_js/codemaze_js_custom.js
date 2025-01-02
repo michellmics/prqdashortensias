@@ -3550,7 +3550,7 @@ function init_echarts() {
                         series: [{
                             name: `Receitas R$ - ${mes}`,
                             type: "pie",
-                            radius: "55%",
+                            radius: "70%",
                             center: ["50%", "48%"],
                             data: dataGrafico
                         }]
