@@ -60,11 +60,39 @@
                 if(!$this->pdo){$this->conexao();}
             
             try{           
-                $sql = "SELECT * FROM REP_REPORT WHERE REP_DCTIPO LIKE 'INADIMPLENCIA%'";
+                $sql = "SELECT 
+                            SUM(CAST(REGEXP_REPLACE(CONC.CON_DCDESC, '[^0-9]', '') AS UNSIGNED)) AS Total
+                        FROM 
+                            CON_CONCILIACAO CONC
+                        WHERE 
+                            CONC.CON_DCTIPO = 'RECEITA' 
+                            AND CONC.CON_NMTITULO = 'Taxa Condominial'
+                            AND CONC.CON_DCMES_COMPETENCIA_USUARIO = 'novembro'
+                            AND CONC.CON_DCANO_COMPETENCIA_USUARIO = '2024'
+                            AND CONC.CON_DCMES_COMPETENCIA = 'Nov';";
 
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute();
-                $this->ARRAY_INADIMPLENCIAFULLINFO = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $ADIMPLENTES = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $sql = "SELECT CFG.CFG_DCVALOR AS Total
+                        FROM CFG_CONFIGURACAO CFG
+                        WHERE CFG.CFG_DCPARAMETRO = 'QTDE_APARTAMENTOS'";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute();
+                $TOTAL_APARTAMENTOS = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $inadimplentes = $ADIMPLENTES['Total']; 
+                $totalApartamentos = $TOTAL_APARTAMENTOS['Total']; 
+    
+                // Calcula a porcentagem de inadimplentes
+                $percentualInadimplentes = ($inadimplentes / $totalApartamentos) * 100;
+
+
+                $this->ARRAY_INADIMPLENCIAFULLINFO = $percentualInadimplente;
+
+
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
