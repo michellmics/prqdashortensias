@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mktId = $_POST['mktId'] ?? null; 
     $publiDesc = $_POST['publiDesc'] ?? null;
     $tipo = $_POST['tipo'] ?? null;
+    $link = $_POST['link'] ?? null;
     $imagem="";
 
     $publi = new SITE_ADMIN();
@@ -55,12 +56,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($checkExist === true) 
     {
-        $updatePubli = $publi->updatePubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc,$tipo);    
+        $updatePubli = $publi->updatePubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc,$tipo,$link);    
         echo $updatePubli; //retorna OK se tudo ocorreu bem
     } 
     if ($checkExist === false) 
     {
-        $insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc,$tipo);    
+        $insertPubli = $publi->insertPubliInfo($dataInicio,$dataFim,$clienteOrigin,$status,$mktId,$imagem,$publiDesc,$tipo,$link);    
         echo $insertPubli; //retorna OK se tudo ocorreu bem
     } 
 
