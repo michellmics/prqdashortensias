@@ -185,116 +185,116 @@ html, body {
 		<!-- End Header Area -->
 
 
-<!-- ini content Area -->
-<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-  <div class="container">
-    <div class="row">
-      <div class="col-2" style="margin-top: 180px;"> <!-- Adicionei uma margem para descer o combobox -->
-        <label class="control-label" for="mesAno">Mês</label>
-        <select id="mesAno" name="mesAno" class="form-control" required>
-          <?php
-            foreach ($siteAdmin->ARRAY_RELINFO as $relatorio) {
-              $mesAno = $relatorio["MES"]."-".$relatorio["ANO"];
-              echo "<option value=\"$mesAno\">$mesAno </option>";
-            }
-          ?>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <!-- INI GRAFICO GAUGE -->
-      <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
-        <div class="x_panel">
-          <div class="x_title">
-            <h1>Inadimplência</h1>
-            <div class="clearfix"></div>
-          </div>
-          <div class="x_content">
-            <div id="echart_gauge_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
-            <!-- INI EXPLICAÇÃO -->
-            <div style="margin-top: 20px;">
-              <div class="x_panel">
-                <div class="x_content">
-                  <p>
-                    <strong>Gráfico 'Inadimplência'</strong><br>
-                    A proposta deste gráfico é ilustrar a inadimplência do mês selecionado, com a ressalva de que os valores podem ser ajustados conforme os moradores regularizem suas dívidas nos meses seguintes.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- FIM EXPLICAÇÃO -->
-          </div>
-        </div>
-      </div>
-      <!-- FIM GRAFICO GAUGE -->
+					
+  		<!-- ini content Area -->
+		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+	
+			<div class="container">
+			<div class="row">
+				<div class="col-2">
+				    <label class="control-label" for="mesAno">Mês</label>
+				    <select id="mesAno" name="mesAno" class="form-control" required>
+				        <?php
+							foreach ($siteAdmin->ARRAY_RELINFO as $relatorio)
+							{
+								$mesAno = $relatorio["MES"]."-".$relatorio["ANO"];
+								echo "<option value=\"$mesAno\">$mesAno </option>";
+							}
+				        ?>
+				    </select>
+				</div>
+			</div>
+				<div class="row">
+					<!-- INI GRAFICO GAUGE -->
+					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
+    				  <div class="x_panel">
+    				    <div class="x_title">
+    				      <h1>Inadimplência</h1>
+    				      <div class="clearfix"></div>
+    				    </div>
+    				    <div class="x_content">
+    				      <div id="echart_gauge_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
+    				    </div>
+    				  </div>
+    				</div>
+    				<!-- FIM GRAFICO GAUGE -->
 
-      <!-- INI GRAFICO PIZZA DETALHE -->
-      <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
-        <div class="x_panel">
-          <div class="x_title">
-            <h1>Receitas (Top 10)</h1>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Settings 1</a>
-                  <a class="dropdown-item" href="#">Settings 2</a>
-                </div>
-              </li>
-              <li><a class="close-link"><i class="fa fa-close"></i></a></li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
-          <div class="x_content">
-            <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
-            <!-- INI EXPLICAÇÃO -->
-            <div style="margin-top: 20px;">
-              <div class="x_panel">
-                <div class="x_content">
-                  <p>
-                    <strong>Gráfico 'Receitas (Top 10)'</strong><br>
-                    O objetivo deste gráfico é apresentar as 10 maiores receitas conforme o mês selecionado. Os valores exibidos estão em Reais (R$) e podem ser ajustados à medida que os moradores efetuam os pagamentos nos meses subsequentes.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- FIM EXPLICAÇÃO -->
-          </div>
-        </div>
-      </div>
-      <!-- FIM GRAFICO PIZZA DETALHE -->
-    </div>
 
-    <div class="row">
-      <!-- INI GRAFICO AREA -->
-      <div class="col-md-12 col-sm-12">
-        <div class="x_panel">
-          <div class="x_title">
-            <h1>Despesas</h1>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Settings 1</a>
-                  <a class="dropdown-item" href="#">Settings 2</a>
-                </div>
-              </li>
-              <li><a class="close-link"><i class="fa fa-close"></i></a></li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
-          <div class="x_content">
-            <div id="echart_line" style="height:350px;"></div>
-          </div>
-        </div>
-      </div>
-      <!-- FIM GRAFICO AREA -->
-    </div>
-  </div>
-</section>
+  					<!-- INI GRAFICO PIZZA DETALHE -->
+					<div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
+        			  <div class="x_panel">
+        			    <div class="x_title">
+        			      <h1>Receitas (Top 10)</h1>
+        			      <ul class="nav navbar-right panel_toolbox">
+        			        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        			        </li>
+        			        <li class="dropdown">
+        			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        			          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        			              <a class="dropdown-item" href="#">Settings 1</a>
+        			              <a class="dropdown-item" href="#">Settings 2</a>
+        			            </div>
+        			        </li>
+        			        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        			        </li>
+        			      </ul>
+        			      <div class="clearfix"></div>
+        			    </div>
+        			    <div class="x_content">
 
+        			      <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
+							
+        			    </div>
+						
+        			  </div>
+					  
+
+        			</div>
+					
+        			<!-- FIM GRAFICO PIZZA DETALHE -->
+				</div>
+
+
+
+
+				<div class="row">
+        			<!-- INI GRAFICO AREA -->
+        			<div class="col-md-12 col-sm-12  ">
+        			  <div class="x_panel">
+        			    <div class="x_title">
+        			      <h1>Despesas</h1>
+        			      <ul class="nav navbar-right panel_toolbox">
+        			        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        			        </li>
+        			        <li class="dropdown">
+        			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        			          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        			              <a class="dropdown-item" href="#">Settings 1</a>
+        			              <a class="dropdown-item" href="#">Settings 2</a>
+        			            </div>
+        			        </li>
+        			        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        			        </li>
+        			      </ul>
+        			      <div class="clearfix"></div>
+        			    </div>
+        			    <div class="x_content">
+
+        			      <div id="echart_line" style="height:350px;"></div>
+
+        			    </div>
+        			  </div>
+        			</div>
+        			<!-- FIM GRAFICO AREA -->
+				</div>
+				
+				<div class="row">
+
+				</div>
+			</div>
+
+
+		</section>
 		<style>
   			/* Para dispositivos móveis (telas menores que 768px) */
 
