@@ -42,9 +42,6 @@
 	$siteAdmin->getRelatoriosDisponiveis();
 	$mesANoDefault = $siteAdmin->ARRAY_RELINFO[0]["MES"]."/".$siteAdmin->ARRAY_RELINFO[0]["ANO"];
 
-	var_dump($mesANoDefault);
-	die();
-
 
 	$dataValor = isset($_GET['data-valor']) ? intval($_GET['data-valor']) : $mesANoDefault; // Valor padrão
 	  
@@ -199,10 +196,11 @@ html, body {
 				    <select id="apartamento" name="apartamento" class="form-control" required>
 				        <?php
 				            // Aqui você pode preencher o select com os números de apartamentos
-				            for ($i = 1; $i <= 352; $i++) {
-				                // Verifica se o apartamento atual é o selecionado
-				                $selected = ($i == $siteAdmin->ARRAY_RELINFO[0]["MES"]) ? 'selected' : '';
-				                echo "<option value=\"$i\" $selected>Mês $i</option>";
+				            foreach ($siteAdmin->ARRAY_RELINFO as $relatorio)
+							{
+				                $mesAno = $relatorio["MES"]."/".$relatorio["ANO"];
+
+				                echo "<option value=\"$mesAno\" $selected>Mês $mesAno </option>";
 				            }
 				        ?>
 				    </select>
