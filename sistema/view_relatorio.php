@@ -378,7 +378,7 @@ html, body {
 
 		<!-- Chart.js -->
 		<script src="vendors/Chart.js/dist/Chart.min.js"></script>
-		<script src="codemaze_js\codemaze_js_custom.js"></script>
+		<script src="codemaze_js/codemaze_js_custom.js?ver=<?php echo time(); ?>"></script>
 		
 		<!-- Bootstrap -->
 		<script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
