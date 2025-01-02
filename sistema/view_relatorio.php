@@ -25,7 +25,7 @@
   	  exit();
   	}
 
-    if ($_SESSION['user_nivelacesso'] != "SINDICO") 
+    if ($_SESSION['user_nivelacesso'] != "SINDICO" && $_SESSION['user_nivelacesso'] != "MORADOR") 
     {
       header("Location: noAuth.php");
       exit();
