@@ -3484,88 +3484,91 @@ function init_echarts() {
             }]
         });
 		if ($("#echart_pie_codemaze").length) {
-            const element = document.getElementById("echart_pie_codemaze"); // Para buscar o atributo de data
-            var myChart = echarts.init(document.getElementById("echart_pie_codemaze"), e);
-            const dataCalendario = element.getAttribute("data-valor"); // Ou element.dataset.valor
-            const [mes, ano] = dataCalendario.split('-');
-            console.log('Valor de datetime:', mes);
-        
-            async function carregarDados() {
-                try {
-                    // Supondo que você tenha uma função 'buscarDados' para buscar dados de inadimplência ou qualquer outro dado necessário
-                    const dados = await buscarDados('receita', mes, ano);
-                    const categorias = ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"];
-                    const valores = [
-                        dados.multa, // valor da categoria "Multas"
-                        dados.salaoDeFestas, // valor da categoria "Salão de Festas"
-                        dados.processos, // valor da categoria "Processos"
-                        dados.construtora, // valor da categoria "Construtora"
-                        dados.cotaCondominial // valor da categoria "Cota Condominal"
-                    ];
-        
-                    console.log('Valores recebidos:', valores);
-        
-                    // Atualiza o gráfico com os dados obtidos
-                    var option = {
-                        tooltip: {
-                            trigger: "item",
-                            formatter: "{a} <br/>{b} : {c} ({d}%)"
-                        },
-                        legend: {
-                            x: "center",
-                            y: "bottom",
-                            data: categorias
-                        },
-                        toolbox: {
+            echarts.init(document.getElementById("echart_pie_codemaze"), e).setOption({
+                //color: ["#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A133FF"], //caso queira personalizar as cores
+                tooltip: {
+                    trigger: "item",
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    x: "center",
+                    y: "bottom",
+                    data: ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"]
+                },
+                toolbox: {
+                    show: !0,
+                    feature: {
+                        magicType: {
                             show: !0,
-                            feature: {
-                                magicType: {
-                                    show: !0,
-                                    type: ["pie", "funnel"],
-                                    option: {
-                                        funnel: {
-                                            x: "25%",
-                                            width: "50%",
-                                            funnelAlign: "left",
-                                            max: 1548
-                                        }
-                                    }
-                                },
-                                restore: {
-                                    show: !0,
-                                    title: "restaurar"
-                                },
-                                saveAsImage: {
-                                    show: !0,
-                                    title: "Salvar Imagem"
+                            type: ["pie", "funnel"],
+                            option: {
+                                funnel: {
+                                    x: "25%",
+                                    width: "50%",
+                                    funnelAlign: "left",
+                                    max: 1548
                                 }
                             }
                         },
-                        calculable: !0,
-                        series: [{
-                            name: "Vendas",
-                            type: "pie",
-                            radius: "55%",
-                            center: ["50%", "48%"],
-                            data: categorias.map((categoria, index) => ({
-                                value: valores[index],
-                                name: categoria
-                            }))
-                        }]
-                    };
-        
-                    // Define a opção inicial para o gráfico
-                    myChart.setOption(option);
-        
-                } catch (error) {
-                    console.error('Erro ao carregar os dados:', error);
+                        restore: {
+                            show: !0,
+                            title: "restaurar"
+                        },
+                        saveAsImage: {
+                            show: !0,
+                            title: "Salvar Imagem"
+                        }
+                    }
+                },
+                calculable: !0,
+                series: [{
+                    name: "Vendas",
+                    type: "pie",
+                    radius: "55%",
+                    center: ["50%", "48%"],
+                    data: [{
+                        value: 335,
+                        name: "Multas"
+                    }, {
+                        value: 310,
+                        name: "Salão de Festas"
+                    }, {
+                        value: 234,
+                        name: "Processos"
+                    }, {
+                        value: 135,
+                        name: "Construtora"
+                    }, {
+                        value: 1548,
+                        name: "Cota Condominal"
+                    }]
+                }]
+            });
+            var a = {
+                    normal: {
+                        label: {
+                            show: !1
+                        },
+                        labelLine: {
+                            show: !1
+                        }
+                    }
+                },
+                t = {
+                    normal: {
+                        color: "rgba(0,0,0,0)",
+                        label: {
+                            show: !1
+                        },
+                        labelLine: {
+                            show: !1
+                        }
+                    },
+                    emphasis: {
+                        color: "rgba(0,0,0,0)"
+                    }
                 }
-            }
-        
-            // Carrega os dados e atualiza o gráfico
-            carregarDados();
         }
-        
         if ($("#echart_pie").length) {
             echarts.init(document.getElementById("echart_pie"), e).setOption({
                 tooltip: {
