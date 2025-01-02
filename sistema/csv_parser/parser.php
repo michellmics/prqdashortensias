@@ -32,40 +32,28 @@ function processCSV($filePath) {
 
         $TAXA_CONDOMINAL = [];
         $isTaxaCondominial = false;
-
         $MULTAS = [];
         $isMultas = false;
-
         $JUROS = [];
         $isJuros = false;
-
         $ADVOCATICIOS = [];
         $isAdvocaticios = false;
-
         $ATUALIZACAO_MONETARIA = [];
         $isAtualizacaoMonetaria = false;
-
         $PAGAMENTO_A_MENOR = [];
         $isPagamentoMenor = false;
-
         $CARTAO_ACESSO = [];
         $isCartaoAcesso = false;
-
         $OUTRAS_RECEITAS = [];
         $isOutrasReceitas = false;
-
         $RENDIMENTO_APLICACAO = [];
         $isRendimentoAplicacao = false;
-
         $FUNDO_INADIMPLENCIA = [];
         $isFundoInadimplencia = false;
-
         $CONSUMO_AGUA = [];
         $isConsumoAgua = false;
-
         $PARCELAMENTO_SABESP = [];
         $isParcelamentoSabesp = false;
-
         $SALAO_FESTA = [];
         $isSalaoFesta = false;
 
@@ -446,13 +434,37 @@ function processCSV($filePath) {
                ];
             }
             // FIM SALAO DE FESTAS
-
-
-
-
-
-
         }
+
+        if(count($TAXA_CONDOMINAL) == 0){echo "ATENÇÃO: TAXA_CONDOMINAL VAZIO <br>";}
+        if(count($MULTA) == 0)
+        if(count($JUROS) == 0)
+        if(count($ADVOCATICIOS) == 0)
+        if(count($ATUALIZACAO_MONETARIA) == 0)
+        if(count($PAGAMENTO_A_MENOR) == 0)
+        if(count($CARTAO_ACESSO) == 0)
+        if(count($OUTRAS_RECEITAS) == 0)
+        if(count($RENDIMENTO_APLICACAO) == 0)
+        if(count($FUNDO_INADIMPLENCIA) == 0)
+        if(count($CONSUMO_AGUA) == 0)
+        if(count($PARCELAMENTO_SABESP) == 0)
+        if(count($SALAO_FESTA) == 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         echo "<pre>";
         //print_r($TAXA_CONDOMINAL);
         echo "</pre>";
@@ -502,7 +514,7 @@ function processCSV($filePath) {
         echo "</pre>"; 
 
         echo "<pre>"; 
-        print_r($SALAO_FESTA);
+        //print_r($SALAO_FESTA);
         echo "</pre>";
         
       
@@ -511,8 +523,7 @@ function processCSV($filePath) {
         // Fechar o arquivo
         fclose($handle);
 
-        //print_r($data);
-        die();
+
 
         echo "Dados importados com sucesso!";
     } else {
