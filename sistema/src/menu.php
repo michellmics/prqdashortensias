@@ -17,6 +17,30 @@
 	  header("Location: https://www.prqdashortensias.com.br/index.php");
 	  exit();
 	}
+
+    if ($_SESSION['user_nivelacesso'] == "SINDICO") 
+    { 
+
+        $menu = "
+        <li><a href='index.php'>Inicio</a></li>
+        <li><a href='morador_table.php'>Moradores</a></li>
+        <li><a href='lista_table.php'>Minha Lista de Convidados</a></li>
+        <li><a href='view_relatorio.php'>Indicadores</a></li>
+        <li><a href='lista_log.php'>Atividades</a></li>
+        <li><a href='morador_form_edit_profile.php'>Minha Conta</a></li>
+        <li><a href='../logoff.php'>Sair</a></li>
+        ";
+    }
+    else
+        {
+            $menu = "
+            <li><a href='index.php'>Inicio</a></li>
+            <li><a href='lista_table.php'>Minha Lista de Convidados</a></li>
+            <li><a href='view_relatorio.php'>Indicadores</a></li>
+            <li><a href='morador_form_edit_profile.php'>Minha Conta</a></li>
+            <li><a href='../logoff.php'>Sair</a></li>
+            ";
+        }
 	
 	$blocoSession = $_SESSION['user_bloco'];
 	$apartamentoSession = $_SESSION['user_apartamento'];
@@ -96,12 +120,6 @@
 
 <nav class="navigation">
     <ul class="nav menu">
-        <li><a href="index.php">Inicio</a></li>
-        <li><a href="morador_table.php">Moradores</a></li>
-        <li><a href="lista_table.php">Minha Lista de Convidados</a></li>
-        <li><a href="view_relatorio.php">Indicadores</a></li>
-        <li><a href="lista_log.php">Atividades</a></li>
-        <li><a href="morador_form_edit_profile.php">Minha Conta</a></li>
-        <li><a href="../logoff.php">Sair</a></li>
+        <?php echo $menu; ?>
     </ul>
 </nav>
