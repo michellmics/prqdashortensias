@@ -89,9 +89,7 @@
                 // Calcula a porcentagem de inadimplentes
                 $percentualInadimplentes = ($inadimplentes / $totalApartamentos) * 100;
 
-
-                return "33";
-
+                return $percentualInadimplentes;
 
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];

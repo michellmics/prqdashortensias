@@ -15,7 +15,7 @@
 	 switch ($consulta) {
         case 'inadimplencia':
 			$valorInadimplencia = $siteCharts->getInadimplenciaFull();
-			echo $valorInadimplencia;
+			echo "33";
             break;
 
         case 'despesas':
