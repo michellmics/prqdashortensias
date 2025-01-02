@@ -164,8 +164,6 @@ html, body {
         </style>
 		
     </head>
-
-	
     <body>
 	
 		<!-- Preloader -->
@@ -207,7 +205,7 @@ html, body {
     				      <div class="clearfix"></div>
     				    </div>
     				    <div class="x_content">
-    				      <div id="echart_gauge_codemaze" data-valor="<?php echo htmlspecialchars($_GET['valor'] ?? '452'); ?>"  style="height:350px;"></div>
+    				      <div id="echart_gauge_codemaze" data-valor="452" style="height:350px;"></div>
     				    </div>
     				  </div>
     				</div>
@@ -415,15 +413,18 @@ html, body {
 		
 
 		<!-- DASHBOARD -->
-
-
 		<script>
-    // Captura o evento de mudança no select
-    document.getElementById('apartamento').addEventListener('change', function() {
-        // Obtém o valor selecionado
-        const selectedValue = this.value;
-        // Redireciona para a página atual com o novo parâmetro
-        window.location.href = `?apartamento=${selectedValue}`;
+    $(document).ready(function () {
+        // Detecta mudança no combobox
+        $('#apartamento').on('change', function () {
+            const selectedValue = $(this).val(); // Valor selecionado no combobox
+            const gauge = $('#echart_gauge_codemaze'); // Seleciona o elemento do gauge
+            gauge.attr('data-valor', selectedValue); // Atualiza o atributo data-valor do gauge
+            
+            // Recarrega a página com o valor como parâmetro na URL
+            const currentUrl = window.location.href.split('?')[0]; // Remove query strings antigas
+            window.location.href = `${currentUrl}?data-valor=${selectedValue}`;
+        });
     });
 </script>
 		
