@@ -3569,7 +3569,7 @@ function init_echarts() {
                     };
         
                     // Define a opção inicial para o gráfico
-                   // myChart.setOption(option);
+                    myChart.setOption(option);
         
                 } catch (error) {
                     console.error('Erro ao carregar os dados:', error);
@@ -3577,7 +3577,7 @@ function init_echarts() {
             }
         
             // Carrega os dados e atualiza o gráfico
-            carregarDadosPie();
+            //carregarDadosPie();
         }
         if ($("#echart_pie").length) {
             echarts.init(document.getElementById("echart_pie"), e).setOption({
