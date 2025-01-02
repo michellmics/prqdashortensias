@@ -87,7 +87,7 @@
                 $totalApartamentos = $TOTAL_APARTAMENTOS['Total']; 
     
                 // Calcula a porcentagem de inadimplentes
-                $percentualInadimplentes = ($inadimplentes / $totalApartamentos) * 100;
+                $percentualInadimplentes = ($totalApartamentos / $inadimplentes) * 100;
 
                 return $percentualInadimplentes;
 
