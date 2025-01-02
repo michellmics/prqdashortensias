@@ -3494,7 +3494,7 @@ function init_echarts() {
                 try {
                     
                     // Supondo que você tenha uma função 'buscarDados' para buscar dados de inadimplência ou qualquer outro dado necessário
-                    const dados = await buscarDados('receita', mes, ano);
+                    //const dados = await buscarDados('receita', mes, ano);
                     const categorias = ["Multas", "Salão de Festas", "Processos", "Construtora", "Cota Condominal"];
                     const valores = [
                         12, // valor da categoria "Multas"
