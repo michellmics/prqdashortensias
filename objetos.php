@@ -514,6 +514,48 @@
             }
         }
 
+        public function insertConciliacaoInfo($ARRAY_DADOS)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+           // Preparar e executar as inserções no banco de dados
+            foreach ($ARRAY_DADOS as $dados) {
+                // Query de inserção
+                $query = "INSERT INTO CON_CONCILIACAO (CON_DCTIPO, CON_DCMES_COMPETENCIA, CON_DCDESC, CON_NMVALOR, CON_DTINSERT, CON_DCMES_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA)
+                          VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+                // Preparar a consulta
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt) {
+                    die("Erro ao preparar a consulta: " . $conn->error);
+                }
+            
+                // Substituir os placeholders com os valores reais
+                $stmt->bind_param(
+                    'sssissss',                         // Tipos de dados: s = string
+                    $dados['TIPO'],              
+                    $dados['COMPETENCIA MES'],       
+                    $dados['DESCRICAO'],        
+                    $dados['VALOR'],                  
+                    $dados['DATANOW'],  
+                    $dados['COMPETENCIA MES USUARIO'],  
+                    $dados['COMPETENCIA ANO USUARIO'],  
+                    $dados['COMPETENCIA ANO']               
+                );
+            
+                // Executar a consulta
+                if (!$stmt->execute()) {
+                    echo "Erro ao inserir os dados: " . $stmt->error . "<br>";
+                } else {
+                    echo "Registro inserido com sucesso!<br>";
+                }
+            
+            }
+
+        }
+
         public function checkPubliExisInfo($ID)
         {          
             // Verifica se a conexão já foi estabelecida

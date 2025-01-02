@@ -8,6 +8,7 @@ header('Content-Type: text/html; charset=UTF-8');
 include_once '../../objetos.php';
 
 $siteAdmin = new SITE_ADMIN();  
+$dataHoraAtual = date('Y-m-d H:i:s'); 
 
 function removeBOM($filePath) {
     // Ler o conteúdo do arquivo
@@ -92,7 +93,11 @@ function processCSV($filePath) {
                     'DESCRICAO' => $data[0],
                     'COMPETENCIA MES' => $mes,
                     'COMPETENCIA ANO' => $ano,
-                    'VALOR' => $data[3],
+                    'VALOR' => $data[3], 
+                    'DATANOW' => $dataHoraAtual,
+                    'COMPETENCIA MES USUARIO' => 'Outubro',
+                    'COMPETENCIA ANO USUARIO' => '2024',
+                    'TIPO' => 'RECEITA',
                 ];
             }
             // FIM TAXA CONDOMINAL
@@ -121,6 +126,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM MULTAS
@@ -149,6 +158,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM JUROS
@@ -177,6 +190,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM HONORARIOS ADVOCATICIOS
@@ -205,6 +222,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM ATUALIZACAO MONETARIA
@@ -233,6 +254,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM PAGAMENTO A MENOR
@@ -261,6 +286,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM CARTAO DE ACESSO
@@ -290,6 +319,10 @@ function processCSV($filePath) {
                     'COMPETENCIA MES' => $mes,
                     'COMPETENCIA ANO' => $ano,
                     'VALOR' => $data[3],
+                    'DATANOW' => $dataHoraAtual,
+                    'COMPETENCIA MES USUARIO' => 'Outubro',
+                    'COMPETENCIA ANO USUARIO' => '2024',
+                    'TIPO' => 'RECEITA',
                 ];
                 }
             }
@@ -319,6 +352,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM RENDIMENTO APLICAÇÃO
@@ -347,6 +384,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM FUNDO INADIMPLENCA
@@ -375,6 +416,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM CONSUMO AGUA
@@ -403,6 +448,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM PARCELAMENTO SABESP
@@ -431,6 +480,10 @@ function processCSV($filePath) {
                    'COMPETENCIA MES' => $mes,
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
+                   'DATANOW' => $dataHoraAtual,
+                   'COMPETENCIA MES USUARIO' => 'Outubro',
+                   'COMPETENCIA ANO USUARIO' => '2024',
+                   'TIPO' => 'RECEITA',
                ];
             }
             // FIM SALAO DE FESTAS
@@ -454,7 +507,8 @@ function processCSV($filePath) {
 
 
 
-
+        $result=$siteAdmin->insertConciliacaoInfo($TAXA_CONDOMINAL);
+        echo $result;
 
 
 
