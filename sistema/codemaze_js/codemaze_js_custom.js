@@ -2402,7 +2402,7 @@ function init_echarts() {
                             }
                         },
                         series: [{
-                            name: "Meta",
+                            name: mes.replace(/^./, mes[0].toUpperCase()),
                             type: "gauge",
                             center: ["50%", "50%"],
                             startAngle: 140,
