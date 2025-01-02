@@ -241,23 +241,10 @@ html, body {
         			      <div class="clearfix"></div>
         			    </div>
         			    <div class="x_content">
-
         			      <div id="echart_pie_codemaze" data-valor=<? echo $dataValor; ?> style="height:350px;"></div>
-						  
-							
-        			    </div>
-						<div class="x_content">
-                  <p>
-                    <strong>Gráfico 'Receitas (Top 10)'</strong><br>
-                    O objetivo deste gráfico é apresentar as 10 maiores receitas conforme o mês selecionado. Os valores exibidos estão em Reais (R$) e podem ser ajustados à medida que os moradores efetuam os pagamentos nos meses subsequentes.
-                  </p>
-                </div>
-						
+        			    </div>						
         			  </div>
-					  
-
         			</div>
-					
         			<!-- FIM GRAFICO PIZZA DETALHE -->
 				</div>
 
