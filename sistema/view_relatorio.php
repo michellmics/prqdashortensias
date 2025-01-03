@@ -205,7 +205,11 @@ html, body {
 							{	
 								$mesAno = $relatorio["MES"]."-".$relatorio["ANO"];
 								$mesAnoLabel = ucfirst($mesAno);
-								echo "<option value=\"$mesAno\">$mesAnoLabel </option>";
+								
+								// Verifica se $mesAno corresponde a $dataValor								
+								$selected = ($mesAno === $dataValor) ? 'selected' : '';
+								echo "<option value=\"$mesAno\" $selected>$mesAnoLabel</option>";
+								
 							}
 				        ?>
 				    </select>
