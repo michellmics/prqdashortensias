@@ -182,7 +182,7 @@ html, body {
             </select>
         </div>
 
-        <div class="mb-1">
+        <div >
             <select class="form-control" id="mes" name="mes" required>
                 <option value="" disabled selected>Mês de Referência</option>
                 <option value="janeiro">Janeiro</option>
@@ -200,7 +200,7 @@ html, body {
             </select>
         </div>
 
-        <div class="mb-1">
+        <div >
             <select class="form-control" id="ano" name="ano" required>
                 <option value="" disabled selected>Ano de Referência</option>
                 <option value="2024">2024</option>
