@@ -192,8 +192,6 @@ html, body {
 			<div class="container">
 			<div class="row">
 				<div class="col-10">
-				<div class="form-group">
-				    <label class="control-label" for="mesAno">Mês</label>
 				    <select id="mesAno" name="mesAno" class="form-control" required>
 				        <?php
 							foreach ($siteAdmin->ARRAY_RELINFO as $relatorio)
@@ -204,10 +202,9 @@ html, body {
 							}
 				        ?>
 				    </select>
-					</div>
+					
 				</div>
 				<div class="col-2 d-flex justify-content-end">
-				    <label class="control-label" for="rel">&nbsp;</label>
 					<button type="button" class="btn btn-primary" style="height: calc(2.25rem + 6px);" onclick="window.location.href='form_relatorio.php';">ADD</button>
 				</div>
 				
