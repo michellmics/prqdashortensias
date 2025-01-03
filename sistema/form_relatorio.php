@@ -169,12 +169,12 @@ html, body {
         <div class="container mt-5">
     <h2>Upload - Relatório Financeiro</h2>
     <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
-        <div">
+        <div >
             <label for="arquivo" class="form-label">Selecione um arquivo .CSV válido</label>
             <input type="file" class="form-control" id="arquivo" name="arquivo" accept=".csv" required>
         </div>
 
-        <div>
+        <div class="mb-3">
             <select class="form-control" id="tipo" name="tipo" required>
                 <option value="" disabled selected>Tipo de Dados</option>
                 <option value="receita">Receita</option>
