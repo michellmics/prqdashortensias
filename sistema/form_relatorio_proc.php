@@ -24,7 +24,23 @@
 	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
 	$userid = $_SESSION['user_id'];
 
+    $siteAdmin = new SITE_ADMIN();  
+    $siteAdmin->getPopupImagePublish();    
 
+    //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+
+    $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
+    $num = rand(0, $qtdePubli -1);
+    $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
+    
+    if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
+    {
+        $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
+    }
+    else
+        {
+            $publiImageLink = "";
+        }
 
     
 
@@ -152,7 +168,7 @@ html, body {
     		
         <div class="container mt-5">
     <h2>Upload - Relatório Financeiro</h2>
-    <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
+    <form action="processar_upload.php" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="arquivo" class="form-label">Selecione um arquivo .CSV válido</label>
             <input type="file" class="form-control" id="arquivo" name="arquivo" accept=".csv" required>
