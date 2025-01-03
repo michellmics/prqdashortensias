@@ -551,7 +551,7 @@
            // Preparar e executar as inserções no banco de dados
             foreach ($ARRAY_DADOS as $dados) {
 
-                $dados['VALOR'] = $this->formatarValorParaMySQL($dados['VALOR']);
+                $dados['VALOR'] = $this->formatarValorParaMySQL($dados['VALOR']); 
 
                 // Query de inserção
                 $sql = "INSERT INTO CON_CONCILIACAO (CON_DCTIPO, CON_DCMES_COMPETENCIA, CON_DCDESC, CON_NMVALOR, CON_DTINSERT, CON_DCMES_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA, CON_NMTITULO)
