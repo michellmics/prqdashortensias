@@ -24,6 +24,23 @@
 	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
 	$userid = $_SESSION['user_id'];
 
+    $siteAdmin = new SITE_ADMIN();  
+    $siteAdmin->getPopupImagePublish();    
+
+    //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
+
+    $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
+    $num = rand(0, $qtdePubli -1);
+    $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
+    
+    if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
+    {
+        $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
+    }
+    else
+        {
+            $publiImageLink = "";
+        }
 
     
 
