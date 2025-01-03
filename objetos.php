@@ -547,6 +547,11 @@
             if (!$this->pdo) {
                 $this->conexao();
             }
+
+            foreach ($ARRAY_DADOS as $index => $dados) {
+                echo "Registro $index: " . json_encode($dados) . "<br>";
+            }
+            
            // Preparar e executar as inserções no banco de dados
             foreach ($ARRAY_DADOS as $dados) {
 
