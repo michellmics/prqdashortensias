@@ -192,6 +192,7 @@ html, body {
 			<div class="container">
 			<div class="row">
 				<div class="col-10">
+				<div class="form-group">
 				    <label class="control-label" for="mesAno">Mês</label>
 				    <select id="mesAno" name="mesAno" class="form-control" required>
 				        <?php
@@ -203,7 +204,7 @@ html, body {
 							}
 				        ?>
 				    </select>
-					
+					</div>
 				</div>
 				<div class="col-2 d-flex justify-content-end">
 				    <label class="control-label" for="rel">&nbsp;</label>
