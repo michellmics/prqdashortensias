@@ -175,16 +175,18 @@ html, body {
         </div>
 
         <div class="mb-3">
+            <label for="tipo" class="form-label">Tipo de Arquivo</label>
             <select class="form-control" id="tipo" name="tipo" required>
-                <option value="" disabled selected>Tipo de Arquivo</option>
+                <option value="" disabled selected>Selecione</option>
                 <option value="receita">Receita</option>
                 <option value="despesa">Despesa</option>
             </select>
         </div>
 
         <div class="mb-3">
+            <label for="mes" class="form-label">Mês de Referência</label>
             <select class="form-control" id="mes" name="mes" required>
-                <option value="" disabled selected>Mês de Referência</option>
+                <option value="" disabled selected>Selecione</option>
                 <option value="janeiro">Janeiro</option>
                 <option value="fevereiro">Fevereiro</option>
                 <option value="marco">Março</option>
@@ -201,8 +203,9 @@ html, body {
         </div>
 
         <div class="mb-3">
+            <label for="ano" class="form-label">Ano de Referência</label>
             <select class="form-control" id="ano" name="ano" required>
-                <option value="" disabled selected>Ano de Referência<</option>
+                <option value="" disabled selected>Selecione</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
                 <option value="2026">2026</option>
@@ -223,10 +226,16 @@ html, body {
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <div class="row mb-3">
+            <div class="col-10">
+                <!-- Aqui você pode adicionar qualquer conteúdo adicional se necessário -->
+            </div>
+            <div class="col-2 text-end">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
     </form>
 </div>
-
 
 
 
