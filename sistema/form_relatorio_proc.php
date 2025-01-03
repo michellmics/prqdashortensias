@@ -730,7 +730,7 @@ html, body {
     		
         <?php echo $resultadoParser; ?>
         <br>
-        Clique aqui para voltar
+        <a href="javascript:history.back()">Clique aqui para voltar</a>
 
 
 
