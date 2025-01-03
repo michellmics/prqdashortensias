@@ -33,6 +33,13 @@
       exit();
     }
 
+	$addRelatorio = "none";
+
+	if ($_SESSION['user_nivelacesso'] == "SINDICO") 
+    {
+      $addRelatorio = "true";
+    }
+
   	$blocoSession = $_SESSION['user_bloco'];
   	$apartamentoSession = $_SESSION['user_apartamento'];
   	$nomeSession =  ucwords($_SESSION['user_name']);
@@ -205,7 +212,7 @@ html, body {
 					
 				</div>
 				<div class="col-2 d-flex justify-content-end">
-					<button type="button" class="btn btn-primary" style="height: calc(2.25rem + 6px);" onclick="window.location.href='form_relatorio.php';">ADD</button>
+					<button type="button" class="btn btn-primary" style="height: calc(2.25rem + 6px); display: <? echo $addRelatorio; ?>;" onclick="window.location.href='form_relatorio.php';">ADD</button>
 				</div>
 				
 			</div>
