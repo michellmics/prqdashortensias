@@ -176,7 +176,7 @@ html, body {
 
         <div class="mb-3">
             <select class="form-control" id="tipo" name="tipo" required>
-                <option value="" disabled selected>Tipo de Dados</option>
+                <option value=""  selected>Tipo de Dados</option>
                 <option value="receita">Receita</option>
                 <option value="despesa">Despesa</option>
             </select>
