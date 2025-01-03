@@ -578,7 +578,7 @@
                 if (!$stmt->execute()) {
                     echo "Erro ao inserir os dados: " . $stmt->error . "<br>";
                 } else {
-                    echo "Registro inserido com sucesso!<br>";
+                    //echo "Registro inserido com sucesso!<br>";
                 }
             
             }
