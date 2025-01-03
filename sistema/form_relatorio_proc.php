@@ -5,6 +5,23 @@ error_reporting(E_ALL);
 
 include_once '../objetos.php';
 
+session_start(); 
+define('SESSION_TIMEOUT', 43200); // 30 minutos
+
+if (!isset($_SESSION['user_id'])) 
+{
+  header("Location: https://www.prqdashortensias.com.br/index.php");
+  exit();
+}
+    // Atualiza o timestamp da última atividade
+$_SESSION['last_activity'] = time();
+
+if (!isset($_SESSION['user_id'])) 
+{
+  header("Location: https://www.prqdashortensias.com.br/index.php");
+  exit();
+}
+
 function removeBOM($filePath) {
     // Ler o conteúdo do arquivo
     $fileContents = file_get_contents($filePath);
