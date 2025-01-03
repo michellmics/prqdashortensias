@@ -175,13 +175,14 @@ html, body {
                 <input type="file" class="form-control" id="arquivo" name="arquivo" accept=".csv" required>
             </div>
         </div>
-
+        <div class="form-row" style="margin-bottom: 10px;  margin: 10px;">
         <div>
             <select class="form-control" id="tipo" name="tipo" required>
                 <option value="" disabled selected>Tipo de Dados</option>
                 <option value="receita">Receita</option>
                 <option value="despesa">Despesa</option>
             </select>
+        </div>
         </div>
 
         <div >
