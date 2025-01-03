@@ -41,7 +41,7 @@ function removeBOM($filePath) {
     }
 }
 
-function processCSV($filePath) {
+function processCSV($filePath, $mesUser) {
 
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
@@ -118,7 +118,7 @@ function processCSV($filePath) {
                     'COMPETENCIA ANO' => $ano,
                     'VALOR' => $data[3], 
                     'DATANOW' => $dataHoraAtual,
-                    'COMPETENCIA MES USUARIO' => 'novembro',
+                    'COMPETENCIA MES USUARIO' => $mesUser,
                     'COMPETENCIA ANO USUARIO' => '2024',
                     'TIPO' => 'RECEITA',
                     'TITULO' => 'Taxa Condominial',
@@ -601,7 +601,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
         removeBOM($caminhoDestino);
-        processCSV($caminhoDestino);
+        processCSV($caminhoDestino, $mesUser);
 
         $resultadoParser = "Sucesso: Arquivo processado.";
     } else {
