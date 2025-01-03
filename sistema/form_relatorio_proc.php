@@ -41,7 +41,7 @@ function removeBOM($filePath) {
     }
 }
 
-function processCSV($filePath, $mesUser, $anoUser) {
+function processCSV($filePath) {
 
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
@@ -563,12 +563,11 @@ function processCSV($filePath, $mesUser, $anoUser) {
 
         fclose($handle);
 
-       // echo "Dados importados com sucesso!";
+        echo "Dados importados com sucesso!";
     } else {
-       // echo "Erro ao abrir o arquivo.";
+        echo "Erro ao abrir o arquivo.";
     }
 }
-
 
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
     $tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
@@ -602,7 +601,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
         removeBOM($caminhoDestino);
-        processCSV($caminhoDestino, $mesUser, $anoUser);
+        processCSV($caminhoDestino);
 
         $resultadoParser = "Sucesso: Arquivo processado.";
     } else {
