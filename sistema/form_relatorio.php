@@ -170,7 +170,7 @@ html, body {
     <h2>Upload - Relatório Financeiro</h2>
     <form action="form_relatorio_proc.php" method="POST" enctype="multipart/form-data">
         <div class="form-row" style="margin-bottom: 10px;  margin: 10px;">
-            <div class="col-5">
+            <div class="col-12">
                 <label for="arquivo" class="form-label">Selecione um arquivo .CSV válido</label>
                 <input type="file" class="form-control" id="arquivo" name="arquivo" accept=".csv" required>
             </div>
