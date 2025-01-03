@@ -551,6 +551,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     $arquivo = $_FILES['arquivo'];
     $tiposPermitidos = ['text/csv'];
     $tamanhoMaximo = 2 * 1024 * 1024; // 2 MB
+    $diretorioDestino = "csv_parser/"; // Pasta onde os arquivos serão salvos
 
     // Valida o tamanho do arquivo
     if ($arquivo['size'] > $tamanhoMaximo) {
@@ -562,16 +563,28 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
         die("Erro: Tipo de arquivo não permitido.");
     }
 
+    $nomeArquivo = uniqid() . "-" . basename($arquivo['name']);
+    $caminhoDestino = $diretorioDestino . $nomeArquivo;
 
-// Caminho do arquivo CSV
-$filePath = $arquivo;
+    // Cria o diretório de destino, se não existir
+    if (!is_dir($diretorioDestino)) {
+        mkdir($diretorioDestino, 0777, true);
+    }
 
-var_dump($filePath);
-die();
+    if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
+        echo "Upload realizado com sucesso! Arquivo salvo em: $caminhoDestino";
+        removeBOM($caminhoDestino);
+        processCSV($caminhoDestino);
+    } else {
+        echo "Erro: Não foi possível salvar o arquivo.";
+    }
+
+
+
 
 // Chamar a função para processar o CSV
-removeBOM($filePath);
-processCSV($filePath);
+//removeBOM($filePath);
+//processCSV($filePath);
 	
 }
     
