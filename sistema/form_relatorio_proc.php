@@ -41,20 +41,6 @@ function removeBOM($filePath) {
     }
 }
 
-function removeBOM($filePath) {
-    // Ler o conteúdo do arquivo
-    $fileContents = file_get_contents($filePath);
-
-    // Verificar se o arquivo contém o BOM UTF-8
-    if (substr($fileContents, 0, 3) == "\xEF\xBB\xBF") {
-        // Remover o BOM (os três primeiros bytes)
-        $fileContents = substr($fileContents, 3);
-        
-        // Regravar o arquivo sem o BOM
-        file_put_contents($filePath, $fileContents);
-    }
-}
-
 function processCSV($filePath, $mesUser, $anoUser) {
 
     $siteAdmin = new SITE_ADMIN();  
