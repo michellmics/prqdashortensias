@@ -550,6 +550,7 @@ function processCSV($filePath) {
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
     $arquivo = $_FILES['arquivo'];
     $tiposPermitidos = ['text/csv'];
+    $tamanhoMaximo = 2 * 1024 * 1024; // 2 MB
 
     // Valida o tamanho do arquivo
     if ($arquivo['size'] > $tamanhoMaximo) {
