@@ -174,7 +174,7 @@ html, body {
             <input type="file" class="form-control" id="arquivo" name="arquivo" accept=".csv" required>
         </div>
 
-        <div class="mb-1">
+        <div >
             <select class="form-control" id="tipo" name="tipo" required>
                 <option value="" disabled selected>Tipo de Dados</option>
                 <option value="receita">Receita</option>
@@ -200,7 +200,7 @@ html, body {
             </select>
         </div>
 
-        <div >
+        <div>
             <select class="form-control" id="ano" name="ano" required>
                 <option value="" disabled selected>Ano de Referência</option>
                 <option value="2024">2024</option>
