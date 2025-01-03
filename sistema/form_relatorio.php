@@ -223,10 +223,9 @@ html, body {
             </select>
         </div>
 
-        <div class="row mb-3">
-            <div class="col-10">
+
+        <div class="mb-3">
                 <!-- Aqui você pode adicionar qualquer conteúdo adicional se necessário -->
-            </div>
             <div class="col-2 text-end">
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
