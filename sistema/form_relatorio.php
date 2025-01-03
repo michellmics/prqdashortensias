@@ -167,18 +167,60 @@ html, body {
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
     		
         <div class="container mt-5">
-        <h2>Upload de Arquivo CSV</h2>
+        <h2>Upload de Relatório Financeiro</h2>
         <form action="processar_upload.php" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="arquivo" class="form-label">Selecione um arquivo CSV</label>
+                <label for="arquivo" class="form-label">Selecione um arquivo .CSV válido</label>
                 <input type="file" class="form-control" id="arquivo" name="arquivo" accept=".csv" required>
             </div>
 
             <div class="mb-3">
                 <label for="tipo" class="form-label">Tipo de Arquivo</label>
                 <select class="form-control" id="tipo" name="tipo" required>
+                    <option value="" disabled selected>Selecione</option> 
                     <option value="receita">Receita</option>
                     <option value="despesa">Despesa</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Mês de Referência</label>
+                <select class="form-control" id="tipo" name="tipo" required>
+                    <option value="" disabled selected>Selecione</option> 
+                    <option value="janeiro">Janeiro</option>
+                    <option value="fevereiro">Fevereiro</option>
+                    <option value="marco">Março</option>
+                    <option value="abril">Abril</option>
+                    <option value="maio">Maio</option>
+                    <option value="junho">Junho</option>
+                    <option value="julho">Julho</option>
+                    <option value="agosto">Agosto</option>
+                    <option value="setembro">Setembro</option>
+                    <option value="outubro">Outubro</option>
+                    <option value="novembro">Novembro</option>
+                    <option value="dezembro">Dezembro</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Ano de Referência</label>
+                <select class="form-control" id="tipo" name="tipo" required>
+                    <option value="" disabled selected>Selecione</option> 
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                    <option value="2030">2030</option>
+                    <option value="2031">2031</option>
+                    <option value="2032">2032</option>
+                    <option value="2033">2033</option>
+                    <option value="2034">2034</option>
+                    <option value="2035">2035</option>
+                    <option value="2036">2036</option>
+                    <option value="2037">2037</option>
+                    <option value="2038">2038</option>
+                    <option value="2039">2039</option>
+                    <option value="2040">2040</option>
                 </select>
             </div>
 
