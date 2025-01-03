@@ -566,6 +566,9 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 // Caminho do arquivo CSV
 $filePath = $arquivo;
 
+echo $filePath;
+die();
+
 // Chamar a função para processar o CSV
 removeBOM($filePath);
 processCSV($filePath);
