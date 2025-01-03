@@ -191,7 +191,7 @@ html, body {
 	
 			<div class="container">
 			<div class="row">
-				<div class="col-2">
+				<div class="col-10">
 				    <label class="control-label" for="mesAno">Mês</label>
 				    <select id="mesAno" name="mesAno" class="form-control" required>
 				        <?php
