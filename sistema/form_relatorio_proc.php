@@ -41,7 +41,7 @@ function removeBOM($filePath) {
     }
 }
 
-function processCSV($filePath, $mes, $ano) {
+function processCSV($filePath, $mesUser, $anoUser) {
 
     $siteAdmin = new SITE_ADMIN();  
     $dataHoraAtual = date('Y-m-d H:i:s'); 
@@ -118,8 +118,8 @@ function processCSV($filePath, $mes, $ano) {
                     'COMPETENCIA ANO' => $ano,
                     'VALOR' => $data[3], 
                     'DATANOW' => $dataHoraAtual,
-                    'COMPETENCIA MES USUARIO' => $mes,
-                    'COMPETENCIA ANO USUARIO' => $ano,
+                    'COMPETENCIA MES USUARIO' => $mesUser,
+                    'COMPETENCIA ANO USUARIO' => $anoUser,
                     'TIPO' => 'RECEITA',
                     'TITULO' => 'Taxa Condominial',
                 ];
@@ -150,8 +150,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Multas',
                ];
@@ -182,8 +182,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Juros',
                ];
@@ -214,8 +214,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Honorários Advocaticios',
                ];
@@ -246,8 +246,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Atualização Monetária',
                ];
@@ -278,8 +278,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Pagamento a menor',
                ];
@@ -310,8 +310,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Cartão de Acesso',
                ];
@@ -343,8 +343,8 @@ function processCSV($filePath, $mes, $ano) {
                     'COMPETENCIA ANO' => $ano,
                     'VALOR' => $data[3],
                     'DATANOW' => $dataHoraAtual,
-                    'COMPETENCIA MES USUARIO' => $mes,
-                    'COMPETENCIA ANO USUARIO' => $ano,
+                    'COMPETENCIA MES USUARIO' => $mesUser,
+                    'COMPETENCIA ANO USUARIO' => $anoUser,
                     'TIPO' => 'RECEITA',
                     'TITULO' => 'Outras Receitas',
                 ];
@@ -376,8 +376,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Rendimento Aplicação F.O.',
                ];
@@ -408,8 +408,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'F. Inadimplencia',
                ];
@@ -440,8 +440,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Consumo de água',
                ];
@@ -472,8 +472,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Parcelamento SABESP',
                ];
@@ -504,8 +504,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Salao de Festa',
                ];
@@ -536,8 +536,8 @@ function processCSV($filePath, $mes, $ano) {
                    'COMPETENCIA ANO' => $ano,
                    'VALOR' => $data[3],
                    'DATANOW' => $dataHoraAtual,
-                   'COMPETENCIA MES USUARIO' => $mes,
-                   'COMPETENCIA ANO USUARIO' => $ano,
+                   'COMPETENCIA MES USUARIO' => $mesUser,
+                   'COMPETENCIA ANO USUARIO' => $anoUser,
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Salao de Festa',
                ];
@@ -571,8 +571,8 @@ function processCSV($filePath, $mes, $ano) {
 
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
     $tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
-    $mes = isset($_POST['mes']) ? trim($_POST['mes']) : '';
-    $ano = isset($_POST['ano']) ? trim($_POST['ano']) : '';
+    $mesUser = isset($_POST['mes']) ? trim($_POST['mes']) : '';
+    $anoUser = isset($_POST['ano']) ? trim($_POST['ano']) : '';
 
 
 
@@ -600,8 +600,8 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     }
 
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
-        removeBOM($caminhoDestino, $mes, $ano);
-        processCSV($caminhoDestino, $mes, $ano);
+        removeBOM($caminhoDestino);
+        processCSV($caminhoDestino, $mesUser, $anoUser);
 
         $resultadoParser = "Sucesso: Arquivo processado.";
     } else {
