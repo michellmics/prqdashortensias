@@ -187,6 +187,8 @@ function processCSV($filePath, $mesUser, $anoUser) {
                    'TIPO' => 'RECEITA',
                    'TITULO' => 'Juros',
                ];
+
+               var_dump($JUROS);
             }
             // FIM JUROS
             
