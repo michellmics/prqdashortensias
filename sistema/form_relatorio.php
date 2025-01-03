@@ -165,7 +165,39 @@ html, body {
 
 
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    		<img src="https://prqdashortensias.com.br/sistema/img/logo_icon_trasnparent.png" alt="Logo Parque das Hortênsias" style="max-width: 100%; height: auto;">
+    		
+        <div class="container mt-5">
+        <h2>Upload de Arquivo CSV</h2>
+        <form action="processar_upload.php" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="arquivo" class="form-label">Selecione um arquivo CSV</label>
+                <input type="file" class="form-control" id="arquivo" name="arquivo" accept=".csv" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Tipo de Arquivo</label>
+                <select class="form-control" id="tipo" name="tipo" required>
+                    <option value="receita">Receita</option>
+                    <option value="despesa">Despesa</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 		</section>
 
 
