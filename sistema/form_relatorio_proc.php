@@ -21,6 +21,11 @@ if (!isset($_SESSION['user_id']))
   header("Location: https://www.prqdashortensias.com.br/index.php");
   exit();
 }
+$blocoSession = $_SESSION['user_bloco'];
+$apartamentoSession = $_SESSION['user_apartamento'];
+$nomeSession =  ucwords($_SESSION['user_name']);
+$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
+$userid = $_SESSION['user_id'];
 
 function removeBOM($filePath) {
     // Ler o conteúdo do arquivo
@@ -558,9 +563,9 @@ function processCSV($filePath) {
 
         fclose($handle);
 
-        echo "Dados importados com sucesso!";
+        //echo "Dados importados com sucesso!";
     } else {
-        echo "Erro ao abrir o arquivo.";
+        //echo "Erro ao abrir o arquivo.";
     }
 }
 
