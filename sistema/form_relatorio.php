@@ -176,6 +176,7 @@ html, body {
             </div>
 
             <div class="col-3">
+            <label for="arquivo" class="form-label">Selecione o tipo de dado</label>
                 <select class="form-control" id="tipo" name="tipo" required>
                     <option value="" disabled selected>Tipo de Dados</option>
                     <option value="receita">Receita</option>
