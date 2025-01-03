@@ -200,7 +200,7 @@ html, body {
             </select>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-1">
             <select class="form-control" id="ano" name="ano" required>
                 <option value="" disabled selected>Ano de Referência</option>
                 <option value="2024">2024</option>
@@ -224,7 +224,7 @@ html, body {
         </div>
 
 
-        <div class="mb-3">
+        <div class="mb-1">
                 <!-- Aqui você pode adicionar qualquer conteúdo adicional se necessário -->
             <div class="col-2 text-end">
                 <button type="submit" class="btn btn-primary">Enviar</button>
