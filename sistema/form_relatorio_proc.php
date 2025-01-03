@@ -572,20 +572,15 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
     }
 
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
-        echo "Upload realizado com sucesso! Arquivo salvo em: $caminhoDestino";
         removeBOM($caminhoDestino);
         processCSV($caminhoDestino);
+
+        $resultadoParser = "Sucesso: Arquivo processado.";
     } else {
-        echo "Erro: Não foi possível salvar o arquivo.";
+        $resultadoParser = "Erro: Não foi possível salvar o arquivo.";
     }
 
 
-
-
-// Chamar a função para processar o CSV
-//removeBOM($filePath);
-//processCSV($filePath);
-	
 }
     
 
@@ -711,7 +706,9 @@ html, body {
 
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
     		
-       
+        <?php echo $resultadoParser; ?>
+        <br>
+        Clique aqui para voltar
 
 
 
