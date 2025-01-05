@@ -106,6 +106,28 @@
                 font-size: 1em; /* Título ainda menor em telas muito pequenas */
             }
         }
+
+        .delete-btn {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        .event-details {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #333;
+        }
     </style>
     
     <!-- FullCalendar JS -->
@@ -114,11 +136,19 @@
 <body>
     <div id="calendar-container">
         <div id="calendar"></div>
+        <div class="event-details">
+            <strong>Evento Selecionado:</strong> <span id="event-title">Nenhum evento selecionado</span>
+        </div>
+        <button class="delete-btn" id="delete-btn">Excluir Evento</button>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const calendarEl = document.getElementById('calendar');
+            const deleteBtn = document.getElementById('delete-btn');
+            const eventTitle = document.getElementById('event-title');
+            let selectedEvent = null; // Armazenar o evento selecionado
+
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 locale: 'pt-br', // Definir idioma para português
                 initialView: 'dayGridMonth',
@@ -171,48 +201,53 @@
                     }).then(() => calendar.refetchEvents());
                 },
                 eventClick: function(info) {
-                    const event = info.event;
-                    const confirmar = confirm(`Você quer editar o evento "${event.title}"?`);
-                    if (confirmar) {
-                        const titulo = prompt("Digite o novo título do evento:", event.title);
-                        if (titulo) {
-                            event.setProp('title', titulo);
-                            fetch('update_event.php', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify({
-                                    id: event.id,
-                                    titulo: titulo,
-                                    inicio: event.startStr,
-                                    fim: event.endStr
-                                })
-                            }).then(() => calendar.refetchEvents());
-                        }
-                    }
+                    selectedEvent = info.event;
+                    eventTitle.textContent = selectedEvent.title;
+                    deleteBtn.style.display = 'inline-block'; // Mostrar o botão de exclusão
                 }
             });
 
-            // Adicionando a funcionalidade de excluir ao clicar com o botão direito
-            calendarEl.addEventListener('contextmenu', function(e) {
-                e.preventDefault(); // Impede o menu padrão de contexto
-
-                const clickedEvent = calendar.getEventById(e.target.dataset.eventId);
-                if (clickedEvent) {
-                    const deletar = confirm(`Você quer excluir o evento "${clickedEvent.title}"?`);
-                    if (deletar) {
+            // Função para excluir o evento
+            deleteBtn.addEventListener('click', function() {
+                if (selectedEvent) {
+                    const confirmar = confirm(`Você quer excluir o evento "${selectedEvent.title}"?`);
+                    if (confirmar) {
                         fetch('delete_event.php', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                id: clickedEvent.id
+                                id: selectedEvent.id
                             })
                         }).then(() => {
-                            clickedEvent.remove();
-                            calendar.refetchEvents();
+                            selectedEvent.remove(); // Remover o evento do calendário
+                            calendar.refetchEvents(); // Atualizar o calendário
+                            eventTitle.textContent = 'Nenhum evento selecionado'; // Resetar o título
+                            deleteBtn.style.display = 'none'; // Esconder o botão de exclusão
+                        });
+                    }
+                }
+            });
+
+            // Adicionando evento de teclado para pressionar "Delete" e excluir o evento
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Delete" && selectedEvent) {
+                    const confirmar = confirm(`Você quer excluir o evento "${selectedEvent.title}"?`);
+                    if (confirmar) {
+                        fetch('delete_event.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                id: selectedEvent.id
+                            })
+                        }).then(() => {
+                            selectedEvent.remove(); // Remover o evento do calendário
+                            calendar.refetchEvents(); // Atualizar o calendário
+                            eventTitle.textContent = 'Nenhum evento selecionado'; // Resetar o título
+                            deleteBtn.style.display = 'none'; // Esconder o botão de exclusão
                         });
                     }
                 }
