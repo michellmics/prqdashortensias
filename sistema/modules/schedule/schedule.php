@@ -356,7 +356,13 @@ html, body {
 
 
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    
+        <div id="calendar-container">
+        <div id="calendar"></div>
+        <div class="event-details">
+            <strong>Evento Selecionado:</strong> <span id="event-title">Nenhum evento selecionado</span>
+        </div>
+        <button class="delete-btn" id="delete-btn">Excluir Evento</button>
+    </div>
 
         <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -474,7 +480,7 @@ html, body {
             calendar.render();
         });
     </script>
-    
+
 
 
 
