@@ -21,7 +21,7 @@
         }
 
         #calendar-container {
-            max-width: 90%;
+            max-width: 75%;
             margin: 0 auto;
             padding: 10px;
             background: #ffffff;
