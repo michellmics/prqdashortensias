@@ -1,7 +1,7 @@
 <?php
 $data = json_decode(file_get_contents('php://input'), true);
 
-$conn = new mysqli('localhost', 'usuario', 'senha', 'banco');
+$conn = new mysqli('localhost', 'hortensias_sitebd', '#0100069620061#', 'hortensias_condominio');
 
 $titulo = $conn->real_escape_string($data['titulo']);
 $inicio = $conn->real_escape_string($data['inicio']);
