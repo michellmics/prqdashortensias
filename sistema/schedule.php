@@ -186,11 +186,11 @@ html, body {
 
         .fc-event {
             background-color:rgb(179, 177, 178);
-            color: #fff;
+            color: #000;
             border: none;
             border-radius: 0px;
             font-size: 0.8em;
-          
+            padding: 2px 4px;
             font-weight: normal;
         }
 
