@@ -185,12 +185,12 @@ html, body {
         }
 
         .fc-event {
-            background-color:rgb(158, 158, 158);
+            background-color:rgb(179, 177, 178);
             color: #fff;
             border: none;
             border-radius: 0px;
             font-size: 0.8em;
-            padding: 2px 4px;
+          
             font-weight: normal;
         }
 
