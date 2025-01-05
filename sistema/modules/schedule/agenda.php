@@ -120,12 +120,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             const calendarEl = document.getElementById('calendar');
             const calendar = new FullCalendar.Calendar(calendarEl, {
-                locale: 'pt-br',
+                locale: 'pt-br', // Definir idioma para português
                 initialView: 'dayGridMonth',
                 headerToolbar: {
-                    left: 'prev,next today',
+                    left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridDay'
+                },
+                buttonText: {
+                    today: 'Hoje',
+                    month: 'Mês',
+                    week: 'Semana',
+                    day: 'Dia'
                 },
                 selectable: true,
                 events: 'fetch_events.php',
@@ -164,7 +170,6 @@
                         })
                     }).then(() => calendar.refetchEvents());
                 },
-                // Permitir que o clique no dia altere para visualização diária
                 eventClick: function(info) {
                     const event = info.event;
                     const confirmar = confirm(`Você quer editar o evento "${event.title}"?`);
