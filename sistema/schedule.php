@@ -185,12 +185,13 @@ html, body {
         }
 
         .fc-event {
-            background-color:rgb(76, 56, 94);
+            background-color:rgb(143, 79, 121);
             color: #fff;
             border: none;
             border-radius: 5px;
             font-size: 0.8em;
             padding: 2px 4px;
+            font-weight: normal;
         }
 
         .fc-day-today {
