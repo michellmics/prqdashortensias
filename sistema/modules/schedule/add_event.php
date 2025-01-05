@@ -17,12 +17,20 @@ $titulo = $data['titulo'];
 $inicio = $data['inicio'];
 $fim = $data['fim'];
 
+// Prepara a consulta SQL com parâmetros
+$sql = "INSERT INTO eventos (titulo, inicio, fim) VALUES (:titulo, :inicio, :fim)";
+$stmt = $admin->pdo->prepare($sql);
+
+// Vincula os parâmetros à consulta
 $stmt->bindParam(':titulo', $titulo, PDO::PARAM_STR);
 $stmt->bindParam(':inicio', $inicio, PDO::PARAM_STR);
 $stmt->bindParam(':fim', $fim, PDO::PARAM_STR);
 
-$sql = "INSERT INTO eventos (titulo, inicio, fim) VALUES (:titulo, ':inicio', ':fim')";
-$conn->query($sql);
-
-echo json_encode(['status' => 'success']);
+// Executa a consulta
+if ($stmt->execute()) {
+    echo json_encode(['status' => 'success']);
+} else {
+    echo json_encode(['status' => 'error']);
+}
 ?>
+
