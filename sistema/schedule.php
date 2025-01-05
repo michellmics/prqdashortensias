@@ -185,7 +185,7 @@ html, body {
         }
 
         .fc-event {
-            background-color:rgb(143, 79, 121);
+            background-color:rgb(158, 158, 158);
             color: #fff;
             border: none;
             border-radius: 0px;
