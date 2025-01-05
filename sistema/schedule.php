@@ -369,7 +369,7 @@ html, body {
                     day: 'Dia'
                 },
                 selectable: true,
-                events: 'fetch_events.php',
+                events: 'modules/schedule/fetch_events.php',
                 dateClick: function(info) {
                     // Alternar para visualização diária ao clicar no dia
                     calendar.changeView('timeGridDay', info.dateStr);
