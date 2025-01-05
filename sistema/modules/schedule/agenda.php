@@ -34,8 +34,8 @@
         }
 
         .fc-toolbar-title {
-            font-weight: 500;
-            font-size: 1.4em;
+            font-weight: 400;
+            font-size: 1.2em; /* Menor tamanho para o título */
             color: #333;
         }
 
@@ -76,13 +76,34 @@
         }
 
         @media (max-width: 768px) {
+            /* Ajustar título do calendário para telas menores */
             .fc-toolbar-title {
-                font-size: 1.2em;
+                font-size: 1.1em;
             }
 
             .fc-button {
                 font-size: 0.8em;
                 padding: 5px 10px;
+            }
+
+            /* Ajustar o calendário para melhor visualização em celulares */
+            #calendar-container {
+                padding: 10px;
+            }
+
+            .fc-daygrid-day {
+                font-size: 0.75em; /* Reduzir tamanho da fonte em celulares */
+            }
+
+            .fc-event {
+                font-size: 0.7em; /* Reduzir fonte de eventos em celulares */
+            }
+        }
+
+        /* Para garantir que o calendário se ajuste bem ao tamanho da tela */
+        @media (max-width: 480px) {
+            .fc-toolbar-title {
+                font-size: 1em; /* Título ainda menor em telas muito pequenas */
             }
         }
     </style>
