@@ -157,6 +157,7 @@
 
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 locale: 'pt-br', // Definir idioma para português
+                allDayText: 'Dia Todo', // Alterar "ALL DAY" para "Todo o dia"
                 initialView: 'dayGridMonth',
                 headerToolbar: {
                     left: 'prev,next',
