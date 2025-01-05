@@ -15,12 +15,21 @@
             const calendarEl = document.getElementById('calendar');
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 locale: 'pt-br', // Idioma em português
-                initialView: 'timeGridWeek', // Visualização com horários
-                selectable: true, // Permite selecionar
-                editable: true, // Permite mover eventos
-                events: 'fetch_events.php', // URL para buscar eventos do backend
+                initialView: 'dayGridMonth', // Exibe o calendário mensal por padrão
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridDay'
+                },
+                selectable: true, // Permite selecionar dias ou horários
+                events: 'fetch_events.php', // Rota para buscar eventos do backend
+                
+                // Quando o usuário clica em um dia
+                dateClick: function(info) {
+                    calendar.changeView('timeGridDay', info.dateStr); // Muda para a visualização diária
+                },
 
-                // Seleção de data e hora
+                // Seleção de horário na visualização diária
                 select: function(info) {
                     const titulo = prompt("Digite o título do evento:");
                     if (titulo) {
@@ -34,11 +43,12 @@
                                 inicio: info.startStr,
                                 fim: info.endStr
                             })
-                        }).then(() => calendar.refetchEvents()); // Atualiza os eventos
+                        }).then(() => calendar.refetchEvents());
                     }
                 },
 
                 // Arrastar e soltar eventos
+                editable: true,
                 eventDrop: function(info) {
                     fetch('update_event.php', {
                         method: 'POST',
@@ -50,7 +60,7 @@
                             inicio: info.event.startStr,
                             fim: info.event.endStr
                         })
-                    }).then(() => calendar.refetchEvents()); // Atualiza os eventos
+                    }).then(() => calendar.refetchEvents());
                 }
             });
 
