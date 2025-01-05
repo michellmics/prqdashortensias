@@ -21,9 +21,9 @@
         }
 
         #calendar-container {
-            max-width: 100%;
-            padding: 20px;
+            max-width: 90%;
             margin: 0 auto;
+            padding: 10px;
             background: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -31,11 +31,13 @@
 
         #calendar {
             max-width: 100%;
+            height: 450px; /* Altura do calendário */
+            margin: 0 auto;
         }
 
         .fc-toolbar-title {
             font-weight: 400;
-            font-size: 1.2em; /* Menor tamanho para o título */
+            font-size: 1em; /* Tamanho reduzido do título */
             color: #333;
         }
 
@@ -78,7 +80,7 @@
         @media (max-width: 768px) {
             /* Ajustar título do calendário para telas menores */
             .fc-toolbar-title {
-                font-size: 1.1em;
+                font-size: 1em;
             }
 
             .fc-button {
@@ -97,6 +99,10 @@
 
             .fc-event {
                 font-size: 0.7em; /* Reduzir fonte de eventos em celulares */
+            }
+
+            #calendar {
+                height: 350px; /* Diminuir a altura em dispositivos móveis */
             }
         }
 
