@@ -29,7 +29,7 @@
                     calendar.changeView('timeGridDay', info.dateStr); // Muda para a visualização diária
                 },
 
-                // Permite selecionar horários na visualização diária
+                // Permite selecionar horários na visualização diária 
                 select: function(info) {
                     const titulo = prompt("Digite o título do evento:");
                     if (titulo) {
