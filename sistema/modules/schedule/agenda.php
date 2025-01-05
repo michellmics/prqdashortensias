@@ -63,7 +63,7 @@
         }
 
         .fc-event {
-            background-color:rgb(123, 72, 128);
+            background-color: #FFB703;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -190,6 +190,23 @@
                                 })
                             }).then(() => calendar.refetchEvents());
                         }
+                    }
+
+                    // Opção de deletar o evento
+                    const deletar = confirm(`Você quer excluir o evento "${event.title}"?`);
+                    if (deletar) {
+                        fetch('delete_event.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                id: event.id
+                            })
+                        }).then(() => {
+                            event.remove();
+                            calendar.refetchEvents();
+                        });
                     }
                 }
             });
