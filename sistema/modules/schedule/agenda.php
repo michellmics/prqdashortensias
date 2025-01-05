@@ -63,7 +63,7 @@
         }
 
         .fc-event {
-            background-color: #FFB703;
+            background-color:rgb(123, 72, 128);
             color: #fff;
             border: none;
             border-radius: 5px;
