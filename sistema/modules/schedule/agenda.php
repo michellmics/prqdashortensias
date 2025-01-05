@@ -191,9 +191,16 @@
                             }).then(() => calendar.refetchEvents());
                         }
                     }
+                }
+            });
 
-                    // Opção de deletar o evento
-                    const deletar = confirm(`Você quer excluir o evento "${event.title}"?`);
+            // Adicionando a funcionalidade de excluir ao clicar com o botão direito
+            calendarEl.addEventListener('contextmenu', function(e) {
+                e.preventDefault(); // Impede o menu padrão de contexto
+
+                const clickedEvent = calendar.getEventById(e.target.dataset.eventId);
+                if (clickedEvent) {
+                    const deletar = confirm(`Você quer excluir o evento "${clickedEvent.title}"?`);
                     if (deletar) {
                         fetch('delete_event.php', {
                             method: 'POST',
@@ -201,10 +208,10 @@
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                id: event.id
+                                id: clickedEvent.id
                             })
                         }).then(() => {
-                            event.remove();
+                            clickedEvent.remove();
                             calendar.refetchEvents();
                         });
                     }
