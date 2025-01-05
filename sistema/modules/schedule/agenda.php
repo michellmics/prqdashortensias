@@ -6,7 +6,7 @@
     <title>Calendário de Eventos</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
@@ -14,44 +14,76 @@
     <!-- Estilos Personalizados -->
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f9fafc;
+        }
+
+        #calendar-container {
+            max-width: 100%;
+            padding: 20px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         #calendar {
-            max-width: 900px;
-            margin: 50px auto;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            max-width: 100%;
         }
 
         .fc-toolbar-title {
-            font-weight: 600;
-            font-size: 1.5em;
+            font-weight: 500;
+            font-size: 1.4em;
+            color: #333;
         }
 
         .fc-button {
             font-size: 0.9em;
-            background-color: #4CAF50;
+            background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         .fc-button:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
         }
 
         .fc-daygrid-day {
             font-size: 0.85em;
+            color: #555;
         }
 
-        .fc-timegrid-slot {
-            font-size: 0.85em;
+        .fc-daygrid-day:hover {
+            background-color: #f1f4f8;
+            cursor: pointer;
+        }
+
+        .fc-event {
+            background-color: #FFB703;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.8em;
+            padding: 2px 4px;
+        }
+
+        .fc-day-today {
+            background-color: #E3F2FD !important;
+        }
+
+        @media (max-width: 768px) {
+            .fc-toolbar-title {
+                font-size: 1.2em;
+            }
+
+            .fc-button {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
         }
     </style>
     
@@ -59,7 +91,9 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 </head>
 <body>
-    <div id="calendar"></div>
+    <div id="calendar-container">
+        <div id="calendar"></div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
