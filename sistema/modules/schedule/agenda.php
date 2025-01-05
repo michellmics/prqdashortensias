@@ -47,7 +47,7 @@
                     }
                 },
 
-                // Arrastar e soltar eventos
+                // Permite editar eventos arrastando
                 editable: true,
                 eventDrop: function(info) {
                     fetch('update_event.php', {
