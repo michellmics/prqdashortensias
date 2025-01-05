@@ -1,15 +1,20 @@
 <?php
 header('Content-Type: application/json');
 
-$conn = new mysqli('localhost', 'hortensias_sitebd', '#0100069620061#', 'hortensias_condominio');
+include_once '../../../objetos.php'; // Carrega a classe de conexão e objetos
 
+// Instancia a classe SITE_ADMIN e chama a função de conexão
+$admin = new SITE_ADMIN();
+$admin->conexao(); // Conecta ao banco de dados usando a configuração
+
+// Consulta SQL para obter os eventos
 $sql = "SELECT id, titulo AS title, inicio AS start, fim AS end FROM eventos";
-$result = $conn->query($sql);
+$stmt = $admin->pdo->prepare($sql);
+$stmt->execute();
 
-$events = [];
-while ($row = $result->fetch_assoc()) {
-    $events[] = $row;
-}
+// Armazenando os resultados
+$events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// Retorna os eventos em formato JSON
 echo json_encode($events);
 ?>

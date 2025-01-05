@@ -1,11 +1,17 @@
 <?php
+include_once '../../../objetos.php'; // Carrega a classe de conexão e objetos
+
+// Instancia a classe SITE_ADMIN e chama a função de conexão
+$admin = new SITE_ADMIN();
+$admin->conexao(); // Conecta ao banco de dados usando a configuração
+
+// Recebe os dados enviados via POST
 $data = json_decode(file_get_contents('php://input'), true);
 
-$conn = new mysqli('localhost', 'hortensias_sitebd', '#0100069620061#', 'hortensias_condominio');
-
-$titulo = $conn->real_escape_string($data['titulo']);
-$inicio = $conn->real_escape_string($data['inicio']);
-$fim = $conn->real_escape_string($data['fim']);
+// Escapa os dados para evitar injeção de SQL
+$titulo = $admin->pdo->quote($data['titulo']);
+$inicio = $admin->pdo->quote($data['inicio']);
+$fim = $admin->pdo->quote($data['fim']);
 
 $sql = "INSERT INTO eventos (titulo, inicio, fim) VALUES ('$titulo', '$inicio', '$fim')";
 $conn->query($sql);

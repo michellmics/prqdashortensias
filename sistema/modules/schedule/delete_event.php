@@ -1,29 +1,26 @@
 <?php
 // delete_event.php
+include_once '../../../objetos.php'; // Carrega a classe de conexão e objetos
+
 $data = json_decode(file_get_contents("php://input"));
 
 if (isset($data->id)) {
     $eventId = $data->id;
     
-    // Conexão com o banco de dados
-    $conn = new mysqli('localhost', 'hortensias_sitebd', '#0100069620061#', 'hortensias_condominio');
-    if ($conn->connect_error) {
-        die("Conexão falhou: " . $conn->connect_error);
-    }
+    // Instancia a classe SITE_ADMIN e chama a função de conexão
+    $admin = new SITE_ADMIN();
+    $admin->conexao(); // Conecta ao banco de dados usando a configuração
 
     // Deletar o evento
-    $sql = "DELETE FROM eventos WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $eventId);
+    $sql = "DELETE FROM eventos WHERE id = :id";
+    $stmt = $admin->pdo->prepare($sql);
+    $stmt->bindParam(':id', $eventId, PDO::PARAM_INT);
     $stmt->execute();
 
-    if ($stmt->affected_rows > 0) {
+    if ($stmt->rowCount() > 0) {
         echo json_encode(['status' => 'success']);
     } else {
         echo json_encode(['status' => 'error']);
     }
-
-    $stmt->close();
-    $conn->close();
 }
 ?>
