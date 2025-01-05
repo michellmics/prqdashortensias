@@ -355,7 +355,7 @@ html, body {
 
 
 
-		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+		<section class="content">
     
     
         <div id="calendar-container">
