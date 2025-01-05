@@ -21,7 +21,7 @@
         }
 
         #calendar-container {
-            max-width: 75%;
+            max-width: 70%;
             margin: 0 auto;
             padding: 10px;
             background: #ffffff;
@@ -43,7 +43,7 @@
 
         .fc-button {
             font-size: 0.9em;
-            background-color: #007BFF;
+            background-color: #8e44ad; /* Cor lilás mais escura */
             color: white;
             border: none;
             border-radius: 5px;
@@ -51,7 +51,7 @@
         }
 
         .fc-button:hover {
-            background-color: #0056b3;
+            background-color: #6c3483; /* Lilás mais escuro ao passar o mouse */
         }
 
         .fc-daygrid-day {
@@ -65,7 +65,7 @@
         }
 
         .fc-event {
-            background-color: #FFB703;
+            background-color:rgb(76, 56, 94);
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -157,7 +157,7 @@
 
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 locale: 'pt-br', // Definir idioma para português
-                allDayText: 'Dia Todo', // Alterar "ALL DAY" para "Todo o dia"
+                allDayText: 'Todo o dia', // Alterar "ALL DAY" para "Todo o dia"
                 initialView: 'dayGridMonth',
                 headerToolbar: {
                     left: 'prev,next',
