@@ -96,55 +96,68 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const calendarEl = document.getElementById('calendar');
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                locale: 'pt-br',
-                initialView: 'dayGridMonth',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridDay'
-                },
-                selectable: true,
-                events: 'fetch_events.php',
-                dateClick: function(info) {
-                    calendar.changeView('timeGridDay', info.dateStr);
-                },
-                select: function(info) {
-                    const titulo = prompt("Digite o título do evento:");
-                    if (titulo) {
-                        fetch('add_event.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                titulo: titulo,
-                                inicio: info.startStr,
-                                fim: info.endStr
-                            })
-                        }).then(() => calendar.refetchEvents());
-                    }
-                },
-                editable: true,
-                eventDrop: function(info) {
-                    fetch('update_event.php', {
+    document.addEventListener('DOMContentLoaded', function() {
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            locale: 'pt-br',
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridDay'
+            },
+            selectable: true,
+            events: 'fetch_events.php',
+            dateClick: function(info) {
+                // Alternar para a visualização diária ao clicar no dia
+                calendar.changeView('timeGridDay', info.dateStr);
+            },
+            select: function(info) {
+                // Prompt para adicionar evento
+                const titulo = prompt("Digite o título do evento:");
+                if (titulo) {
+                    fetch('add_event.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            id: info.event.id,
-                            inicio: info.event.startStr,
-                            fim: info.event.endStr
+                            titulo: titulo,
+                            inicio: info.startStr,
+                            fim: info.endStr
                         })
                     }).then(() => calendar.refetchEvents());
                 }
-            });
-
-            calendar.render();
+            },
+            editable: true,
+            eventDrop: function(info) {
+                fetch('update_event.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: info.event.id,
+                        inicio: info.event.startStr,
+                        fim: info.event.endStr
+                    })
+                }).then(() => calendar.refetchEvents());
+            },
+            // Detectar eventos de toque para dispositivos móveis
+            eventContent: function(arg) {
+                const eventTitle = arg.event.title;
+                const eventElement = document.createElement('div');
+                eventElement.innerHTML = `<span>${eventTitle}</span>`;
+                eventElement.addEventListener('touchstart', function() {
+                    alert('Toque detectado: ' + eventTitle);
+                });
+                return { domNodes: [eventElement] };
+            }
         });
-    </script>
+
+        calendar.render();
+    });
+</script>
+
 </body>
 </html>
