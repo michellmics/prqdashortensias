@@ -24,27 +24,6 @@
 	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
 	$userid = $_SESSION['user_id'];
 
-    $siteAdmin = new SITE_ADMIN();  
-    $siteAdmin->getPopupImagePublish();    
-
-    //var_dump($siteAdmin->ARRAY_FOOTERPUBLISHINFO);
-
-    $qtdePubli = count($siteAdmin->ARRAY_POPUPPUBLISHINFO);
-    $num = rand(0, $qtdePubli -1);
-    $publiImage = "https://prqdashortensias.com.br/sistema/".$siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCIMG"];
-    
-    if($siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] != "")
-    {
-        $publiImageLink = 'href="' . $siteAdmin->ARRAY_POPUPPUBLISHINFO[$num]["PUB_DCLINK"] . '" target="_blank"';
-    }
-    else
-        {
-            $publiImageLink = "";
-        }
-
-    
-
-
 ?>
 
 <!doctype html>
@@ -494,33 +473,7 @@ html, body {
 <?php include 'src/footer.php'; ?>
 </footer>
 		
-<!-- Controle do pop-up de promoção -->
-<script>
-    // Função para abrir o pop-up
-    function openPopup() {
-        document.getElementById('promoPopup').style.display = 'flex';
-    }
 
-    // Função para fechar o pop-up
-    function closePopup() {
-        document.getElementById('promoPopup').style.display = 'none';
-    }
-
-    // Fecha o pop-up ao clicar fora do quadrante
-    document.addEventListener('click', function(event) {
-        const popup = document.getElementById('promoPopup');
-        const popupContent = document.querySelector('.popup-content');
-        
-        if (popup.style.display === 'flex' && !popupContent.contains(event.target)) {
-            closePopup();
-        }
-    });
-
-    // Abra o pop-up automaticamente após 1,5 segundos
-    window.onload = function() {
-        setTimeout(openPopup, 1500);
-    };
-</script>
 
 		
 		<!-- jquery Min JS -->
