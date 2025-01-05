@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,70 +96,81 @@
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const calendarEl = document.getElementById('calendar');
-        const calendar = new FullCalendar.Calendar(calendarEl, {
-            locale: 'pt-br',
-            initialView: 'dayGridMonth',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridDay'
-            },
-            selectable: true,
-            events: 'fetch_events.php',
-            dateClick: function (info) {
-                // Alternar para visualização diária no clique
-                calendar.changeView('timeGridDay', info.dateStr);
-            },
-            select: function (info) {
-                // Prompt para adicionar evento ao selecionar horário
-                const titulo = prompt("Digite o título do evento:");
-                if (titulo) {
-                    fetch('add_event.php', {
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'pt-br',
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridDay'
+                },
+                selectable: true,
+                events: 'fetch_events.php',
+                dateClick: function(info) {
+                    // Alternar para visualização diária ao clicar no dia
+                    calendar.changeView('timeGridDay', info.dateStr);
+                },
+                select: function(info) {
+                    // Adicionar evento ao selecionar horário
+                    const titulo = prompt("Digite o título do evento:");
+                    if (titulo) {
+                        fetch('add_event.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                titulo: titulo,
+                                inicio: info.startStr,
+                                fim: info.endStr
+                            })
+                        }).then(() => calendar.refetchEvents());
+                    }
+                },
+                editable: true,
+                eventDrop: function(info) {
+                    fetch('update_event.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            titulo: titulo,
-                            inicio: info.startStr,
-                            fim: info.endStr
+                            id: info.event.id,
+                            inicio: info.event.startStr,
+                            fim: info.event.endStr
                         })
                     }).then(() => calendar.refetchEvents());
+                },
+                // Permitir que o clique no dia altere para visualização diária
+                eventClick: function(info) {
+                    const event = info.event;
+                    const confirmar = confirm(`Você quer editar o evento "${event.title}"?`);
+                    if (confirmar) {
+                        const titulo = prompt("Digite o novo título do evento:", event.title);
+                        if (titulo) {
+                            event.setProp('title', titulo);
+                            fetch('update_event.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    id: event.id,
+                                    titulo: titulo,
+                                    inicio: event.startStr,
+                                    fim: event.endStr
+                                })
+                            }).then(() => calendar.refetchEvents());
+                        }
+                    }
                 }
-            },
-            editable: true,
-            eventDrop: function (info) {
-                // Atualizar evento ao arrastar
-                fetch('update_event.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        id: info.event.id,
-                        inicio: info.event.startStr,
-                        fim: info.event.endStr
-                    })
-                }).then(() => calendar.refetchEvents());
-            }
+            });
+
+            // Renderiza o calendário
+            calendar.render();
         });
-
-        // Adicionar listener de toque para iOS
-        calendarEl.addEventListener('touchstart', function (e) {
-            const target = e.target;
-            if (target.classList.contains('fc-daygrid-day')) {
-                const dateStr = target.getAttribute('data-date');
-                if (dateStr) {
-                    calendar.changeView('timeGridDay', dateStr);
-                }
-            }
-        });
-
-        calendar.render();
-    });
-</script>
-
+    </script>
 </body>
 </html>
