@@ -188,7 +188,7 @@ html, body {
             background-color:rgb(143, 79, 121);
             color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 0px;
             font-size: 0.8em;
             padding: 2px 4px;
             font-weight: normal;
