@@ -1,6 +1,6 @@
 <?php
 	include_once '../../../objetos.php'; // Carrega a classe de conexão e objetos
-	
+	echo include $_SERVER['DOCUMENT_ROOT'];
 	session_start(); 
 	define('SESSION_TIMEOUT', 43200); // 30 minutos
 	
