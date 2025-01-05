@@ -21,15 +21,15 @@
                     center: 'title',
                     right: 'dayGridMonth,timeGridDay'
                 },
-                selectable: true, // Permite selecionar dias ou horários
+                selectable: true, // Permite selecionar horários na visualização diária
                 events: 'fetch_events.php', // Rota para buscar eventos do backend
                 
-                // Quando o usuário clica em um dia
+                // Quando o usuário clica em um dia no calendário mensal
                 dateClick: function(info) {
                     calendar.changeView('timeGridDay', info.dateStr); // Muda para a visualização diária
                 },
 
-                // Seleção de horário na visualização diária
+                // Permite selecionar horários na visualização diária
                 select: function(info) {
                     const titulo = prompt("Digite o título do evento:");
                     if (titulo) {
@@ -47,8 +47,8 @@
                     }
                 },
 
-                // Permite editar eventos arrastando
-                editable: true,
+                // Configurações adicionais
+                editable: true, // Permite arrastar e editar eventos
                 eventDrop: function(info) {
                     fetch('update_event.php', {
                         method: 'POST',
