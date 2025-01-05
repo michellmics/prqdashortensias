@@ -42,7 +42,7 @@
 							<div class="col-lg-10 col-md-9 col-12">
 								<!-- Main Menu -->
 								<div class="main-menu">
-									<?php include 'src/menu.php'; ?>
+								<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/menu.php'; ?>
 								</div>
 								<!--/ End Main Menu -->
 							</div>
