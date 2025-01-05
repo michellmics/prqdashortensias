@@ -1,14 +1,29 @@
 <?php
 $data = json_decode(file_get_contents('php://input'), true);
 
-$conn = new mysqli('localhost', 'hortensias_sitebd', '#0100069620061#', 'hortensias_condominio');
+include_once '../../../objetos.php'; // Carrega a classe de conexão e objetos
 
-$id = $conn->real_escape_string($data['id']);
-$inicio = $conn->real_escape_string($data['inicio']);
-$fim = $conn->real_escape_string($data['fim']);
+// Instancia a classe SITE_ADMIN e chama a função de conexão
+$admin = new SITE_ADMIN();
+$admin->conexao(); // Conecta ao banco de dados usando a configuração
 
-$sql = "UPDATE eventos SET inicio = '$inicio', fim = '$fim' WHERE id = $id";
-$conn->query($sql);
+// Sanitização dos dados recebidos
+$id = $data['id'];
+$inicio = $data['inicio'];
+$fim = $data['fim'];
 
-echo json_encode(['status' => 'success']);
+// Consulta SQL para atualizar o evento
+$sql = "UPDATE eventos SET inicio = :inicio, fim = :fim WHERE id = :id";
+$stmt = $admin->pdo->prepare($sql);
+$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt->bindParam(':inicio', $inicio, PDO::PARAM_STR);
+$stmt->bindParam(':fim', $fim, PDO::PARAM_STR);
+$stmt->execute();
+
+// Verifica se a atualização foi bem-sucedida
+if ($stmt->rowCount() > 0) {
+    echo json_encode(['status' => 'success']);
+} else {
+    echo json_encode(['status' => 'error']);
+}
 ?>
