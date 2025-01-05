@@ -347,120 +347,136 @@ html, body {
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const calendarEl = document.getElementById('calendar');
-            const deleteBtn = document.getElementById('delete-btn');
-            const eventTitle = document.getElementById('event-title');
-            let selectedEvent = null; // Armazenar o evento selecionado
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+    const deleteBtn = document.getElementById('delete-btn');
+    const eventTitle = document.getElementById('event-title');
+    let selectedEvent = null; // Armazenar o evento selecionado
 
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                locale: 'pt-br', // Definir idioma para português
-                allDayText: 'Todo o dia', // Alterar "ALL DAY" para "Todo o dia"
-                initialView: 'dayGridMonth',
-                headerToolbar: {
-                    left: 'prev,next',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridDay'
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        locale: 'pt-br', // Definir idioma para português
+        allDayText: 'Todo o dia', // Alterar "ALL DAY" para "Todo o dia"
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+            left: 'prev,next',
+            center: 'title',
+            right: 'dayGridMonth,timeGridDay'
+        },
+        buttonText: {
+            today: 'Hoje',
+            month: 'Mês',
+            week: 'Semana',
+            day: 'Dia'
+        },
+        selectable: true,
+        events: 'modules/schedule/fetch_events.php',
+        dateClick: function(info) {
+            // Alternar para visualização diária ao clicar no dia
+            calendar.changeView('timeGridDay', info.dateStr);
+        },
+        select: function(info) {
+            // Adicionar evento ao selecionar horário
+            const titulo = prompt("Digite o título do evento:");
+            if (titulo) {
+                fetch('modules/schedule/add_event.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        titulo: titulo,
+                        inicio: info.startStr,
+                        fim: info.endStr
+                    })
+                }).then(() => calendar.refetchEvents());
+            }
+        },
+        editable: true,
+        eventDrop: function(info) {
+            // Atualizar o evento após mover
+            fetch('modules/schedule/update_event.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                buttonText: {
-                    today: 'Hoje',
-                    month: 'Mês',
-                    week: 'Semana',
-                    day: 'Dia'
+                body: JSON.stringify({
+                    id: info.event.id,
+                    inicio: info.event.startStr,
+                    fim: info.event.endStr
+                })
+            }).then(() => calendar.refetchEvents());
+        },
+        eventResize: function(info) {
+            // Atualizar o evento após redimensionamento
+            fetch('modules/schedule/update_event.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                selectable: true,
-                events: 'modules/schedule/fetch_events.php',
-                dateClick: function(info) {
-                    // Alternar para visualização diária ao clicar no dia
-                    calendar.changeView('timeGridDay', info.dateStr);
-                },
-                select: function(info) {
-                    // Adicionar evento ao selecionar horário
-                    const titulo = prompt("Digite o título do evento:");
-                    if (titulo) {
-                        fetch('modules/schedule/add_event.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                titulo: titulo,
-                                inicio: info.startStr,
-                                fim: info.endStr
-                            })
-                        }).then(() => calendar.refetchEvents());
-                    }
-                },
-                editable: true,
-                eventDrop: function(info) {
-                    fetch('update_event.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            id: info.event.id,
-                            inicio: info.event.startStr,
-                            fim: info.event.endStr
-                        })
-                    }).then(() => calendar.refetchEvents());
-                },
-                eventClick: function(info) {
-                    selectedEvent = info.event;
-                    eventTitle.textContent = selectedEvent.title;
-                    deleteBtn.style.display = 'inline-block'; // Mostrar o botão de exclusão
-                }
-            });
+                body: JSON.stringify({
+                    id: info.event.id,
+                    inicio: info.event.startStr,
+                    fim: info.event.endStr
+                })
+            }).then(() => calendar.refetchEvents());
+        },
+        eventClick: function(info) {
+            selectedEvent = info.event;
+            eventTitle.textContent = selectedEvent.title;
+            deleteBtn.style.display = 'inline-block'; // Mostrar o botão de exclusão
+        }
+    });
 
-            // Função para excluir o evento
-            deleteBtn.addEventListener('click', function() {
-                if (selectedEvent) {
-                    const confirmar = confirm(`Você quer excluir o evento "${selectedEvent.title}"?`);
-                    if (confirmar) {
-                        fetch('modules/schedule/delete_event.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                id: selectedEvent.id
-                            })
-                        }).then(() => {
-                            selectedEvent.remove(); // Remover o evento do calendário
-                            calendar.refetchEvents(); // Atualizar o calendário
-                            eventTitle.textContent = 'Nenhum evento selecionado'; // Resetar o título
-                            deleteBtn.style.display = 'none'; // Esconder o botão de exclusão
-                        });
-                    }
-                }
-            });
+    // Função para excluir o evento
+    deleteBtn.addEventListener('click', function() {
+        if (selectedEvent) {
+            const confirmar = confirm(`Você quer excluir o evento "${selectedEvent.title}"?`);
+            if (confirmar) {
+                fetch('modules/schedule/delete_event.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: selectedEvent.id
+                    })
+                }).then(() => {
+                    selectedEvent.remove(); // Remover o evento do calendário
+                    calendar.refetchEvents(); // Atualizar o calendário
+                    eventTitle.textContent = 'Nenhum evento selecionado'; // Resetar o título
+                    deleteBtn.style.display = 'none'; // Esconder o botão de exclusão
+                });
+            }
+        }
+    });
 
-            // Adicionando evento de teclado para pressionar "Delete" e excluir o evento
-            document.addEventListener('keydown', function(event) {
-                if (event.key === "Delete" && selectedEvent) {
-                    const confirmar = confirm(`Você quer excluir o evento "${selectedEvent.title}"?`);
-                    if (confirmar) {
-                        fetch('modules/schedule/delete_event.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                id: selectedEvent.id
-                            })
-                        }).then(() => {
-                            selectedEvent.remove(); // Remover o evento do calendário
-                            calendar.refetchEvents(); // Atualizar o calendário
-                            eventTitle.textContent = 'Nenhum evento selecionado'; // Resetar o título
-                            deleteBtn.style.display = 'none'; // Esconder o botão de exclusão
-                        });
-                    }
-                }
-            });
+    // Adicionando evento de teclado para pressionar "Delete" e excluir o evento
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Delete" && selectedEvent) {
+            const confirmar = confirm(`Você quer excluir o evento "${selectedEvent.title}"?`);
+            if (confirmar) {
+                fetch('modules/schedule/delete_event.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: selectedEvent.id
+                    })
+                }).then(() => {
+                    selectedEvent.remove(); // Remover o evento do calendário
+                    calendar.refetchEvents(); // Atualizar o calendário
+                    eventTitle.textContent = 'Nenhum evento selecionado'; // Resetar o título
+                    deleteBtn.style.display = 'none'; // Esconder o botão de exclusão
+                });
+            }
+        }
+    });
 
-            // Renderiza o calendário
-            calendar.render();
-        });
+    // Renderiza o calendário
+    calendar.render();
+});
+
     </script>
 
 
