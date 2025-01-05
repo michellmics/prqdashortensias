@@ -96,7 +96,7 @@
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const calendarEl = document.getElementById('calendar');
         const calendar = new FullCalendar.Calendar(calendarEl, {
             locale: 'pt-br',
@@ -108,12 +108,12 @@
             },
             selectable: true,
             events: 'fetch_events.php',
-            dateClick: function(info) {
-                // Alternar para a visualização diária ao clicar no dia
+            dateClick: function (info) {
+                // Alternar para visualização diária no clique
                 calendar.changeView('timeGridDay', info.dateStr);
             },
-            select: function(info) {
-                // Prompt para adicionar evento
+            select: function (info) {
+                // Prompt para adicionar evento ao selecionar horário
                 const titulo = prompt("Digite o título do evento:");
                 if (titulo) {
                     fetch('add_event.php', {
@@ -130,7 +130,8 @@
                 }
             },
             editable: true,
-            eventDrop: function(info) {
+            eventDrop: function (info) {
+                // Atualizar evento ao arrastar
                 fetch('update_event.php', {
                     method: 'POST',
                     headers: {
@@ -142,16 +143,17 @@
                         fim: info.event.endStr
                     })
                 }).then(() => calendar.refetchEvents());
-            },
-            // Detectar eventos de toque para dispositivos móveis
-            eventContent: function(arg) {
-                const eventTitle = arg.event.title;
-                const eventElement = document.createElement('div');
-                eventElement.innerHTML = `<span>${eventTitle}</span>`;
-                eventElement.addEventListener('touchstart', function() {
-                    alert('Toque detectado: ' + eventTitle);
-                });
-                return { domNodes: [eventElement] };
+            }
+        });
+
+        // Adicionar listener de toque para iOS
+        calendarEl.addEventListener('touchstart', function (e) {
+            const target = e.target;
+            if (target.classList.contains('fc-daygrid-day')) {
+                const dateStr = target.getAttribute('data-date');
+                if (dateStr) {
+                    calendar.changeView('timeGridDay', dateStr);
+                }
             }
         });
 
