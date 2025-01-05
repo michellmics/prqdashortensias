@@ -1,6 +1,6 @@
 <?php
-	include_once '../../../objetos.php'; // Carrega a classe de conexão e objetos
-	echo include $_SERVER['DOCUMENT_ROOT'];
+	include_once '../objetos.php'; // Carrega a classe de conexão e objetos
+
 	session_start(); 
 	define('SESSION_TIMEOUT', 43200); // 30 minutos
 	
@@ -75,28 +75,28 @@
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<!-- Nice Select CSS -->
-		<link rel="stylesheet" href="../../css/nice-select.css">
+		<link rel="stylesheet" href="css/nice-select.css">
 		<!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="../../css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
 		<!-- icofont CSS -->
-        <link rel="stylesheet" href="../../css/icofont.css">
+        <link rel="stylesheet" href="css/icofont.css">
 		<!-- Slicknav -->
-		<link rel="stylesheet" href="../../css/slicknav.min.css">
+		<link rel="stylesheet" href="css/slicknav.min.css">
 		<!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="../../css/owl-carousel.css">
+        <link rel="stylesheet" href="css/owl-carousel.css">
 		<!-- Datepicker CSS -->
-		<link rel="stylesheet" href="../../css/datepicker.css">
+		<link rel="stylesheet" href="css/datepicker.css">
 		<!-- Animate CSS -->
-        <link rel="stylesheet" href="../../css/animate.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
 		<!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="../../css/magnific-popup.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
 		
 		<!-- Medipro CSS -->
-        <link rel="stylesheet" href="../../css/normalize.css">
-        <link rel="stylesheet" href="../../style.css">
-        <link rel="stylesheet" href="../../css/responsive.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/responsive.css">
 
         <!-- SWEETALERT -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -331,12 +331,12 @@ html, body {
     <body>
 	
 		<!-- Preloader -->
-		<?php include '../../src/preloader.php'; ?>
+		<?php include 'src/preloader.php'; ?>
 		<!-- End Preloader -->
      
 
 		<!-- Header Area -->
-		<?php include '../../src/header.php'; ?>
+		<?php include 'src/header.php'; ?>
 		<!-- End Header Area -->
 
 
@@ -358,7 +358,130 @@ html, body {
 		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
     
     
+        <div id="calendar-container">
+        <div id="calendar"></div>
+        <div class="event-details">
+            <strong>Evento Selecionado:</strong> <span id="event-title">Nenhum evento selecionado</span>
+        </div>
+        <button class="delete-btn" id="delete-btn">Excluir Evento</button>
+    </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+            const deleteBtn = document.getElementById('delete-btn');
+            const eventTitle = document.getElementById('event-title');
+            let selectedEvent = null; // Armazenar o evento selecionado
+
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'pt-br', // Definir idioma para português
+                allDayText: 'Todo o dia', // Alterar "ALL DAY" para "Todo o dia"
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridDay'
+                },
+                buttonText: {
+                    today: 'Hoje',
+                    month: 'Mês',
+                    week: 'Semana',
+                    day: 'Dia'
+                },
+                selectable: true,
+                events: 'fetch_events.php',
+                dateClick: function(info) {
+                    // Alternar para visualização diária ao clicar no dia
+                    calendar.changeView('timeGridDay', info.dateStr);
+                },
+                select: function(info) {
+                    // Adicionar evento ao selecionar horário
+                    const titulo = prompt("Digite o título do evento:");
+                    if (titulo) {
+                        fetch('modules/schedule/add_event.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                titulo: titulo,
+                                inicio: info.startStr,
+                                fim: info.endStr
+                            })
+                        }).then(() => calendar.refetchEvents());
+                    }
+                },
+                editable: true,
+                eventDrop: function(info) {
+                    fetch('update_event.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            id: info.event.id,
+                            inicio: info.event.startStr,
+                            fim: info.event.endStr
+                        })
+                    }).then(() => calendar.refetchEvents());
+                },
+                eventClick: function(info) {
+                    selectedEvent = info.event;
+                    eventTitle.textContent = selectedEvent.title;
+                    deleteBtn.style.display = 'inline-block'; // Mostrar o botão de exclusão
+                }
+            });
+
+            // Função para excluir o evento
+            deleteBtn.addEventListener('click', function() {
+                if (selectedEvent) {
+                    const confirmar = confirm(`Você quer excluir o evento "${selectedEvent.title}"?`);
+                    if (confirmar) {
+                        fetch('modules/schedule/delete_event.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                id: selectedEvent.id
+                            })
+                        }).then(() => {
+                            selectedEvent.remove(); // Remover o evento do calendário
+                            calendar.refetchEvents(); // Atualizar o calendário
+                            eventTitle.textContent = 'Nenhum evento selecionado'; // Resetar o título
+                            deleteBtn.style.display = 'none'; // Esconder o botão de exclusão
+                        });
+                    }
+                }
+            });
+
+            // Adicionando evento de teclado para pressionar "Delete" e excluir o evento
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Delete" && selectedEvent) {
+                    const confirmar = confirm(`Você quer excluir o evento "${selectedEvent.title}"?`);
+                    if (confirmar) {
+                        fetch('modules/schedule/delete_event.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                id: selectedEvent.id
+                            })
+                        }).then(() => {
+                            selectedEvent.remove(); // Remover o evento do calendário
+                            calendar.refetchEvents(); // Atualizar o calendário
+                            eventTitle.textContent = 'Nenhum evento selecionado'; // Resetar o título
+                            deleteBtn.style.display = 'none'; // Esconder o botão de exclusão
+                        });
+                    }
+                }
+            });
+
+            // Renderiza o calendário
+            calendar.render();
+        });
+    </script>
 
 
 		</section>
@@ -367,7 +490,7 @@ html, body {
 
 <!-- Footer -->
 <footer class="footerNew">
-<?php include '../../src/footer.php'; ?>
+<?php include 'src/footer.php'; ?>
 </footer>
 		
 <!-- Controle do pop-up de promoção -->
@@ -400,45 +523,45 @@ html, body {
 
 		
 		<!-- jquery Min JS -->
-        <script src="../../js/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
 		<!-- jquery Migrate JS -->
-		<script src="../../js/jquery-migrate-3.0.0.js"></script>
+		<script src="js/jquery-migrate-3.0.0.js"></script>
 		<!-- jquery Ui JS -->
-		<script src="../../js/jquery-ui.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
 		<!-- Easing JS -->
-        <script src="../../js/easing.js"></script>
+        <script src="js/easing.js"></script>
 		<!-- Color JS -->
-		<script src="../../js/colors.js"></script>
+		<script src="js/colors.js"></script>
 		<!-- Popper JS -->
-		<script src="../../js/popper.min.js"></script>
+		<script src="js/popper.min.js"></script>
 		<!-- Bootstrap Datepicker JS -->
-		<script src="../../js/bootstrap-datepicker.js"></script>
+		<script src="js/bootstrap-datepicker.js"></script>
 		<!-- Jquery Nav JS -->
-        <script src="../../js/jquery.nav.js"></script>
+        <script src="js/jquery.nav.js"></script>
 		<!-- Slicknav JS -->
-		<script src="../../js/slicknav.min.js"></script>
+		<script src="js/slicknav.min.js"></script>
 		<!-- ScrollUp JS -->
-        <script src="../../js/jquery.scrollUp.min.js"></script>
+        <script src="js/jquery.scrollUp.min.js"></script>
 		<!-- Niceselect JS -->
-		<script src="../../js/niceselect.js"></script>
+		<script src="js/niceselect.js"></script>
 		<!-- Tilt Jquery JS -->
-		<script src="../../js/tilt.jquery.min.js"></script>
+		<script src="js/tilt.jquery.min.js"></script>
 		<!-- Owl Carousel JS -->
-        <script src="../../js/owl-carousel.js"></script>
+        <script src="js/owl-carousel.js"></script>
 		<!-- counterup JS -->
-		<script src="../../js/jquery.counterup.min.js"></script>
+		<script src="js/jquery.counterup.min.js"></script>
 		<!-- Steller JS -->
-		<script src="../../js/steller.js"></script>
+		<script src="js/steller.js"></script>
 		<!-- Wow JS -->
-		<script src="../../js/wow.min.js"></script>
+		<script src="js/wow.min.js"></script>
 		<!-- Magnific Popup JS -->
-		<script src="../../js/jquery.magnific-popup.min.js"></script>
+		<script src="js/jquery.magnific-popup.min.js"></script>
 		<!-- Counter Up CDN JS -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 		<!-- Bootstrap JS -->
-		<script src="../../js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 		<!-- Main JS -->
-		<script src="../../js/main.js"></script>
+		<script src="js/main.js"></script>
 
 		
 		
