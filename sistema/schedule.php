@@ -140,7 +140,7 @@ html, body {
         }
 
         #calendar-container {
-            max-width: 90%;
+            max-width: 95%;
             margin: 0 auto;
             padding: 10px;
             background: #ffffff;
