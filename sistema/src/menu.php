@@ -38,6 +38,7 @@
         $menu = "
         <li><a href='index.php'>Inicio</a></li>
         <li><a href='morador_table.php'>Moradores</a></li>
+        <li><a href='schedule.php'>Agenda</a></li>
         <li><a href='../logoff.php'>Sair</a></li>
         ";
     }

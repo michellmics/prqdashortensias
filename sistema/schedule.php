@@ -24,6 +24,12 @@
 	$usuariologado = $nomeSession." <b>BL</b> ".$blocoSession." <b>AP</b> ".$apartamentoSession;
 	$userid = $_SESSION['user_id'];
 
+    if ($_SESSION['user_nivelacesso'] != "SINDICO" && $_SESSION['user_nivelacesso'] != "PORTARIA") 
+    {
+      header("Location: noAuth.php");
+      exit();
+    }
+
 ?>
 
 <!doctype html>
