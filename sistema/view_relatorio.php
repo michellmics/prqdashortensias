@@ -226,18 +226,19 @@ html, body {
 				<div class="row">
 <!-- WIDGETS -->
 <div class="animated flipInY col-lg-2 col-md-2 col-sm-4">
-  <div class="tile-stats" style="display: flex; align-items: center; gap: 10px;">
+  <div class="tile-stats" style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
     <!-- Ícone -->
     <i class="fa fa-money" style="font-size: 24px; color: #5cb85c;"></i>
     <!-- Número e texto -->
     <div>
-      <div class="count" style="font-size: 20px;">179</div>
-      <h3 style="font-size: 18px; margin: 0;">Chamados A</h3>
-      <p style="font-size: 12px; margin: 0;">Chamados abertos hoje.</p>
+      <div class="count" style="font-size: 20px; color: #333;">179</div>
+      <h3 style="font-size: 18px; margin: 0; color: #555;">Chamados A</h3>
+      <p style="font-size: 12px; margin: 0; color: #777;">Chamados abertos hoje.</p>
     </div>
   </div>
 </div>
 <!-- WIDGETS -->
+
 
 				</div>
 
