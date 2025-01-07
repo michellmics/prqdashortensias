@@ -223,7 +223,7 @@ html, body {
 				
 			</div>
 
-				<div class="row">
+				<div class="">
                       <!-- WIDGETS -->
                       <div class="animated flipInY col-lg-2 col-md-2 col-sm-4">
                        <div class="tile-stats">
