@@ -179,28 +179,7 @@ html, body {
       background-color: #E6E6FA; /* Lilás ainda mais claro ao passar o mouse */
   }
 
-  /* Define altura fixa para o header */
-header {
-    position: relative;
-    z-index: 1000; /* Certifique-se de que o menu está acima do conteúdo */
-    height: 70px; /* Ajuste conforme necessário */
-    background-color: #fff; /* Cor do menu */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
-}
-
-/* Garante que o conteúdo abaixo respeite a altura do header */
-.content {
-    margin-top: 70px; /* Igual à altura do header */
-}
-
-/* Centraliza e alinha os gráficos na tela */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-
+  
         </style>
 		
     </head>
@@ -218,7 +197,7 @@ header {
 
 					
   		<!-- ini content Area -->
-		<section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+		  <section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
 	
 			<div class="container">
 			<div class="row">
