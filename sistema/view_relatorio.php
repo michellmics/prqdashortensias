@@ -232,8 +232,8 @@ html, body {
     <!-- Número e texto -->
     <div>
       <div class="count" style="font-size: 20px; color: #333;">R$120.000,59</div>
-      <h3 style="font-size: 18px; margin: 0; color: #555;">Recebimento Esperado</h3>
-      <p style="font-size: 12px; margin: 0; color: #777;">Chamados abertos hoje.</p>
+      <h3 style="font-size: 18px; margin: 0; color: #555;">Valor Esperado</h3>
+      <p style="font-size: 12px; margin: 0; color: #777;">Cota COndominal</p>
     </div>
   </div>
 </div>
