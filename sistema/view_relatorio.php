@@ -220,6 +220,20 @@ html, body {
 				</div>
 				
 			</div>
+
+			        <!-- WIDGETS -->
+					<div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+        			  <div class="tile-stats">
+        			    <div class="icon"><i class="fa fa-caret-square-o-right"></i>
+        			    </div>
+        			    <div class="count">179</div>
+
+        			    <h3>New Sign ups</h3>
+        			    <p>Lorem ipsum psdea itgum rixt.</p>
+        			  </div>
+        			</div>
+        			<!-- WIDGETS -->
+
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
 					  <div class="col-md-6 col-sm-12" style="border: 0px solid #d4cccb;">
