@@ -191,7 +191,7 @@ html, body {
     /* Estilos específicos para telas menores */
     @media (max-width: 768px) {
         .content {
-            padding-top: 300px; /* Ajuste o valor conforme necessário */
+            padding-top: 380px; /* Ajuste o valor conforme necessário */
         }
     }
   
