@@ -224,18 +224,18 @@ html, body {
 			</div>
 
 				<div class="row">
-			        <!-- WIDGETS -->
-					<div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
-        			  <div class="tile-stats">
-        			    <div class="icon"><i class="fa fa-caret-square-o-right"></i>
-        			    </div>
-        			    <div class="count">179</div>
-
-        			    <h3>New Sign ups</h3>
-        			    <p>Lorem ipsum psdea itgum rixt.</p>
-        			  </div>
-        			</div>
-        			<!-- WIDGETS -->
+                      <!-- WIDGETS -->
+                      <div class="animated flipInY col-lg-2 col-md-2 col-sm-4">
+                       <div class="tile-stats">
+                         <div class="icon">
+                           <i class="fa fa-caret-square-o-right" style="font-size: 24px;"></i>
+                         </div>
+                         <div class="count" style="font-size: 20px;">179</div>
+                         <h3 style="font-size: 18px;">Chamados A</h3>
+                         <p style="font-size: 12px;">Chamados abertos hoje.</p>
+                       </div>
+                      </div>
+                      <!-- WIDGETS -->
 				</div>
 
 				<div class="row">
