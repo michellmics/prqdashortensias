@@ -221,6 +221,7 @@ html, body {
 				
 			</div>
 
+				<div class="row">
 			        <!-- WIDGETS -->
 					<div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
         			  <div class="tile-stats">
@@ -233,6 +234,7 @@ html, body {
         			  </div>
         			</div>
         			<!-- WIDGETS -->
+				</div>
 
 				<div class="row">
 					<!-- INI GRAFICO GAUGE -->
