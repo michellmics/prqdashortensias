@@ -179,6 +179,21 @@ html, body {
       background-color: #E6E6FA; /* Lilás ainda mais claro ao passar o mouse */
   }
 
+  .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        padding-top: 150px; /* Espaço para telas maiores */
+    }
+
+    /* Estilos específicos para telas menores */
+    @media (max-width: 768px) {
+        .content {
+            padding-top: 300px; /* Ajuste o valor conforme necessário */
+        }
+    }
   
         </style>
 		
@@ -197,7 +212,7 @@ html, body {
 
 					
   		<!-- ini content Area -->
-		  <section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; padding-top: 150px;">
+		  <section class="content">
 	
 			<div class="container">
 			<div class="row">
