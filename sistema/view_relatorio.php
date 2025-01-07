@@ -197,7 +197,7 @@ html, body {
 
 					
   		<!-- ini content Area -->
-		  <section class="content" style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+		  <section class="content" style="display: flex; justify-content: center; align-items: center; height: 200vh; flex-direction: column;">
 	
 			<div class="container">
 			<div class="row">
