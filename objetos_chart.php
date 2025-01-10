@@ -53,7 +53,47 @@
             } catch (PDOException $e) {
                 return ["error" => $e->getMessage()];
             }          
-        }    
+        }  
+        
+        public function getReceitasValor($CON_DCMES_COMPETENCIA_USUARIO,$CON_DCANO_COMPETENCIA_USUARIO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "janeiro"){$competencia = "Jan";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "fevereiro"){$competencia = "Feb";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "março"){$competencia = "Mar";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "abril"){$competencia = "Apr";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "maio"){$competencia = "May";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "junho"){$competencia = "Jun";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "julho"){$competencia = "Jul";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "agosto"){$competencia = "Aug";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "setembro"){$competencia = "Sep";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "outubro"){$competencia = "Oct";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "novembro"){$competencia = "Nov";}
+                if($CON_DCMES_COMPETENCIA_USUARIO  == "dezembro"){$competencia = "Dec";}
+            
+            try{           
+                $sql = "SELECT ROUND(SUM(CON_NMVALOR),2) AS TOTAL
+                        FROM CON_CONCILIACAO CON
+                        WHERE 
+                        CON.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO'
+                        AND CON.CON_DCANO_COMPETENCIA_USUARIO = ':CON_DCANO_COMPETENCIA_USUARIO'
+                        AND CON.CON_DCMES_COMPETENCIA = ':CON_DCMES_COMPETENCIA'";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':CON_DCANO_COMPETENCIA_USUARIO', $CON_DCANO_COMPETENCIA_USUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':CON_DCMES_COMPETENCIA', $competencia, PDO::PARAM_STR);
+                $stmt->execute();
+
+                $total = $stmt->fetchColumn();
+                return $total; 
+
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }  
         
         
         public function getReceitasFull($CON_DCMES_COMPETENCIA_USUARIO,$CON_DCANO_COMPETENCIA_USUARIO)
