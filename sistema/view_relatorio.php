@@ -54,7 +54,7 @@
 
 	$dataValor = isset($_GET['data-valor']) ? strval($_GET['data-valor']) : $mesANoDefault; // Valor padrão
 
-	$totalRecebido = $chartValor->getReceitasValor('novembro','2024');
+	$totalRecebido = $chartValor->getReceitasValor($mesANoDefault,'2024');
 
 
 
