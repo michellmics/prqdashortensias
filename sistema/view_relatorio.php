@@ -289,7 +289,7 @@ html, body {
 				    <div>
 				      <div class="count" style="font-size: 20px; color: #333;">R$<?php echo $totalFundoReserva; ?></div>
 				      <h3 style="font-size: 18px; margin: 0; color: #555;">Saldo F. Reserva</h3>
-				      <p style="font-size: 12px; margin: 0; color: #777;">Destinado a custo emergencial</p>
+				      <p style="font-size: 12px; margin: 0; color: #777;">Destinado a custos emergenciais</p>
 				    </div>
 				  </div>
 				</div>
