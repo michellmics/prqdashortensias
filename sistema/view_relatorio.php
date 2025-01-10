@@ -4,11 +4,13 @@
 	error_reporting(E_ALL);
 
   	include_once '../objetos.php'; 
+	include_once '../objetos_CHART.php'; 
 
     session_start(); 
     define('SESSION_TIMEOUT', 43200); // 12 horas
 
 	$siteAdmin = new SITE_ADMIN();  
+	$chartValor = new SITE_CHARTS();  
   
     // Verifica se a sessão expirou
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT)) {
@@ -51,6 +53,10 @@
 
 
 	$dataValor = isset($_GET['data-valor']) ? strval($_GET['data-valor']) : $mesANoDefault; // Valor padrão
+
+	$totalRecebido = $chartValor->getReceitasValor($dataValor,'2024');
+
+
 	  
 ?>
 
