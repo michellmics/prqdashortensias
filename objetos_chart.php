@@ -80,6 +80,33 @@
                 return ["error" => $e->getMessage()];
             }          
         }  
+
+        public function getDespesaValor($CON_DCMES_COMPETENCIA_USUARIO,$CON_DCANO_COMPETENCIA_USUARIO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT ROUND(SUM(CON_NMVALOR),2) AS TOTAL
+                        FROM CON_CONCILIACAO CON
+                        WHERE 
+                        CON.CON_DCMES_COMPETENCIA_USUARIO = :CON_DCMES_COMPETENCIA_USUARIO
+                        AND CON.CON_DCANO_COMPETENCIA_USUARIO = :CON_DCANO_COMPETENCIA_USUARIO
+                        AND CON.CON_DCTIPO = :DESPESA";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':CON_DCANO_COMPETENCIA_USUARIO', $CON_DCANO_COMPETENCIA_USUARIO, PDO::PARAM_STR);
+                $stmt->bindParam(':DESPESA', 'DESPESA', PDO::PARAM_STR);
+                $stmt->execute();
+
+                $total = $stmt->fetchColumn();
+                return $total; 
+
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }  
         
         public function getReceitasValor($CON_DCMES_COMPETENCIA_USUARIO,$CON_DCANO_COMPETENCIA_USUARIO)
         {          

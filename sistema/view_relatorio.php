@@ -60,6 +60,8 @@
 	$totalRecebido = number_format($totalRecebido, 2, ',', '.');
 	$totalFundoReserva = $chartValor->getFundoReservaValor($mesUserWidget,$anoUserWidget);
 	$totalFundoReserva = number_format($totalFundoReserva, 2, ',', '.');
+	$totalDespesa = $chartValor->getDespesaValor($mesUserWidget,$anoUserWidget);
+	$totalDespesa = number_format($totalDespesa, 2, ',', '.');
 
 
 
@@ -273,7 +275,7 @@ html, body {
 				    <i class="fa fa-money" style="font-size: 24px; color: #5cb85c;"></i>
 				    <!-- Número e texto -->
 				    <div>
-				      <div class="count" style="font-size: 20px; color: #333;">Em desenv.</div>
+				      <div class="count" style="font-size: 20px; color: #333;">R$<?php echo $totalDespesa; ?></div>  
 				      <h3 style="font-size: 18px; margin: 0; color: #555;">Contas a Pagar</h3>
 				      <p style="font-size: 12px; margin: 0; color: #777;">Cota Condominal</p>
 				    </div>
