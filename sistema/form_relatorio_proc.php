@@ -643,7 +643,7 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
         fclose($handle);
     }
 
-    $siteAdmin->insertConciliacaoInfo($despesas);
+    $siteAdmin->insertConciliacaoInfoDespesa($despesas);
 
 }
 
@@ -682,7 +682,7 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
         removeBOM($caminhoDestino);
         if($tipo == "receita")
         {
-            processCSV($caminhoDestino, $mesUser, $anoUser);
+            //processCSV($caminhoDestino, $mesUser, $anoUser);
         }
         if($tipo == "despesa")
         {
