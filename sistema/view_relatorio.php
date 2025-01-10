@@ -253,7 +253,7 @@ html, body {
 				    <i class="fa fa-money" style="font-size: 24px; color: #5cb85c;"></i>
 				    <!-- Número e texto -->
 				    <div>
-				      <div class="count" style="font-size: 20px; color: #333;">R$120.000,59</div>
+				      <div class="count" style="font-size: 20px; color: #333;">R$<?php echo $totalRecebido; ?></div>
 				      <h3 style="font-size: 18px; margin: 0; color: #555;">Recebido</h3>
 				      <p style="font-size: 12px; margin: 0; color: #777;">Cota Condominal</p>
 				    </div>
