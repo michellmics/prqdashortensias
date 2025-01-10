@@ -4,7 +4,7 @@
 	error_reporting(E_ALL);
 
   	include_once '../objetos.php'; 
-	include_once '../objetos_CHART.php'; 
+	include_once '../objetos_chart.php'; 
 
     session_start(); 
     define('SESSION_TIMEOUT', 43200); // 12 horas
