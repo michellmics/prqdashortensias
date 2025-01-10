@@ -632,18 +632,19 @@ function processCSVDespesa($filePath, $mesUser, $anoUser) {
 
             // Adicionar aos resultados
             $despesas[] = [
-                'LIQUIDACAO' => $liquidacao,
-                'FORNECEDOR' => $fornecedor,
-                'VALOR_LIQUIDO' => $valorLiquido,
-                'DATA_PROCESSAMENTO' => $dataHoraAtual,
-                'MES_USUARIO' => $mesUser,
-                'ANO_USUARIO' => $anoUser
+                'TITULO' => $fornecedor,
+                'VALOR' => $valorLiquido,
+                'DATANOW' => $dataHoraAtual,
+                'COMPETENCIA MES USUARIO' => $mesUser,
+                'COMPETENCIA ANO USUARIO' => $anoUser,
+                'TIPO' => 'DESPESA'
             ];
         }
         fclose($handle);
     }
 
-var_dump($despesas);
+    $siteAdmin->insertConciliacaoInfo($despesas);
+
 }
 
 
