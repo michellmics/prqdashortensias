@@ -56,7 +56,7 @@
 	list($mes, $ano) = explode('-', $dataValor);
 	$mesUserWidget = strtolower($mes);
 	$anoUserWidget = strtolower($ano);
-	$totalRecebido = $chartValor->getReceitasValor($mesUserWidget,$anoUserWidget);
+	$totalRecebido = $chartValor->getReceitasValor('dezembro','2024');
 
 
 
