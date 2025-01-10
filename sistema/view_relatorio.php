@@ -63,6 +63,15 @@
 	$totalDespesa = $chartValor->getDespesaValor($mesUserWidget,$anoUserWidget);
 	$totalDespesa = number_format($totalDespesa, 2, ',', '.');
 
+	if($totalDespesa > $totalRecebido)
+	{
+		$colorValor = "color: #f20505;";
+	}
+	else
+		{
+			$colorValor = "color:rgb(45, 71, 218);";
+		}
+
 
 
 	  
@@ -275,7 +284,7 @@ html, body {
 				    <i class="fa fa-money" style="font-size: 24px; color: #5cb85c;"></i>
 				    <!-- Número e texto -->
 				    <div>
-				      <div class="count" style="font-size: 20px; color: #333;">R$<?php echo $totalDespesa; ?></div>  
+				      <div class="count" style="font-size: 20px; <?php echo $colorValor; ?>">R$<?php echo $totalDespesa; ?></div>  
 				      <h3 style="font-size: 18px; margin: 0; color: #555;">Contas a Pagar</h3>
 				      <p style="font-size: 12px; margin: 0; color: #777;">Cota Condominal</p>
 				    </div>
