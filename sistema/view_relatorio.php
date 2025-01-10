@@ -56,6 +56,8 @@
 
 	$totalRecebido = $chartValor->getReceitasValor($dataValor,'2024');
 
+	dd($totalRecebido);
+
 
 	  
 ?>
