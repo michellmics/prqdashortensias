@@ -584,6 +584,46 @@
 
         }
 
+        public function insertConciliacaoInfoDespesa($ARRAY_DADOS)
+        {       
+            // Verifica se a conexão já foi estabelecida
+            if (!$this->pdo) {
+                $this->conexao();
+            }
+            
+           // Preparar e executar as inserções no banco de dados
+            foreach ($ARRAY_DADOS as $dados) {
+
+                $dados['VALOR'] = $this->formatarValorParaMySQL($dados['VALOR']); 
+
+                // Query de inserção
+                $sql = "INSERT INTO CON_CONCILIACAO (CON_DCTIPO, CON_NMVALOR, CON_DTINSERT, CON_DCMES_COMPETENCIA_USUARIO, CON_DCANO_COMPETENCIA_USUARIO, CON_NMTITULO)
+                          VALUES (:tipo, :valor, :datanow, :mes_competencia_usuario, :ano_competencia_usuario, :titulo)";
+
+                // Preparar a consulta
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt) {
+                    die("Erro ao preparar a consulta: " . $conn->error);
+                }
+            
+                $stmt->bindValue(':tipo', $dados['TIPO'], PDO::PARAM_STR);
+                $stmt->bindValue(':valor', $dados['VALOR'], PDO::PARAM_STR);
+                $stmt->bindValue(':datanow', $dados['DATANOW'], PDO::PARAM_STR);
+                $stmt->bindValue(':mes_competencia_usuario', $dados['COMPETENCIA MES USUARIO'], PDO::PARAM_STR);
+                $stmt->bindValue(':ano_competencia_usuario', $dados['COMPETENCIA ANO USUARIO'], PDO::PARAM_STR);
+                $stmt->bindValue(':titulo', $dados['TITULO'], PDO::PARAM_STR);
+            
+                // Executar a consulta
+                if (!$stmt->execute()) {
+                    echo "Erro ao inserir os dados: " . $stmt->error . "<br>";
+                } else {
+                    //echo "Registro inserido com sucesso!<br>";
+                }
+            
+            }
+
+        }
+
         public function checkPubliExisInfo($ID)
         {          
             // Verifica se a conexão já foi estabelecida
