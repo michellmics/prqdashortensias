@@ -85,7 +85,9 @@
         {          
                 // Verifica se a conexão já foi estabelecida
                 if(!$this->pdo){$this->conexao();}
-            
+
+            $TIPO = "DESPESA";
+
             try{           
                 $sql = "SELECT ROUND(SUM(CON_NMVALOR),2) AS TOTAL
                         FROM CON_CONCILIACAO CON
@@ -97,7 +99,7 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':CON_DCMES_COMPETENCIA_USUARIO', $CON_DCMES_COMPETENCIA_USUARIO, PDO::PARAM_STR);
                 $stmt->bindParam(':CON_DCANO_COMPETENCIA_USUARIO', $CON_DCANO_COMPETENCIA_USUARIO, PDO::PARAM_STR);
-                $stmt->bindParam(':DESPESA', 'DESPESA', PDO::PARAM_STR);
+                $stmt->bindParam(':DESPESA', $TIPO, PDO::PARAM_STR);
                 $stmt->execute();
 
                 $total = $stmt->fetchColumn();
