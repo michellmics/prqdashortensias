@@ -240,20 +240,6 @@ html, body {
 			</div>
 
 			<div class="row">
-				<!-- WIDGETS -->
-				<div class="animated flipInY col-lg-3 col-md-3 col-sm-4">
-				  <div class="tile-stats" style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-				    <!-- Ícone -->
-				    <i class="fa fa-money" style="font-size: 24px; color: #5cb85c;"></i>
-				    <!-- Número e texto -->
-				    <div>
-				      <div class="count" style="font-size: 20px; color: #333;">R$120.000,59</div>
-				      <h3 style="font-size: 18px; margin: 0; color: #555;">Total Esperado</h3>
-				      <p style="font-size: 12px; margin: 0; color: #777;">Cota Condominal</p>
-				    </div>
-				  </div>
-				</div>
-				<!-- WIDGETS -->
 				 <!-- WIDGETS -->
 				<div class="animated flipInY col-lg-3 col-md-3 col-sm-4">
 				  <div class="tile-stats" style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
@@ -276,7 +262,7 @@ html, body {
 				    <!-- Número e texto -->
 				    <div>
 				      <div class="count" style="font-size: 20px; color: #333;">R$120.000,59</div>
-				      <h3 style="font-size: 18px; margin: 0; color: #555;">Saldo do Mês</h3>
+				      <h3 style="font-size: 18px; margin: 0; color: #555;">Total Contas a Pagar</h3>
 				      <p style="font-size: 12px; margin: 0; color: #777;">Cota Condominal</p>
 				    </div>
 				  </div>
