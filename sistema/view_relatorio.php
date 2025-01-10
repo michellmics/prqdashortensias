@@ -58,6 +58,8 @@
 	$anoUserWidget = strtolower($ano);
 	$totalRecebido = $chartValor->getReceitasValor($mesUserWidget,$anoUserWidget);
 	$totalRecebido = number_format($totalRecebido, 2, ',', '.');
+	$totalFundoReserva = $chartValor->getFundoReservaValor($mesUserWidget,$anoUserWidget);
+	$totalFundoReserva = number_format($totalFundoReserva, 2, ',', '.');
 
 
 
@@ -257,7 +259,7 @@ html, body {
 				    <i class="fa fa-money" style="font-size: 24px; color: #5cb85c;"></i>
 				    <!-- Número e texto -->
 				    <div>
-				      <div class="count" style="font-size: 20px; color: #333;">R$<?php echo $totalRecebido; ?></div>
+				      <div class="count" style="font-size: 20px; color: #333;">R$<?php echo $totalRecebido; ?></div>  
 				      <h3 style="font-size: 18px; margin: 0; color: #555;">Recebido</h3>
 				      <p style="font-size: 12px; margin: 0; color: #777;">Cota Condominal</p>
 				    </div>
@@ -285,7 +287,7 @@ html, body {
 				    <i class="fa fa-money" style="font-size: 24px; color: #5cb85c;"></i>
 				    <!-- Número e texto -->
 				    <div>
-				      <div class="count" style="font-size: 20px; color: #333;">R$120.000,59</div>
+				      <div class="count" style="font-size: 20px; color: #333;">R$<?php echo $totalFundoReserva; ?></div>
 				      <h3 style="font-size: 18px; margin: 0; color: #555;">Saldo F. Reserva</h3>
 				      <p style="font-size: 12px; margin: 0; color: #777;">Cota Condominal</p>
 				    </div>

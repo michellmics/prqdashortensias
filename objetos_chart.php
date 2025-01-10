@@ -54,6 +54,32 @@
                 return ["error" => $e->getMessage()];
             }          
         }  
+
+        public function getFundoReservaValor($FUR_DCMES,$FUR_DCANO)
+        {          
+                // Verifica se a conexão já foi estabelecida
+                if(!$this->pdo){$this->conexao();}
+            
+            try{           
+                $sql = "SELECT FUR_DCVALUE
+                        FROM FUR_FUNDO_RESERVA FUR
+                        WHERE 
+                        FUR.FUR_DCMES = :FUR_DCMES
+                        AND FUR.FUR_DCANO = :FUR_DCANO";
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':FUR_DCMES', $FUR_DCMES, PDO::PARAM_STR);
+                $stmt->bindParam(':FUR_DCANO', $FUR_DCANO, PDO::PARAM_STR);
+               
+                $stmt->execute();
+
+                $total = $stmt->fetchColumn();
+                return $total; 
+
+            } catch (PDOException $e) {
+                return ["error" => $e->getMessage()];
+            }          
+        }  
         
         public function getReceitasValor($CON_DCMES_COMPETENCIA_USUARIO,$CON_DCANO_COMPETENCIA_USUARIO)
         {          
