@@ -56,8 +56,6 @@
 
 	$totalRecebido = $chartValor->getReceitasValor($dataValor,'2024');
 
-	var_dump($totalRecebido);
-	die();
 
 
 	  
