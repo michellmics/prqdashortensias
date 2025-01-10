@@ -271,7 +271,7 @@ html, body {
 				    <!-- Número e texto -->
 				    <div>
 				      <div class="count" style="font-size: 20px; color: #333;">R$<?php echo $totalRecebido; ?></div>  
-				      <h3 style="font-size: 18px; margin: 0; color: #555;">Recebido</h3>
+				      <h3 style="font-size: 18px; margin: 0; color: #555;">Receita</h3>
 				      <p style="font-size: 12px; margin: 0; color: #777;">Total de receitas do mês</p>
 				    </div>
 				  </div>
