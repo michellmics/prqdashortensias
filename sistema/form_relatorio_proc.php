@@ -601,6 +601,52 @@ function processCSV($filePath, $mesUser, $anoUser) {
     }
 }
 
+function processCSVDespesa($filePath, $mesUser, $anoUser) {
+    $siteAdmin = new SITE_ADMIN();  
+    $dataHoraAtual = date('Y-m-d H:i:s'); 
+    $despesas = [];
+
+    // Abrir o arquivo CSV
+    if (($handle = fopen($filePath, 'r')) !== FALSE) {
+        // Ignorar as duas primeiras linhas
+        fgetcsv($handle);
+        fgetcsv($handle);
+
+        // Processar as linhas restantes
+        while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+            // Limpar espaços e caracteres especiais
+            foreach ($data as &$item) {
+                $item = str_replace("\xC2\xA0", ' ', $item); // Substituir NBSP por espaço comum
+                $item = trim($item);
+            }
+
+            // Extrair os campos relevantes
+            $liquidacao = $data[3]; // Campo 'Liquid.'
+            $fornecedor = $data[5]; // Campo 'Fornecedor'
+            $valorLiquido = $data[8]; // Campo 'Valor liquído'
+
+            // Ignorar linhas vazias ou sem valor líquido
+            if (empty($liquidacao) || empty($fornecedor) || empty($valorLiquido)) {
+                continue;
+            }
+
+            // Adicionar aos resultados
+            $despesas[] = [
+                'LIQUIDACAO' => $liquidacao,
+                'FORNECEDOR' => $fornecedor,
+                'VALOR_LIQUIDO' => $valorLiquido,
+                'DATA_PROCESSAMENTO' => $dataHoraAtual,
+                'MES_USUARIO' => $mesUser,
+                'ANO_USUARIO' => $anoUser
+            ];
+        }
+        fclose($handle);
+    }
+
+var_dump($despesas);
+}
+
+
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) {
     $tipo = isset($_POST['tipo']) ? trim($_POST['tipo']) : '';
     $mesUser = isset($_POST['mes']) ? trim($_POST['mes']) : '';
@@ -633,7 +679,14 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK) 
 
     if (move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) {
         removeBOM($caminhoDestino);
-        processCSV($caminhoDestino, $mesUser, $anoUser);
+        if($tipo == "receita")
+        {
+            processCSV($caminhoDestino, $mesUser, $anoUser);
+        }
+        if($tipo == "despesa")
+        {
+            processCSVDespesa($caminhoDestino, $mesUser, $anoUser);
+        }
 
         $resultadoParser = "Sucesso: Arquivo processado.";
     } else {
