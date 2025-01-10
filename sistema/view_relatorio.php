@@ -248,7 +248,7 @@ html, body {
 				    <!-- Número e texto -->
 				    <div>
 				      <div class="count" style="font-size: 20px; color: #333;">R$120.000,59</div>
-				      <h3 style="font-size: 18px; margin: 0; color: #555;">Total Recebido</h3>
+				      <h3 style="font-size: 18px; margin: 0; color: #555;">Recebido</h3>
 				      <p style="font-size: 12px; margin: 0; color: #777;">Cota Condominal</p>
 				    </div>
 				  </div>
@@ -262,7 +262,7 @@ html, body {
 				    <!-- Número e texto -->
 				    <div>
 				      <div class="count" style="font-size: 20px; color: #333;">R$120.000,59</div>
-				      <h3 style="font-size: 18px; margin: 0; color: #555;">Total Contas a Pagar</h3>
+				      <h3 style="font-size: 18px; margin: 0; color: #555;">Contas a Pagar</h3>
 				      <p style="font-size: 12px; margin: 0; color: #777;">Cota Condominal</p>
 				    </div>
 				  </div>
