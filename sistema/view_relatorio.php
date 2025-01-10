@@ -57,6 +57,7 @@
 	$mesUserWidget = strtolower($mes);
 	$anoUserWidget = strtolower($ano);
 	$totalRecebido = $chartValor->getReceitasValor($mesUserWidget,$anoUserWidget);
+	$totalRecebido = number_format($totalRecebido, 2, ',', '.');
 
 
 
